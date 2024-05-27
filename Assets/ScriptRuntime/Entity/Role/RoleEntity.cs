@@ -9,36 +9,39 @@ public class RoleEntity : MonoBehaviour {
     public MoveType moveType;
     [SerializeField] Rigidbody2D rb;
     public Animator anim;
-    public Transform modTransform;
+    public Transform body;
 
-    public void Ctor(Animator anim, GameObject mod) {
-        this.anim = anim;
-        GameObject.Instantiate(mod, modTransform);
+    public void Ctor(GameObject mod) {
+        var bodyMod = GameObject.Instantiate(mod, body);
+        this.anim = bodyMod.GetComponent<Animator>();
     }
 
-    public void Move(Vector2 moveAxis, float dt) {
+    public void Move(Vector2 moveAxis) {
         var velocity = rb.velocity;
-        velocity = moveAxis.normalized * moveSpeed;
-        velocity.y = rb.velocity.y;
+        velocity.x = moveAxis.x * moveSpeed;
         rb.velocity = velocity;
 
         SetForward(moveAxis);
     }
 
     public void Anim_Move() {
-        anim.SetFloat("F_MoveSpeed", rb.velocity.magnitude);
+        var speed = Mathf.Abs(rb.velocity.x);
+        anim.SetFloat("F_MoveSpeed", speed);
     }
 
     public void Anim_Jump() {
         anim.SetTrigger("T_Jump");
     }
 
+
     public void SetForward(Vector2 moveAxis) {
-        if (moveAxis.x >= 0) {
-            transform.forward = Vector2.right;
-        } else {
-            transform.forward = Vector2.left;
+        var scale = body.transform.localScale;
+        if (moveAxis.x > 0) {
+            scale.x = Mathf.Abs(scale.x);
+        } else if (moveAxis.x < 0) {
+            scale.x = -Mathf.Abs(scale.x);
         }
+        body.transform.localScale = scale;
     }
 
     public void SetPos(Vector2 pos) {

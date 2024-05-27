@@ -7,5 +7,11 @@ public static class RoleDomain {
         ctx.roleRepo.Add(role);
         return role;
     }
-    
+
+    public static void Move(GameContext ctx, RoleEntity role) {
+        if (role.moveType == MoveType.ByInput) {
+            role.Move(ctx.input.moveAxis);
+            role.Anim_Move();
+        }
+    }
 }

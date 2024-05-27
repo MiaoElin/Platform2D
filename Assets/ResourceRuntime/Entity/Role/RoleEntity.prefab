@@ -52,7 +52,8 @@ MonoBehaviour:
   ally: 0
   moveType: 0
   rb: {fileID: 5888657450253955265}
-  modTransform: {fileID: 6976518383871752290}
+  anim: {fileID: 0}
+  body: {fileID: 6976518383871752290}
 --- !u!50 &5888657450253955265
 Rigidbody2D:
   serializedVersion: 4
@@ -68,7 +69,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

@@ -19,7 +19,9 @@ public static class GameFactory {
         role.id = ctx.iDService.roleIDRecord++;
         role.SetPos(pos);
         role.ally = ally;
-        role.Ctor(tm.mod.GetComponent<Animator>(), tm.mod);
+        role.moveSpeed = tm.moveSpeed;
+        role.moveType = tm.moveType;
+        role.Ctor(tm.mod);
         role.gameObject.SetActive(true);
         return role;
     }
