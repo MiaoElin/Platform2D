@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 64da9874480cd2749a5400b2d497df43
+  m_SerializeEntries:
+  - m_GUID: 47a19e584dbd76841851497d5861a1f8
+    m_Address: Assets/ResourceRuntime/Entity/Role/TM/TM_Role_Owner_100.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Role
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1bcfed36a37cd6142b5979bea87959b3
+    m_Address: Assets/ResourceRuntime/Entity/Role/RoleEntity.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Entity
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 10ce7be38cdf38943965fd42d953f1af, type: 2}
+    - {fileID: 11400000, guid: 4986b86696139d54ba0efc205efd5186, type: 2}
