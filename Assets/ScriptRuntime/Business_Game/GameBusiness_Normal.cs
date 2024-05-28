@@ -3,7 +3,7 @@ using UnityEngine;
 public static class GameBusiness_Normal {
 
     public static void EnterStage(GameContext ctx) {
-        var role = RoleDomain.Spawn(ctx, 100, Vector2.zero, Ally.Player);
+        var role = RoleDomain.Spawn(ctx, 100, new Vector2(0, 1.5f), Ally.Player);
         ctx.ownerID = role.id;
     }
 
