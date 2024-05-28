@@ -4,6 +4,8 @@ public class InputEntity {
 
     public Vector2 moveAxis;
 
+    public bool isJumpKeyDown;
+
     public void Process() {
         moveAxis = Vector2.zero;
         if (Input.GetKey(KeyCode.A)) {
@@ -18,5 +20,8 @@ public class InputEntity {
             moveAxis.y = -1;
         }
         moveAxis.Normalize();
+
+        // Jump
+        isJumpKeyDown = Input.GetKeyDown(KeyCode.Space);
     }
 }

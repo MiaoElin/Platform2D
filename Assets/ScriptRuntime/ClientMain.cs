@@ -45,8 +45,11 @@ public class ClientMain : MonoBehaviour {
     }
 
     void Update() {
+
         ctx.input.Process();
 
-        GameBusiness_Normal.Tick(ctx);
+        var dt = Time.deltaTime;
+
+        GameBusiness_Normal.Tick(ctx, dt);
     }
 }

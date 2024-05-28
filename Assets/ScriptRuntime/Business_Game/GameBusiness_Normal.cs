@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public static class GameBusiness_Normal {
@@ -9,8 +10,35 @@ public static class GameBusiness_Normal {
         ctx.ownerID = role.id;
     }
 
-    public static void Tick(GameContext ctx) {
+    public static void Tick(GameContext ctx, float dt) {
+        PreTick(ctx, dt);
+        ref var resetTime = ref ctx.resetTime;
+        const float Interval = 0.01f;
+        resetTime += dt;
+        if (resetTime < Interval) {
+            FixedTick(ctx, resetTime);
+            resetTime = 0;
+        } else {
+            while (resetTime >= Interval) {
+                FixedTick(ctx, Interval);
+                resetTime -= Interval;
+            }
+        }
+
+    }
+
+    static void PreTick(GameContext ctx, float dt) {
+        var owner = ctx.GetOwner();
+        owner.isJumpKeyDown = ctx.input.isJumpKeyDown;
+    }
+    static void FixedTick(GameContext ctx, float dt) {
         var owner = ctx.GetOwner();
         RoleDomain.Move(ctx, owner);
+        RoleDomain.Jump(ctx, owner);
+
+        Physics.Simulate(dt);
+    }
+    static void LateTick(GameContext ctx, float dt) {
+        throw new NotImplementedException();
     }
 }

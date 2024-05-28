@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class GameContext {
 
+    public float resetTime;
     public PoolService poolService;
     public IDService iDService;
 

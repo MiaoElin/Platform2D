@@ -11,28 +11,14 @@ public class RoleEntity : MonoBehaviour {
     public Animator anim;
     public Transform body;
 
+    public float jumpForce;
+    public bool isJumpKeyDown;
+    public int jumpTimes;
+
     public void Ctor(GameObject mod) {
         var bodyMod = GameObject.Instantiate(mod, body);
         this.anim = bodyMod.GetComponent<Animator>();
     }
-
-    public void Move(Vector2 moveAxis) {
-        var velocity = rb.velocity;
-        velocity.x = moveAxis.x * moveSpeed;
-        rb.velocity = velocity;
-
-        SetForward(moveAxis);
-    }
-
-    public void Anim_Move() {
-        var speed = Mathf.Abs(rb.velocity.x);
-        anim.SetFloat("F_MoveSpeed", speed);
-    }
-
-    public void Anim_Jump() {
-        anim.SetTrigger("T_Jump");
-    }
-
 
     public void SetForward(Vector2 moveAxis) {
         var scale = body.transform.localScale;
@@ -50,6 +36,34 @@ public class RoleEntity : MonoBehaviour {
 
     public Vector2 Pos() {
         return transform.position;
+    }
+
+    public void Move(Vector2 moveAxis) {
+        var velocity = rb.velocity;
+        velocity.x = moveAxis.x * moveSpeed;
+        rb.velocity = velocity;
+
+        SetForward(moveAxis);
+    }
+
+    public void Jump() {
+        if (isJumpKeyDown && jumpTimes > 0) {
+            var velocity = rb.velocity;
+            velocity.y = jumpForce;
+            rb.velocity = velocity;
+            isJumpKeyDown = false;
+            jumpTimes--;
+        }
+    }
+
+    // === Anim ===
+    public void Anim_Move() {
+        var speed = Mathf.Abs(rb.velocity.x);
+        anim.SetFloat("F_MoveSpeed", speed);
+    }
+
+    public void Anim_Jump() {
+        anim.SetTrigger("T_Jump");
     }
 
 

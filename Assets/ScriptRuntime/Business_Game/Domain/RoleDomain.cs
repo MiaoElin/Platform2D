@@ -14,4 +14,8 @@ public static class RoleDomain {
             role.Anim_Move();
         }
     }
+
+    public static void Jump(GameContext ctx, RoleEntity role) {
+        role.Jump();
+    }
 }
