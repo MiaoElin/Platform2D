@@ -20,6 +20,9 @@ public static class RoleDomain {
     }
 
     public static void CheckGround(GameContext ctx, RoleEntity role) {
+        if (role.GetVelocityY() > 0) {
+            return;
+        }
 
         var layerMask = 1 << 3;
         Collider2D[] hits = Physics2D.OverlapBoxAll(role.Pos() + Vector2.down * 0.5f, new Vector2(1, 0.1f), 0, layerMask);

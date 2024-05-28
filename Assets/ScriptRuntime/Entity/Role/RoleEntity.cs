@@ -62,6 +62,10 @@ public class RoleEntity : MonoBehaviour {
         }
     }
 
+    public float GetVelocityY() {
+        return rb.velocity.y;
+    }
+
     // === Anim ===
     public void Anim_Move() {
         var speed = Mathf.Abs(rb.velocity.x);
