@@ -18,4 +18,18 @@ public static class RoleDomain {
     public static void Jump(GameContext ctx, RoleEntity role) {
         role.Jump();
     }
+
+    public static void CheckGround(GameContext ctx, RoleEntity role) {
+
+        var layerMask = 1 << 3;
+        Collider2D[] hits = Physics2D.OverlapBoxAll(role.Pos() + Vector2.down * 0.5f, new Vector2(1, 0.1f), 0, layerMask);
+
+        if (hits.Length == 0) {
+
+        } else {
+            role.ReuseJumpTimes();
+        }
+
+    }
+
 }

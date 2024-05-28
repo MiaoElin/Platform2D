@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class RoleEntity : MonoBehaviour {
@@ -14,6 +15,7 @@ public class RoleEntity : MonoBehaviour {
     public float jumpForce;
     public bool isJumpKeyDown;
     public int jumpTimes;
+    public int jumpTimesMax;
 
     public void Ctor(GameObject mod) {
         var bodyMod = GameObject.Instantiate(mod, body);
@@ -32,6 +34,10 @@ public class RoleEntity : MonoBehaviour {
 
     public void SetPos(Vector2 pos) {
         transform.position = pos;
+    }
+
+    internal void ReuseJumpTimes() {
+        this.jumpTimes = jumpTimesMax;
     }
 
     public Vector2 Pos() {

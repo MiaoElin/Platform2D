@@ -37,6 +37,7 @@ public static class GameBusiness_Normal {
         RoleDomain.Jump(ctx, owner);
 
         Physics.Simulate(dt);
+        RoleDomain.CheckGround(ctx, owner);
     }
     static void LateTick(GameContext ctx, float dt) {
         throw new NotImplementedException();

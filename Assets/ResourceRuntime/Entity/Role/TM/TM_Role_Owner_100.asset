@@ -16,3 +16,5 @@ MonoBehaviour:
   moveSpeed: 5
   moveType: 1
   mod: {fileID: 6480961630456752770, guid: 369974eb653cb584eb807d7d78a57348, type: 3}
+  jumpForce: 5
+  jumpTimesMax: 2

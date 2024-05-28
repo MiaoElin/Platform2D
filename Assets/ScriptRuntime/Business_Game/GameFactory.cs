@@ -23,7 +23,8 @@ public static class GameFactory {
         role.moveType = tm.moveType;
         role.Ctor(tm.mod);
         role.jumpForce = tm.jumpForce;
-        role.jumpTimes = tm.jumpTimes;
+        role.jumpTimes = tm.jumpTimesMax;
+        role.jumpTimesMax = tm.jumpTimesMax;
         role.gameObject.SetActive(true);
         return role;
     }
