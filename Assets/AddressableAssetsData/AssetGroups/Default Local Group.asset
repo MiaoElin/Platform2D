@@ -29,6 +29,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Entity
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71662d40f3dda10489eb3eb47fa5a984
+    m_Address: Assets/ResourceRuntime/Entity/Map/TM_Map_1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Map
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83b6fddc9a361b3478996b69665fbd42
+    m_Address: Assets/ResourceRuntime/Entity/Map/MapEntity.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Entity
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:

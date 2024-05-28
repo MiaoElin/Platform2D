@@ -10,16 +10,23 @@ public class GameContext {
 
     // === Repo ===
     public RoleRepo roleRepo;
+    public MapRepo mapRepo;
+
     // === Entity ===
     public InputEntity input;
 
     public int ownerID;
 
     public GameContext() {
+        // Service
         poolService = new PoolService();
         iDService = new IDService();
+        // Core
         asset = new Asset_Core();
+        // Repo
         roleRepo = new RoleRepo();
+        mapRepo = new MapRepo();
+        // Entity
         input = new InputEntity();
     }
     public void Inject(Camera camera, Canvas screenCanvas) {

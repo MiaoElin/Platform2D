@@ -25,4 +25,16 @@ public static class GameFactory {
         role.gameObject.SetActive(true);
         return role;
     }
+
+    public static MapEntity Map_Create(GameContext ctx, int stageID) {
+        ctx.asset.TryGet_MapTM(stageID, out var tm);
+        if (!tm) {
+            Debug.LogError($"GameFactory.Map_Create {stageID} is not find");
+        }
+        ctx.asset.TryGet_Entity_Prefab(typeof(MapEntity).Name, out var prefab);
+        MapEntity map = GameObject.Instantiate(prefab).GetComponent<MapEntity>();
+        Grid grid = GameObject.Instantiate(tm.grid, map.transform);
+        map.Ctor(stageID, grid);
+        return map;
+    }
 }
