@@ -19,6 +19,10 @@ public static class RoleDomain {
         role.Jump();
     }
 
+    public static void Falling(RoleEntity role, float dt) {
+        role.Falling(dt);
+    }
+
     public static void CheckGround(GameContext ctx, RoleEntity role) {
         if (role.GetVelocityY() > 0) {
             return;
@@ -31,6 +35,7 @@ public static class RoleDomain {
 
         } else {
             role.ReuseJumpTimes();
+            role.Anim_JumpEnd();
         }
 
     }

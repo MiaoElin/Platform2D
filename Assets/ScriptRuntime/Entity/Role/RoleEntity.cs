@@ -12,6 +12,8 @@ public class RoleEntity : MonoBehaviour {
     public Animator anim;
     public Transform body;
 
+
+    public float gravity;
     public float jumpForce;
     public bool isJumpKeyDown;
     public int jumpTimes;
@@ -19,7 +21,7 @@ public class RoleEntity : MonoBehaviour {
 
     public void Ctor(GameObject mod) {
         var bodyMod = GameObject.Instantiate(mod, body);
-        this.anim = bodyMod.GetComponent<Animator>();
+        this.anim = bodyMod.GetComponentInChildren<Animator>();
     }
 
     public void SetForward(Vector2 moveAxis) {
@@ -59,6 +61,17 @@ public class RoleEntity : MonoBehaviour {
             rb.velocity = velocity;
             isJumpKeyDown = false;
             jumpTimes--;
+
+            Anim_JumpStart();
+        }
+    }
+
+    public void Falling(float dt) {
+        var velocity = rb.velocity;
+        velocity.y -= gravity * dt;
+        rb.velocity = velocity;
+        if (velocity.y < 0) {
+            Anim_FallingStart();
         }
     }
 
@@ -72,10 +85,21 @@ public class RoleEntity : MonoBehaviour {
         anim.SetFloat("F_MoveSpeed", speed);
     }
 
-    public void Anim_Jump() {
-        anim.SetTrigger("T_Jump");
+    public void Anim_JumpStart() {
+        anim.ResetTrigger("T_JumpEnd");
+        anim.ResetTrigger("T_FallingStart");
+        anim.Play("JumpStart");
     }
 
+    public void Anim_FallingStart() {
+        anim.SetTrigger("T_FallingStart");
+    }
+
+
+    public void Anim_JumpEnd() {
+        anim.SetTrigger("T_JumpEnd");
+        // anim.CrossFade()
+    }
 
 
 }

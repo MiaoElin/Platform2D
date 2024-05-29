@@ -22,6 +22,7 @@ public static class GameFactory {
         role.moveSpeed = tm.moveSpeed;
         role.moveType = tm.moveType;
         role.Ctor(tm.mod);
+        role.gravity=tm.gravity;
         role.jumpForce = tm.jumpForce;
         role.jumpTimes = tm.jumpTimesMax;
         role.jumpTimesMax = tm.jumpTimesMax;

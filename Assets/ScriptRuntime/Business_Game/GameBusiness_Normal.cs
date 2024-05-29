@@ -35,6 +35,7 @@ public static class GameBusiness_Normal {
         var owner = ctx.GetOwner();
         RoleDomain.Move(ctx, owner);
         RoleDomain.Jump(ctx, owner);
+        RoleDomain.Falling(owner, dt);
 
         Physics.Simulate(dt);
         RoleDomain.CheckGround(ctx, owner);

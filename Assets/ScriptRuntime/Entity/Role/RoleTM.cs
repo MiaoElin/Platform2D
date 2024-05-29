@@ -8,7 +8,8 @@ public class RoleTM : ScriptableObject {
     public float moveSpeed;
     public MoveType moveType;
     public GameObject mod;
-
+    
+    public float gravity;
     public float jumpForce;
     public int jumpTimesMax;
 
