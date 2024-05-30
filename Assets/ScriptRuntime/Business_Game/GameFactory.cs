@@ -66,9 +66,20 @@ public static class GameFactory {
         prop.SetPos(pos);
         prop.SetRotation(rotaion);
         prop.SetScale(scale);
+        prop.SetMesh(tm.mesh);
         prop.size = tm.size;
-        prop.sr.sprite = tm.sprite;
+
         prop.isLadder = tm.isLadder;
+
+        prop.isAltar = tm.isAltar;
+
+        prop.isTrampoline = tm.isTrampoline;
+        prop.anim_BePress = tm.anim_BePress;
+        prop.jumpForce = tm.jumpForce;
+        prop.OnPressTrampolineHandle = () => {
+            // TO do
+            ctx.GetOwner().SetVelocityY(prop.jumpForce);
+        };
         prop.gameObject.SetActive(true);
         return prop;
     }

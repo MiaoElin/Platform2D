@@ -47,6 +47,30 @@ MonoBehaviour:
     m_SerializedLabels:
     - Entity
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c00c12f06b973f42b3a80408f78ec39
+    m_Address: Assets/ResourceRuntime/Entity/Prop/PropEntity.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Entity
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c2f00d34046ba149b13a47b73c179a9
+    m_Address: Assets/ResourceRuntime/Entity/Prop/TM_Prop_Ladder_100.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Prop
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1639f277f0aa24640b88d86a1c2f8fc2
+    m_Address: Assets/ResourceRuntime/Entity/Prop/TM_Prop_Emitter_120.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Prop
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d480a95bb8886c94fa3ac4049dc28a72
+    m_Address: Assets/ResourceRuntime/Entity/Prop/TM_Prop_Altar_110.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Prop
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:

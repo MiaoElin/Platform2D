@@ -100,5 +100,9 @@ public class RoleEntity : MonoBehaviour {
         // anim.CrossFade()
     }
 
-
+    internal void SetVelocityY(float jumpForce) {
+        var velocity = rb.velocity;
+        velocity.y = jumpForce;
+        rb.velocity = velocity;
+    }
 }

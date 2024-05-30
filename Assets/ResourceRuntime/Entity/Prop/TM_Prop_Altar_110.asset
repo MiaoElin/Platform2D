@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb05906384012354f97422a1e935be06, type: 3}
-  m_Name: TM_Prop_Ladder_100
+  m_Name: TM_Prop_Altar_110
   m_EditorClassIdentifier: 
-  typeID: 100
-  sprite: {fileID: 21300000, guid: c6d449d0bf61ded42912a107c78ed96a, type: 3}
+  typeID: 110
+  sprite: {fileID: 21300000, guid: 3833234b7fd68bf4ca34d193ebfd363e, type: 3}
   size: {x: 0, y: 0}
-  isLadder: 1
-  isAltar: 0
+  isLadder: 0
+  isAltar: 1
