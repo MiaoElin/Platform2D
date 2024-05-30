@@ -13,7 +13,7 @@ public static class GameBusiness_Normal {
         ctx.backScene = backScene;
 
         // Owner
-        var owner = RoleDomain.Spawn(ctx, 100, new Vector2(0, 1.5f), Ally.Player);
+        var owner = RoleDomain.Spawn(ctx, 100, new Vector2(0, 15f), Ally.Player);
         ctx.ownerID = owner.id;
 
         // Camera

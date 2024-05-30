@@ -14,10 +14,14 @@ public class Asset_Core {
     Dictionary<int, MapTM> mapTMs;
     AsyncOperationHandle mapTMPtr;
 
+    Dictionary<int, PropTM> propTMs;
+    AsyncOperationHandle propTMPtr;
+
     public Asset_Core() {
         entites = new Dictionary<string, GameObject>();
         roleTMs = new Dictionary<int, RoleTM>();
         mapTMs = new Dictionary<int, MapTM>();
+        propTMs = new Dictionary<int, PropTM>();
     }
 
     public void LoadAll() {
@@ -45,12 +49,21 @@ public class Asset_Core {
                 mapTMs.Add(tm.stage, tm);
             }
         }
+        {
+            var ptr = Addressables.LoadAssetsAsync<PropTM>("TM_Prop", null);
+            propTMPtr = ptr;
+            var list = ptr.WaitForCompletion();
+            foreach (var tm in list) {
+                propTMs.Add(tm.typeID, tm);
+            }
+        }
     }
 
     public void Unload() {
         Release(entityPtr);
         Release(roleTMPtr);
         Release(mapTMPtr);
+        Release(propTMPtr);
     }
 
     public void Release(AsyncOperationHandle ptr) {
@@ -69,5 +82,9 @@ public class Asset_Core {
 
     public bool TryGet_MapTM(int stage, out MapTM tm) {
         return mapTMs.TryGetValue(stage, out tm);
+    }
+
+    public bool TryGet_PropTM(int typeID, out PropTM tm) {
+        return propTMs.TryGetValue(typeID, out tm);
     }
 }

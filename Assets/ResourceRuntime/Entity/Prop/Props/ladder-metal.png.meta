@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-guid: 0ece4b240453ace479f645bfaedad22d
-AssetOrigin:
-  serializedVersion: 1
-  productId: 238393
-  packageName: Super Grotto Escape Pack
-  packageVersion: 1.0
-  assetPath: Assets/Super Grotto Escape/Props/ladder-metal.png
-  uploadId: 545561
+guid: c6d449d0bf61ded42912a107c78ed96a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

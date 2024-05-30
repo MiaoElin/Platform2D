@@ -48,4 +48,29 @@ public static class GameFactory {
         BackSceneEntity backScene = GameObject.Instantiate(prefab).GetComponent<BackSceneEntity>();
         return backScene;
     }
+
+    public static PropEntity Prop_Create(GameContext ctx) {
+        ctx.asset.TryGet_Entity_Prefab(typeof(PropEntity).Name, out var prefab);
+        PropEntity prop = GameObject.Instantiate(prefab, ctx.poolService.propGroup).GetComponent<PropEntity>();
+        prop.gameObject.SetActive(false);
+        return prop;
+    }
+
+    public static PropEntity Prop_Spawn(GameContext ctx, int typeID, Vector2 pos, Vector3 rotaion, Vector3 scale) {
+        ctx.asset.TryGet_PropTM(typeID, out var tm);
+        if (!tm) {
+            Debug.LogError($"GameFactory.Prop_Spawn {typeID} is not find");
+        }
+        PropEntity prop = ctx.poolService.GetProp();
+        prop.typeID = typeID;
+        prop.SetPos(pos);
+        prop.SetRotation(rotaion);
+        prop.SetScale(scale);
+        prop.size = tm.size;
+        prop.sr.sprite = tm.sprite;
+        prop.isLadder = tm.isLadder;
+        prop.gameObject.SetActive(true);
+        return prop;
+    }
+
 }
