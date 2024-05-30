@@ -4,10 +4,21 @@ using UnityEngine;
 public static class GameBusiness_Normal {
 
     public static void EnterStage(GameContext ctx) {
+
+        // Map
         MapDomain.Spawn(ctx, 1);
 
-        var role = RoleDomain.Spawn(ctx, 100, new Vector2(0, 1.5f), Ally.Player);
-        ctx.ownerID = role.id;
+        // BackScene
+        var backScene = GameFactory.BackScene_Create(ctx);
+        ctx.backScene = backScene;
+
+        // Owner
+        var owner = RoleDomain.Spawn(ctx, 100, new Vector2(0, 1.5f), Ally.Player);
+        ctx.ownerID = owner.id;
+
+        // Camera
+        ctx.camera.SetFollow(owner.transform);
+        ctx.camera.SetLookAt(owner.transform);
     }
 
     public static void Tick(GameContext ctx, float dt) {
@@ -33,6 +44,7 @@ public static class GameBusiness_Normal {
     }
     static void FixedTick(GameContext ctx, float dt) {
         var owner = ctx.GetOwner();
+        ctx.backScene.SetPos(owner.Pos());
         RoleDomain.Move(ctx, owner);
         RoleDomain.Jump(ctx, owner);
         RoleDomain.Falling(owner, dt);

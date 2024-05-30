@@ -1,4 +1,5 @@
 using UnityEngine;
+using Cinemachine;
 
 public class GameContext {
 
@@ -15,6 +16,8 @@ public class GameContext {
 
     // === Entity ===
     public InputEntity input;
+    public CameraEntity camera;
+    public BackSceneEntity backScene;
 
     public int ownerID;
 
@@ -29,9 +32,10 @@ public class GameContext {
         mapRepo = new MapRepo();
         // Entity
         input = new InputEntity();
+        camera = new CameraEntity();
     }
-    public void Inject(Camera camera, Canvas screenCanvas) {
-
+    public void Inject(CinemachineVirtualCamera camera, Canvas screenCanvas) {
+        this.camera.Inject(camera);
     }
 
     public RoleEntity GetOwner() {

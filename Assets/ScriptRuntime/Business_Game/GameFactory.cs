@@ -42,4 +42,10 @@ public static class GameFactory {
         map.Ctor(stageID, grid);
         return map;
     }
+
+    public static BackSceneEntity BackScene_Create(GameContext ctx) {
+        ctx.asset.TryGet_Entity_Prefab(typeof(BackSceneEntity).Name, out var prefab);
+        BackSceneEntity backScene = GameObject.Instantiate(prefab).GetComponent<BackSceneEntity>();
+        return backScene;
+    }
 }

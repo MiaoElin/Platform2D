@@ -2,10 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class ClientMain : MonoBehaviour {
     [SerializeField] Canvas screenCanvas;
-    [SerializeField] Camera mainCamera;
+    [SerializeField] CinemachineVirtualCamera mainCamera;
     GameContext ctx = new GameContext();
     bool isTearDown;
 
