@@ -40,6 +40,10 @@ public static class GameFactory {
         MapEntity map = GameObject.Instantiate(prefab).GetComponent<MapEntity>();
         Grid grid = GameObject.Instantiate(tm.grid, map.transform);
         map.Ctor(stageID, grid);
+        map.backSceneBG = tm.backSceneBG;
+        map.backSceneMid = tm.backSceneMid;
+        map.backSceneFront = tm.backSceneFront;
+        map.propSpawnerTMs = tm.propSpawnerTMs;
         return map;
     }
 
@@ -56,17 +60,18 @@ public static class GameFactory {
         return prop;
     }
 
-    public static PropEntity Prop_Spawn(GameContext ctx, int typeID, Vector2 pos, Vector3 rotaion, Vector3 scale) {
+    public static PropEntity Prop_Spawn(GameContext ctx, int typeID, Vector2 pos, Vector3 rotaion, Vector3 localScale, bool isModifySize, Vector2 sizeScale) {
         ctx.asset.TryGet_PropTM(typeID, out var tm);
         if (!tm) {
             Debug.LogError($"GameFactory.Prop_Spawn {typeID} is not find");
         }
         PropEntity prop = ctx.poolService.GetProp();
         prop.typeID = typeID;
+        prop.id = ctx.iDService.propIDRecord++;
         prop.SetPos(pos);
         prop.SetRotation(rotaion);
-        prop.SetScale(scale);
-        prop.SetMesh(tm.mesh);
+        prop.SetScale(localScale);
+        prop.SetMesh(tm.mod);
         prop.size = tm.size;
 
         prop.isLadder = tm.isLadder;
@@ -80,6 +85,8 @@ public static class GameFactory {
             // TO do
             ctx.GetOwner().SetVelocityY(prop.jumpForce);
         };
+
+        prop.SetCollider(tm.colliderType, isModifySize, sizeScale);
         prop.gameObject.SetActive(true);
         return prop;
     }

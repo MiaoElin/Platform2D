@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: TM_Prop_Altar_110
   m_EditorClassIdentifier: 
   typeID: 110
-  sprite: {fileID: 21300000, guid: 3833234b7fd68bf4ca34d193ebfd363e, type: 3}
+  TypeName: TM_Prop_Altar_110
+  mod: {fileID: 638021832257035120, guid: 5933e26065ffa3148af2aa1b5f125494, type: 3}
   size: {x: 0, y: 0}
   isLadder: 0
   isAltar: 1
+  isTrampoline: 0
+  jumpForce: 0
+  anim_BePress: []
+  colliderType: 0

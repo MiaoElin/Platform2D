@@ -7,5 +7,6 @@ public class IDService {
 
     public IDService() {
         roleIDRecord = 0;
+        propIDRecord = 0;
     }
 }

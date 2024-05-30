@@ -13,6 +13,7 @@ public class GameContext {
     // === Repo ===
     public RoleRepo roleRepo;
     public MapRepo mapRepo;
+    public PropRepo propRepo;
 
     // === Entity ===
     public InputEntity input;
@@ -30,6 +31,7 @@ public class GameContext {
         // Repo
         roleRepo = new RoleRepo();
         mapRepo = new MapRepo();
+        propRepo = new PropRepo();
         // Entity
         input = new InputEntity();
         camera = new CameraEntity();

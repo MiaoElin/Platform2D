@@ -4,7 +4,8 @@ using UnityEngine;
 public class PropTM : ScriptableObject {
 
     public int typeID;
-    public Sprite mesh;
+    public string TypeName;
+    public GameObject mod;
     public Vector2 size;
 
     // 梯子
@@ -17,5 +18,7 @@ public class PropTM : ScriptableObject {
     public bool isTrampoline;
     public float jumpForce;
     public Sprite[] anim_BePress;
+
+    public ColliderType colliderType;
 
 }

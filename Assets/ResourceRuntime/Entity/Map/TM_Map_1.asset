@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage: 1
   grid: {fileID: 6838274318949339658, guid: 0bea617413713534ea146296ea6c488c, type: 3}
+  backSceneBG: {fileID: 21300000, guid: 61561bef67a588545b435469b3f409ff, type: 3}
+  backSceneMid: {fileID: 21300000, guid: c9013a58698639249aebb98857472ffb, type: 3}
+  backSceneFront: {fileID: 21300000, guid: 2dcefa129c64b08418a7a18941834dba, type: 3}

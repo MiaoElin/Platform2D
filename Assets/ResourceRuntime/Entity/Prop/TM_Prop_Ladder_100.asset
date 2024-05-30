@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: TM_Prop_Ladder_100
   m_EditorClassIdentifier: 
   typeID: 100
-  sprite: {fileID: 21300000, guid: c6d449d0bf61ded42912a107c78ed96a, type: 3}
+  TypeName: TM_Prop_Ladder_100
+  mod: {fileID: 638021832257035120, guid: 1089b7e1948ff914ebc5be74bbd8a80a, type: 3}
   size: {x: 0, y: 0}
   isLadder: 1
   isAltar: 0
+  isTrampoline: 0
+  jumpForce: 0
+  anim_BePress: []
+  colliderType: 1

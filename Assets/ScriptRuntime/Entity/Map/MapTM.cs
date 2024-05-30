@@ -5,5 +5,10 @@ public class MapTM : ScriptableObject {
 
     public int stage;
     public Grid grid;
+    public Sprite backSceneBG;
+    public Sprite backSceneMid;
+    public Sprite backSceneFront;
+
+    public propSpawnerTM[] propSpawnerTMs;
 
 }
