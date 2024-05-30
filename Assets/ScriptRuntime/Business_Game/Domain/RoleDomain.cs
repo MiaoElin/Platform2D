@@ -29,7 +29,7 @@ public static class RoleDomain {
         }
 
         var layerMask = 1 << 3;
-        Collider2D[] hits = Physics2D.OverlapBoxAll(role.Pos() + Vector2.down * 0.5f, new Vector2(1, 0.1f), 0, layerMask);
+        Collider2D[] hits = Physics2D.OverlapBoxAll(role.Pos() + Vector2.down * role.height/2, new Vector2(0.98f, 0.1f), 0, layerMask);
 
         if (hits.Length == 0) {
 

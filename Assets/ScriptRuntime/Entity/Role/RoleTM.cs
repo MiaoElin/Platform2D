@@ -6,9 +6,10 @@ public class RoleTM : ScriptableObject {
 
     public int typeID;
     public float moveSpeed;
+    public float height;
     public MoveType moveType;
     public GameObject mod;
-    
+
     public float gravity;
     public float jumpForce;
     public int jumpTimesMax;

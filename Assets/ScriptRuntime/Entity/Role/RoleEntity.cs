@@ -6,6 +6,7 @@ public class RoleEntity : MonoBehaviour {
     public int id;
     public int typeID;
     public float moveSpeed;
+    public float height;
     public Ally ally;
     public MoveType moveType;
     [SerializeField] Rigidbody2D rb;
@@ -62,7 +63,7 @@ public class RoleEntity : MonoBehaviour {
             isJumpKeyDown = false;
             jumpTimes--;
 
-            Anim_JumpStart();
+            Anim_Jump();
         }
     }
 
@@ -85,10 +86,8 @@ public class RoleEntity : MonoBehaviour {
         anim.SetFloat("F_MoveSpeed", speed);
     }
 
-    public void Anim_JumpStart() {
-        anim.ResetTrigger("T_JumpEnd");
-        anim.ResetTrigger("T_FallingStart");
-        anim.Play("JumpStart");
+    public void Anim_Jump() {
+        anim.Play("Jump");
     }
 
     public void Anim_FallingStart() {
