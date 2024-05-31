@@ -16,6 +16,7 @@ public static class GameBusiness_Normal {
         // Owner
         var owner = RoleDomain.Spawn(ctx, 100, new Vector2(0, 15f), Ally.Player);
         ctx.ownerID = owner.id;
+        owner.fsm.EnterNormal();
 
         // Camera
         ctx.camera.SetFollow(owner.transform);
@@ -46,13 +47,10 @@ public static class GameBusiness_Normal {
     static void FixedTick(GameContext ctx, float dt) {
         var owner = ctx.GetOwner();
         ctx.backScene.SetPos(owner.Pos());
-        RoleDomain.Move(ctx, owner);
-        RoleDomain.Jump(ctx, owner);
-        RoleDomain.Falling(owner, dt);
-
         ctx.propRepo.Foreach(prop => {
             PropFsmController.ApplyFsm(ctx, prop);
         });
+        RoleFSMConTroller.ApplyFsm(ctx, owner, dt);
 
         Physics.Simulate(dt);
         RoleDomain.CheckGround(ctx, owner);

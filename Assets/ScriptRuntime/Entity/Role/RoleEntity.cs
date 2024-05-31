@@ -13,23 +13,27 @@ public class RoleEntity : MonoBehaviour {
     public Animator anim;
     public Transform body;
 
-    public bool isOnGround;
+    public bool isStayInGround;
     public float gravity;
     public float jumpForce;
     public bool isJumpKeyDown;
     public int jumpTimes;
     public int jumpTimesMax;
 
+    public RoleFSMComponent fsm;
+
     public void Ctor(GameObject mod) {
         var bodyMod = GameObject.Instantiate(mod, body);
         this.anim = bodyMod.GetComponentInChildren<Animator>();
+        fsm = new RoleFSMComponent();
+        fsm.EnterNormal();
     }
 
-    public void SetForward(Vector2 moveAxis) {
+    public void SetForward(float axisX) {
         var scale = body.transform.localScale;
-        if (moveAxis.x > 0) {
+        if (axisX > 0) {
             scale.x = Mathf.Abs(scale.x);
-        } else if (moveAxis.x < 0) {
+        } else if (axisX < 0) {
             scale.x = -Mathf.Abs(scale.x);
         }
         body.transform.localScale = scale;
@@ -50,20 +54,22 @@ public class RoleEntity : MonoBehaviour {
         return transform.position;
     }
 
-    public void Move(Vector2 moveAxis) {
+    public void MoveByAxisX(float axisX) {
         var velocity = rb.velocity;
-        if (moveType == MoveType.ByAxix) {
-            velocity.x = moveAxis.x * moveSpeed;
-            rb.velocity = velocity;
-            Anim_Run();
-            SetForward(moveAxis);
-        } else if (moveType == MoveType.ByAxiy) {
-            velocity.x = 0;
-            Anim_Run();
-            velocity.y = moveAxis.y * moveSpeed;
-            rb.velocity = velocity;
-        }
+        velocity.x = axisX * moveSpeed;
+        rb.velocity = velocity;
+        Anim_Run();
+        SetForward(axisX);
 
+
+    }
+
+    public void MoveByAxisY(float axisY) {
+        var velocity = rb.velocity;
+        velocity.x = 0;
+        Anim_Run();
+        velocity.y = axisY * moveSpeed;
+        rb.velocity = velocity;
     }
 
     public void Jump() {
@@ -79,9 +85,6 @@ public class RoleEntity : MonoBehaviour {
     }
 
     public void Falling(float dt) {
-        if (moveType == MoveType.ByAxiy) {
-            return;
-        }
         var velocity = rb.velocity;
         velocity.y -= gravity * dt;
         rb.velocity = velocity;
@@ -124,5 +127,25 @@ public class RoleEntity : MonoBehaviour {
         velocity.y = jumpForce;
         rb.velocity = velocity;
     }
+
+    // Collider
+    void OnTriggerExit2D(Collider2D other) {
+        if (other.tag == "Ground") {
+            isStayInGround = false;
+        }
+    }
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.tag == "Ground") {
+            isStayInGround = false;
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D other) {
+        if (other.tag == "Ground") {
+            isStayInGround = true;
+        }
+    }
+
+
 
 }

@@ -1,6 +1,6 @@
 public enum MoveType {
     None,
-    ByAxix,
+    ByInput,
     ByAxiy,
     ByAI
 }

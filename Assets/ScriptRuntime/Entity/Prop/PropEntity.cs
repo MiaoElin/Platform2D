@@ -37,6 +37,10 @@ public class PropEntity : MonoBehaviour {
         transform.position = pos;
     }
 
+    public Vector2 Pos() {
+        return transform.position;
+    }
+
     public void SetRotation(Vector3 rotation) {
         transform.eulerAngles = rotation;
     }
@@ -60,6 +64,7 @@ public class PropEntity : MonoBehaviour {
             if (isModifySize) {
                 boxCollider.size = sizeScale;
                 sr.size = sizeScale;
+                size = new Vector2(size.x * sizeScale.x, size.y * sizeScale.y);
             }
         } else if (colliderType == ColliderType.Capsule) {
             capsuleCollider = mod.transform.GetComponent<CapsuleCollider2D>();

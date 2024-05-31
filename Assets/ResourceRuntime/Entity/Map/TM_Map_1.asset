@@ -18,7 +18,7 @@ MonoBehaviour:
   backSceneMid: {fileID: 0}
   backSceneFront: {fileID: 0}
   propSpawnerTMs:
-  - pos: {x: -19, y: 2.23}
+  - pos: {x: -19, y: 2.25}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     propTypeID: 100
