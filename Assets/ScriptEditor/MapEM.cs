@@ -25,5 +25,6 @@ public class MapEM : MonoBehaviour {
                 tm.propSpawnerTMs[i] = propSpawnerTM;
             }
         }
+        EditorUtility.SetDirty(tm);
     }
 }

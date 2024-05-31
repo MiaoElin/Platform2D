@@ -58,7 +58,6 @@ public static class RoleDomain {
     
         if (hasLadder) {
 
-            Debug.Log(headInGround);
             if (ctx.input.moveAxis.y < 0 && isOnGround && headInLadder || ctx.input.moveAxis.y > 0 && isOnGround && !headInLadder) {
                 owenr.moveType = MoveType.ByAxix;
                 ctx.GetCurrentMap().SetGridCollision();
