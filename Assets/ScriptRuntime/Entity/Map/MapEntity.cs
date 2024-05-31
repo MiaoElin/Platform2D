@@ -13,4 +13,12 @@ public class MapEntity : MonoBehaviour {
         this.grid = grid;
     }
 
+    public void SetGridCollision() {
+        grid.GetComponentInChildren<CompositeCollider2D>().isTrigger = false;
+    }
+
+    public void SetGridTrigger() {
+        grid.GetComponentInChildren<CompositeCollider2D>().isTrigger = true;
+    }
+
 }

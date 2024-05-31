@@ -7,6 +7,7 @@ public static class GameBusiness_Normal {
 
         // Map
         MapDomain.Spawn(ctx, 1);
+        ctx.currentStageID = 1;
 
         // BackScene
         var backScene = GameFactory.BackScene_Create(ctx);

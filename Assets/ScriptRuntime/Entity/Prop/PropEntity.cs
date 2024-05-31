@@ -11,6 +11,7 @@ public class PropEntity : MonoBehaviour {
 
     // 梯子
     public bool isLadder;
+    public bool isOwnerOnLadder;
 
     // 祭坛
     public bool isAltar;

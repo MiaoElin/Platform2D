@@ -13,7 +13,7 @@ public class RoleEntity : MonoBehaviour {
     public Animator anim;
     public Transform body;
 
-
+    public bool isOnGround;
     public float gravity;
     public float jumpForce;
     public bool isJumpKeyDown;
@@ -35,6 +35,9 @@ public class RoleEntity : MonoBehaviour {
         body.transform.localScale = scale;
     }
 
+    internal void MoveByVertical(float y) {
+    }
+
     public void SetPos(Vector2 pos) {
         transform.position = pos;
     }
@@ -49,10 +52,18 @@ public class RoleEntity : MonoBehaviour {
 
     public void Move(Vector2 moveAxis) {
         var velocity = rb.velocity;
-        velocity.x = moveAxis.x * moveSpeed;
-        rb.velocity = velocity;
+        if (moveType == MoveType.ByAxix) {
+            velocity.x = moveAxis.x * moveSpeed;
+            rb.velocity = velocity;
+            Anim_Run();
+            SetForward(moveAxis);
+        } else if (moveType == MoveType.ByAxiy) {
+            velocity.x = 0;
+            Anim_Run();
+            velocity.y = moveAxis.y * moveSpeed;
+            rb.velocity = velocity;
+        }
 
-        SetForward(moveAxis);
     }
 
     public void Jump() {
@@ -68,6 +79,9 @@ public class RoleEntity : MonoBehaviour {
     }
 
     public void Falling(float dt) {
+        if (moveType == MoveType.ByAxiy) {
+            return;
+        }
         var velocity = rb.velocity;
         velocity.y -= gravity * dt;
         rb.velocity = velocity;
@@ -81,9 +95,14 @@ public class RoleEntity : MonoBehaviour {
     }
 
     // === Anim ===
-    public void Anim_Move() {
+    public void Anim_Run() {
         var speed = Mathf.Abs(rb.velocity.x);
         anim.SetFloat("F_MoveSpeed", speed);
+    }
+
+    public void Anim_Climb() {
+        var speed = Mathf.Abs(rb.velocity.y);
+        anim.CrossFade("Climb", 0);
     }
 
     public void Anim_Jump() {
@@ -105,4 +124,5 @@ public class RoleEntity : MonoBehaviour {
         velocity.y = jumpForce;
         rb.velocity = velocity;
     }
+
 }

@@ -21,6 +21,7 @@ public class GameContext {
     public BackSceneEntity backScene;
 
     public int ownerID;
+    public int currentStageID;
 
     public GameContext() {
         // Service
@@ -43,5 +44,10 @@ public class GameContext {
     public RoleEntity GetOwner() {
         roleRepo.TryGet(ownerID, out var role);
         return role;
+    }
+
+    public MapEntity GetCurrentMap() {
+        mapRepo.TryGet(currentStageID, out var map);
+        return map;
     }
 }

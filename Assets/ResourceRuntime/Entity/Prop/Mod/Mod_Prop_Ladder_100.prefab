@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7698094149368951120}
   - component: {fileID: 3816359104377963822}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mod_Prop_Ladder_100
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 951979108238331213}
   - component: {fileID: 4856148836476573692}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SR
   m_TagString: Untagged
   m_Icon: {fileID: 0}

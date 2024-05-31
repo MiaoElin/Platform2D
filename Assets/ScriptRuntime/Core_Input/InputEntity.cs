@@ -16,7 +16,7 @@ public class InputEntity {
 
         if (Input.GetKey(KeyCode.W)) {
             moveAxis.y = 1;
-        } else if (Input.GetKey(KeyCode.W)) {
+        } else if (Input.GetKey(KeyCode.S)) {
             moveAxis.y = -1;
         }
         moveAxis.Normalize();

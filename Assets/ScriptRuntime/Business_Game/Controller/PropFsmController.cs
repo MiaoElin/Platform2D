@@ -24,5 +24,11 @@ public static class PropFsmController {
             }
         }
 
+        if (prop.isLadder) {
+            if (prop.isOwnerOnLadder) {
+                prop.isOwnerOnLadder = false;
+            }
+        }
+
     }
 }

@@ -18,12 +18,12 @@ MonoBehaviour:
   backSceneMid: {fileID: 0}
   backSceneFront: {fileID: 0}
   propSpawnerTMs:
-  - pos: {x: -19.87, y: 2.36}
+  - pos: {x: -19, y: 2.11}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     propTypeID: 100
     isModifySize: 1
-    sizeScale: {x: 1, y: 22.8}
+    sizeScale: {x: 1, y: 23.3}
   - pos: {x: 24.9, y: -22.75}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
