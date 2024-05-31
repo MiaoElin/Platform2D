@@ -28,16 +28,21 @@ public static class RoleDomain {
             return;
         }
 
-        var layerMask = 1 << 3;
-        Collider2D[] hits = Physics2D.OverlapBoxAll(role.Pos() + Vector2.down * role.height/2, new Vector2(0.98f, 0.1f), 0, layerMask);
-
+        // Ground:3/Trampoline:6
+        var layerMask = 1 << 3 | 1 << 6;
+        Collider2D[] hits = Physics2D.OverlapBoxAll(role.Pos() + Vector2.down * role.height / 2, new Vector2(0.98f, 0.1f), 0, layerMask);
         if (hits.Length == 0) {
-
-        } else {
-            role.ReuseJumpTimes();
-            role.Anim_JumpEnd();
+            return;
         }
-
+        foreach (var hit in hits) {
+            if (hit.gameObject.layer == 3) {
+                role.ReuseJumpTimes();
+                role.Anim_JumpEnd();
+            } else if (hit.gameObject.layer == 6) {
+                var prop = hit.GetComponentInParent<PropEntity>();
+                prop.isOwnerOnTrampoline = true;
+            }
+        }
     }
 
 }

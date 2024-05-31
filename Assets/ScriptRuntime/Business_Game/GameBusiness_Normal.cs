@@ -4,7 +4,7 @@ using UnityEngine;
 public static class GameBusiness_Normal {
 
     public static void EnterStage(GameContext ctx) {
-        
+
         // Map
         MapDomain.Spawn(ctx, 1);
 
@@ -15,11 +15,6 @@ public static class GameBusiness_Normal {
         // Owner
         var owner = RoleDomain.Spawn(ctx, 100, new Vector2(0, 15f), Ally.Player);
         ctx.ownerID = owner.id;
-
-        {
-            
-        }
-
 
         // Camera
         ctx.camera.SetFollow(owner.transform);
@@ -53,6 +48,10 @@ public static class GameBusiness_Normal {
         RoleDomain.Move(ctx, owner);
         RoleDomain.Jump(ctx, owner);
         RoleDomain.Falling(owner, dt);
+
+        ctx.propRepo.Foreach(prop => {
+            PropFsmController.ApplyFsm(ctx, prop);
+        });
 
         Physics.Simulate(dt);
         RoleDomain.CheckGround(ctx, owner);

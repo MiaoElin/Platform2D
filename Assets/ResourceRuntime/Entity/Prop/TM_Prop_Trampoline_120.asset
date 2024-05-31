@@ -19,7 +19,7 @@ MonoBehaviour:
   isLadder: 0
   isAltar: 0
   isTrampoline: 1
-  jumpForce: 15
+  jumpForce: 60
   anim_BePress:
   - {fileID: 21300000, guid: 5654e52f7db2e9640b926d626a415f08, type: 3}
   - {fileID: 21300000, guid: 710a784b8433c78408e059664b6721c9, type: 3}

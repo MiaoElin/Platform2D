@@ -15,12 +15,6 @@ public class PropEM : MonoBehaviour {
             if (tm == null) {
                 return;
             }
-            // mod = new GameObject("SR");
-            // mod.transform.SetParent(transform);
-            // var sr = mod.AddComponent<SpriteRenderer>();
-            // sr.name = propTM.TypeName;
-            // sr.drawMode = SpriteDrawMode.Tiled;
-            // sr.sprite = propTM.mesh;
             mod = GameObject.Instantiate(tm.mod, transform);
             mod.transform.position = Vector3.zero;
             mod.transform.eulerAngles = Vector3.zero;

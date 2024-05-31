@@ -68,6 +68,7 @@ public static class GameFactory {
         PropEntity prop = ctx.poolService.GetProp();
         prop.typeID = typeID;
         prop.id = ctx.iDService.propIDRecord++;
+        prop.Ctor();
         prop.SetPos(pos);
         prop.SetRotation(rotaion);
         prop.SetScale(localScale);
@@ -81,10 +82,10 @@ public static class GameFactory {
         prop.isTrampoline = tm.isTrampoline;
         prop.anim_BePress = tm.anim_BePress;
         prop.jumpForce = tm.jumpForce;
-        prop.OnPressTrampolineHandle = () => {
-            // TO do
-            ctx.GetOwner().SetVelocityY(prop.jumpForce);
-        };
+        // prop.OnPressTrampolineHandle = (float jumpForce) => {
+        //     // TO do
+        //     ctx.GetOwner().SetVelocityY(jumpForce);
+        // };
 
         prop.SetCollider(tm.colliderType, isModifySize, sizeScale);
         prop.gameObject.SetActive(true);

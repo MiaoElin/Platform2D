@@ -4,6 +4,7 @@ using System;
 public class PropEntity : MonoBehaviour {
     public int typeID;
     public int id;
+    public PropFSMComponent fsm;
     public GameObject mod;
     public SpriteRenderer sr;
     public Vector2 size;
@@ -16,9 +17,9 @@ public class PropEntity : MonoBehaviour {
 
     // 反射板
     public bool isTrampoline;
+    public bool isOwnerOnTrampoline;
     public float jumpForce;
     public Sprite[] anim_BePress;
-    public Action OnPressTrampolineHandle;
 
     public bool isModifySize;
     public ColliderType colliderType;
@@ -27,9 +28,8 @@ public class PropEntity : MonoBehaviour {
     public CircleCollider2D circleCollider;
 
 
-
     public void Ctor() {
-
+        fsm = new PropFSMComponent();
     }
 
     public void SetPos(Vector2 pos) {
