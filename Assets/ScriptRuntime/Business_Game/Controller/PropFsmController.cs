@@ -36,14 +36,13 @@ public static class PropFsmController {
             // 限制x的范围
             if (pos.x > lowPos.x && pos.x < hightPos.x) {
                 // 往上爬的Y范围
-                if (pos.y > lowPos.y && pos.y < hightPos.y) {
+                if (pos.y + owenr.height / 2 > lowPos.y && pos.y < hightPos.y) {
                     if (ctx.input.moveAxis.y > 0) {
                         owenr.fsm.EnterLadder(lowestY, highestY);
                     }
                     // 往下爬的Y的范围 
-                } else if (pos.y > hightPos.y && pos.y < highestY) {
+                } else if (pos.y > hightPos.y && pos.y < highestY) {   // 大于highest 到达顶部，collider变硬、 小于是开始下降
                     if (ctx.input.moveAxis.y < 0) {
-                        ctx.GetCurrentMap().SetGridTrigger();
                         owenr.fsm.EnterLadder(lowestY, highestY);
                     }
                 }

@@ -60,7 +60,7 @@ public static class GameFactory {
         return prop;
     }
 
-    public static PropEntity Prop_Spawn(GameContext ctx, int typeID, Vector2 pos, Vector3 rotaion, Vector3 localScale, bool isModifySize, Vector2 sizeScale) {
+    public static PropEntity Prop_Spawn(GameContext ctx, int typeID, Vector2 pos, Vector3 rotaion, Vector3 localScale, bool isModifySize, Vector2 sizeScale, float jumpForce) {
         ctx.asset.TryGet_PropTM(typeID, out var tm);
         if (!tm) {
             Debug.LogError($"GameFactory.Prop_Spawn {typeID} is not find");
@@ -68,6 +68,7 @@ public static class GameFactory {
         PropEntity prop = ctx.poolService.GetProp();
         prop.typeID = typeID;
         prop.id = ctx.iDService.propIDRecord++;
+        prop.jumpForce = jumpForce;
         prop.Ctor();
         prop.SetPos(pos);
         prop.SetRotation(rotaion);
@@ -81,7 +82,6 @@ public static class GameFactory {
 
         prop.isTrampoline = tm.isTrampoline;
         prop.anim_BePress = tm.anim_BePress;
-        prop.jumpForce = tm.jumpForce;
         // prop.OnPressTrampolineHandle = (float jumpForce) => {
         //     // TO do
         //     ctx.GetOwner().SetVelocityY(jumpForce);

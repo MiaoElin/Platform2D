@@ -24,15 +24,32 @@ MonoBehaviour:
     propTypeID: 100
     isModifySize: 1
     sizeScale: {x: 1, y: 23}
+    jumpForce: 0
   - pos: {x: 24.9, y: -22.75}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     propTypeID: 120
     isModifySize: 0
     sizeScale: {x: 0, y: 0}
+    jumpForce: 60
+  - pos: {x: -30.3, y: -55.7}
+    rotation: {x: -0, y: 0, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
+    propTypeID: 120
+    isModifySize: 0
+    sizeScale: {x: 0, y: 0}
+    jumpForce: 80
   - pos: {x: 39, y: -21}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     propTypeID: 110
     isModifySize: 0
     sizeScale: {x: 0, y: 0}
+    jumpForce: 0
+  - pos: {x: 0, y: -14.67}
+    rotation: {x: -0, y: 0, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
+    propTypeID: 100
+    isModifySize: 1
+    sizeScale: {x: 1, y: 10.9}
+    jumpForce: 0

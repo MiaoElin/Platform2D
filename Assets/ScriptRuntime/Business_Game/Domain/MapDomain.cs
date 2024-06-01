@@ -9,7 +9,7 @@ public static class MapDomain {
         var propSpawnerTMs = map.propSpawnerTMs;
         {
             foreach (var tm in propSpawnerTMs) {
-                PropDomain.Spawn(ctx, tm.propTypeID, tm.pos, tm.rotation, tm.localScale, tm.isModifySize, tm.sizeScale);
+                PropDomain.Spawn(ctx, tm.propTypeID, tm.pos, tm.rotation, tm.localScale, tm.isModifySize, tm.sizeScale, tm.jumpForce);
             }
         }
 

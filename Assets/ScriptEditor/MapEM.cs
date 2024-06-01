@@ -21,6 +21,7 @@ public class MapEM : MonoBehaviour {
                     propTypeID = em.tm.typeID,
                     isModifySize = em.isModifySize,
                     sizeScale = em.sizeScalse,
+                    jumpForce = em.jumpForce
                 };
                 tm.propSpawnerTMs[i] = propSpawnerTM;
             }
