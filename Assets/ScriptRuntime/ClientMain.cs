@@ -18,7 +18,7 @@ public class ClientMain : MonoBehaviour {
 
         LoadAll();
 
-        ctx.poolService.Init(() => GameFactory.Role_Create(ctx), () => GameFactory.Prop_Create(ctx));
+        ctx.poolService.Init(() => GameFactory.Role_Create(ctx), () => GameFactory.Prop_Create(ctx), () => GameFactory.Loot_Create(ctx));
 
         GameBusiness_Normal.EnterStage(ctx);
 

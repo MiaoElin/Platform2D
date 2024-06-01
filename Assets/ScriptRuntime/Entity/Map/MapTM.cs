@@ -10,5 +10,6 @@ public class MapTM : ScriptableObject {
     public Sprite backSceneFront;
 
     public propSpawnerTM[] propSpawnerTMs;
+    public LootSpawnerTM[] lootSpawnerTMs;
 
 }

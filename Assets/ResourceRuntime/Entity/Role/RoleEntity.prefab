@@ -49,11 +49,13 @@ MonoBehaviour:
   id: 0
   typeID: 0
   moveSpeed: 0
+  height: 0
   ally: 0
   moveType: 0
   rb: {fileID: 5888657450253955265}
   anim: {fileID: 0}
   body: {fileID: 6976518383871752290}
+  isStayInGround: 0
   gravity: 0
   jumpForce: 0
   isJumpKeyDown: 0

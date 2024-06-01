@@ -71,6 +71,24 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Prop
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7031101ee18474c45bdf081672c6c1e5
+    m_Address: Assets/ResourceRuntime/Entity/Loot/TM_Loot_Box_10.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Loot
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 483e7876128ac504299cd2c575242a97
+    m_Address: Assets/ResourceRuntime/Entity/Loot/LootEnity.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Entity
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad12fefe3001d494b94ed5f08cdee601
+    m_Address: Assets/ResourceRuntime/Entity/Loot/TM_Loot_Coin_20.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Loot
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:

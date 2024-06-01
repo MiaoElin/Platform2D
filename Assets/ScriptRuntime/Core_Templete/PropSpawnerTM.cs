@@ -9,6 +9,7 @@ public class propSpawnerTM {
     public Vector3 localScale;
     
     public int propTypeID;
+    
     public bool isModifySize;
     public Vector2 sizeScale;
 

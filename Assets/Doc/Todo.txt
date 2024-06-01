@@ -1,0 +1,15 @@
+=== UI ===
+Panel_PlayerStatus
+ - 金币数
+ - 装备栏
+
+
+=== Loot ===
+- lootEntity
+- lootTM
+- 生成loot
+- lootEM
+- 编辑器里添加一些loot
+- 在MapSpawn生成Loot
+
+=== Stuff ===

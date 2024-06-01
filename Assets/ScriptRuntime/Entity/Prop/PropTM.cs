@@ -16,7 +16,7 @@ public class PropTM : ScriptableObject {
 
     // 反射板
     public bool isTrampoline;
-    public Sprite[] anim_BePress;
+    public Sprite[] anim_Normal;
 
     public ColliderType colliderType;
 

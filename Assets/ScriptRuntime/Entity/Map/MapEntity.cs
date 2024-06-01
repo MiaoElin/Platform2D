@@ -7,6 +7,8 @@ public class MapEntity : MonoBehaviour {
     public Sprite backSceneFront;
     Grid grid;
     public propSpawnerTM[] propSpawnerTMs;
+    public LootSpawnerTM[] lootSpawnerTMs;
+
 
     public void Ctor(int stageID, Grid grid) {
         this.stageID = stageID;

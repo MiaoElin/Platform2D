@@ -12,7 +12,12 @@ public static class MapDomain {
                 PropDomain.Spawn(ctx, tm.propTypeID, tm.pos, tm.rotation, tm.localScale, tm.isModifySize, tm.sizeScale, tm.jumpForce);
             }
         }
-
+        var lootSpawnerTMs = map.lootSpawnerTMs;
+        {
+            foreach (var tm in lootSpawnerTMs) {
+                LootDomain.Spawn(ctx, tm.lootTypeID, tm.pos, tm.rotation, tm.localScale);
+            }
+        }
         return map;
     }
 

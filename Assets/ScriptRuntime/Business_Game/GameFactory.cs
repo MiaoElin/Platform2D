@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public static class GameFactory {
@@ -44,6 +45,7 @@ public static class GameFactory {
         map.backSceneMid = tm.backSceneMid;
         map.backSceneFront = tm.backSceneFront;
         map.propSpawnerTMs = tm.propSpawnerTMs;
+        map.lootSpawnerTMs = tm.lootSpawnerTMs;
         return map;
     }
 
@@ -81,7 +83,7 @@ public static class GameFactory {
         prop.isAltar = tm.isAltar;
 
         prop.isTrampoline = tm.isTrampoline;
-        prop.anim_BePress = tm.anim_BePress;
+        prop.anim_BePress = tm.anim_Normal;
         // prop.OnPressTrampolineHandle = (float jumpForce) => {
         //     // TO do
         //     ctx.GetOwner().SetVelocityY(jumpForce);
@@ -91,5 +93,30 @@ public static class GameFactory {
         prop.gameObject.SetActive(true);
         return prop;
     }
+
+    public static LootEntity Loot_Create(GameContext ctx) {
+        ctx.asset.TryGet_Entity_Prefab(typeof(LootEntity).Name, out var prefab);
+        LootEntity loot = GameObject.Instantiate(prefab, ctx.poolService.lootGroup).GetComponent<LootEntity>();
+        loot.gameObject.SetActive(false);
+        return loot;
+    }
+
+
+    internal static LootEntity Loot_Spawn(GameContext ctx, int typeID, Vector2 pos, Vector3 rotation, Vector3 localScale) {
+        ctx.asset.TryGet_LootTM(typeID, out var tm);
+        if (!tm) {
+            Debug.LogError($"GameFactory.Loot_Spawn {typeID} is not find");
+        }
+        LootEntity loot = ctx.poolService.GetLoot();
+        loot.typeID = typeID;
+        loot.id = ctx.iDService.lootIDRecord++;
+        loot.Ctor(tm.sprite);
+        loot.SetPos(pos);
+        loot.SetRotation(rotation);
+        loot.SetLocalScale(localScale);
+        loot.gameObject.SetActive(true);
+        return loot;
+    }
+
 
 }

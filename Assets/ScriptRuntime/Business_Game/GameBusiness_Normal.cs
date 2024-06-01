@@ -52,7 +52,7 @@ public static class GameBusiness_Normal {
         });
         RoleFSMConTroller.ApplyFsm(ctx, owner, dt);
 
-        Physics.Simulate(dt);
+        Physics2D.Simulate(dt);
         RoleDomain.CheckGround(ctx, owner);
     }
     static void LateTick(GameContext ctx, float dt) {

@@ -19,8 +19,14 @@ MonoBehaviour:
   isLadder: 0
   isAltar: 0
   isTrampoline: 1
-  jumpForce: 60
   anim_BePress:
-  - {fileID: 21300000, guid: 5654e52f7db2e9640b926d626a415f08, type: 3}
-  - {fileID: 21300000, guid: 710a784b8433c78408e059664b6721c9, type: 3}
+  - {fileID: -6451659011051416826, guid: e90a5430795fe4646bcffae9e8e78a52, type: 3}
+  - {fileID: 5763944664088261270, guid: e90a5430795fe4646bcffae9e8e78a52, type: 3}
+  - {fileID: -241156948233288094, guid: e90a5430795fe4646bcffae9e8e78a52, type: 3}
+  - {fileID: 1379929217135556736, guid: e90a5430795fe4646bcffae9e8e78a52, type: 3}
+  - {fileID: 1018185316041469859, guid: e90a5430795fe4646bcffae9e8e78a52, type: 3}
+  - {fileID: 4533643106053293943, guid: e90a5430795fe4646bcffae9e8e78a52, type: 3}
+  - {fileID: 2358241775649404834, guid: e90a5430795fe4646bcffae9e8e78a52, type: 3}
+  - {fileID: 3670861799719939002, guid: e90a5430795fe4646bcffae9e8e78a52, type: 3}
+  - {fileID: 5720627644259429545, guid: e90a5430795fe4646bcffae9e8e78a52, type: 3}
   colliderType: 2
