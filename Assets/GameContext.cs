@@ -21,6 +21,7 @@ public class GameContext {
     public InputEntity input;
     public CameraEntity camera;
     public BackSceneEntity backScene;
+    public PlayerEntity player;
 
     // EventCenter
     public EventCenter eventCenter;
@@ -43,13 +44,14 @@ public class GameContext {
         // Entity
         input = new InputEntity();
         camera = new CameraEntity();
+        player = new PlayerEntity();
         // EventCenter
         eventCenter = new EventCenter();
     }
-    
-    public void Inject(CinemachineVirtualCamera camera, Canvas screenCanvas,Canvas hudCanvas) {
+
+    public void Inject(CinemachineVirtualCamera camera, Canvas screenCanvas, Canvas hudCanvas) {
         this.camera.Inject(camera);
-        this.uIApp.Inject(asset, screenCanvas,hudCanvas);
+        this.uIApp.Inject(asset, screenCanvas, hudCanvas);
     }
 
     public RoleEntity GetOwner() {

@@ -14,7 +14,7 @@ public static class HUD_Hints_Domain {
         panel.gameObject.SetActive(true);
     }
 
-    public static void Close(UIContext ctx) {
+    public static void Hide(UIContext ctx) {
         var panel = ctx.uIRepo.TryGet<HUD_Hints>();
         panel?.gameObject.SetActive(false);
     }

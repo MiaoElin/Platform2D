@@ -22,7 +22,7 @@ public static class RoleDomain {
         if (other.tag == "Loot") {
             var loot = other.GetComponentInParent<LootEntity>();
             if (loot.needHints) {
-                UIDomain.Panel_Hints_Close(ctx);
+                UIDomain.Panel_Hints_Hide(ctx);
             }
         }
     }

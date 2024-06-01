@@ -19,9 +19,15 @@ public static class GameBusiness_Normal {
         ctx.ownerID = owner.id;
         owner.fsm.EnterNormal();
 
+        // player
+        ctx.player.coinCount = 500;
+
         // Camera
         ctx.camera.SetFollow(owner.transform);
         ctx.camera.SetLookAt(owner.transform);
+
+        // UI
+        UIDomain.Panel_PlayerStatus_Open(ctx);
     }
 
     public static void Tick(GameContext ctx, float dt) {
