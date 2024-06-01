@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: TM_Loot_Coin_20
   m_EditorClassIdentifier: 
   typeID: 20
-  sprite: {fileID: 751744255682285910, guid: 3cfdb73a98d95e348ab177aa789602ae, type: 3}
+  mod: {fileID: 1263152816738523673, guid: 082765f37c5cd8a46958f26889a33b01, type: 3}
+  needHints: 1
   isDropLoot: 1

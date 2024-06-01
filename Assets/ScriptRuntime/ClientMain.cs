@@ -20,8 +20,20 @@ public class ClientMain : MonoBehaviour {
 
         ctx.poolService.Init(() => GameFactory.Role_Create(ctx), () => GameFactory.Prop_Create(ctx), () => GameFactory.Loot_Create(ctx));
 
+        EventBind();
+
         GameBusiness_Normal.EnterStage(ctx);
 
+    }
+
+    public void EventBind() {
+        var eventCenter = ctx.eventCenter;
+        eventCenter.openP_HintsHandle += (Vector2 pos) => {
+            pos += Vector2.up * 3;
+            Debug.Log(pos);
+            Vector2 screenPos = Camera.main.WorldToScreenPoint(pos);
+            UIDomain.Panel_Hints_Open(ctx, screenPos);
+        };
     }
 
     private void LoadAll() {

@@ -28,6 +28,7 @@ public static class GameFactory {
         role.jumpForce = tm.jumpForce;
         role.jumpTimes = tm.jumpTimesMax;
         role.jumpTimesMax = tm.jumpTimesMax;
+        role.openLootHintsHandle = (Vector2 pos) => { ctx.eventCenter.Owner_OpenP_Hints(pos); };
         role.gameObject.SetActive(true);
         return role;
     }
@@ -110,7 +111,9 @@ public static class GameFactory {
         LootEntity loot = ctx.poolService.GetLoot();
         loot.typeID = typeID;
         loot.id = ctx.iDService.lootIDRecord++;
-        loot.Ctor(tm.sprite);
+        loot.isDropLoot = tm.isDropLoot;
+        loot.needHints = tm.needHints;
+        loot.Ctor(tm.mod);
         loot.SetPos(pos);
         loot.SetRotation(rotation);
         loot.SetLocalScale(localScale);

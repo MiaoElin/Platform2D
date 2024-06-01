@@ -4,6 +4,10 @@ Panel_PlayerStatus
  - 装备栏
 
 
+=== 学习 ===
+- 给Sprite加外发光效果
+- BakeScene 做滚动效果
+
 === Loot ===
 - lootEntity
 - lootTM
@@ -13,3 +17,4 @@ Panel_PlayerStatus
 - 在MapSpawn生成Loot
 
 === Stuff ===
+

@@ -4,7 +4,8 @@ using UnityEngine;
 public class LootTM : ScriptableObject {
 
     public int typeID;
-    public Sprite sprite;
+    public GameObject mod;
+    public bool needHints;
 
     public bool isDropLoot; // 会掉落物品
 }

@@ -5,11 +5,11 @@ using System;
 [ExecuteInEditMode]
 public class LootEM : MonoBehaviour {
     public LootTM tm;
-    public SpriteRenderer SR;
+    public GameObject mod;
 
     void Awake() {
-        if (SR.sprite == null) {
-            SR.sprite = tm.sprite;
+        if (mod == null) {
+           mod= GameObject.Instantiate(tm.mod, transform);
         }
     }
 }

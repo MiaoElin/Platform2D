@@ -5,6 +5,7 @@ public class RoleEntity : MonoBehaviour {
 
     public int id;
     public int typeID;
+    public bool isOwner;
     public float moveSpeed;
     public float height;
     public Ally ally;
@@ -21,12 +22,14 @@ public class RoleEntity : MonoBehaviour {
     public int jumpTimesMax;
 
     public RoleFSMComponent fsm;
+    public Action<Vector2> openLootHintsHandle;
 
     public void Ctor(GameObject mod) {
         var bodyMod = GameObject.Instantiate(mod, body);
         this.anim = bodyMod.GetComponentInChildren<Animator>();
         fsm = new RoleFSMComponent();
         fsm.EnterNormal();
+
     }
 
     public void SetForward(float axisX) {
@@ -137,6 +140,14 @@ public class RoleEntity : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Ground") {
             isStayInGround = false;
+        }
+        if (isOwner) {
+            if (other.tag == "Loot") {
+                var loot = other.gameObject.GetComponentInParent<LootEntity>();
+                if (loot.needHints) {
+                    openLootHintsHandle.Invoke(loot.Pos());
+                }
+            }
         }
     }
 

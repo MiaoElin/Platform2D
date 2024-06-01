@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class LootRepo {
 
@@ -19,5 +20,11 @@ public class LootRepo {
 
     public void Remove(LootEntity loot) {
         all.Remove(loot.id);
+    }
+
+    public void Foreach(Action<LootEntity> action) {
+        foreach (var loot in all.Values) {
+            action(loot);
+        }
     }
 }

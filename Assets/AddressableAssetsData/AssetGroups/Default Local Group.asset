@@ -89,6 +89,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Loot
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd3f9f38aff4201418905436618f1139
+    m_Address: Assets/ResourceRuntime/Panel/Panel_Hints.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:

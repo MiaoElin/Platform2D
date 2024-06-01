@@ -8,6 +8,9 @@ public class Asset_Core {
     Dictionary<string, GameObject> entites;
     AsyncOperationHandle entityPtr;
 
+    Dictionary<string, GameObject> uiPrefabs;
+    AsyncOperationHandle uiPtr;
+
     Dictionary<int, RoleTM> roleTMs;
     AsyncOperationHandle roleTMPtr;
 
@@ -22,6 +25,7 @@ public class Asset_Core {
 
     public Asset_Core() {
         entites = new Dictionary<string, GameObject>();
+        uiPrefabs = new Dictionary<string, GameObject>();
         roleTMs = new Dictionary<int, RoleTM>();
         mapTMs = new Dictionary<int, MapTM>();
         propTMs = new Dictionary<int, PropTM>();
@@ -35,6 +39,14 @@ public class Asset_Core {
             var list = ptr.WaitForCompletion();
             foreach (var prefab in list) {
                 entites.Add(prefab.name, prefab);
+            }
+        }
+        {
+            var ptr = Addressables.LoadAssetsAsync<GameObject>("UI", null);
+            uiPtr = ptr;
+            var list = ptr.WaitForCompletion();
+            foreach (var prefab in list) {
+                uiPrefabs.Add(prefab.name, prefab);
             }
         }
         {
@@ -73,6 +85,7 @@ public class Asset_Core {
 
     public void Unload() {
         Release(entityPtr);
+        Release(uiPtr);
         Release(roleTMPtr);
         Release(mapTMPtr);
         Release(propTMPtr);
@@ -87,6 +100,10 @@ public class Asset_Core {
 
     public bool TryGet_Entity_Prefab(string name, out GameObject prefab) {
         return entites.TryGetValue(name, out prefab);
+    }
+
+    public bool TryGet_UI_Prefab(string name, out GameObject prefab) {
+        return uiPrefabs.TryGetValue(name, out prefab);
     }
 
     public bool TryGet_RoleTM(int typeID, out RoleTM tm) {

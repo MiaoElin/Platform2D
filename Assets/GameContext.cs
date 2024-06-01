@@ -8,6 +8,7 @@ public class GameContext {
     public IDService iDService;
 
     // === Core ===
+    public UIApp uIApp;
     public Asset_Core asset;
 
     // === Repo ===
@@ -21,6 +22,9 @@ public class GameContext {
     public CameraEntity camera;
     public BackSceneEntity backScene;
 
+    // EventCenter
+    public EventCenter eventCenter;
+
     public int ownerID;
     public int currentStageID;
 
@@ -29,6 +33,7 @@ public class GameContext {
         poolService = new PoolService();
         iDService = new IDService();
         // Core
+        uIApp = new UIApp();
         asset = new Asset_Core();
         // Repo
         roleRepo = new RoleRepo();
@@ -38,9 +43,12 @@ public class GameContext {
         // Entity
         input = new InputEntity();
         camera = new CameraEntity();
+        // EventCenter
+        eventCenter = new EventCenter();
     }
     public void Inject(CinemachineVirtualCamera camera, Canvas screenCanvas) {
         this.camera.Inject(camera);
+        this.uIApp.Inject(asset, screenCanvas);
     }
 
     public RoleEntity GetOwner() {
