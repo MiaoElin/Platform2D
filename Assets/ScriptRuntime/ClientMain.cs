@@ -6,6 +6,7 @@ using Cinemachine;
 
 public class ClientMain : MonoBehaviour {
     [SerializeField] Canvas screenCanvas;
+    [SerializeField] Canvas hudCanvas;
     [SerializeField] CinemachineVirtualCamera mainCamera;
     GameContext ctx = new GameContext();
     bool isTearDown;
@@ -13,8 +14,7 @@ public class ClientMain : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
 
-
-        ctx.Inject(mainCamera, screenCanvas);
+        ctx.Inject(mainCamera, screenCanvas,hudCanvas);
 
         LoadAll();
 
@@ -28,12 +28,6 @@ public class ClientMain : MonoBehaviour {
 
     public void EventBind() {
         var eventCenter = ctx.eventCenter;
-        eventCenter.openP_HintsHandle += (Vector2 pos) => {
-            pos += Vector2.up * 3;
-            Debug.Log(pos);
-            Vector2 screenPos = Camera.main.WorldToScreenPoint(pos);
-            UIDomain.Panel_Hints_Open(ctx, screenPos);
-        };
     }
 
     private void LoadAll() {

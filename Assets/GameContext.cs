@@ -46,9 +46,10 @@ public class GameContext {
         // EventCenter
         eventCenter = new EventCenter();
     }
-    public void Inject(CinemachineVirtualCamera camera, Canvas screenCanvas) {
+    
+    public void Inject(CinemachineVirtualCamera camera, Canvas screenCanvas,Canvas hudCanvas) {
         this.camera.Inject(camera);
-        this.uIApp.Inject(asset, screenCanvas);
+        this.uIApp.Inject(asset, screenCanvas,hudCanvas);
     }
 
     public RoleEntity GetOwner() {

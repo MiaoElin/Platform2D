@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public static class RoleDomain {
@@ -5,7 +6,39 @@ public static class RoleDomain {
     public static RoleEntity Spawn(GameContext ctx, int typeID, Vector2 pos, Ally ally) {
         var role = GameFactory.Role_Spawn(ctx, typeID, pos, ally);
         ctx.roleRepo.Add(role);
+        role.OnTriggerEnterHandle = (Collider2D other) => {
+            On_Owner_TriggerEnterEvent(ctx, other);
+        };
+        role.OnTriggerExitHandle = (Collider2D other) => {
+            On_Owner_TriggerExitEvent(ctx, other);
+        };
+        role.OnTriggerStayHandle = (Collider2D other) => {
+            On_Owner_TriggerStayEvent(ctx, other);
+        };
         return role;
+    }
+
+    private static void On_Owner_TriggerExitEvent(GameContext ctx, Collider2D other) {
+        if (other.tag == "Loot") {
+            var loot = other.GetComponentInParent<LootEntity>();
+            if (loot.needHints) {
+                UIDomain.Panel_Hints_Close(ctx);
+            }
+        }
+    }
+
+    private static void On_Owner_TriggerEnterEvent(GameContext ctx, Collider2D other) {
+        if (other.tag == "Loot") {
+            var loot = other.GetComponentInParent<LootEntity>();
+            if (loot.needHints) {
+                var pos = loot.Pos() + Vector2.up * 3;
+                UIDomain.Panel_Hints_Open(ctx, pos);
+            }
+        }
+    }
+
+    private static void On_Owner_TriggerStayEvent(GameContext ctx, Collider2D other) {
+
     }
 
     public static void MoveByAxisX(GameContext ctx, RoleEntity role) {

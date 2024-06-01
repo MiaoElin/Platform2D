@@ -22,7 +22,9 @@ public class RoleEntity : MonoBehaviour {
     public int jumpTimesMax;
 
     public RoleFSMComponent fsm;
-    public Action<Vector2> openLootHintsHandle;
+    public Action<Collider2D> OnTriggerEnterHandle;
+    public Action<Collider2D> OnTriggerExitHandle;
+    public Action<Collider2D> OnTriggerStayHandle;
 
     public void Ctor(GameObject mod) {
         var bodyMod = GameObject.Instantiate(mod, body);
@@ -136,24 +138,25 @@ public class RoleEntity : MonoBehaviour {
         if (other.tag == "Ground") {
             isStayInGround = false;
         }
+        if (isOwner) {
+            OnTriggerExitHandle.Invoke(other);
+        }
     }
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Ground") {
             isStayInGround = false;
         }
         if (isOwner) {
-            if (other.tag == "Loot") {
-                var loot = other.gameObject.GetComponentInParent<LootEntity>();
-                if (loot.needHints) {
-                    openLootHintsHandle.Invoke(loot.Pos());
-                }
-            }
+            OnTriggerEnterHandle.Invoke(other);
         }
     }
 
     void OnTriggerStay2D(Collider2D other) {
         if (other.tag == "Ground") {
             isStayInGround = true;
+        }
+        if (isOwner) {
+            OnTriggerStayHandle.Invoke(other);
         }
     }
 

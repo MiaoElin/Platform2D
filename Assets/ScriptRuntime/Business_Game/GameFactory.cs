@@ -28,7 +28,6 @@ public static class GameFactory {
         role.jumpForce = tm.jumpForce;
         role.jumpTimes = tm.jumpTimesMax;
         role.jumpTimesMax = tm.jumpTimesMax;
-        role.openLootHintsHandle = (Vector2 pos) => { ctx.eventCenter.Owner_OpenP_Hints(pos); };
         role.gameObject.SetActive(true);
         return role;
     }

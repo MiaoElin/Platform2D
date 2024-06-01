@@ -2,14 +2,14 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Panel_Hints : MonoBehaviour {
+public class HUD_Hints : MonoBehaviour {
 
     [SerializeField] Image img_Icon;
 
     internal void Ctor() {
     }
 
-    internal void SetPos(Vector2 screenPos) {
-        transform.position = screenPos;
+    internal void SetPos(Vector2 pos) {
+        transform.position = pos;
     }
 }

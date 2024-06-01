@@ -90,7 +90,7 @@ MonoBehaviour:
     - TM_Loot
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cd3f9f38aff4201418905436618f1139
-    m_Address: Assets/ResourceRuntime/Panel/Panel_Hints.prefab
+    m_Address: Assets/ResourceRuntime/HUD/HUD_Hints.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UI
