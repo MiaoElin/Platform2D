@@ -16,7 +16,6 @@ public static class LootFSMController {
         var fsm = loot.fsm;
         if (fsm.isEnterNormal) {
             fsm.isEnterNormal = false;
-
         }
         ctx.lootRepo.Foreach(loot => {
             // 遍历，判断是否在角色范围内
@@ -29,6 +28,7 @@ public static class LootFSMController {
         if (fsm.isEnterUsed) {
             fsm.isEnterUsed = false;
             // Todo 播放used的动画
+            loot.Anim_Used();
         }
     }
 }

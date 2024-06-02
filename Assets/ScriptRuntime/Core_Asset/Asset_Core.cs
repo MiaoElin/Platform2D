@@ -26,8 +26,6 @@ public class Asset_Core {
     Dictionary<int, BuffTM> buffTMs;
     AsyncOperationHandle buffTMPtr;
 
-    BuffTM[] buffTMArray;
-
     public Asset_Core() {
         entites = new Dictionary<string, GameObject>();
         uiPrefabs = new Dictionary<string, GameObject>();
@@ -141,13 +139,18 @@ public class Asset_Core {
         return buffTMs.TryGetValue(typeID, out tm);
     }
 
-    public bool TryGetBuffTMArray(out BuffTM[] allBuff) {
+    public bool TryGetLootTMArray(out List<LootTM> allLoot) {
         if (buffTMs == null) {
-            allBuff = null;
+            allLoot = null;
             return false;
         }
-        allBuff = new BuffTM[buffTMs.Count];
-        buffTMs.Values.CopyTo(allBuff, 0);
+        allLoot = new List<LootTM>();
+        foreach (var loot in lootTMs) {
+            if (loot.Value.needHints) {
+                continue;
+            }
+            allLoot.Add(loot.Value);
+        }
         return true;
     }
 }

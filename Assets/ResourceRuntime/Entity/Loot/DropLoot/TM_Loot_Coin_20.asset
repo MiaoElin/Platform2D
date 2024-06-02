@@ -15,4 +15,4 @@ MonoBehaviour:
   typeID: 20
   mod: {fileID: 1263152816738523673, guid: 082765f37c5cd8a46958f26889a33b01, type: 3}
   needHints: 1
-  isDropLoot: 1
+  isDropLoot: 0

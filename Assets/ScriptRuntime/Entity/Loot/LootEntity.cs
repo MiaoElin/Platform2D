@@ -7,6 +7,7 @@ public class LootEntity : MonoBehaviour {
     public int id;
 
     public GameObject mod;
+    public Animator anim;
     public LootFSMComponent fsm;
 
     // DropLoot
@@ -22,6 +23,7 @@ public class LootEntity : MonoBehaviour {
 
     public void Ctor(GameObject mod) {
         this.mod = GameObject.Instantiate(mod, transform);
+        this.anim = this.mod.GetComponentInChildren<Animator>();
         fsm = new LootFSMComponent();
     }
 
@@ -41,4 +43,7 @@ public class LootEntity : MonoBehaviour {
         transform.localScale = scale;
     }
 
+    public void Anim_Used() {
+        anim.Play("Used");
+    }
 }

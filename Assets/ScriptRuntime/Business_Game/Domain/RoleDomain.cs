@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 public static class RoleDomain {
 
@@ -45,19 +46,20 @@ public static class RoleDomain {
             if (loot.fsm.status == LootStatus.Normal && loot.needHints) {
                 if (ctx.input.isInteractKeyDown) {
                     ctx.input.isInteractKeyDown = false;
-                    bool has = ctx.asset.TryGetBuffTMArray(out BuffTM[] allBuff);
-                    if (has) {
-                        int index = UnityEngine.Random.Range(0, allBuff.Length);
-                        int typeID = allBuff[index].typeID;
-                        var buff = BuffDomain.Spawn(ctx, typeID);
-                        // 获得了buff
-                        owner.buffCom.Add(buff);
-                        Debug.Log(buff.typeID);
-                        // 关闭UI
-                        UIDomain.Panel_Hints_Hide(ctx);
-                        // loot进入used状态
-                        loot.fsm.EnterUsed();
+                    if (loot.isDropLoot) {
+                        bool has = ctx.asset.TryGetLootTMArray(out List<LootTM> allloot);
+                        if (has) {
+                            int index = UnityEngine.Random.Range(0, allloot.Count);
+                            int typeID = allloot[index].typeID;
+                            Debug.Log(typeID);
+                            var newLoot = LootDomain.Spawn(ctx, typeID, loot.Pos(), Vector3.zero, Vector3.one);
+                            // 关闭UI
+                            UIDomain.Panel_Hints_Hide(ctx);
+                            // loot进入used状态
+                            loot.fsm.EnterUsed();
+                        }
                     }
+
                 }
             }
         }

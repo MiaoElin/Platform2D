@@ -57,6 +57,9 @@ public static class GameBusiness_Normal {
         ctx.propRepo.Foreach(prop => {
             PropFsmController.ApplyFsm(ctx, prop);
         });
+        ctx.lootRepo.Foreach(loot => {
+            LootFSMController.ApplyFsm(ctx, loot, dt);
+        });
         RoleFSMConTroller.ApplyFsm(ctx, owner, dt);
 
         Physics2D.Simulate(dt);
