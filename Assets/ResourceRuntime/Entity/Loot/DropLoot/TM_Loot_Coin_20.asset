@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: TM_Loot_Coin_20
   m_EditorClassIdentifier: 
   typeID: 20
+  price: 0
   mod: {fileID: 1263152816738523673, guid: 082765f37c5cd8a46958f26889a33b01, type: 3}
   needHints: 1
   isDropLoot: 0
+  isGetBuff: 0
+  buffTypeId: 0
+  isGetStuff: 0

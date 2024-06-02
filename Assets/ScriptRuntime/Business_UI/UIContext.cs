@@ -4,6 +4,7 @@ public class UIContext {
 
     public Asset_Core asset;
     public UIRepo uIRepo;
+    public HUD_HintsRepo hud_HintsRepo;
     public Transform screenCanvas;
     public Transform hudCanvas;
 
@@ -12,5 +13,6 @@ public class UIContext {
         this.screenCanvas = screenCanvas.transform;
         this.hudCanvas = hudCanvas.transform;
         uIRepo = new UIRepo();
+        hud_HintsRepo = new HUD_HintsRepo();
     }
 }

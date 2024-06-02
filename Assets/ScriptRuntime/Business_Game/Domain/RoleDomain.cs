@@ -23,7 +23,7 @@ public static class RoleDomain {
         if (other.tag == "Loot") {
             var loot = other.GetComponentInParent<LootEntity>();
             if (loot.needHints) {
-                UIDomain.Panel_Hints_Hide(ctx);
+                UIDomain.HUD_Hints_Hide(ctx, loot.id);
             }
         }
     }
@@ -34,7 +34,7 @@ public static class RoleDomain {
             var loot = other.GetComponentInParent<LootEntity>();
             if (loot.fsm.status == LootStatus.Normal && loot.needHints) {
                 var pos = loot.Pos() + Vector2.up * 3;
-                UIDomain.Panel_Hints_Open(ctx, pos);
+                UIDomain.HUD_Hints_ShowHIntIcon(ctx, loot.id);
             }
         }
     }
@@ -54,12 +54,15 @@ public static class RoleDomain {
                             Debug.Log(typeID);
                             var newLoot = LootDomain.Spawn(ctx, typeID, loot.Pos(), Vector3.zero, Vector3.one);
                             // 关闭UI
-                            UIDomain.Panel_Hints_Hide(ctx);
+                            UIDomain.HUD_Hints_Close(ctx, loot.id);
                             // loot进入used状态
                             loot.fsm.EnterUsed();
                         }
                     }
 
+                    if (loot.isGetBuff) {
+
+                    }
                 }
             }
         }

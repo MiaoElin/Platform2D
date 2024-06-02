@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: TM_Loot_Box_10
   m_EditorClassIdentifier: 
   typeID: 10
+  price: 35
   mod: {fileID: 1263152816738523673, guid: 879d16ce01ce795478d9d09e577d8841, type: 3}
   needHints: 1
   isDropLoot: 1
+  isGetBuff: 0
+  buffTypeId: 0
+  isGetStuff: 0

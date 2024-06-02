@@ -4,8 +4,18 @@ using UnityEngine;
 public class LootTM : ScriptableObject {
 
     public int typeID;
-    public GameObject mod;
-    public bool needHints;
+    public int price;
 
-    public bool isDropLoot; // 会掉落物品
+    public GameObject mod;
+
+    // DropLoot
+    public bool needHints;
+    public bool isDropLoot; // 会掉落loot
+
+    // GetBuff
+    public bool isGetBuff;
+    public int buffTypeId;
+
+    // GetStuff
+    public bool isGetStuff;
 }

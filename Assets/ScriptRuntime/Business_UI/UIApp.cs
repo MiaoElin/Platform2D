@@ -13,12 +13,20 @@ public class UIApp {
         ctx.Inject(asset, screenCanvas, hudCanvas);
     }
 
-    public void Panel_Hints_Open(Vector2 pos) {
-        HUD_Hints_Domain.Open(ctx, pos);
+    public void HUD_Hints_Open(int id, Vector2 pos, int price) {
+        HUD_Hints_Domain.Open(ctx, id, pos, price);
     }
 
-    public void Panel_Hints_Hide() {
-        HUD_Hints_Domain.Hide(ctx);
+    public void HUD_Hints_Hide(int id) {
+        HUD_Hints_Domain.Hide(ctx, id);
+    }
+    
+    public void HUD_Hints_Close(int id) {
+        HUD_Hints_Domain.Close(ctx, id);
+    }
+
+    public void HUD_Hints_ShowHIntIcon(int id) {
+        HUD_Hints_Domain.ShowHIntIcon(ctx, id);
     }
 
     public void Panel_PlayerStatus_Open(int coinCount) {

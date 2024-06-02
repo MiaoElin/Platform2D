@@ -5,6 +5,7 @@ public class LootEntity : MonoBehaviour {
 
     public int typeID;
     public int id;
+    public int price;
 
     public GameObject mod;
     public Animator anim;
@@ -16,6 +17,8 @@ public class LootEntity : MonoBehaviour {
 
     // GetBuff
     public bool isGetBuff;
+    public int buffTypeId;
+
 
     // GetStuff
     public bool isGetStuff;

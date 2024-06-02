@@ -16,3 +16,6 @@ MonoBehaviour:
   mod: {fileID: 1263152816738523673, guid: 771662db089025845a1dff7ecc4eafff, type: 3}
   needHints: 0
   isDropLoot: 0
+  isGetBuff: 1
+  buffTypeId: 111
+  isGetStuff: 0

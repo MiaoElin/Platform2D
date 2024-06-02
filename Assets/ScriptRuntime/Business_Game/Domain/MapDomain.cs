@@ -15,7 +15,8 @@ public static class MapDomain {
         var lootSpawnerTMs = map.lootSpawnerTMs;
         {
             foreach (var tm in lootSpawnerTMs) {
-                LootDomain.Spawn(ctx, tm.lootTypeID, tm.pos, tm.rotation, tm.localScale);
+                var loot = LootDomain.Spawn(ctx, tm.lootTypeID, tm.pos, tm.rotation, tm.localScale);
+                UIDomain.HUD_Hints_Open(ctx, loot.id, loot.Pos() + Vector2.up * 3, loot.price);
             }
         }
         return map;

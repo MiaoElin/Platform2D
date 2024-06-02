@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TM_Buff_AddHP_111
   m_EditorClassIdentifier: 
   typeID: 111
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 8481a9d83cd58184b9f3b8c8428b2793, type: 2}
   isPermanent: 1
   isGetShield: 0
   shieldValue: 0
