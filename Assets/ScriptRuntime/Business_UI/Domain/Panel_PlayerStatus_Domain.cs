@@ -7,6 +7,8 @@ public static class Panel_PlayerStatus_Domain {
         if (panel == null) {
             ctx.asset.TryGet_UI_Prefab(typeof(Panel_PlayerStatus).Name, out var prefab);
             panel = GameObject.Instantiate(prefab, ctx.screenCanvas).GetComponent<Panel_PlayerStatus>();
+            panel.Ctor();
+            ctx.uIRepo.Add(typeof(Panel_PlayerStatus).Name, panel.gameObject);
         }
         panel.Init(coinCount);
         panel.gameObject.SetActive(true);

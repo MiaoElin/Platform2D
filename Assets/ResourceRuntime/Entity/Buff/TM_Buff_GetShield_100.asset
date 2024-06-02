@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d49d9458d05da97459061570ea47ce47, type: 3}
+  m_Name: TM_Buff_GetShield_100
+  m_EditorClassIdentifier: 
+  typeID: 100
+  icon: {fileID: 0}
+  isPermanent: 1
+  isGetShield: 1
+  shieldValue: 200
+  shieldPersent: 0.3
+  shieldCDMax: 20
+  shieldDuration: 5
+  isAddHp: 0
+  addHpMax: 0
+  regenerationPerSecond: 0

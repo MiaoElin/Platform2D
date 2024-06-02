@@ -28,9 +28,10 @@ public static class RoleDomain {
     }
 
     private static void On_Owner_TriggerEnterEvent(GameContext ctx, Collider2D other) {
+        var owner = ctx.GetOwner();
         if (other.tag == "Loot") {
             var loot = other.GetComponentInParent<LootEntity>();
-            if (loot.needHints) {
+            if (loot.fsm.status == LootStatus.Normal && loot.needHints) {
                 var pos = loot.Pos() + Vector2.up * 3;
                 UIDomain.Panel_Hints_Open(ctx, pos);
             }
@@ -38,7 +39,28 @@ public static class RoleDomain {
     }
 
     private static void On_Owner_TriggerStayEvent(GameContext ctx, Collider2D other) {
-
+        var owner = ctx.GetOwner();
+        if (other.tag == "Loot") {
+            var loot = other.GetComponentInParent<LootEntity>();
+            if (loot.fsm.status == LootStatus.Normal && loot.needHints) {
+                if (ctx.input.isInteractKeyDown) {
+                    ctx.input.isInteractKeyDown = false;
+                    bool has = ctx.asset.TryGetBuffTMArray(out BuffTM[] allBuff);
+                    if (has) {
+                        int index = UnityEngine.Random.Range(0, allBuff.Length);
+                        int typeID = allBuff[index].typeID;
+                        var buff = BuffDomain.Spawn(ctx, typeID);
+                        // 获得了buff
+                        owner.buffCom.Add(buff);
+                        Debug.Log(buff.typeID);
+                        // 关闭UI
+                        UIDomain.Panel_Hints_Hide(ctx);
+                        // loot进入used状态
+                        loot.fsm.EnterUsed();
+                    }
+                }
+            }
+        }
     }
 
     public static void MoveByAxisX(GameContext ctx, RoleEntity role) {

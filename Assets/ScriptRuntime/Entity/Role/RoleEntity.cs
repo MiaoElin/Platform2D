@@ -22,6 +22,8 @@ public class RoleEntity : MonoBehaviour {
     public int jumpTimesMax;
 
     public RoleFSMComponent fsm;
+    public BuffSlotComponent buffCom;
+
     public Action<Collider2D> OnTriggerEnterHandle;
     public Action<Collider2D> OnTriggerExitHandle;
     public Action<Collider2D> OnTriggerStayHandle;
@@ -31,7 +33,7 @@ public class RoleEntity : MonoBehaviour {
         this.anim = bodyMod.GetComponentInChildren<Animator>();
         fsm = new RoleFSMComponent();
         fsm.EnterNormal();
-
+        buffCom = new BuffSlotComponent();
     }
 
     public void SetForward(float axisX) {

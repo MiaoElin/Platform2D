@@ -8,8 +8,16 @@ public class LootEntity : MonoBehaviour {
 
     public GameObject mod;
     public LootFSMComponent fsm;
-    public bool isDropLoot; // 会掉落物品
+
+    // DropLoot
     public bool needHints;
+    public bool isDropLoot; // 会掉落loot
+
+    // GetBuff
+    public bool isGetBuff;
+
+    // GetStuff
+    public bool isGetStuff;
 
 
     public void Ctor(GameObject mod) {

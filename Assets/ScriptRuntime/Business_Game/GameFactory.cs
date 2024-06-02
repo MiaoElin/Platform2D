@@ -120,5 +120,27 @@ public static class GameFactory {
         return loot;
     }
 
+    public static BuffSubEntity Buff_Spawn(GameContext ctx, int typeID) {
+        ctx.asset.TryGet_BuffTM(typeID, out var tm);
+        if (!tm) {
+            Debug.LogError($"GameFactory.Buff_Spawn {typeID} is not find");
+        }
 
+        BuffSubEntity buff = ctx.poolService.GetBuff();
+        buff.typeID = typeID;
+        buff.id = ctx.iDService.buffIDRecord++;
+        buff.isPermanent = tm.isPermanent;
+
+        buff.isGetShield = tm.isGetShield;
+        buff.shieldValue = tm.shieldValue;
+        buff.shieldPersent = tm.shieldPersent;
+        buff.shieldCDMax = tm.shieldCDMax;
+        buff.shieldDuration = tm.shieldDuration;
+
+        buff.isAddHp = tm.isAddHp;
+        buff.addHpMax = tm.addHpMax;
+        buff.regenerationPerSecond = tm.regenerationPerSecond;
+
+        return buff;
+    }
 }

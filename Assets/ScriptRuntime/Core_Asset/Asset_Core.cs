@@ -23,6 +23,11 @@ public class Asset_Core {
     Dictionary<int, LootTM> lootTMs;
     AsyncOperationHandle lootTMPtr;
 
+    Dictionary<int, BuffTM> buffTMs;
+    AsyncOperationHandle buffTMPtr;
+
+    BuffTM[] buffTMArray;
+
     public Asset_Core() {
         entites = new Dictionary<string, GameObject>();
         uiPrefabs = new Dictionary<string, GameObject>();
@@ -30,6 +35,7 @@ public class Asset_Core {
         mapTMs = new Dictionary<int, MapTM>();
         propTMs = new Dictionary<int, PropTM>();
         lootTMs = new Dictionary<int, LootTM>();
+        buffTMs = new Dictionary<int, BuffTM>();
     }
 
     public void LoadAll() {
@@ -81,6 +87,14 @@ public class Asset_Core {
                 lootTMs.Add(tm.typeID, tm);
             }
         }
+        {
+            var ptr = Addressables.LoadAssetsAsync<BuffTM>("TM_Buff", null);
+            buffTMPtr = ptr;
+            var list = ptr.WaitForCompletion();
+            foreach (var tm in list) {
+                buffTMs.Add(tm.typeID, tm);
+            }
+        }
     }
 
     public void Unload() {
@@ -90,6 +104,7 @@ public class Asset_Core {
         Release(mapTMPtr);
         Release(propTMPtr);
         Release(lootTMPtr);
+        Release(buffTMPtr);
     }
 
     public void Release(AsyncOperationHandle ptr) {
@@ -120,5 +135,19 @@ public class Asset_Core {
 
     public bool TryGet_LootTM(int typeID, out LootTM tm) {
         return lootTMs.TryGetValue(typeID, out tm);
+    }
+
+    public bool TryGet_BuffTM(int typeID, out BuffTM tm) {
+        return buffTMs.TryGetValue(typeID, out tm);
+    }
+
+    public bool TryGetBuffTMArray(out BuffTM[] allBuff) {
+        if (buffTMs == null) {
+            allBuff = null;
+            return false;
+        }
+        allBuff = new BuffTM[buffTMs.Count];
+        buffTMs.Values.CopyTo(allBuff, 0);
+        return true;
     }
 }

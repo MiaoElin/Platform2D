@@ -14,11 +14,14 @@ public class ClientMain : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
 
-        ctx.Inject(mainCamera, screenCanvas,hudCanvas);
+        ctx.Inject(mainCamera, screenCanvas, hudCanvas);
 
         LoadAll();
 
-        ctx.poolService.Init(() => GameFactory.Role_Create(ctx), () => GameFactory.Prop_Create(ctx), () => GameFactory.Loot_Create(ctx));
+        ctx.poolService.Init(() => GameFactory.Role_Create(ctx),
+        () => GameFactory.Prop_Create(ctx),
+         () => GameFactory.Loot_Create(ctx),
+         () => new BuffSubEntity());
 
         EventBind();
 

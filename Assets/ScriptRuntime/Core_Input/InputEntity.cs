@@ -5,6 +5,7 @@ public class InputEntity {
     public Vector2 moveAxis;
 
     public bool isJumpKeyDown;
+    public bool isInteractKeyDown;
 
     public void Process() {
         moveAxis = Vector2.zero;
@@ -23,5 +24,6 @@ public class InputEntity {
 
         // Jump
         isJumpKeyDown = Input.GetKeyDown(KeyCode.Space);
+        isInteractKeyDown = Input.GetKeyDown(KeyCode.U);
     }
 }

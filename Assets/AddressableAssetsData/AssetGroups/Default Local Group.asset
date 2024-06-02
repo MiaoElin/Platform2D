@@ -101,6 +101,42 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82368f8d26673cf45ba69a5d20e5acee
+    m_Address: Assets/ResourceRuntime/Entity/Buff/TM_Buff_10.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Buff
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 604730deeb890d34ba889833c84b7ac3
+    m_Address: Assets/ResourceRuntime/Entity/Buff/TM_Buff_AddHP_20.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Buff
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f83a4e337b60d0f48b54a82f65b39dbe
+    m_Address: Assets/ResourceRuntime/Entity/Buff/TM_Buff_AddHP_21.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Buff
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bdd8465aeab6e3b4281716cc568f8377
+    m_Address: Assets/ResourceRuntime/Entity/Loot/TM_Loot_GetShield_100.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Loot
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 793624e2a34e7db40a9eb0a32a322be9
+    m_Address: Assets/ResourceRuntime/Entity/Loot/TM_Loot_AddHP_111.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Loot
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2f5f7f2dadbb2a4eacbd021148d37e2
+    m_Address: Assets/ResourceRuntime/Entity/Loot/TM_Loot_AddHP_110.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Loot
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:
