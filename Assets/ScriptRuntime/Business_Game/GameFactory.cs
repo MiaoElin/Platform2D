@@ -111,6 +111,7 @@ public static class GameFactory {
         loot.typeID = typeID;
         loot.id = ctx.iDService.lootIDRecord++;
         loot.price = tm.price;
+        loot.isDead = false;
         loot.needHints = tm.needHints;
 
         loot.isDropLoot = tm.isDropLoot;
@@ -137,6 +138,7 @@ public static class GameFactory {
         BuffSubEntity buff = ctx.poolService.GetBuff();
         buff.typeID = typeID;
         buff.id = ctx.iDService.buffIDRecord++;
+        buff.icon = tm.icon;
         buff.isPermanent = tm.isPermanent;
 
         buff.isGetShield = tm.isGetShield;

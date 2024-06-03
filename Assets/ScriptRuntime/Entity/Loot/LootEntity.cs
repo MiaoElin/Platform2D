@@ -11,6 +11,8 @@ public class LootEntity : MonoBehaviour {
     public Animator anim;
     public LootFSMComponent fsm;
 
+    public bool isDead;
+
     // DropLoot
     public bool needHints;
     public bool isDropLoot; // 会掉落loot
@@ -28,6 +30,11 @@ public class LootEntity : MonoBehaviour {
         this.mod = GameObject.Instantiate(mod, transform);
         this.anim = this.mod.GetComponentInChildren<Animator>();
         fsm = new LootFSMComponent();
+    }
+
+    internal void Reuse() {
+        isDead = false;
+        GameObject.Destroy(mod.gameObject);
     }
 
     public void SetPos(Vector2 pos) {

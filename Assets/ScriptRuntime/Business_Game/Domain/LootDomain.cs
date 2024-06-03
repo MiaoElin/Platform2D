@@ -9,5 +9,11 @@ public static class LootDomain {
         return loot;
     }
 
+    public static void UnSpawn(GameContext ctx, LootEntity loot) {
+        ctx.lootRepo.Remove(loot);
+        loot.Reuse();
+        loot.gameObject.SetActive(false);
+        ctx.poolService.ReturnLoot(loot);
+    }
 
 }

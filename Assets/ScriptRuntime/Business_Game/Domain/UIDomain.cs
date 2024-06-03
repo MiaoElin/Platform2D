@@ -27,6 +27,6 @@ public static class UIDomain {
     }
 
     public static void Panel_PlayerStatus_Update(GameContext ctx) {
-        ctx.uIApp.Panel_PlayerStatus_Update(ctx.player.coinCount);
+        ctx.uIApp.Panel_PlayerStatus_Update(ctx.player.coinCount, ctx.GetOwner().buffCom);
     }
 }

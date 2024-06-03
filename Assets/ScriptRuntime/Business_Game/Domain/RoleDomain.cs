@@ -10,11 +10,13 @@ public static class RoleDomain {
         role.OnTriggerEnterHandle = (Collider2D other) => {
             On_Owner_TriggerEnterEvent(ctx, other);
         };
-        role.OnTriggerExitHandle = (Collider2D other) => {
-            On_Owner_TriggerExitEvent(ctx, other);
-        };
+
         role.OnTriggerStayHandle = (Collider2D other) => {
             On_Owner_TriggerStayEvent(ctx, other);
+        };
+
+        role.OnTriggerExitHandle = (Collider2D other) => {
+            On_Owner_TriggerExitEvent(ctx, other);
         };
         return role;
     }
@@ -22,7 +24,10 @@ public static class RoleDomain {
     private static void On_Owner_TriggerExitEvent(GameContext ctx, Collider2D other) {
         if (other.tag == "Loot") {
             var loot = other.GetComponentInParent<LootEntity>();
-            if (loot.needHints) {
+            // if (loot == null) {
+            //     return;
+            // }
+            if (loot.fsm.status == LootStatus.Normal && loot.needHints) {
                 UIDomain.HUD_Hints_Hide(ctx, loot.id);
             }
         }
@@ -43,7 +48,10 @@ public static class RoleDomain {
         var owner = ctx.GetOwner();
         if (other.tag == "Loot") {
             var loot = other.GetComponentInParent<LootEntity>();
-            if (loot.fsm.status == LootStatus.Normal && loot.needHints) {
+            if (loot.fsm.status != LootStatus.Normal) {
+                return;
+            }
+            if (loot.needHints) {
                 if (ctx.input.isInteractKeyDown) {
                     ctx.input.isInteractKeyDown = false;
                     if (loot.isDropLoot) {
@@ -52,19 +60,20 @@ public static class RoleDomain {
                             int index = UnityEngine.Random.Range(0, allloot.Count);
                             int typeID = allloot[index].typeID;
                             Debug.Log(typeID);
-                            var newLoot = LootDomain.Spawn(ctx, typeID, loot.Pos(), Vector3.zero, Vector3.one);
+                            var newLoot = LootDomain.Spawn(ctx, typeID, loot.Pos() + Vector2.up * 3, Vector3.zero, Vector3.one);
                             // 关闭UI
                             UIDomain.HUD_Hints_Close(ctx, loot.id);
                             // loot进入used状态
                             loot.fsm.EnterUsed();
                         }
                     }
-
-                    if (loot.isGetBuff) {
-
-                    }
                 }
+            } else if (loot.isGetBuff) {
+                var buff = BuffDomain.Spawn(ctx, loot.buffTypeId);
+                owner.buffCom.Add(buff);
+                loot.isDead = true;
             }
+
         }
     }
 

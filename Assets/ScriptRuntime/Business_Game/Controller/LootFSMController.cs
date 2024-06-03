@@ -9,6 +9,8 @@ public static class LootFSMController {
             ApplyNormal(ctx, loot, dt);
         } else if (status == LootStatus.Used) {
             ApplyUsed(ctx, loot, dt);
+        } else if (status == LootStatus.Destroy) {
+            ApplyDestroy(ctx, loot);
         }
     }
 
@@ -31,4 +33,15 @@ public static class LootFSMController {
             loot.Anim_Used();
         }
     }
+
+    private static void ApplyDestroy(GameContext ctx, LootEntity loot) {
+        var fsm = loot.fsm;
+        if (fsm.isEnterDestroy) {
+            fsm.isEnterDestroy = false;
+            return;
+        }
+        LootDomain.UnSpawn(ctx, loot);
+
+    }
+
 }

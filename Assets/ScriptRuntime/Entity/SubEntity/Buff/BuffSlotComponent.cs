@@ -4,7 +4,7 @@ using System;
 
 public class BuffSlotComponent {
 
-    Dictionary<int, BuffSubEntity> all;
+    public Dictionary<int, BuffSubEntity> all;
     BuffSubEntity[] temp;
 
     public BuffSlotComponent() {
@@ -14,6 +14,7 @@ public class BuffSlotComponent {
 
     public void Add(BuffSubEntity buff) {
         all.Add(buff.id, buff);
+        Debug.Log(all.Count);
     }
 
     public void Remove(BuffSubEntity buff) {

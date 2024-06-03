@@ -37,7 +37,7 @@ public class UIApp {
         Panel_PlayerStatus_Domain.Hide(ctx);
     }
 
-    public void Panel_PlayerStatus_Update(int coinCount) {
-        Panel_PlayerStatus_Domain.Update_Tick(ctx, coinCount);
+    public void Panel_PlayerStatus_Update(int coinCount,BuffSlotComponent buffCom) {
+        Panel_PlayerStatus_Domain.Update_Tick(ctx, coinCount,buffCom);
     }
 }

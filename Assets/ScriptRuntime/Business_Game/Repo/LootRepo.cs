@@ -4,10 +4,11 @@ using System;
 
 public class LootRepo {
 
-    Dictionary<int, LootEntity> all;
-
+    public Dictionary<int, LootEntity> all;
+    LootEntity[] temp;
     public LootRepo() {
         all = new Dictionary<int, LootEntity>();
+        temp = new LootEntity[128];
     }
 
     public void Add(LootEntity loot) {
@@ -26,5 +27,13 @@ public class LootRepo {
         foreach (var loot in all.Values) {
             action(loot);
         }
+    }
+    public int TakeAll(out LootEntity[] Allprop) {
+        if (all.Count > temp.Length) {
+            temp = new LootEntity[(int)(all.Count * 1.5f)];
+        }
+        all.Values.CopyTo(temp, 0);
+        Allprop = temp;
+        return all.Count;
     }
 }

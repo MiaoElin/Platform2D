@@ -5,6 +5,7 @@ public class BuffSubEntity {
 
     public int typeID;
     public int id;
+    public Sprite icon;
 
     // 永久buff
     public bool isPermanent;

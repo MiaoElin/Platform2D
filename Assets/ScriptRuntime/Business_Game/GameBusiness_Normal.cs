@@ -32,6 +32,7 @@ public static class GameBusiness_Normal {
 
     public static void Tick(GameContext ctx, float dt) {
         PreTick(ctx, dt);
+        
         ref var resetTime = ref ctx.resetTime;
         const float Interval = 0.01f;
         resetTime += dt;
@@ -45,6 +46,7 @@ public static class GameBusiness_Normal {
             }
         }
 
+        LateTick(ctx, dt);
     }
 
     static void PreTick(GameContext ctx, float dt) {
@@ -60,12 +62,22 @@ public static class GameBusiness_Normal {
         ctx.lootRepo.Foreach(loot => {
             LootFSMController.ApplyFsm(ctx, loot, dt);
         });
+
+        int lootLen = ctx.lootRepo.TakeAll(out var allLoot);
+        for (int i = 0; i < lootLen; i++) {
+            var loot = allLoot[i];
+            if (loot.isDead) {
+                LootDomain.UnSpawn(ctx, loot);
+            }
+        }
+
         RoleFSMConTroller.ApplyFsm(ctx, owner, dt);
 
         Physics2D.Simulate(dt);
         RoleDomain.CheckGround(ctx, owner);
     }
+
     static void LateTick(GameContext ctx, float dt) {
-        throw new NotImplementedException();
+        UIDomain.Panel_PlayerStatus_Update(ctx);
     }
 }

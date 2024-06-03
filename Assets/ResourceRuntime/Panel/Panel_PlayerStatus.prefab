@@ -318,5 +318,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinCount_Txt: {fileID: 3451902305328718567}
   img_coin: {fileID: 5070941122231703411}
-  itemGroup: {fileID: 0}
+  itemGroup: {fileID: 2044016722813431893}
   prefab: {fileID: -7046326687241113635, guid: 310eba1a6d357444a8ba009aaf864c9f, type: 3}

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class LootFSMComponent {
@@ -8,6 +9,8 @@ public class LootFSMComponent {
 
     public bool isEnterUsed;
 
+    public bool isEnterDestroy;
+
     public void EnterNormal() {
         status = LootStatus.Normal;
         isEnterNormal = true;
@@ -16,5 +19,10 @@ public class LootFSMComponent {
     public void EnterUsed() {
         status = LootStatus.Used;
         isEnterUsed = true;
+    }
+
+    internal void EnterDestroy() {
+        status = LootStatus.Destroy;
+        isEnterDestroy = true;
     }
 }
