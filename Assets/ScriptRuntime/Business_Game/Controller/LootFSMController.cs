@@ -5,12 +5,26 @@ public static class LootFSMController {
 
     public static void ApplyFsm(GameContext ctx, LootEntity loot, float dt) {
         var status = loot.fsm.status;
-        if (status == LootStatus.Normal) {
+        if (status == LootStatus.EasingIn) {
+            ApplyEasingIN(ctx, loot, dt);
+
+        } else if (status == LootStatus.Normal) {
             ApplyNormal(ctx, loot, dt);
         } else if (status == LootStatus.Used) {
             ApplyUsed(ctx, loot, dt);
         } else if (status == LootStatus.Destroy) {
             ApplyDestroy(ctx, loot);
+        }
+    }
+
+    private static void ApplyEasingIN(GameContext ctx, LootEntity loot, float dt) {
+        var fsm = loot.fsm;
+        if (fsm.isEnterEasingIn) {
+            fsm.isEnterEasingIn = false;
+        }
+        loot.EasingIN(dt);
+        if (!fsm.isEasingIn) {
+            fsm.EnterNormal();
         }
     }
 

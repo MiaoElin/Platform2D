@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: TM_Loot_GetShield_100
   m_EditorClassIdentifier: 
   typeID: 100
+  price: 0
   mod: {fileID: 1263152816738523673, guid: e427d8286d9b89f4680f77842cb10bcf, type: 3}
   needHints: 0
   isDropLoot: 0
+  easingInduration: 1
   isGetBuff: 1
   buffTypeId: 100
   isGetStuff: 0

@@ -59,6 +59,7 @@ public static class RoleDomain {
                             int index = UnityEngine.Random.Range(0, allloot.Count);
                             int typeID = allloot[index].typeID;
                             var newLoot = LootDomain.Spawn(ctx, typeID, loot.Pos() + Vector2.up * 3, Vector3.zero, Vector3.one);
+                            newLoot.fsm.EnterEasingIn(loot.Pos());
                             // 关闭UI
                             UIDomain.HUD_Hints_Close(ctx, loot.id);
                             // loot进入used状态

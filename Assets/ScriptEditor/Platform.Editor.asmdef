@@ -1,0 +1,18 @@
+{
+    "name": "Platform.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:5158d6b28c9dcb648b91e68d80cce43a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "UNITY_EDITOR"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

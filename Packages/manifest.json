@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.gamearki.gamefunctions": "ssh://git@github.com/GameArki/GameFunctions.git?path=Assets",
     "com.unity.2d.tilemap.extras": "https://github.com/Unity-Technologies/2d-extras.git#master",
     "com.unity.addressables": "1.21.20",
     "com.unity.cinemachine": "2.9.7",

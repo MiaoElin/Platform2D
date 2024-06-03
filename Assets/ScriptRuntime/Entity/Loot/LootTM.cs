@@ -11,6 +11,7 @@ public class LootTM : ScriptableObject {
     // DropLoot
     public bool needHints;
     public bool isDropLoot; // 会掉落loot
+    public float easingInduration;
 
     // GetBuff
     public bool isGetBuff;

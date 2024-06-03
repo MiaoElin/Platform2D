@@ -113,21 +113,22 @@ public static class GameFactory {
         LootEntity loot = ctx.poolService.GetLoot();
         loot.typeID = typeID;
         loot.id = ctx.iDService.lootIDRecord++;
+        loot.Ctor(tm.mod);
+        loot.SetPos(pos);
+        loot.SetRotation(rotation);
+        loot.SetLocalScale(localScale);
         loot.price = tm.price;
         loot.isDead = false;
         loot.needHints = tm.needHints;
 
         loot.isDropLoot = tm.isDropLoot;
+        loot.fsm.easingInduration = tm.easingInduration;
 
         loot.isGetBuff = tm.isGetBuff;
         loot.buffTypeId = tm.buffTypeId;
 
         loot.isGetStuff = tm.isGetStuff;
 
-        loot.Ctor(tm.mod);
-        loot.SetPos(pos);
-        loot.SetRotation(rotation);
-        loot.SetLocalScale(localScale);
         loot.gameObject.SetActive(true);
         return loot;
     }

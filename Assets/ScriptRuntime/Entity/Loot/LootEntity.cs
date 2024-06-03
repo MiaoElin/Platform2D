@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using GameFunctions;
 
 public class LootEntity : MonoBehaviour {
 
@@ -24,7 +25,6 @@ public class LootEntity : MonoBehaviour {
 
     // GetStuff
     public bool isGetStuff;
-
 
     public void Ctor(GameObject mod) {
         this.mod = GameObject.Instantiate(mod, transform);
@@ -55,5 +55,24 @@ public class LootEntity : MonoBehaviour {
 
     public void Anim_Used() {
         anim.Play("Used");
+    }
+
+    public void EasingIN(float dt) {
+        if (!fsm.isEasingIn) {
+            return;
+        }
+        ref var timer = ref fsm.easingIntimer;
+        var duration = fsm.easingInduration;
+        var startPos = fsm.easingInStartPos;
+        var endPos = fsm.easingInEndPos;
+        if (timer < duration - 0.5f) {
+            transform.position = GFEasing.Ease2D(GFEasingEnum.MountainInCirc, timer, duration - 0.5f, startPos, endPos);
+            timer += dt;
+        } else if (timer < duration) {
+            timer += dt;
+        } else {
+            timer = 0;
+            fsm.isEasingIn = false;
+        }
     }
 }

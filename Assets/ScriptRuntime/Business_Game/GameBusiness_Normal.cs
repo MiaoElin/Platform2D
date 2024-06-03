@@ -81,9 +81,9 @@ public static class GameBusiness_Normal {
     }
 
     static void LateTick(GameContext ctx, float dt) {
-        
+
         UIDomain.Panel_PlayerStatus_Update(ctx);
-        
+
         ctx.roleRepo.Foreach(role => {
             UIDomain.HUD_HPBar_UpdateTick(ctx, role);
         });
