@@ -42,41 +42,46 @@ public static class RoleDomain {
     }
 
     private static void On_Owner_TriggerStayEvent(GameContext ctx, Collider2D other) {
+        On_Owner_Trigger_LootEvent(ctx, other);
+    }
+
+    public static void On_Owner_Trigger_LootEvent(GameContext ctx, Collider2D other) {
         var owner = ctx.GetOwner();
-        if (other.tag == "Loot") {
-            var loot = other.GetComponentInParent<LootEntity>();
-            if (loot.fsm.status != LootStatus.Normal) {
-                return;
-            }
+        if (other.tag != "Loot") {
+            return;
+        }
+        var loot = other.GetComponentInParent<LootEntity>();
+        if (loot.fsm.status != LootStatus.Normal) {
+            return;
+        }
+        if (ctx.input.isInteractKeyDown) {
+            ctx.input.isInteractKeyDown = false;
             if (loot.needHints) {
-                if (ctx.input.isInteractKeyDown) {
-                    ctx.input.isInteractKeyDown = false;
-                    // 扣除loot的Price
-                    ctx.player.coinCount -= loot.price;
-                    if (loot.isDropLoot) {
-                        bool has = ctx.asset.TryGetLootTMArray(out List<LootTM> allloot);
-                        if (has) {
-                            int index = UnityEngine.Random.Range(0, allloot.Count);
-                            int typeID = allloot[index].typeID;
-                            var newLoot = LootDomain.Spawn(ctx, typeID, loot.Pos() + Vector2.up * 3, Vector3.zero, Vector3.one);
-                            newLoot.fsm.EnterEasingIn(loot.Pos());
-                            // 关闭UI
-                            UIDomain.HUD_Hints_Close(ctx, loot.id);
-                            // loot进入used状态
-                            loot.fsm.EnterUsed();
-                        }
+                // 扣除loot的Price
+                ctx.player.coinCount -= loot.price;
+                if (loot.isDropLoot) {
+                    bool has = ctx.asset.TryGetLootTMArray(out List<LootTM> allloot);
+                    if (has) {
+                        int index = UnityEngine.Random.Range(0, allloot.Count);
+                        int typeID = allloot[index].typeID;
+                        var newLoot = LootDomain.Spawn(ctx, typeID, loot.Pos() + Vector2.up * 3, Vector3.zero, Vector3.one);
+                        newLoot.fsm.EnterEasingIn(loot.Pos());
+                        // 关闭UI
+                        UIDomain.HUD_Hints_Close(ctx, loot.id);
+                        // loot进入used状态
+                        loot.fsm.EnterUsed();
                     }
+                } else if (loot.isGetCoin) {
+                    ctx.player.coinCount += loot.coinCount;
+                    loot.fsm.EnterUsed();
+                    UIDomain.HUD_Hints_Close(ctx, loot.id);
                 }
-            } else if (loot.isGetBuff) {
-                var buff = BuffDomain.Spawn(ctx, loot.buffTypeId);
-                owner.buffCom.Add(buff);
-                loot.isDead = true;
-            } else if (loot.isGetCoin) {
-                Debug.Log("IN");
-                ctx.player.coinCount += loot.coinCount;
-                loot.fsm.EnterUsed();
             }
 
+        } else if (loot.isGetBuff) {
+            var buff = BuffDomain.Spawn(ctx, loot.buffTypeId);
+            owner.buffCom.Add(buff);
+            loot.isDead = true;
         }
     }
 

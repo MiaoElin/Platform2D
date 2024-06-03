@@ -17,7 +17,7 @@ MonoBehaviour:
   mod: {fileID: 1263152816738523673, guid: 082765f37c5cd8a46958f26889a33b01, type: 3}
   isGetCoin: 1
   coinCount: 30
-  needHints: 0
+  needHints: 1
   isDropLoot: 0
   easingInduration: 0
   isGetBuff: 0
