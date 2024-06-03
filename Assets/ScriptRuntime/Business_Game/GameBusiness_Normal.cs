@@ -32,7 +32,7 @@ public static class GameBusiness_Normal {
 
     public static void Tick(GameContext ctx, float dt) {
         PreTick(ctx, dt);
-        
+
         ref var resetTime = ref ctx.resetTime;
         const float Interval = 0.01f;
         resetTime += dt;
@@ -56,13 +56,16 @@ public static class GameBusiness_Normal {
     static void FixedTick(GameContext ctx, float dt) {
         var owner = ctx.GetOwner();
         ctx.backScene.SetPos(owner.Pos());
+
         ctx.propRepo.Foreach(prop => {
             PropFsmController.ApplyFsm(ctx, prop);
         });
+
         ctx.lootRepo.Foreach(loot => {
             LootFSMController.ApplyFsm(ctx, loot, dt);
         });
 
+        // 消除loot
         int lootLen = ctx.lootRepo.TakeAll(out var allLoot);
         for (int i = 0; i < lootLen; i++) {
             var loot = allLoot[i];
@@ -78,6 +81,11 @@ public static class GameBusiness_Normal {
     }
 
     static void LateTick(GameContext ctx, float dt) {
+        
         UIDomain.Panel_PlayerStatus_Update(ctx);
+        
+        ctx.roleRepo.Foreach(role => {
+            UIDomain.HUD_HPBar_UpdateTick(ctx, role);
+        });
     }
 }

@@ -20,6 +20,8 @@ public static class GameFactory {
         role.id = ctx.iDService.roleIDRecord++;
         role.SetPos(pos);
         role.ally = ally;
+        role.hp = tm.hpMax;
+        role.hpMax = tm.hpMax;
         role.moveSpeed = tm.moveSpeed;
         role.height = tm.height;
         role.moveType = tm.moveType;
@@ -46,6 +48,7 @@ public static class GameFactory {
         map.backSceneFront = tm.backSceneFront;
         map.propSpawnerTMs = tm.propSpawnerTMs;
         map.lootSpawnerTMs = tm.lootSpawnerTMs;
+        map.roleSpawnerTMs = tm.roleSpawnerTMs;
         return map;
     }
 

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public static class Panel_PlayerStatus_Domain {
 
-    public static void Open(UIContext ctx, int coinCount) {
+    public static void Open(UIContext ctx) {
         var panel = ctx.uIRepo.TryGet<Panel_PlayerStatus>();
         if (panel == null) {
             ctx.asset.TryGet_UI_Prefab(typeof(Panel_PlayerStatus).Name, out var prefab);
@@ -10,7 +10,6 @@ public static class Panel_PlayerStatus_Domain {
             panel.Ctor();
             ctx.uIRepo.Add(typeof(Panel_PlayerStatus).Name, panel.gameObject);
         }
-        panel.Init(coinCount);
         panel.gameObject.SetActive(true);
     }
 
@@ -19,9 +18,9 @@ public static class Panel_PlayerStatus_Domain {
         panel?.gameObject.SetActive(false);
     }
 
-    public static void Update_Tick(UIContext ctx, int coinCount, BuffSlotComponent buffCom) {
+    public static void Update_Tick(UIContext ctx, int hpMax, int coinCount, int hp, BuffSlotComponent buffCom) {
         var panel = ctx.uIRepo.TryGet<Panel_PlayerStatus>();
-        panel?.Init(coinCount);
+        panel?.Init(hpMax, coinCount, hp);
 
         buffCom.Foreach(buff => {
             if (buff.isPermanent) {

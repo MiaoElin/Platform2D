@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TM_Role_Owner_100
   m_EditorClassIdentifier: 
   typeID: 100
+  hpMax: 200
   moveSpeed: 6.5
   height: 3
   moveType: 1

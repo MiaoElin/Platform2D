@@ -14,7 +14,6 @@ public class BuffSlotComponent {
 
     public void Add(BuffSubEntity buff) {
         all.Add(buff.id, buff);
-        Debug.Log(all.Count);
     }
 
     public void Remove(BuffSubEntity buff) {

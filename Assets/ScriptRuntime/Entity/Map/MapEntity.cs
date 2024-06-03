@@ -8,6 +8,7 @@ public class MapEntity : MonoBehaviour {
     Grid grid;
     public propSpawnerTM[] propSpawnerTMs;
     public LootSpawnerTM[] lootSpawnerTMs;
+    public RoleSpawnerTM[] roleSpawnerTMs;
 
 
     public void Ctor(int stageID, Grid grid) {

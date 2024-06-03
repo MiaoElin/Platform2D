@@ -24,9 +24,6 @@ public static class RoleDomain {
     private static void On_Owner_TriggerExitEvent(GameContext ctx, Collider2D other) {
         if (other.tag == "Loot") {
             var loot = other.GetComponentInParent<LootEntity>();
-            // if (loot == null) {
-            //     return;
-            // }
             if (loot.fsm.status == LootStatus.Normal && loot.needHints) {
                 UIDomain.HUD_Hints_Hide(ctx, loot.id);
             }
@@ -54,12 +51,13 @@ public static class RoleDomain {
             if (loot.needHints) {
                 if (ctx.input.isInteractKeyDown) {
                     ctx.input.isInteractKeyDown = false;
+                    // 扣除loot的Price
+                    ctx.player.coinCount -= loot.price;
                     if (loot.isDropLoot) {
                         bool has = ctx.asset.TryGetLootTMArray(out List<LootTM> allloot);
                         if (has) {
                             int index = UnityEngine.Random.Range(0, allloot.Count);
                             int typeID = allloot[index].typeID;
-                            Debug.Log(typeID);
                             var newLoot = LootDomain.Spawn(ctx, typeID, loot.Pos() + Vector2.up * 3, Vector3.zero, Vector3.one);
                             // 关闭UI
                             UIDomain.HUD_Hints_Close(ctx, loot.id);

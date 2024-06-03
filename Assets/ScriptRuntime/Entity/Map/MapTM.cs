@@ -11,5 +11,6 @@ public class MapTM : ScriptableObject {
 
     public propSpawnerTM[] propSpawnerTMs;
     public LootSpawnerTM[] lootSpawnerTMs;
+    public RoleSpawnerTM[] roleSpawnerTMs;
 
 }

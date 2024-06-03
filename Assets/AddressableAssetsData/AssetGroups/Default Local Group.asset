@@ -137,6 +137,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Loot
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ceadc4eebe7afd942b580428bd4c7dff
+    m_Address: Assets/ResourceRuntime/Entity/Role/Monster/TM_Role_1000.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Role
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b995cdc94f691594d8a3620537ad6d56
+    m_Address: Assets/ResourceRuntime/HUD/HPBar/HUD_HPBar.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class RoleRepo {
 
@@ -19,4 +20,10 @@ public class RoleRepo {
         return all.TryGetValue(typeID, out role);
     }
 
+    public void Foreach(Action<RoleEntity> action) {
+        for (int i = 0; i < all.Count; i++) {
+            var role = all[i];
+            action.Invoke(role);
+        }
+    }
 }

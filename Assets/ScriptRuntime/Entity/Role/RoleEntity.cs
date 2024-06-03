@@ -6,6 +6,8 @@ public class RoleEntity : MonoBehaviour {
     public int id;
     public int typeID;
     public bool isOwner;
+    public int hp;
+    public int hpMax;
     public float moveSpeed;
     public float height;
     public Ally ally;
