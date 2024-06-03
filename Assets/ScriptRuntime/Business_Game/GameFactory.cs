@@ -119,6 +119,10 @@ public static class GameFactory {
         loot.SetLocalScale(localScale);
         loot.price = tm.price;
         loot.isDead = false;
+
+        loot.isGetCoin = tm.isGetCoin;
+        loot.coinCount = tm.coinCount;
+
         loot.needHints = tm.needHints;
 
         loot.isDropLoot = tm.isDropLoot;
@@ -157,4 +161,6 @@ public static class GameFactory {
 
         return buff;
     }
+
+    // public 
 }

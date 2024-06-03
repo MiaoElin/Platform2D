@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 43017454799433050}
   - component: {fileID: 978101213642555096}
   m_Layer: 0
-  m_Name: Mod_Monster_500
+  m_Name: Mod_Monster_100
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

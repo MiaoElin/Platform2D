@@ -149,6 +149,30 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d50f4f66ce065454da74215d50a21113
+    m_Address: Assets/ResourceRuntime/Entity/Skill/TM_SKill_100.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e4b2054ec3635bb4ab2fdaa98eb5785a
+    m_Address: Assets/ResourceRuntime/Entity/Skill/TM_SKill_300.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac6f058621717704b84ba8ac26f9aba3
+    m_Address: Assets/ResourceRuntime/Entity/Skill/TM_SKill_200.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56683e4566811404d9c57e6d5da136a2
+    m_Address: Assets/ResourceRuntime/Entity/Skill/TM_SKill_300.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Skill
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:

@@ -71,6 +71,10 @@ public static class RoleDomain {
                 var buff = BuffDomain.Spawn(ctx, loot.buffTypeId);
                 owner.buffCom.Add(buff);
                 loot.isDead = true;
+            } else if (loot.isGetCoin) {
+                Debug.Log("IN");
+                ctx.player.coinCount += loot.coinCount;
+                loot.fsm.EnterUsed();
             }
 
         }

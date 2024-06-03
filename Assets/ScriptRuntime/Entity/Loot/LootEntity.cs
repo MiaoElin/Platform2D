@@ -14,6 +14,10 @@ public class LootEntity : MonoBehaviour {
 
     public bool isDead;
 
+    // GetCoin
+    public bool isGetCoin;
+    public int coinCount;
+
     // DropLoot
     public bool needHints;
     public bool isDropLoot; // 会掉落loot

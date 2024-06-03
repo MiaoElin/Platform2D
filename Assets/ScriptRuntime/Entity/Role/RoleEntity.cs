@@ -25,7 +25,7 @@ public class RoleEntity : MonoBehaviour {
 
     public RoleFSMComponent fsm;
     public BuffSlotComponent buffCom;
-
+    public SkillSlotComponent skillCom;
     public Action<Collider2D> OnTriggerEnterHandle;
     public Action<Collider2D> OnTriggerExitHandle;
     public Action<Collider2D> OnTriggerStayHandle;
@@ -36,6 +36,7 @@ public class RoleEntity : MonoBehaviour {
         fsm = new RoleFSMComponent();
         fsm.EnterNormal();
         buffCom = new BuffSlotComponent();
+        skillCom = new SkillSlotComponent();
     }
 
     public void SetForward(float axisX) {

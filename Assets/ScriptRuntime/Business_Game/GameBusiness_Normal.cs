@@ -14,7 +14,7 @@ public static class GameBusiness_Normal {
         ctx.backScene = backScene;
 
         // Owner
-        var owner = RoleDomain.Spawn(ctx, 100, new Vector2(0, 15f), Ally.Player);
+        var owner = RoleDomain.Spawn(ctx, 10, new Vector2(0, 15f), Ally.Player);
         owner.isOwner = true;
         ctx.ownerID = owner.id;
         owner.fsm.EnterNormal();

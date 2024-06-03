@@ -2,7 +2,7 @@ public enum RoleStatus {
 
     None,
     Normal,
-    Shoot,
+    Casting,
     Ladder,
     Reborn,
 }

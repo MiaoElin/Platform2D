@@ -7,7 +7,6 @@ public static class LootFSMController {
         var status = loot.fsm.status;
         if (status == LootStatus.EasingIn) {
             ApplyEasingIN(ctx, loot, dt);
-
         } else if (status == LootStatus.Normal) {
             ApplyNormal(ctx, loot, dt);
         } else if (status == LootStatus.Used) {
@@ -33,10 +32,6 @@ public static class LootFSMController {
         if (fsm.isEnterNormal) {
             fsm.isEnterNormal = false;
         }
-        ctx.lootRepo.Foreach(loot => {
-            // 遍历，判断是否在角色范围内
-            // 如果在范围内打开UI 触发loot页
-        });
     }
 
     private static void ApplyUsed(GameContext ctx, LootEntity loot, float dt) {

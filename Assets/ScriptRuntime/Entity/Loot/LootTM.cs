@@ -8,6 +8,10 @@ public class LootTM : ScriptableObject {
 
     public GameObject mod;
 
+    // GetCoin
+    public bool isGetCoin;
+    public int coinCount;
+
     // DropLoot
     public bool needHints;
     public bool isDropLoot; // 会掉落loot
