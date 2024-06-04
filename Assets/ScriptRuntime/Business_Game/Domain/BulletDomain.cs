@@ -13,4 +13,8 @@ public static class BulletDomain {
         bullet.Reuse();
         ctx.poolService.ReturnBullet(bullet);
     }
+
+    public static void Move(BulletEntity bullet) {
+        bullet.Move();
+    }
 }

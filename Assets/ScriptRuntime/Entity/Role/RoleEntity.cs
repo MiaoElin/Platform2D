@@ -49,6 +49,14 @@ public class RoleEntity : MonoBehaviour {
         body.transform.localScale = scale;
     }
 
+    public Vector2 GetForWard() {
+        if (body.transform.localScale.x > 0) {
+            return Vector2.right;
+        } else {
+            return Vector2.left;
+        }
+    }
+
     internal void MoveByVertical(float y) {
     }
 

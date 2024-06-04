@@ -57,15 +57,17 @@ public static class GameBusiness_Normal {
         var owner = ctx.GetOwner();
         ctx.backScene.SetPos(owner.Pos());
 
+        // Prop Logic
         ctx.propRepo.Foreach(prop => {
             PropFsmController.ApplyFsm(ctx, prop);
         });
 
+        // Loot Logic
         ctx.lootRepo.Foreach(loot => {
             LootFSMController.ApplyFsm(ctx, loot, dt);
         });
 
-        // 消除loot
+        // Loot TearDown
         int lootLen = ctx.lootRepo.TakeAll(out var allLoot);
         for (int i = 0; i < lootLen; i++) {
             var loot = allLoot[i];
@@ -73,6 +75,12 @@ public static class GameBusiness_Normal {
                 LootDomain.UnSpawn(ctx, loot);
             }
         }
+
+        // Bullet Logic
+        ctx.bulletRepo.Foreach(bullet => {
+            BulletDomain.Move(bullet);
+        });
+
 
         RoleFSMConTroller.ApplyFsm(ctx, owner, dt);
 

@@ -55,6 +55,7 @@ public class InputEntity {
         } else {
             RemoveSkillKey(InputKeyEnum.SKill1);
         }
+
     }
 
 

@@ -163,32 +163,32 @@ public static class RoleDomain {
             role.fsm.RestCastStage(skill);
         }
 
-        var stage = role.fsm.skillCastStage;
+        ref var stage = ref role.fsm.skillCastStage;
         if (stage == SkillCastStage.PreCast) {
             role.fsm.preCastTimer -= dt;
             if (role.fsm.preCastTimer <= 0) {
                 stage = SkillCastStage.Casting;
             }
-        }
-        if (stage == SkillCastStage.Casting) {
+        } else if (stage == SkillCastStage.Casting) {
             role.fsm.castingIntervalTimer -= dt;
             if (role.fsm.castingIntervalTimer <= 0) {
                 role.fsm.castingIntervalTimer = skill.castingIntervalSec;
                 // todo发射技能
                 var bullet = BulletDomain.Spawn(ctx, skill.bulletTypeID, role.Pos(), role.ally);
                 bullet.Anim_Shoot();
-                // 从waitToCastkey 移除
-                waitToCastKeys.Remove(key);
+                bullet.moveDir = role.GetForWard();
+
             }
             role.fsm.castingMainTimer -= dt;
             if (role.fsm.castingMainTimer <= 0) {
                 stage = SkillCastStage.EndCast;
             }
-        }
-        if (stage == SkillCastStage.EndCast) {
+        } else if (stage == SkillCastStage.EndCast) {
             role.fsm.endCastTimer -= dt;
             if (role.fsm.endCastTimer <= 0) {
                 role.fsm.isEnterCastStageReset = true;
+                // 从waitToCastkey 移除
+                waitToCastKeys.Remove(key);
             }
         }
     }

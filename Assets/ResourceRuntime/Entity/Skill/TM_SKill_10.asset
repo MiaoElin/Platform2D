@@ -17,7 +17,7 @@ MonoBehaviour:
   damageRate: 1.5
   bulletTypeID: 10
   cdMax: 0
-  preCastCDMax: 0.1
-  castingMaintainSec: 0.4
-  castingIntervalSec: 0.4
-  endCastSec: 0.1
+  preCastCDMax: 0
+  castingMaintainSec: 0.1
+  castingIntervalSec: 0.1
+  endCastSec: 0.3
