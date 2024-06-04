@@ -1,12 +1,15 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class SkillSlotComponent {
 
     Dictionary<InputKeyEnum, SkillSubEntity> all;
+    public List<InputKeyEnum> waitToCastKeys;
 
     public SkillSlotComponent() {
         all = new Dictionary<InputKeyEnum, SkillSubEntity>();
+        waitToCastKeys = new List<InputKeyEnum>();
     }
 
     public void Ctor() {
@@ -15,6 +18,17 @@ public class SkillSlotComponent {
     public void Add(int index, SkillSubEntity skill) {
         var inputKeyEnum = GetInputKeyEnum(index);
         all.Add(inputKeyEnum, skill);
+    }
+
+    public void AddCastKey(InputKeyEnum inputKeyEnum) {
+        bool has = waitToCastKeys.Contains(inputKeyEnum);
+        if (!has) {
+            waitToCastKeys.Add(inputKeyEnum);
+        }
+    }
+
+    public InputKeyEnum GetFirstKey() {
+        return waitToCastKeys[0];
     }
 
     public InputKeyEnum GetInputKeyEnum(int index) {
@@ -28,6 +42,16 @@ public class SkillSlotComponent {
             return InputKeyEnum.Skill4;
         } else {
             return InputKeyEnum.None;
+        }
+    }
+
+    public bool TryGet(InputKeyEnum key, out SkillSubEntity skill) {
+        return all.TryGetValue(key, out skill);
+    }
+
+    public void Foreach(Action<SkillSubEntity> action) {
+        foreach (var value in all) {
+            action.Invoke(value.Value);
         }
     }
 }

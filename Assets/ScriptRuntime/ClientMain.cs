@@ -18,11 +18,15 @@ public class ClientMain : MonoBehaviour {
 
         LoadAll();
 
-        ctx.poolService.Init(() => GameFactory.Role_Create(ctx),
+        // PoolSercive
+        ctx.poolService.Init(
+        () => GameFactory.Role_Create(ctx),
         () => GameFactory.Prop_Create(ctx),
-         () => GameFactory.Loot_Create(ctx),
-         () => new BuffSubEntity());
+        () => GameFactory.Loot_Create(ctx),
+        () => new BuffSubEntity(),
+        () => GameFactory.Bullet_Create(ctx));
 
+        // EventBind
         EventBind();
 
         GameBusiness_Normal.EnterStage(ctx);

@@ -29,6 +29,9 @@ public class Asset_Core {
     Dictionary<int, SkillTM> skillTMs;
     AsyncOperationHandle skillPtr;
 
+    Dictionary<int, BulletTM> bulletTMs;
+    AsyncOperationHandle bulletPtr;
+
     public Asset_Core() {
         entites = new Dictionary<string, GameObject>();
         uiPrefabs = new Dictionary<string, GameObject>();
@@ -38,6 +41,7 @@ public class Asset_Core {
         lootTMs = new Dictionary<int, LootTM>();
         buffTMs = new Dictionary<int, BuffTM>();
         skillTMs = new Dictionary<int, SkillTM>();
+        bulletTMs = new Dictionary<int, BulletTM>();
     }
 
     public void LoadAll() {
@@ -105,6 +109,14 @@ public class Asset_Core {
                 skillTMs.Add(tm.typeID, tm);
             }
         }
+        {
+            var ptr = Addressables.LoadAssetsAsync<BulletTM>("TM_Bullet", null);
+            bulletPtr = ptr;
+            var list = ptr.WaitForCompletion();
+            foreach (var tm in list) {
+                bulletTMs.Add(tm.typeID, tm);
+            }
+        }
     }
 
     public void Unload() {
@@ -116,6 +128,7 @@ public class Asset_Core {
         Release(lootTMPtr);
         Release(buffTMPtr);
         Release(skillPtr);
+        Release(bulletPtr);
     }
 
     public void Release(AsyncOperationHandle ptr) {
@@ -169,6 +182,10 @@ public class Asset_Core {
 
     public bool TryGet_SkillTM(int typeID, out SkillTM tm) {
         return skillTMs.TryGetValue(typeID, out tm);
+    }
+
+    public bool TryGet_BulletTM(int typeID, out BulletTM tm) {
+        return bulletTMs.TryGetValue(typeID, out tm);
     }
 
 }

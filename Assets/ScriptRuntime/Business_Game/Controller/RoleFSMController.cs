@@ -5,11 +5,19 @@ public static class RoleFSMConTroller {
 
     public static void ApplyFsm(GameContext ctx, RoleEntity role, float dt) {
         var status = role.fsm.status;
+
+        ApplyAny(ctx, role, dt);
+
         if (status == RoleStatus.Normal) {
             ApplyNormal(ctx, role, dt);
         } else if (status == RoleStatus.Ladder) {
             ApplyLadder(ctx, role, dt);
         }
+
+    }
+
+    private static void ApplyAny(GameContext ctx, RoleEntity role, float dt) {
+        RoleDomain.CD_Tick(ctx, role, dt);
     }
 
     private static void ApplyNormal(GameContext ctx, RoleEntity role, float dt) {
@@ -17,9 +25,12 @@ public static class RoleFSMConTroller {
         if (fsm.isEnterNormal) {
             fsm.isEnterNormal = false;
         }
+        RoleDomain.Add_Skill_PreCast(ctx, role);
         RoleDomain.MoveByAxisX(ctx, role);
         RoleDomain.Jump(ctx, role);
         RoleDomain.Falling(role, dt);
+        RoleDomain.Casting(ctx, role, dt);
+
     }
 
     private static void ApplyLadder(GameContext ctx, RoleEntity role, float dt) {
@@ -41,4 +52,5 @@ public static class RoleFSMConTroller {
             ctx.GetCurrentMap().SetGridCollision();
         }
     }
+
 }

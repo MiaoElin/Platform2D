@@ -7,9 +7,21 @@ public class SkillSubEntity {
     public float damageRate;
     public int bulletTypeID;
 
-    public SkillCastStateModel castState;
+    // cd
+    public float cd;
+    public float cdMax;
+
+    // 前
+    public float preCastCDMax;
+
+    // 中
+    public float castingMaintainSec;
+    public float castingIntervalSec;
+
+    // 后
+    public float endCastSec;
+
 
     public SkillSubEntity() {
-        castState = new SkillCastStateModel();
     }
 }

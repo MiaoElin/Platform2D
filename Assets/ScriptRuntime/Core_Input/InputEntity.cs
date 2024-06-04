@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class InputEntity {
 
@@ -6,6 +7,12 @@ public class InputEntity {
 
     public bool isJumpKeyDown;
     public bool isInteractKeyDown;
+
+    public List<InputKeyEnum> waitToCastSkills;
+
+    public InputEntity() {
+        waitToCastSkills = new List<InputKeyEnum>();
+    }
 
     public void Process() {
         moveAxis = Vector2.zero;
@@ -25,5 +32,41 @@ public class InputEntity {
         // Jump
         isJumpKeyDown = Input.GetKeyDown(KeyCode.Space);
         isInteractKeyDown = Input.GetKeyDown(KeyCode.U);
+
+
+        if (Input.GetKey(KeyCode.X)) {
+            AddSkillkey(InputKeyEnum.SKill2);
+        } else {
+            RemoveSkillKey(InputKeyEnum.SKill2);
+        }
+
+        if (Input.GetKey(KeyCode.C)) {
+            AddSkillkey(InputKeyEnum.SKill3);
+        } else {
+            RemoveSkillKey(InputKeyEnum.SKill3);
+        }
+        if (Input.GetKey(KeyCode.V)) {
+            AddSkillkey(InputKeyEnum.Skill4);
+        } else {
+            RemoveSkillKey(InputKeyEnum.Skill4);
+        }
+        if (Input.GetKey(KeyCode.Z)) {
+            AddSkillkey(InputKeyEnum.SKill1);
+        } else {
+            RemoveSkillKey(InputKeyEnum.SKill1);
+        }
+    }
+
+
+    public void AddSkillkey(InputKeyEnum inputKeyEnum) {
+        if (!waitToCastSkills.Contains(inputKeyEnum)) {
+            waitToCastSkills.Add(inputKeyEnum);
+        }
+    }
+
+    public void RemoveSkillKey(InputKeyEnum inputKeyEnum) {
+        if (waitToCastSkills.Contains(inputKeyEnum)) {
+            waitToCastSkills.Remove(inputKeyEnum);
+        }
     }
 }

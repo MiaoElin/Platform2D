@@ -182,12 +182,34 @@ public static class GameFactory {
         skill.damageRate = tm.damageRate;
         skill.bulletTypeID = tm.bulletTypeID;
 
-        skill.castState.cdMax = tm.cdMax;
-        skill.castState.preCastCDMax = tm.preCastCDMax;
-        skill.castState.castingMaintainSec = tm.castingMaintainSec;
-        skill.castState.castingIntervalSec = tm.castingIntervalSec;
-        skill.castState.endCastSec = tm.endCastSec;
+        skill.cdMax = tm.cdMax;
+        skill.preCastCDMax = tm.preCastCDMax;
+        skill.castingMaintainSec = tm.castingMaintainSec;
+        skill.castingIntervalSec = tm.castingIntervalSec;
+        skill.endCastSec = tm.endCastSec;
 
         return skill;
+    }
+
+    public static BulletEntity Bullet_Create(GameContext ctx) {
+        ctx.asset.TryGet_Entity_Prefab(typeof(BulletEntity).Name, out var prefab);
+        BulletEntity bullet = GameObject.Instantiate(prefab, ctx.poolService.bulletGroup).GetComponent<BulletEntity>();
+        bullet.gameObject.SetActive(false);
+        return bullet;
+    }
+
+    public static BulletEntity Bullet_Spawn(GameContext ctx, int typeID, Vector2 pos, Ally ally) {
+        ctx.asset.TryGet_BulletTM(typeID, out var tm);
+        if (!tm) {
+            Debug.LogError($"GameFactory.Bullet_Spawn {typeID} is not find");
+        }
+        var bullet = ctx.poolService.GetBullet();
+        bullet.typeID = typeID;
+        bullet.id = ctx.iDService.bulletIDRecord++;
+        bullet.Ctor(tm.mod);
+        bullet.SetPos(pos);
+        bullet.moveSpeed = tm.moveSpeed;
+        bullet.gameObject.SetActive(true);
+        return bullet;
     }
 }

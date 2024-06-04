@@ -18,166 +18,178 @@ MonoBehaviour:
   m_GUID: 64da9874480cd2749a5400b2d497df43
   m_SerializeEntries:
   - m_GUID: 47a19e584dbd76841851497d5861a1f8
-    m_Address: Assets/ResourceRuntime/Entity/Role/TM/TM_Role_Owner_100.asset
+    m_Address: TM_Role_Owner_100
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Role
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1bcfed36a37cd6142b5979bea87959b3
-    m_Address: Assets/ResourceRuntime/Entity/Role/RoleEntity.prefab
+    m_Address: RoleEntity
     m_ReadOnly: 0
     m_SerializedLabels:
     - Entity
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 71662d40f3dda10489eb3eb47fa5a984
-    m_Address: Assets/ResourceRuntime/Entity/Map/TM_Map_1.asset
+    m_Address: TM_Map_1
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Map
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 83b6fddc9a361b3478996b69665fbd42
-    m_Address: Assets/ResourceRuntime/Entity/Map/MapEntity.prefab
+    m_Address: MapEntity
     m_ReadOnly: 0
     m_SerializedLabels:
     - Entity
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c95f5b82159d72c49844e5065c30d368
-    m_Address: Assets/ResourceRuntime/Entity/BackScene/BackSceneEntity.prefab
+    m_Address: BackSceneEntity
     m_ReadOnly: 0
     m_SerializedLabels:
     - Entity
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9c00c12f06b973f42b3a80408f78ec39
-    m_Address: Assets/ResourceRuntime/Entity/Prop/PropEntity.prefab
+    m_Address: PropEntity
     m_ReadOnly: 0
     m_SerializedLabels:
     - Entity
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9c2f00d34046ba149b13a47b73c179a9
-    m_Address: Assets/ResourceRuntime/Entity/Prop/TM_Prop_Ladder_100.asset
+    m_Address: TM_Prop_Ladder_100
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Prop
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1639f277f0aa24640b88d86a1c2f8fc2
-    m_Address: Assets/ResourceRuntime/Entity/Prop/TM_Prop_Emitter_120.asset
+    m_Address: TM_Prop_Emitter_120
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Prop
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d480a95bb8886c94fa3ac4049dc28a72
-    m_Address: Assets/ResourceRuntime/Entity/Prop/TM_Prop_Altar_110.asset
+    m_Address: TM_Prop_Altar_110
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Prop
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7031101ee18474c45bdf081672c6c1e5
-    m_Address: Assets/ResourceRuntime/Entity/Loot/TM_Loot_Box_10.asset
+    m_Address: TM_Loot_Box_10
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Loot
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 483e7876128ac504299cd2c575242a97
-    m_Address: Assets/ResourceRuntime/Entity/Loot/LootEnity.prefab
+    m_Address: LootEnity
     m_ReadOnly: 0
     m_SerializedLabels:
     - Entity
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ad12fefe3001d494b94ed5f08cdee601
-    m_Address: Assets/ResourceRuntime/Entity/Loot/TM_Loot_Coin_20.asset
+    m_Address: TM_Loot_Coin_20
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Loot
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cd3f9f38aff4201418905436618f1139
-    m_Address: Assets/ResourceRuntime/HUD/HUD_Hints.prefab
+    m_Address: HUD_Hints
     m_ReadOnly: 0
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3aebb16afdd53034dbe1fe145f0ed1b9
-    m_Address: Assets/ResourceRuntime/Panel/Panel_Playerstatus.prefab
+    m_Address: Panel_Playerstatus
     m_ReadOnly: 0
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 82368f8d26673cf45ba69a5d20e5acee
-    m_Address: Assets/ResourceRuntime/Entity/Buff/TM_Buff_10.asset
+    m_Address: TM_Buff_10
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Buff
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 604730deeb890d34ba889833c84b7ac3
-    m_Address: Assets/ResourceRuntime/Entity/Buff/TM_Buff_AddHP_20.asset
+    m_Address: TM_Buff_AddHP_20
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Buff
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f83a4e337b60d0f48b54a82f65b39dbe
-    m_Address: Assets/ResourceRuntime/Entity/Buff/TM_Buff_AddHP_21.asset
+    m_Address: TM_Buff_AddHP_21
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Buff
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bdd8465aeab6e3b4281716cc568f8377
-    m_Address: Assets/ResourceRuntime/Entity/Loot/TM_Loot_GetShield_100.asset
+    m_Address: TM_Loot_GetShield_100
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Loot
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 793624e2a34e7db40a9eb0a32a322be9
-    m_Address: Assets/ResourceRuntime/Entity/Loot/TM_Loot_AddHP_111.asset
+    m_Address: TM_Loot_AddHP_111
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Loot
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2f5f7f2dadbb2a4eacbd021148d37e2
-    m_Address: Assets/ResourceRuntime/Entity/Loot/TM_Loot_AddHP_110.asset
+    m_Address: TM_Loot_AddHP_110
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Loot
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ceadc4eebe7afd942b580428bd4c7dff
-    m_Address: Assets/ResourceRuntime/Entity/Role/Monster/TM_Role_1000.asset
+    m_Address: TM_Role_1000
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Role
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b995cdc94f691594d8a3620537ad6d56
-    m_Address: Assets/ResourceRuntime/HUD/HPBar/HUD_HPBar.prefab
+    m_Address: HUD_HPBar
     m_ReadOnly: 0
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d50f4f66ce065454da74215d50a21113
-    m_Address: Assets/ResourceRuntime/Entity/Skill/TM_SKill_100.asset
+    m_Address: TM_SKill_100
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Skill
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e4b2054ec3635bb4ab2fdaa98eb5785a
-    m_Address: Assets/ResourceRuntime/Entity/Skill/TM_SKill_300.asset
+    m_Address: TM_SKill_300
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Skill
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ac6f058621717704b84ba8ac26f9aba3
-    m_Address: Assets/ResourceRuntime/Entity/Skill/TM_SKill_200.asset
+    m_Address: TM_SKill_200
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Skill
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 56683e4566811404d9c57e6d5da136a2
-    m_Address: Assets/ResourceRuntime/Entity/Skill/TM_SKill_300.asset
+    m_Address: TM_SKill_300
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Skill
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ff5f136c7140e744282b87446509449f
-    m_Address: Assets/ResourceRuntime/Entity/Skill/TM_Monster_Skill_100.asset
+    m_Address: TM_Monster_Skill_100
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de9e4e46e8c9b6647a6cacf9dcda19b3
+    m_Address: BulletEntity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Entity
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 447b1c8783603e64f8baea7eb9ee267f
+    m_Address: TM_Bullet_10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Bullet
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}

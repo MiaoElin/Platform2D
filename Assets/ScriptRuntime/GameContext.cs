@@ -16,6 +16,7 @@ public class GameContext {
     public MapRepo mapRepo;
     public PropRepo propRepo;
     public LootRepo lootRepo;
+    public BulletRepo bulletRepo;
 
     // === Entity ===
     public InputEntity input;
@@ -41,6 +42,7 @@ public class GameContext {
         mapRepo = new MapRepo();
         propRepo = new PropRepo();
         lootRepo = new LootRepo();
+        bulletRepo = new BulletRepo();
         // Entity
         input = new InputEntity();
         camera = new CameraEntity();

@@ -15,7 +15,7 @@ MonoBehaviour:
   typeID: 30
   skillName: "\u52A0\u901F\u95EA\u73B0"
   damageRate: 0
-  bulletTypeID: 300
+  bulletTypeID: 0
   cdMax: 5
   preCastCDMax: 0
   castingMaintainSec: 0.1

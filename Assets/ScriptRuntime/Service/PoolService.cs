@@ -14,7 +14,10 @@ public class PoolService {
 
     public Pool<BuffSubEntity> buffPool;
 
-    public void Init(Func<RoleEntity> create_Role, Func<PropEntity> create_Prop, Func<LootEntity> create_Loot, Func<BuffSubEntity> create_buff) {
+    public Pool<BulletEntity> bulletPool;
+    public Transform bulletGroup;
+
+    public void Init(Func<RoleEntity> create_Role, Func<PropEntity> create_Prop, Func<LootEntity> create_Loot, Func<BuffSubEntity> create_buff, Func<BulletEntity> create_bullet) {
         roleGroup = new GameObject("RoleGroup").transform;
         rolePool = new Pool<RoleEntity>(create_Role, 20);
 
@@ -25,6 +28,10 @@ public class PoolService {
         lootPool = new Pool<LootEntity>(create_Loot, 20);
 
         buffPool = new Pool<BuffSubEntity>(create_buff, 20);
+
+        bulletGroup = new GameObject("BulletGroup").transform;
+        bulletPool = new Pool<BulletEntity>(create_bullet, 20);
+
     }
 
     public RoleEntity GetRole() {
@@ -57,5 +64,13 @@ public class PoolService {
 
     public void ReturnBuff(BuffSubEntity buff) {
         buffPool.Return(buff);
+    }
+
+    public BulletEntity GetBullet() {
+        return bulletPool.Get();
+    }
+
+    public void ReturnBullet(BulletEntity bullet) {
+        bulletPool.Return(bullet);
     }
 }

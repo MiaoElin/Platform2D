@@ -15,7 +15,7 @@ MonoBehaviour:
   typeID: 20
   skillName: "\u91CD\u51FB"
   damageRate: 3
-  bulletTypeID: 200
+  bulletTypeID: 20
   cdMax: 3
   preCastCDMax: 0.1
   castingMaintainSec: 0.2

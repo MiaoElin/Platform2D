@@ -121,4 +121,76 @@ public static class RoleDomain {
         }
     }
 
+    internal static void CD_Tick(GameContext ctx, RoleEntity role, float dt) {
+        var skillCom = role.skillCom;
+        skillCom.Foreach(skill => {
+            skill.cd -= dt;
+            if (skill.cd <= 0) {
+                skill.cd = 0;
+            }
+        });
+    }
+
+    public static void Add_Skill_PreCast(GameContext ctx, RoleEntity role) {
+        var waitToCastKeys = ctx.input.waitToCastSkills;
+        if (waitToCastKeys.Count == 0) {
+            return;
+        }
+        var skillCom = role.skillCom;
+        skillCom.waitToCastKeys.Clear();
+        foreach (var key in waitToCastKeys) {
+            bool has = skillCom.TryGet(key, out var skill);
+            if (has) {
+                if (skill.cd <= 0) {
+                    skillCom.AddCastKey(key);
+                }
+            }
+        }
+        // Debug.Log(skillCom.waitToCastKeys.Count);
+    }
+
+    internal static void Casting(GameContext ctx, RoleEntity role, float dt) {
+        var skillCom = role.skillCom;
+        var waitToCastKeys = skillCom.waitToCastKeys;
+        if (waitToCastKeys.Count == 0) {
+            return;
+        }
+        InputKeyEnum key = skillCom.GetFirstKey();
+        skillCom.TryGet(key, out var skill);
+
+        if (role.fsm.isEnterCastStageReset) {
+            role.fsm.isEnterCastStageReset = false;
+            role.fsm.RestCastStage(skill);
+        }
+
+        var stage = role.fsm.skillCastStage;
+        if (stage == SkillCastStage.PreCast) {
+            role.fsm.preCastTimer -= dt;
+            if (role.fsm.preCastTimer <= 0) {
+                stage = SkillCastStage.Casting;
+            }
+        }
+        if (stage == SkillCastStage.Casting) {
+            role.fsm.castingIntervalTimer -= dt;
+            if (role.fsm.castingIntervalTimer <= 0) {
+                role.fsm.castingIntervalTimer = skill.castingIntervalSec;
+                // todo发射技能
+                var bullet = BulletDomain.Spawn(ctx, skill.bulletTypeID, role.Pos(), role.ally);
+                bullet.Anim_Shoot();
+                // 从waitToCastkey 移除
+                waitToCastKeys.Remove(key);
+            }
+            role.fsm.castingMainTimer -= dt;
+            if (role.fsm.castingMainTimer <= 0) {
+                stage = SkillCastStage.EndCast;
+            }
+        }
+        if (stage == SkillCastStage.EndCast) {
+            role.fsm.endCastTimer -= dt;
+            if (role.fsm.endCastTimer <= 0) {
+                role.fsm.isEnterCastStageReset = true;
+            }
+        }
+    }
+
 }
