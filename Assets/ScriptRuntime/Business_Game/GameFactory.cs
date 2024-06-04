@@ -30,6 +30,16 @@ public static class GameFactory {
         role.jumpForce = tm.jumpForce;
         role.jumpTimes = tm.jumpTimesMax;
         role.jumpTimesMax = tm.jumpTimesMax;
+
+        var skillTMs = tm.sKillTMs;
+        if (skillTMs.Length > 0) {
+            for (int i = 0; i < skillTMs.Length; i++) {
+                SkillTM skilltm = skillTMs[i];
+                var skill = Skill_Spawn(ctx, skilltm.typeID);
+                role.skillCom.Add(i, skill);
+            }
+        }
+
         role.gameObject.SetActive(true);
         return role;
     }
@@ -162,5 +172,22 @@ public static class GameFactory {
         return buff;
     }
 
-    // public 
+    public static SkillSubEntity Skill_Spawn(GameContext ctx, int typeID) {
+        ctx.asset.TryGet_SkillTM(typeID, out var tm);
+        if (!tm) {
+            Debug.LogError($"GameFactory.Skill_Spawn {typeID} is not find");
+        }
+        SkillSubEntity skill = new SkillSubEntity();
+        skill.typeID = tm.typeID;
+        skill.damageRate = tm.damageRate;
+        skill.bulletTypeID = tm.bulletTypeID;
+
+        skill.castState.cdMax = tm.cdMax;
+        skill.castState.preCastCDMax = tm.preCastCDMax;
+        skill.castState.castingMaintainSec = tm.castingMaintainSec;
+        skill.castState.castingIntervalSec = tm.castingIntervalSec;
+        skill.castState.endCastSec = tm.endCastSec;
+
+        return skill;
+    }
 }

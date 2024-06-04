@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ca41f76dbcb295458c46ab71e50da33, type: 3}
   m_Name: TM_Monster_Skill_100
   m_EditorClassIdentifier: 
-  typeID: 0
+  typeID: 100
   skillName: 
   damageRate: 0
   bulletTypeID: 0

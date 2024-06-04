@@ -26,6 +26,9 @@ public class Asset_Core {
     Dictionary<int, BuffTM> buffTMs;
     AsyncOperationHandle buffTMPtr;
 
+    Dictionary<int, SkillTM> skillTMs;
+    AsyncOperationHandle skillPtr;
+
     public Asset_Core() {
         entites = new Dictionary<string, GameObject>();
         uiPrefabs = new Dictionary<string, GameObject>();
@@ -34,6 +37,7 @@ public class Asset_Core {
         propTMs = new Dictionary<int, PropTM>();
         lootTMs = new Dictionary<int, LootTM>();
         buffTMs = new Dictionary<int, BuffTM>();
+        skillTMs = new Dictionary<int, SkillTM>();
     }
 
     public void LoadAll() {
@@ -93,6 +97,14 @@ public class Asset_Core {
                 buffTMs.Add(tm.typeID, tm);
             }
         }
+        {
+            var ptr = Addressables.LoadAssetsAsync<SkillTM>("TM_Skill", null);
+            skillPtr = ptr;
+            var list = ptr.WaitForCompletion();
+            foreach (var tm in list) {
+                skillTMs.Add(tm.typeID, tm);
+            }
+        }
     }
 
     public void Unload() {
@@ -103,6 +115,7 @@ public class Asset_Core {
         Release(propTMPtr);
         Release(lootTMPtr);
         Release(buffTMPtr);
+        Release(skillPtr);
     }
 
     public void Release(AsyncOperationHandle ptr) {
@@ -135,10 +148,6 @@ public class Asset_Core {
         return lootTMs.TryGetValue(typeID, out tm);
     }
 
-    public bool TryGet_BuffTM(int typeID, out BuffTM tm) {
-        return buffTMs.TryGetValue(typeID, out tm);
-    }
-
     public bool TryGetLootTMArray(out List<LootTM> allLoot) {
         if (buffTMs == null) {
             allLoot = null;
@@ -153,4 +162,14 @@ public class Asset_Core {
         }
         return true;
     }
+
+    public bool TryGet_BuffTM(int typeID, out BuffTM tm) {
+        return buffTMs.TryGetValue(typeID, out tm);
+    }
+
+    public bool TryGet_SkillTM(int typeID, out SkillTM tm) {
+        return skillTMs.TryGetValue(typeID, out tm);
+    }
+
 }
+

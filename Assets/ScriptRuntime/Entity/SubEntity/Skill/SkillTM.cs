@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "TM/TM_Skill", fileName = "TM_SKill")]
-public class SKillTM : ScriptableObject {
+public class SkillTM : ScriptableObject {
     public int typeID;
     public string skillName;
     public float damageRate;

@@ -15,6 +15,6 @@ public class RoleTM : ScriptableObject {
     public float jumpForce;
     public int jumpTimesMax;
 
-    public SKillTM[] sKillTMs;
+    public SkillTM[] sKillTMs;
 
 }

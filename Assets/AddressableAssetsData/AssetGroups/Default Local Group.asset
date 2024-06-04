@@ -173,6 +173,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Skill
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff5f136c7140e744282b87446509449f
+    m_Address: Assets/ResourceRuntime/Entity/Skill/TM_Monster_Skill_100.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Skill
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:
