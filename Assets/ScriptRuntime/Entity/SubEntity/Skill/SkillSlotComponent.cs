@@ -27,8 +27,9 @@ public class SkillSlotComponent {
         }
     }
 
-    public InputKeyEnum GetFirstKey() {
-        return waitToCastKeys[0];
+    public InputKeyEnum GetLastKey() {
+        // Debug.Log(waitToCastKeys.Count);
+        return waitToCastKeys[waitToCastKeys.Count - 1];
     }
 
     public InputKeyEnum GetInputKeyEnum(int index) {

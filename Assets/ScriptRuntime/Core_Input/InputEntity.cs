@@ -16,15 +16,15 @@ public class InputEntity {
 
     public void Process() {
         moveAxis = Vector2.zero;
-        if (Input.GetKey(KeyCode.A)) {
+        if (Input.GetKey(KeyCode.LeftArrow)) {
             moveAxis.x = -1;
-        } else if (Input.GetKey(KeyCode.D)) {
+        } else if (Input.GetKey(KeyCode.RightArrow)) {
             moveAxis.x = 1;
         }
 
-        if (Input.GetKey(KeyCode.W)) {
+        if (Input.GetKey(KeyCode.UpArrow)) {
             moveAxis.y = 1;
-        } else if (Input.GetKey(KeyCode.S)) {
+        } else if (Input.GetKey(KeyCode.DownArrow)) {
             moveAxis.y = -1;
         }
         moveAxis.Normalize();
@@ -33,6 +33,13 @@ public class InputEntity {
         isJumpKeyDown = Input.GetKeyDown(KeyCode.Space);
         isInteractKeyDown = Input.GetKeyDown(KeyCode.U);
 
+        waitToCastSkills.Clear();
+
+        if (Input.GetKey(KeyCode.Z)) {
+            AddSkillkey(InputKeyEnum.SKill1);
+        } else {
+            RemoveSkillKey(InputKeyEnum.SKill1);
+        }
 
         if (Input.GetKey(KeyCode.X)) {
             AddSkillkey(InputKeyEnum.SKill2);
@@ -45,15 +52,11 @@ public class InputEntity {
         } else {
             RemoveSkillKey(InputKeyEnum.SKill3);
         }
+
         if (Input.GetKey(KeyCode.V)) {
             AddSkillkey(InputKeyEnum.Skill4);
         } else {
             RemoveSkillKey(InputKeyEnum.Skill4);
-        }
-        if (Input.GetKey(KeyCode.Z)) {
-            AddSkillkey(InputKeyEnum.SKill1);
-        } else {
-            RemoveSkillKey(InputKeyEnum.SKill1);
         }
 
     }

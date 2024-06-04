@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5b8b208d63ee25a408b8c3dd6c895d92, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 07e9d202c2ea5c44dacc2334da772373, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +97,7 @@ Animator:
   m_GameObject: {fileID: 3707769127515826770}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6fc2d0bcddac57942b42fab4e49fcb76, type: 2}
+  m_Controller: {fileID: 9100000, guid: 83ae8406aa1c609499025afcd3348db8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 2847973353480949841}
   - component: {fileID: 5190180410957175631}
   m_Layer: 0
-  m_Name: mod_Role_Bullet_10
+  m_Name: mod_Role_Bullet_20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,4 +164,4 @@ CapsuleCollider:
   m_Radius: 0.19
   m_Height: 0.15
   m_Direction: 1
-  m_Center: {x: 0.13, y: -0.03, z: 0}
+  m_Center: {x: 0.1, y: -0.03, z: 0}

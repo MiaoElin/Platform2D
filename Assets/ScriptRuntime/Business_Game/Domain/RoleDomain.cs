@@ -155,9 +155,8 @@ public static class RoleDomain {
         if (waitToCastKeys.Count == 0) {
             return;
         }
-        InputKeyEnum key = skillCom.GetFirstKey();
+        InputKeyEnum key = skillCom.GetLastKey();
         skillCom.TryGet(key, out var skill);
-
         if (role.fsm.isEnterCastStageReset) {
             role.fsm.isEnterCastStageReset = false;
             role.fsm.RestCastStage(skill);
@@ -177,7 +176,6 @@ public static class RoleDomain {
                 var bullet = BulletDomain.Spawn(ctx, skill.bulletTypeID, role.Pos(), role.ally);
                 bullet.Anim_Shoot();
                 bullet.moveDir = role.GetForWard();
-
             }
             role.fsm.castingMainTimer -= dt;
             if (role.fsm.castingMainTimer <= 0) {
@@ -186,9 +184,11 @@ public static class RoleDomain {
         } else if (stage == SkillCastStage.EndCast) {
             role.fsm.endCastTimer -= dt;
             if (role.fsm.endCastTimer <= 0) {
+                stage = SkillCastStage.PreCast;
                 role.fsm.isEnterCastStageReset = true;
-                // 从waitToCastkey 移除
+                // 发射完成 从waitToCastkey 移除
                 waitToCastKeys.Remove(key);
+                skill.cd = skill.cdMax;
             }
         }
     }

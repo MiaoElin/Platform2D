@@ -182,6 +182,7 @@ public static class GameFactory {
         skill.damageRate = tm.damageRate;
         skill.bulletTypeID = tm.bulletTypeID;
 
+        skill.cd = tm.cdMax;
         skill.cdMax = tm.cdMax;
         skill.preCastCDMax = tm.preCastCDMax;
         skill.castingMaintainSec = tm.castingMaintainSec;
