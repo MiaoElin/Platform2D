@@ -199,7 +199,7 @@ public static class RoleDomain {
                 role.fsm.castingIntervalTimer = skill.castingIntervalSec;
                 // todo发射技能
                 role.Anim_Shoot(ctx.input.moveAxis.x);
-                var bullet = BulletDomain.Spawn(ctx, skill.bulletTypeID, role.Pos(), role.ally);
+                var bullet = BulletDomain.Spawn(ctx, skill.bulletTypeID, role.LaunchPoint(), role.ally);
                 bullet.moveDir = role.GetForWard();
                 bullet.SetForward();
             }

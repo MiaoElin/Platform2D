@@ -15,6 +15,7 @@ public class RoleEntity : MonoBehaviour {
     [SerializeField] Rigidbody2D rb;
     public Animator anim;
     public Transform body;
+    public Transform launchPoint; // 发射点
 
     public bool isStayInGround;
     public float gravity;
@@ -33,6 +34,7 @@ public class RoleEntity : MonoBehaviour {
 
     public void Ctor(GameObject mod) {
         var bodyMod = GameObject.Instantiate(mod, body);
+        launchPoint = bodyMod.transform.Find("launchPoint").transform;
         this.anim = bodyMod.GetComponentInChildren<Animator>();
         fsm = new RoleFSMComponent();
         fsm.EnterNormal();
@@ -68,6 +70,10 @@ public class RoleEntity : MonoBehaviour {
 
     public Vector2 Pos() {
         return transform.position;
+    }
+
+    internal Vector2 LaunchPoint() {
+        return launchPoint.position;
     }
 
     public void MoveByAxisX(float axisX) {
@@ -175,4 +181,5 @@ public class RoleEntity : MonoBehaviour {
             anim.CrossFade("Run_Shoot", 0);
         }
     }
+
 }

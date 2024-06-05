@@ -48,6 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   typeID: 0
+  isOwner: 0
+  hp: 0
+  hpMax: 0
   moveSpeed: 0
   height: 0
   ally: 0
@@ -55,10 +58,12 @@ MonoBehaviour:
   rb: {fileID: 5888657450253955265}
   anim: {fileID: 0}
   body: {fileID: 6976518383871752290}
+  launchPoint: {fileID: 0}
   isStayInGround: 0
   gravity: 0
   jumpForce: 0
   isJumpKeyDown: 0
+  isFlashKeyDown: 0
   jumpTimes: 0
   jumpTimesMax: 0
 --- !u!50 &5888657450253955265
