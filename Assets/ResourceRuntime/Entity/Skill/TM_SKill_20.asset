@@ -18,6 +18,6 @@ MonoBehaviour:
   bulletTypeID: 20
   cdMax: 3
   preCastCDMax: 0.1
-  castingMaintainSec: 0.5
-  castingIntervalSec: 0.5
-  endCastSec: 0.1
+  castingMaintainSec: 0.01
+  castingIntervalSec: 0.01
+  endCastSec: 0.5

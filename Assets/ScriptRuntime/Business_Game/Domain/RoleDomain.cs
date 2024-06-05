@@ -192,6 +192,7 @@ public static class RoleDomain {
             role.fsm.preCastTimer -= dt;
             if (role.fsm.preCastTimer <= 0) {
                 stage = SkillCastStage.Casting;
+                skill.cd = skill.cdMax;
             }
         } else if (stage == SkillCastStage.Casting) {
             role.fsm.castingIntervalTimer -= dt;
@@ -212,7 +213,6 @@ public static class RoleDomain {
             if (role.fsm.endCastTimer <= 0) {
                 role.fsm.isEnterCastStageReset = true;
                 skillCom.SetCurrentKey(InputKeyEnum.None);
-                skill.cd = skill.cdMax;
             }
         }
     }
