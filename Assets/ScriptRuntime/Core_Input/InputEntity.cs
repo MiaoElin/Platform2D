@@ -35,29 +35,29 @@ public class InputEntity {
 
         waitToCastSkills.Clear();
 
-        if (Input.GetKey(KeyCode.Z)) {
+        if (Input.GetKey(KeyCode.J)) {
             AddSkillkey(InputKeyEnum.SKill1);
         } else {
             RemoveSkillKey(InputKeyEnum.SKill1);
         }
 
-        if (Input.GetKey(KeyCode.X)) {
+        if (Input.GetKey(KeyCode.K)) {
             AddSkillkey(InputKeyEnum.SKill2);
         } else {
             RemoveSkillKey(InputKeyEnum.SKill2);
         }
 
-        if (Input.GetKey(KeyCode.C)) {
+        if (Input.GetKey(KeyCode.L)) {
             AddSkillkey(InputKeyEnum.SKill3);
         } else {
             RemoveSkillKey(InputKeyEnum.SKill3);
         }
 
-        if (Input.GetKey(KeyCode.V)) {
-            AddSkillkey(InputKeyEnum.Skill4);
-        } else {
-            RemoveSkillKey(InputKeyEnum.Skill4);
-        }
+        // if (Input.GetKey(KeyCode.V)) {
+        //     AddSkillkey(InputKeyEnum.Skill4);
+        // } else {
+        //     RemoveSkillKey(InputKeyEnum.Skill4);
+        // }
 
     }
 

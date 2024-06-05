@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ca41f76dbcb295458c46ab71e50da33, type: 3}
-  m_Name: TM_SKill_40
+  m_Name: TM_SKill_300
   m_EditorClassIdentifier: 
-  typeID: 40
-  skillName: "\u8FDE\u53D1"
-  damageRate: 0.6
-  bulletTypeID: 10
+  typeID: 300
+  skillName: "\u52A0\u901F\u95EA\u73B0"
+  damageRate: 0
+  bulletTypeID: 0
   cdMax: 5
-  preCastCDMax: 0.1
-  castingMaintainSec: 0.6
+  preCastCDMax: 0
+  castingMaintainSec: 0.1
   castingIntervalSec: 0.1
-  endCastSec: 0.1
+  endCastSec: 0

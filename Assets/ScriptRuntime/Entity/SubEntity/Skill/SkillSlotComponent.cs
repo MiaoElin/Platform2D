@@ -5,11 +5,13 @@ using System;
 public class SkillSlotComponent {
 
     Dictionary<InputKeyEnum, SkillSubEntity> all;
-    public List<InputKeyEnum> waitToCastKeys;
+
+    public List<InputKeyEnum> usableSkillKeys;
+    public InputKeyEnum currentSkillKey;
 
     public SkillSlotComponent() {
         all = new Dictionary<InputKeyEnum, SkillSubEntity>();
-        waitToCastKeys = new List<InputKeyEnum>();
+        usableSkillKeys = new List<InputKeyEnum>();
     }
 
     public void Ctor() {
@@ -20,16 +22,12 @@ public class SkillSlotComponent {
         all.Add(inputKeyEnum, skill);
     }
 
-    public void AddCastKey(InputKeyEnum inputKeyEnum) {
-        bool has = waitToCastKeys.Contains(inputKeyEnum);
-        if (!has) {
-            waitToCastKeys.Add(inputKeyEnum);
-        }
+    public void SetCurrentKey(InputKeyEnum currentSkillKey) {
+        this.currentSkillKey = currentSkillKey;
     }
 
-    public InputKeyEnum GetLastKey() {
-        // Debug.Log(waitToCastKeys.Count);
-        return waitToCastKeys[waitToCastKeys.Count - 1];
+    public InputKeyEnum GetCurrentKey() {
+        return currentSkillKey;
     }
 
     public InputKeyEnum GetInputKeyEnum(int index) {

@@ -24,5 +24,4 @@ MonoBehaviour:
   sKillTMs:
   - {fileID: 11400000, guid: d50f4f66ce065454da74215d50a21113, type: 2}
   - {fileID: 11400000, guid: ac6f058621717704b84ba8ac26f9aba3, type: 2}
-  - {fileID: 11400000, guid: 56683e4566811404d9c57e6d5da136a2, type: 2}
   - {fileID: 11400000, guid: e4b2054ec3635bb4ab2fdaa98eb5785a, type: 2}

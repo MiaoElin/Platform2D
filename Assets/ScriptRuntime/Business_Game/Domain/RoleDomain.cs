@@ -132,30 +132,46 @@ public static class RoleDomain {
     }
 
     public static void Add_Skill_PreCast(GameContext ctx, RoleEntity role) {
-        var waitToCastKeys = ctx.input.waitToCastSkills;
-        if (waitToCastKeys.Count == 0) {
+        var skillCom = role.skillCom;
+        if (skillCom.GetCurrentKey() != InputKeyEnum.None) {
             return;
         }
-        var skillCom = role.skillCom;
-        skillCom.waitToCastKeys.Clear();
+        var waitToCastKeys = ctx.input.waitToCastSkills;
+        var usableSkillKeys = skillCom.usableSkillKeys;
+        usableSkillKeys.Clear();
         foreach (var key in waitToCastKeys) {
-            bool has = skillCom.TryGet(key, out var skill);
-            if (has) {
-                if (skill.cd <= 0) {
-                    skillCom.AddCastKey(key);
-                }
+            skillCom.TryGet(key, out var skill);
+            if (skill.cd <= 0) {
+                usableSkillKeys.Add(key);
             }
         }
+
+        if (usableSkillKeys.Count == 0) {
+            skillCom.SetCurrentKey(InputKeyEnum.None);
+            return;
+        }
+
+        if (usableSkillKeys.Contains(InputKeyEnum.SKill3)) {
+            skillCom.SetCurrentKey(InputKeyEnum.SKill3);
+        } else if (usableSkillKeys.Contains(InputKeyEnum.SKill2)) {
+            skillCom.SetCurrentKey(InputKeyEnum.SKill2);
+        } else if (usableSkillKeys.Contains(InputKeyEnum.SKill1)) {
+            skillCom.SetCurrentKey(InputKeyEnum.SKill1);
+        }
+        Debug.Log(skillCom.GetCurrentKey());
+
         // Debug.Log(skillCom.waitToCastKeys.Count);
     }
 
     internal static void Casting(GameContext ctx, RoleEntity role, float dt) {
         var skillCom = role.skillCom;
-        var waitToCastKeys = skillCom.waitToCastKeys;
-        if (waitToCastKeys.Count == 0) {
+
+        InputKeyEnum key = skillCom.GetCurrentKey();
+        if (key == InputKeyEnum.None) {
             return;
         }
-        InputKeyEnum key = skillCom.GetLastKey();
+        Debug.Log(skillCom.GetCurrentKey());
+
         skillCom.TryGet(key, out var skill);
         if (role.fsm.isEnterCastStageReset) {
             role.fsm.isEnterCastStageReset = false;
@@ -184,10 +200,8 @@ public static class RoleDomain {
         } else if (stage == SkillCastStage.EndCast) {
             role.fsm.endCastTimer -= dt;
             if (role.fsm.endCastTimer <= 0) {
-                stage = SkillCastStage.PreCast;
                 role.fsm.isEnterCastStageReset = true;
-                // 发射完成 从waitToCastkey 移除
-                waitToCastKeys.Remove(key);
+                skillCom.SetCurrentKey(InputKeyEnum.None);
                 skill.cd = skill.cdMax;
             }
         }

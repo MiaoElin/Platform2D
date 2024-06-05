@@ -26,10 +26,10 @@ public static class RoleFSMConTroller {
             fsm.isEnterNormal = false;
         }
         RoleDomain.Add_Skill_PreCast(ctx, role);
+        RoleDomain.Casting(ctx, role, dt);
         RoleDomain.MoveByAxisX(ctx, role);
         RoleDomain.Jump(ctx, role);
         RoleDomain.Falling(role, dt);
-        RoleDomain.Casting(ctx, role, dt);
 
     }
 
