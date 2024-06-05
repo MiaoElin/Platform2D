@@ -9,15 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ca41f76dbcb295458c46ab71e50da33, type: 3}
-  m_Name: TM_SKill_30
+  m_Script: {fileID: 11500000, guid: c51d036dd959bbc4998ba4711185d6ef, type: 3}
+  m_Name: TM_Bullet_30
   m_EditorClassIdentifier: 
   typeID: 30
-  skillName: "\u8FDE\u53D1"
-  damageRate: 0.6
-  bulletTypeID: 30
-  cdMax: 5
-  preCastCDMax: 0.1
-  castingMaintainSec: 0.6
-  castingIntervalSec: 0.1
-  endCastSec: 0.1
+  mod: {fileID: 7803596589922138180, guid: 5177c9225e2918f4ca19928f3ab2eb97, type: 3}
+  moveSpeed: 60

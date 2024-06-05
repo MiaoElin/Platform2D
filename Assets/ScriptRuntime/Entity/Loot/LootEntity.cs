@@ -69,8 +69,8 @@ public class LootEntity : MonoBehaviour {
         var duration = fsm.easingInduration;
         var startPos = fsm.easingInStartPos;
         var endPos = fsm.easingInEndPos;
-        if (timer < duration - 0.5f) {
-            transform.position = GFEasing.Ease2D(GFEasingEnum.MountainInCirc, timer, duration - 0.5f, startPos, endPos);
+        if (timer < duration - 0.1f) {
+            transform.position = GFEasing.Ease2D(GFEasingEnum.MountainInCirc, timer, duration - 0.1f, startPos, endPos);
             timer += dt;
         } else if (timer < duration) {
             timer += dt;

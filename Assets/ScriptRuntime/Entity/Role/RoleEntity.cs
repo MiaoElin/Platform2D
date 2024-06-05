@@ -79,8 +79,6 @@ public class RoleEntity : MonoBehaviour {
         rb.velocity = velocity;
         Anim_Run();
         SetForward(axisX);
-
-
     }
 
     public void MoveByAxisY(float axisY) {
@@ -174,6 +172,15 @@ public class RoleEntity : MonoBehaviour {
         }
     }
 
-
-
+    internal void Anim_Shoot(float axisX) {
+        if (axisX == 0) {
+            anim.CrossFade("Stand_Shoot", 0);
+        } else {
+            if (axisX > 0) {
+                anim.CrossFade("Run_Shoot", 0);
+            } else if (axisX < 0) {
+                anim.CrossFade("BackRun_Shoot", 0);
+            }
+        }
+    }
 }
