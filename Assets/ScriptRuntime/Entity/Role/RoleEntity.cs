@@ -20,6 +20,7 @@ public class RoleEntity : MonoBehaviour {
     public float gravity;
     public float jumpForce;
     public bool isJumpKeyDown;
+    public bool isFlashKeyDown;
     public int jumpTimes;
     public int jumpTimesMax;
 

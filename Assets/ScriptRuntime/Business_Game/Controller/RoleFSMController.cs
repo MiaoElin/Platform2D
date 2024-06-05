@@ -25,7 +25,7 @@ public static class RoleFSMConTroller {
         if (fsm.isEnterNormal) {
             fsm.isEnterNormal = false;
         }
-        RoleDomain.Add_Skill_PreCast(ctx, role);
+        RoleDomain.CurrentSkill_Tick(ctx, role);
         RoleDomain.Casting(ctx, role, dt);
         RoleDomain.MoveByAxisX(ctx, role);
         RoleDomain.Jump(ctx, role);

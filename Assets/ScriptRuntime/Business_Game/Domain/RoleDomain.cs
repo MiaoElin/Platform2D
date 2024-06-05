@@ -131,7 +131,7 @@ public static class RoleDomain {
         });
     }
 
-    public static void Add_Skill_PreCast(GameContext ctx, RoleEntity role) {
+    public static void CurrentSkill_Tick(GameContext ctx, RoleEntity role) {
         var skillCom = role.skillCom;
         if (skillCom.GetCurrentKey() != InputKeyEnum.None) {
             return;
@@ -151,6 +151,10 @@ public static class RoleDomain {
             return;
         }
 
+        if (usableSkillKeys.Contains(InputKeyEnum.Skill4)) {
+            role.isFlashKeyDown = true;
+        }
+
         if (usableSkillKeys.Contains(InputKeyEnum.SKill3)) {
             skillCom.SetCurrentKey(InputKeyEnum.SKill3);
         } else if (usableSkillKeys.Contains(InputKeyEnum.SKill2)) {
@@ -158,7 +162,6 @@ public static class RoleDomain {
         } else if (usableSkillKeys.Contains(InputKeyEnum.SKill1)) {
             skillCom.SetCurrentKey(InputKeyEnum.SKill1);
         }
-        Debug.Log(skillCom.GetCurrentKey());
 
         // Debug.Log(skillCom.waitToCastKeys.Count);
     }
@@ -170,7 +173,6 @@ public static class RoleDomain {
         if (key == InputKeyEnum.None) {
             return;
         }
-        Debug.Log(skillCom.GetCurrentKey());
 
         skillCom.TryGet(key, out var skill);
         if (role.fsm.isEnterCastStageReset) {
@@ -190,8 +192,8 @@ public static class RoleDomain {
                 role.fsm.castingIntervalTimer = skill.castingIntervalSec;
                 // todo发射技能
                 var bullet = BulletDomain.Spawn(ctx, skill.bulletTypeID, role.Pos(), role.ally);
-                bullet.Anim_Shoot();
                 bullet.moveDir = role.GetForWard();
+                bullet.SetForward();
             }
             role.fsm.castingMainTimer -= dt;
             if (role.fsm.castingMainTimer <= 0) {

@@ -16,5 +16,7 @@ public static class BulletDomain {
 
     public static void Move(BulletEntity bullet) {
         bullet.Move();
+        // anim
+        bullet.Anim_Shoot();
     }
 }

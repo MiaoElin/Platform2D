@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 20
   mod: {fileID: 7803596589922138180, guid: 86793bc5c43eb1b4ab06e681a6384835, type: 3}
-  moveSpeed: 20
+  moveSpeed: 60

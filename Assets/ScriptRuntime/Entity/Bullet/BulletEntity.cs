@@ -36,4 +36,12 @@ public class BulletEntity : MonoBehaviour {
         //     Debug.Log(Time.frameCount + "Move");
         // }
     }
+
+    internal void SetForward() {
+        float rad = Mathf.Atan2(moveDir.y, moveDir.x);
+        float deg = rad * Mathf.Rad2Deg;
+        var euler = transform.eulerAngles;
+        euler.z = deg;
+        transform.eulerAngles = euler;
+    }
 }

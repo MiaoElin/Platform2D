@@ -16,15 +16,15 @@ public class InputEntity {
 
     public void Process() {
         moveAxis = Vector2.zero;
-        if (Input.GetKey(KeyCode.LeftArrow)) {
+        if (Input.GetKey(KeyCode.A)) {
             moveAxis.x = -1;
-        } else if (Input.GetKey(KeyCode.RightArrow)) {
+        } else if (Input.GetKey(KeyCode.D)) {
             moveAxis.x = 1;
         }
 
-        if (Input.GetKey(KeyCode.UpArrow)) {
+        if (Input.GetKey(KeyCode.W)) {
             moveAxis.y = 1;
-        } else if (Input.GetKey(KeyCode.DownArrow)) {
+        } else if (Input.GetKey(KeyCode.S)) {
             moveAxis.y = -1;
         }
         moveAxis.Normalize();
