@@ -53,12 +53,15 @@ public class UIApp {
         Panel_PlayerStatus_Domain.Update_Tick(ctx, hpMax, coinCount, hp, buffCom);
     }
 
-    public void Panel_SkillSlot_Open() {
-        Panel_SkillSlot_Domain.Open(ctx);
+    public void Panel_SkillSlot_Open(float mask1TimeMax, float mask2TimeMax, float mask3TimeMax, float mask4TimeMax) {
+        Panel_SkillSlot_Domain.Open(ctx, mask1TimeMax, mask2TimeMax, mask3TimeMax, mask4TimeMax);
     }
 
     public void Panel_SkillSlot_Hide() {
         Panel_SkillSlot_Domain.Hide(ctx);
     }
-    
+
+    public void Panel_SkillSlot_CD_Tick(float skill1Time, float skill2Time, float skill3Time, float skill4Time) {
+        Panel_SkillSlot_Domain.CD_Tick(ctx, skill1Time, skill2Time, skill3Time, skill4Time);
+    }
 }

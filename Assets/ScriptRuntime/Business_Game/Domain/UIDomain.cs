@@ -44,7 +44,31 @@ public static class UIDomain {
     }
 
     public static void Panel_SkillSlot_Open(GameContext ctx) {
-        ctx.uIApp.Panel_SkillSlot_Open();
+        ctx.uIApp.Panel_SkillSlot_Open(
+            GetMaskTimeMask(ctx, InputKeyEnum.SKill1),
+            GetMaskTimeMask(ctx, InputKeyEnum.SKill2),
+            GetMaskTimeMask(ctx, InputKeyEnum.SKill3),
+            GetMaskTimeMask(ctx, InputKeyEnum.Skill4)
+        );
+    }
+
+    public static void Panel_SkillSlot_CD_Tick(GameContext ctx) {
+        ctx.uIApp.Panel_SkillSlot_CD_Tick(
+            GetMaskTime(ctx, InputKeyEnum.SKill1),
+            GetMaskTime(ctx, InputKeyEnum.SKill2),
+            GetMaskTime(ctx, InputKeyEnum.SKill3),
+            GetMaskTime(ctx, InputKeyEnum.Skill4)
+        );
+    }
+
+    public static float GetMaskTimeMask(GameContext ctx, InputKeyEnum key) {
+        ctx.GetOwner().skillCom.TryGet(key, out var skill);
+        return skill.cdMax;
+    }
+
+    public static float GetMaskTime(GameContext ctx, InputKeyEnum key) {
+        ctx.GetOwner().skillCom.TryGet(key, out var skill);
+        return skill.cd;
     }
 
     public static void Panel_SkillSlot_Hide(GameContext ctx) {
