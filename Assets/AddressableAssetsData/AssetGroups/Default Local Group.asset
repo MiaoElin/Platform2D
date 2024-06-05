@@ -203,6 +203,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Bullet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4145f7a9cff421f4ab95eb9530f40070
+    m_Address: Assets/ResourceRuntime/Panel/SkillSlot/Panel_SkillSlot.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:

@@ -5,7 +5,6 @@ public static class RoleFSMConTroller {
 
     public static void ApplyFsm(GameContext ctx, RoleEntity role, float dt) {
         var status = role.fsm.status;
-        Debug.Log(status);
         ApplyAny(ctx, role, dt);
 
         if (status == RoleStatus.Normal) {

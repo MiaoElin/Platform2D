@@ -28,6 +28,7 @@ public static class GameBusiness_Normal {
 
         // UI
         UIDomain.Panel_PlayerStatus_Open(ctx);
+        UIDomain.Panel_SkillSlot_Open(ctx);
     }
 
     public static void Tick(GameContext ctx, float dt) {

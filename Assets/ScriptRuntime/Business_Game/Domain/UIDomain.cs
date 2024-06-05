@@ -42,4 +42,12 @@ public static class UIDomain {
     public static void Panel_PlayerStatus_Update(GameContext ctx) {
         ctx.uIApp.Panel_PlayerStatus_Update(ctx.GetOwner().hpMax, ctx.GetOwner().hp, ctx.player.coinCount, ctx.GetOwner().buffCom);
     }
+
+    public static void Panel_SkillSlot_Open(GameContext ctx) {
+        ctx.uIApp.Panel_SkillSlot_Open();
+    }
+
+    public static void Panel_SkillSlot_Hide(GameContext ctx) {
+        ctx.uIApp.Panel_SkillSlot_Hide();
+    }
 }

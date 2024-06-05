@@ -52,4 +52,13 @@ public class UIApp {
     public void Panel_PlayerStatus_Update(int hpMax, int hp, int coinCount, BuffSlotComponent buffCom) {
         Panel_PlayerStatus_Domain.Update_Tick(ctx, hpMax, coinCount, hp, buffCom);
     }
+
+    public void Panel_SkillSlot_Open() {
+        Panel_SkillSlot_Domain.Open(ctx);
+    }
+
+    public void Panel_SkillSlot_Hide() {
+        Panel_SkillSlot_Domain.Hide(ctx);
+    }
+    
 }
