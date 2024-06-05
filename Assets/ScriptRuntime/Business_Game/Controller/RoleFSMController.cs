@@ -5,18 +5,35 @@ public static class RoleFSMConTroller {
 
     public static void ApplyFsm(GameContext ctx, RoleEntity role, float dt) {
         var status = role.fsm.status;
-
+        Debug.Log(status);
         ApplyAny(ctx, role, dt);
 
         if (status == RoleStatus.Normal) {
             ApplyNormal(ctx, role, dt);
         } else if (status == RoleStatus.Ladder) {
             ApplyLadder(ctx, role, dt);
+        } else if (status == RoleStatus.Casting) {
+            ApplyCasting(ctx, role, dt);
         }
 
     }
 
+    private static void ApplyCasting(GameContext ctx, RoleEntity role, float dt) {
+        var fsm = role.fsm;
+        if (fsm.isEnterCasting) {
+            fsm.isEnterCasting = false;
+        }
+        RoleDomain.Casting(ctx, role, dt);
+        RoleDomain.Move_InCasting(ctx, role);
+        RoleDomain.Jump(ctx, role);
+        RoleDomain.Falling(role, dt);
+    }
+
     private static void ApplyAny(GameContext ctx, RoleEntity role, float dt) {
+        var status = role.fsm.status;
+        if (status != RoleStatus.Ladder) {
+            RoleDomain.CurrentSkill_Tick(ctx, role);
+        }
         RoleDomain.CD_Tick(ctx, role, dt);
     }
 
@@ -25,9 +42,7 @@ public static class RoleFSMConTroller {
         if (fsm.isEnterNormal) {
             fsm.isEnterNormal = false;
         }
-        RoleDomain.CurrentSkill_Tick(ctx, role);
-        RoleDomain.Casting(ctx, role, dt);
-        RoleDomain.MoveByAxisX(ctx, role);
+        RoleDomain.Move_InNormal(ctx, role);
         RoleDomain.Jump(ctx, role);
         RoleDomain.Falling(role, dt);
 
@@ -40,7 +55,7 @@ public static class RoleFSMConTroller {
             ctx.GetCurrentMap().SetGridTrigger();
         }
 
-        RoleDomain.MoveByAxisY(ctx, role);
+        RoleDomain.Move_InLadder(ctx, role);
         if (role.Pos().y <= fsm.lowestY || role.Pos().y > fsm.highestY) {
             fsm.EnterNormal();
             ctx.GetCurrentMap().SetGridCollision();

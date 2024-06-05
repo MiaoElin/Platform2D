@@ -42,4 +42,9 @@ public class RoleFSMComponent {
         this.highestY = highestY;
     }
 
+    public void EnterCasting() {
+        status = RoleStatus.Casting;
+        isEnterCasting = true;
+    }
+
 }

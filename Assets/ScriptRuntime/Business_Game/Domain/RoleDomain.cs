@@ -85,11 +85,16 @@ public static class RoleDomain {
         }
     }
 
-    public static void MoveByAxisX(GameContext ctx, RoleEntity role) {
+    public static void Move_InNormal(GameContext ctx, RoleEntity role) {
+        role.MoveByAxisX(ctx.input.moveAxis.x);
+        role.SetForward(ctx.input.moveAxis.x);
+    }
+
+    public static void Move_InCasting(GameContext ctx, RoleEntity role) {
         role.MoveByAxisX(ctx.input.moveAxis.x);
     }
 
-    public static void MoveByAxisY(GameContext ctx, RoleEntity role) {
+    public static void Move_InLadder(GameContext ctx, RoleEntity role) {
         role.MoveByAxisY(ctx.input.moveAxis.y);
     }
 
@@ -148,6 +153,7 @@ public static class RoleDomain {
 
         if (usableSkillKeys.Count == 0) {
             skillCom.SetCurrentKey(InputKeyEnum.None);
+            role.fsm.EnterNormal();
             return;
         }
 
@@ -163,6 +169,7 @@ public static class RoleDomain {
             skillCom.SetCurrentKey(InputKeyEnum.SKill1);
         }
 
+        role.fsm.EnterCasting();
         // Debug.Log(skillCom.waitToCastKeys.Count);
     }
 
