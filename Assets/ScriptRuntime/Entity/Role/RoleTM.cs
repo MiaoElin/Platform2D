@@ -8,6 +8,7 @@ public class RoleTM : ScriptableObject {
     public int hpMax;
     public float moveSpeed;
     public float height;
+    public float attackRange;
     public AIType aiType;
     public GameObject mod;
 

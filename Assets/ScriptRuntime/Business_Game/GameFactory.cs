@@ -25,6 +25,7 @@ public static class GameFactory {
         role.hpMax = tm.hpMax;
         role.moveSpeed = tm.moveSpeed;
         role.height = tm.height;
+        role.attackRange = tm.attackRange;
         role.aiType = tm.aiType;
         role.Ctor(tm.mod);
         role.gravity = tm.gravity;

@@ -22,7 +22,17 @@ public static class RoleDomain {
         return role;
     }
 
-    internal static void AI_CurrentSkill_Tick(GameContext ctx, RoleEntity role) {
+    internal static void AI_AttakRange_Tick(GameContext ctx, RoleEntity role) {
+        var target = ctx.GetOwner().Pos();
+        bool isInRange = PureFunction.IsInRange(target, role.Pos(), role.attackRange);
+        if (isInRange) {
+            role.fsm.EnterCasting();
+        } else {
+            role.fsm.EnterNormal();
+        }
+    }
+
+    internal static void AI_SetCurrentSkill(GameContext ctx, RoleEntity role) {
         var skillCom = role.skillCom;
         skillCom.SetCurrentKey(InputKeyEnum.SKill1);
     }
@@ -233,7 +243,9 @@ public static class RoleDomain {
             role.fsm.endCastTimer -= dt;
             if (role.fsm.endCastTimer <= 0) {
                 role.fsm.isEnterCastStageReset = true;
-                skillCom.SetCurrentKey(InputKeyEnum.None);
+                if (role.aiType == AIType.None) {
+                    skillCom.SetCurrentKey(InputKeyEnum.None);
+                }
             }
         }
     }

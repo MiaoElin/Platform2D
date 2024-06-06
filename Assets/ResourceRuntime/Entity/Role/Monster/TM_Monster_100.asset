@@ -16,6 +16,7 @@ MonoBehaviour:
   hpMax: 50
   moveSpeed: 4
   height: 1.3
+  attackRange: 30
   aiType: 2
   mod: {fileID: 6480961630456752770, guid: fdb3f588b049df546aa2d20fd73355bd, type: 3}
   gravity: 0

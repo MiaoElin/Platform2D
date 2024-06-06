@@ -10,6 +10,7 @@ public class RoleEntity : MonoBehaviour {
     public int hpMax;
     public float moveSpeed;
     public float height;
+    public float attackRange;
     public Ally ally;
     public AIType aiType;
     public Vector2 faceDir;
