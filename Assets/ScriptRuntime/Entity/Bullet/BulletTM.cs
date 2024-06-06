@@ -6,4 +6,6 @@ public class BulletTM : ScriptableObject {
     public int typeID;
     public GameObject mod;
     public float moveSpeed;
+
+    // public float flyDistanceMax;
 }

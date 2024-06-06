@@ -208,9 +208,9 @@ public static class GameFactory {
         var bullet = ctx.poolService.GetBullet();
         bullet.typeID = typeID;
         bullet.id = ctx.iDService.bulletIDRecord++;
-        bullet.Ctor(tm.mod);
+        bullet.Ctor(tm.mod, tm.moveSpeed);
         bullet.SetPos(pos);
-        bullet.moveSpeed = tm.moveSpeed;
+
         bullet.gameObject.SetActive(true);
         return bullet;
     }

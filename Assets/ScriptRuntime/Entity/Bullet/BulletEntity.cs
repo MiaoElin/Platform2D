@@ -11,9 +11,15 @@ public class BulletEntity : MonoBehaviour {
     public float moveSpeed;
     public Vector2 moveDir;
 
-    public void Ctor(GameObject mod) {
+    public float flyTimer;
+    public bool isTearDown;
+
+    public void Ctor(GameObject mod, float moveSpeed) {
         this.mod = GameObject.Instantiate(mod, transform);
         anim = this.mod.GetComponentInChildren<Animator>();
+        this.moveSpeed = moveSpeed;
+        flyTimer = CommonConst.BULLETFLYDISTANCEMAX / moveSpeed;
+        isTearDown = false;
     }
 
     public void Reuse() {
@@ -28,13 +34,14 @@ public class BulletEntity : MonoBehaviour {
         anim.Play("Shoot");
     }
 
-    public void Move() {
+    public void Move(float dt) {
         var velocity = rb.velocity;
         velocity = moveDir.normalized * moveSpeed;
         rb.velocity = velocity;
-        // if (moveDir != Vector2.zero) {
-        //     Debug.Log(Time.frameCount + "Move");
-        // }
+        flyTimer -= dt;
+        if (flyTimer <= 0) {
+            isTearDown = true;
+        }
     }
 
     internal void SetForward() {

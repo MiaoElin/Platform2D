@@ -11,11 +11,12 @@ public static class BulletDomain {
     public static void UnSpawn(GameContext ctx, BulletEntity bullet) {
         ctx.bulletRepo.Remove(bullet);
         bullet.Reuse();
+        bullet.gameObject.SetActive(false);
         ctx.poolService.ReturnBullet(bullet);
     }
 
-    public static void Move(BulletEntity bullet) {
-        bullet.Move();
+    public static void Move(BulletEntity bullet, float dt) {
+        bullet.Move(dt);
         // anim
         bullet.Anim_Shoot();
     }

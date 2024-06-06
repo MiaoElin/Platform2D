@@ -64,6 +64,8 @@ public static class GameBusiness_Normal {
             }
         });
 
+        RoleFSMConTroller.ApplyFsm(ctx, owner, dt);
+
         // Prop Logic
         ctx.propRepo.Foreach(prop => {
             PropFsmController.ApplyFsm(ctx, prop);
@@ -85,11 +87,17 @@ public static class GameBusiness_Normal {
 
         // Bullet Logic
         ctx.bulletRepo.Foreach(bullet => {
-            BulletDomain.Move(bullet);
+            BulletDomain.Move(bullet, dt);
         });
 
-
-        RoleFSMConTroller.ApplyFsm(ctx, owner, dt);
+        // Bullet TearDown
+        int bulletLen = ctx.bulletRepo.TakeAll(out var allBullet);
+        for (int i = 0; i < bulletLen; i++) {
+            var bullet = allBullet[i];
+            if (bullet.isTearDown) {
+                BulletDomain.UnSpawn(ctx, bullet);
+            }
+        }
 
         Physics2D.Simulate(dt);
         RoleDomain.CheckGround(ctx, owner);
