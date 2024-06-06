@@ -7,7 +7,7 @@ public class SkillSlotComponent {
     Dictionary<InputKeyEnum, SkillSubEntity> all;
 
     public List<InputKeyEnum> usableSkillKeys;
-    public InputKeyEnum currentSkillKey;
+    InputKeyEnum currentSkillKey;
 
     public SkillSlotComponent() {
         all = new Dictionary<InputKeyEnum, SkillSubEntity>();

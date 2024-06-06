@@ -21,4 +21,5 @@ MonoBehaviour:
   gravity: 0
   jumpForce: 0
   jumpTimesMax: 0
-  sKillTMs: []
+  sKillTMs:
+  - {fileID: 11400000, guid: ff5f136c7140e744282b87446509449f, type: 2}

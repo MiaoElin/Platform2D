@@ -22,6 +22,11 @@ public static class RoleDomain {
         return role;
     }
 
+    internal static void AI_CurrentSkill_Tick(GameContext ctx, RoleEntity role) {
+        var skillCom = role.skillCom;
+        skillCom.SetCurrentKey(InputKeyEnum.SKill1);
+    }
+
     public static void Unspawn(GameContext ctx, RoleEntity role) {
         ctx.roleRepo.Remove(role);
         role.Reuse();

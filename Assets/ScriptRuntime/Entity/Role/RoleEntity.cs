@@ -12,6 +12,7 @@ public class RoleEntity : MonoBehaviour {
     public float height;
     public Ally ally;
     public AIType aiType;
+    public Vector2 faceDir;
     public Vector2[] path;
     [SerializeField] Rigidbody2D rb;
     public Animator anim;
@@ -64,14 +65,20 @@ public class RoleEntity : MonoBehaviour {
         var euler = transform.eulerAngles;
         euler.z = deg;
         transform.eulerAngles = euler;
+        faceDir = dir;
     }
 
     public Vector2 GetForWard() {
-        if (body.transform.localScale.x > 0) {
-            return Vector2.right;
+        if (aiType == AIType.ByTarget) {
+            return faceDir;
         } else {
-            return Vector2.left;
+            if (body.transform.localScale.x > 0) {
+                return Vector2.right;
+            } else {
+                return Vector2.left;
+            }
         }
+
     }
 
     public void SetPos(Vector2 pos) {
