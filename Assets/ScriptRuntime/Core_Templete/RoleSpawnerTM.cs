@@ -9,4 +9,6 @@ public class RoleSpawnerTM {
     public Vector2 pos;
     public Vector3 rotation;
     public Vector3 localScale;
+
+    public Vector2[] path;
 }

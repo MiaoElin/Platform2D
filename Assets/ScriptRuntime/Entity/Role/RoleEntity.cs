@@ -11,7 +11,8 @@ public class RoleEntity : MonoBehaviour {
     public float moveSpeed;
     public float height;
     public Ally ally;
-    public MoveType moveType;
+    public AIType aiType;
+    public Vector2[] path;
     [SerializeField] Rigidbody2D rb;
     public Animator anim;
     public Transform body;
@@ -29,6 +30,7 @@ public class RoleEntity : MonoBehaviour {
     public BuffSlotComponent buffCom;
     public SkillSlotComponent skillCom;
     public Action<Collider2D> OnTriggerEnterHandle;
+
     public Action<Collider2D> OnTriggerExitHandle;
     public Action<Collider2D> OnTriggerStayHandle;
 
@@ -42,6 +44,10 @@ public class RoleEntity : MonoBehaviour {
         skillCom = new SkillSlotComponent();
     }
 
+    internal void Reuse() {
+        Destroy(body.gameObject.GetComponentInChildren<GameObject>());
+    }
+
     public void SetForward(float axisX) {
         var scale = body.transform.localScale;
         if (axisX > 0) {
@@ -50,6 +56,14 @@ public class RoleEntity : MonoBehaviour {
             scale.x = -Mathf.Abs(scale.x);
         }
         body.transform.localScale = scale;
+    }
+
+    private void SetForwardByTarget(Vector2 dir) {
+        float rad = Mathf.Atan2(dir.y, dir.x);
+        float deg = rad * Mathf.Rad2Deg;
+        var euler = transform.eulerAngles;
+        euler.z = deg;
+        transform.eulerAngles = euler;
     }
 
     public Vector2 GetForWard() {
@@ -76,6 +90,7 @@ public class RoleEntity : MonoBehaviour {
         return launchPoint.position;
     }
 
+    #region  Move   
     public void MoveByAxisX(float axisX) {
         var velocity = rb.velocity;
         velocity.x = axisX * moveSpeed;
@@ -90,6 +105,19 @@ public class RoleEntity : MonoBehaviour {
         velocity.y = axisY * moveSpeed;
         rb.velocity = velocity;
     }
+
+    public void MoveByPath() {
+
+    }
+
+    public void MoveByTarget(Vector2 target) {
+        Vector2 dir = target - Pos();
+        var velocity = rb.velocity;
+        velocity = dir.normalized * moveSpeed;
+        rb.velocity = velocity;
+        SetForwardByTarget(dir.normalized);
+    }
+    #endregion
 
     public void Jump() {
         if (isJumpKeyDown && jumpTimes > 0) {
@@ -110,6 +138,12 @@ public class RoleEntity : MonoBehaviour {
         if (velocity.y < 0) {
             Anim_FallingStart();
         }
+    }
+
+    internal void SetVelocityY(float jumpForce) {
+        var velocity = rb.velocity;
+        velocity.y = jumpForce;
+        rb.velocity = velocity;
     }
 
     public float GetVelocityY() {
@@ -141,10 +175,13 @@ public class RoleEntity : MonoBehaviour {
         // anim.CrossFade()
     }
 
-    internal void SetVelocityY(float jumpForce) {
-        var velocity = rb.velocity;
-        velocity.y = jumpForce;
-        rb.velocity = velocity;
+    internal void Anim_Shoot(float axisX) {
+        if (axisX == 0) {
+            anim.SetBool("B_StandShoot", true);
+        } else {
+            anim.SetBool("B_StandShoot", false);
+            anim.CrossFade("Run_Shoot", 0);
+        }
     }
 
     // Collider
@@ -174,14 +211,5 @@ public class RoleEntity : MonoBehaviour {
         }
     }
 
-    internal void Anim_Shoot(float axisX) {
-        if (axisX == 0) {
-            anim.CrossFade("Stand_Shoot", 0);
-            anim.SetBool("B_StandShoot", true);
-        } else {
-            anim.SetBool("B_StandShoot", false);
-            anim.CrossFade("Run_Shoot", 0);
-        }
-    }
 
 }

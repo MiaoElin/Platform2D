@@ -24,7 +24,7 @@ public static class MapDomain {
         var roleSpawnerTMs = map.roleSpawnerTMs;
         {
             foreach (var tm in roleSpawnerTMs) {
-                var role = RoleDomain.Spawn(ctx, tm.roleTypeID, tm.pos, Ally.Monster);
+                var role = RoleDomain.Spawn(ctx, tm.roleTypeID, tm.pos, Ally.Monster, tm.path);
                 // 打开血量条
                 UIDomain.HUD_HPBar_Open(ctx, role.id, role.hpMax);
             }

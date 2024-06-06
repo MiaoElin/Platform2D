@@ -23,7 +23,7 @@ public static class RoleFSMConTroller {
             fsm.isEnterCasting = false;
         }
         RoleDomain.Casting(ctx, role, dt);
-        RoleDomain.Move_InCasting(ctx, role);
+        RoleDomain.Owner_Move_InCasting(ctx, role);
         RoleDomain.Jump(ctx, role);
         RoleDomain.Falling(role, dt);
     }
@@ -41,7 +41,7 @@ public static class RoleFSMConTroller {
         if (fsm.isEnterNormal) {
             fsm.isEnterNormal = false;
         }
-        RoleDomain.Move_InNormal(ctx, role);
+        RoleDomain.Onwer_Move_InNormal(ctx, role);
         RoleDomain.Jump(ctx, role);
         RoleDomain.Falling(role, dt);
 

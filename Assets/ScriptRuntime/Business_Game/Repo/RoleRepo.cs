@@ -20,6 +20,10 @@ public class RoleRepo {
         return all.TryGetValue(typeID, out role);
     }
 
+    public void Remove(RoleEntity role) {
+        all.Remove(role.id);
+    }
+
     public void Foreach(Action<RoleEntity> action) {
         for (int i = 0; i < all.Count; i++) {
             var role = all[i];

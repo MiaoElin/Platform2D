@@ -1,6 +1,5 @@
-public enum MoveType {
+public enum AIType {
     None,
-    ByInput,
-    ByAxiy,
-    ByAI
+    ByPath,
+    ByTarget,
 }

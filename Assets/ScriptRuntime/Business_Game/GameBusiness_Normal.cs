@@ -14,10 +14,9 @@ public static class GameBusiness_Normal {
         ctx.backScene = backScene;
 
         // Owner
-        var owner = RoleDomain.Spawn(ctx, 10, new Vector2(0, 15f), Ally.Player);
+        var owner = RoleDomain.Spawn(ctx, 10, new Vector2(0, 15f), Ally.Player, null);
         owner.isOwner = true;
         ctx.ownerID = owner.id;
-        owner.fsm.EnterNormal();
 
         // player
         ctx.player.coinCount = 500;
@@ -57,6 +56,13 @@ public static class GameBusiness_Normal {
     static void FixedTick(GameContext ctx, float dt) {
         var owner = ctx.GetOwner();
         ctx.backScene.SetPos(owner.Pos());
+
+        // role logic
+        ctx.roleRepo.Foreach(role => {
+            if (role.aiType != AIType.None) {
+                RoleAIFSMController.ApplyFSM(ctx, role, dt);
+            }
+        });
 
         // Prop Logic
         ctx.propRepo.Foreach(prop => {

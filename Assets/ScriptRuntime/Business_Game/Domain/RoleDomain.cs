@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public static class RoleDomain {
 
-    public static RoleEntity Spawn(GameContext ctx, int typeID, Vector2 pos, Ally ally) {
-        var role = GameFactory.Role_Spawn(ctx, typeID, pos, ally);
+    public static RoleEntity Spawn(GameContext ctx, int typeID, Vector2 pos, Ally ally, Vector2[] path) {
+        var role = GameFactory.Role_Spawn(ctx, typeID, pos, ally, path);
         ctx.roleRepo.Add(role);
         role.OnTriggerEnterHandle = (Collider2D other) => {
             On_Owner_TriggerEnterEvent(ctx, other);
@@ -18,7 +18,14 @@ public static class RoleDomain {
         role.OnTriggerExitHandle = (Collider2D other) => {
             On_Owner_TriggerExitEvent(ctx, other);
         };
+        role.fsm.EnterNormal();
         return role;
+    }
+
+    public static void Unspawn(GameContext ctx, RoleEntity role) {
+        ctx.roleRepo.Remove(role);
+        role.Reuse();
+        ctx.poolService.ReturnRole(role);
     }
 
     private static void On_Owner_TriggerExitEvent(GameContext ctx, Collider2D other) {
@@ -85,13 +92,21 @@ public static class RoleDomain {
         }
     }
 
-    public static void Move_InNormal(GameContext ctx, RoleEntity role) {
+    public static void Onwer_Move_InNormal(GameContext ctx, RoleEntity role) {
         role.MoveByAxisX(ctx.input.moveAxis.x);
         role.SetForward(ctx.input.moveAxis.x);
     }
 
-    public static void Move_InCasting(GameContext ctx, RoleEntity role) {
+    public static void Owner_Move_InCasting(GameContext ctx, RoleEntity role) {
         role.MoveByAxisX(ctx.input.moveAxis.x);
+    }
+
+    public static void AI_Move(GameContext ctx, RoleEntity role) {
+        if (role.aiType == AIType.ByPath) {
+            role.MoveByPath();
+        } else if (role.aiType == AIType.ByTarget) {
+            role.MoveByTarget(ctx.GetOwner().Pos());
+        }
     }
 
     public static void Move_InLadder(GameContext ctx, RoleEntity role) {
@@ -154,9 +169,7 @@ public static class RoleDomain {
         if (usableSkillKeys.Count == 0) {
             skillCom.SetCurrentKey(InputKeyEnum.None);
             role.anim.SetBool("B_StandShoot", false);
-            role.anim.enabled = false;
             role.fsm.EnterNormal();
-            role.anim.enabled = true;
             return;
         }
 
