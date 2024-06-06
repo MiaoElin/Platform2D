@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Loot
+  - Role
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - UI
   - Trampoline
   - Ladder
-  - 
+  - Role
   - 
   - 
   - 

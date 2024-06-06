@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8956558837377360189}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: launchPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,9 +41,9 @@ GameObject:
   m_Component:
   - component: {fileID: 43017454799433050}
   - component: {fileID: 978101213642555096}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mod_Monster_100
-  m_TagString: Untagged
+  m_TagString: Role
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 3469924690812355004}
   - component: {fileID: 8514542440175927537}
   - component: {fileID: 4185901600634171131}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SR
   m_TagString: Untagged
   m_Icon: {fileID: 0}

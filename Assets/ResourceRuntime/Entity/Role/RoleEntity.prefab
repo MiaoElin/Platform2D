@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5324810439493166077}
   - component: {fileID: 3404380646662990910}
   - component: {fileID: 5888657450253955265}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RoleEntity
-  m_TagString: Untagged
+  m_TagString: Role
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,8 +53,12 @@ MonoBehaviour:
   hpMax: 0
   moveSpeed: 0
   height: 0
+  attackRange: 0
+  isDead: 0
   ally: 0
-  moveType: 0
+  aiType: 0
+  faceDir: {x: 0, y: 0}
+  path: []
   rb: {fileID: 5888657450253955265}
   anim: {fileID: 0}
   body: {fileID: 6976518383871752290}
@@ -102,9 +106,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6976518383871752290}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Role
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

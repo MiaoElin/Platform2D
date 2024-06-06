@@ -76,6 +76,21 @@ public static class GameBusiness_Normal {
             LootFSMController.ApplyFsm(ctx, loot, dt);
         });
 
+        // Bullet Logic
+        ctx.bulletRepo.Foreach(bullet => {
+            BulletDomain.Move(bullet, dt);
+        });
+
+        // Role TearDown
+        int roleLen = ctx.roleRepo.TakeAll(out var allRole);
+        for (int i = 0; i < roleLen; i++) {
+            var role = allRole[i];
+            if (role.isDead) {
+                UIDomain.HUD_HPBar_Close(ctx, role.id);
+                RoleDomain.Unspawn(ctx, role);
+            }
+        }
+
         // Loot TearDown
         int lootLen = ctx.lootRepo.TakeAll(out var allLoot);
         for (int i = 0; i < lootLen; i++) {
@@ -84,11 +99,6 @@ public static class GameBusiness_Normal {
                 LootDomain.UnSpawn(ctx, loot);
             }
         }
-
-        // Bullet Logic
-        ctx.bulletRepo.Foreach(bullet => {
-            BulletDomain.Move(bullet, dt);
-        });
 
         // Bullet TearDown
         int bulletLen = ctx.bulletRepo.TakeAll(out var allBullet);
@@ -101,6 +111,10 @@ public static class GameBusiness_Normal {
 
         Physics2D.Simulate(dt);
         RoleDomain.CheckGround(ctx, owner);
+        ctx.bulletRepo.Foreach(bullet => {
+            BulletDomain.HitCheck(ctx, bullet);
+        });
+
     }
 
     static void LateTick(GameContext ctx, float dt) {

@@ -40,6 +40,7 @@ public static class RoleDomain {
     public static void Unspawn(GameContext ctx, RoleEntity role) {
         ctx.roleRepo.Remove(role);
         role.Reuse();
+        role.gameObject.SetActive(false);
         ctx.poolService.ReturnRole(role);
     }
 
@@ -231,8 +232,8 @@ public static class RoleDomain {
                 role.fsm.castingIntervalTimer = skill.castingIntervalSec;
                 // todo发射技能
                 role.Anim_Shoot(ctx.input.moveAxis.x);
-                var bullet = BulletDomain.Spawn(ctx, skill.bulletTypeID, role.LaunchPoint(), role.ally);
-                bullet.moveDir = role.GetForWard();
+                var bullet = BulletDomain.Spawn(ctx, skill.bulletTypeID, role.LaunchPoint(), role.ally, skill.damageRate);
+                bullet.faceDir = role.GetForWard();
                 bullet.SetForward();
             }
             role.fsm.castingMainTimer -= dt;

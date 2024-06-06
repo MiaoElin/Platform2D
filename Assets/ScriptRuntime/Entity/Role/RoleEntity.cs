@@ -11,13 +11,14 @@ public class RoleEntity : MonoBehaviour {
     public float moveSpeed;
     public float height;
     public float attackRange;
+    public bool isDead;
     public Ally ally;
     public AIType aiType;
     public Vector2 faceDir;
     public Vector2[] path;
     [SerializeField] Rigidbody2D rb;
     public Animator anim;
-    public Transform body;
+    public GameObject body;
     public Transform launchPoint; // 发射点
 
     public bool isStayInGround;
@@ -37,9 +38,9 @@ public class RoleEntity : MonoBehaviour {
     public Action<Collider2D> OnTriggerStayHandle;
 
     public void Ctor(GameObject mod) {
-        var bodyMod = GameObject.Instantiate(mod, body);
-        launchPoint = bodyMod.transform.Find("launchPoint").transform;
-        this.anim = bodyMod.GetComponentInChildren<Animator>();
+        body = GameObject.Instantiate(mod, transform);
+        launchPoint = body.transform.Find("launchPoint").transform;
+        this.anim = body.GetComponentInChildren<Animator>();
         fsm = new RoleFSMComponent();
         fsm.EnterNormal();
         buffCom = new BuffSlotComponent();
@@ -47,7 +48,7 @@ public class RoleEntity : MonoBehaviour {
     }
 
     internal void Reuse() {
-        Destroy(body.gameObject.GetComponentInChildren<GameObject>());
+        Destroy(body.gameObject);
     }
 
     public void SetForward(float axisX) {

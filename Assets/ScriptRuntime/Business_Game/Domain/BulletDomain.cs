@@ -2,9 +2,12 @@ using UnityEngine;
 
 public static class BulletDomain {
 
-    public static BulletEntity Spawn(GameContext ctx, int typeID, Vector2 pos, Ally ally) {
-        var bullet = GameFactory.Bullet_Spawn(ctx, typeID, pos, ally);
+    public static BulletEntity Spawn(GameContext ctx, int typeID, Vector2 pos, Ally ally, float damageRate) {
+        var bullet = GameFactory.Bullet_Spawn(ctx, typeID, pos, ally, damageRate);
         ctx.bulletRepo.Add(bullet);
+        // bullet.onTriggerEnterHandle += (Collider2D other) => {
+        //     On_Trigger_EnterRoleEvent(ctx, bullet, other);
+        // };
         return bullet;
     }
 
@@ -19,5 +22,36 @@ public static class BulletDomain {
         bullet.Move(dt);
         // anim
         bullet.Anim_Shoot();
+    }
+
+    public static void On_Trigger_EnterRoleEvent(GameContext ctx, BulletEntity bullet, Collider2D other) {
+        RoleEntity role = other.GetComponentInParent<RoleEntity>();
+        if (role.ally == bullet.ally) {
+            return;
+        }
+        bullet.isTearDown = true;
+
+        role.hp -= (int)bullet.damgage;
+        if (role.hp <= 0) {
+            role.isDead = true;
+        }
+    }
+
+    public static void HitCheck(GameContext ctx, BulletEntity bullet) {
+        var layerMask = 1 << 8;
+        RaycastHit2D[] all = Physics2D.RaycastAll(bullet.Pos(), bullet.faceDir, 0.1f, layerMask);
+        foreach (var hit in all) {
+            var role = hit.collider.GetComponentInParent<RoleEntity>();
+            if (role.ally == bullet.ally) {
+                continue;
+            } else {
+                bullet.isTearDown = true;
+                role.hp -= (int)bullet.damgage;
+                if (role.hp <= 0) {
+                    role.isDead = true;
+                }
+            }
+        }
+
     }
 }

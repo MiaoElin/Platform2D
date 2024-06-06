@@ -25,9 +25,21 @@ public class RoleRepo {
     }
 
     public void Foreach(Action<RoleEntity> action) {
-        for (int i = 0; i < all.Count; i++) {
-            var role = all[i];
-            action.Invoke(role);
+        foreach (var dic in all) {
+            action.Invoke(dic.Value);
         }
+        // for (int i = 0; i < all.Count; i++) {
+        //     var role = all[i];
+        //     action.Invoke(role);
+        // }
+    }
+
+    public int TakeAll(out RoleEntity[] allRole) {
+        if (all.Count > temp.Length) {
+            temp = new RoleEntity[(int)(all.Count * 1.5f)];
+        }
+        all.Values.CopyTo(temp, 0);
+        allRole = temp;
+        return all.Count;
     }
 }

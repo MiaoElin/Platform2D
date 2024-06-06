@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2331615019961759593}
   - component: {fileID: 1054284287984013829}
   - component: {fileID: 2435244196356534430}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,9 +119,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1796487250767503193}
   - component: {fileID: 166211514021603236}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mod_Role_Yellow
-  m_TagString: Untagged
+  m_TagString: Role
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

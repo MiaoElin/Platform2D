@@ -201,17 +201,18 @@ public static class GameFactory {
         return bullet;
     }
 
-    public static BulletEntity Bullet_Spawn(GameContext ctx, int typeID, Vector2 pos, Ally ally) {
+    public static BulletEntity Bullet_Spawn(GameContext ctx, int typeID, Vector2 pos, Ally ally, float damgeRate) {
         ctx.asset.TryGet_BulletTM(typeID, out var tm);
         if (!tm) {
             Debug.LogError($"GameFactory.Bullet_Spawn {typeID} is not find");
         }
         var bullet = ctx.poolService.GetBullet();
         bullet.typeID = typeID;
+        bullet.ally = ally;
         bullet.id = ctx.iDService.bulletIDRecord++;
         bullet.Ctor(tm.mod, tm.moveSpeed);
         bullet.SetPos(pos);
-
+        bullet.damgage = damgeRate * CommonConst.BASEDAMAGE;
         bullet.gameObject.SetActive(true);
         return bullet;
     }

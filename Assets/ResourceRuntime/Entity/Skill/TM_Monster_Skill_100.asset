@@ -20,4 +20,4 @@ MonoBehaviour:
   preCastCDMax: 0.2
   castingMaintainSec: 0.1
   castingIntervalSec: 0.1
-  endCastSec: 1.5
+  endCastSec: 2
