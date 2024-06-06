@@ -177,7 +177,9 @@ public class RoleEntity : MonoBehaviour {
     internal void Anim_Shoot(float axisX) {
         if (axisX == 0) {
             anim.CrossFade("Stand_Shoot", 0);
+            anim.SetBool("B_StandShoot", true);
         } else {
+            anim.SetBool("B_StandShoot", false);
             anim.CrossFade("Run_Shoot", 0);
         }
     }

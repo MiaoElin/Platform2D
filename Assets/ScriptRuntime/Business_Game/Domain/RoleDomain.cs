@@ -153,7 +153,10 @@ public static class RoleDomain {
 
         if (usableSkillKeys.Count == 0) {
             skillCom.SetCurrentKey(InputKeyEnum.None);
+            role.anim.SetBool("B_StandShoot", false);
+            role.anim.enabled = false;
             role.fsm.EnterNormal();
+            role.anim.enabled = true;
             return;
         }
 
