@@ -11,18 +11,18 @@ Panel_PlayerStatus
 - BakeScene 做滚动效果
 
 === Loot ===
-- lootEntity
-- lootTM
-- 生成loot
-- lootEM
-- 编辑器里添加一些loot
-- 在MapSpawn生成Loot
+√ - lootEntity
+√ - lootTM
+√ - 生成loot
+√ - lootEM
+√ - 编辑器里添加一些loot
+√ - 在MapSpawn生成Loot
 
 === DropLoot ===
 - 会掉落loot 的loot 有一下几种
-  1.宝箱
-  2.神龛
-  3.机器人回收站（回收机器人，可能掉落装备）
+  √-1.宝箱
+   -2.神龛
+   -3.机器人回收站（回收机器人，可能掉落装备）
 
 
 === 机器人Loot ===

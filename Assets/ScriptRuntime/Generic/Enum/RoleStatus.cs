@@ -4,5 +4,6 @@ public enum RoleStatus {
     Normal,
     Ladder,
     Casting,
+    Trampoline,
     Reborn,
 }

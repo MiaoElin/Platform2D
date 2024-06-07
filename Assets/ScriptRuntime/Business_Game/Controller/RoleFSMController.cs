@@ -6,32 +6,22 @@ public static class RoleFSMConTroller {
     public static void ApplyFsm(GameContext ctx, RoleEntity role, float dt) {
         var status = role.fsm.status;
         ApplyAny(ctx, role, dt);
-
+        Debug.Log(status);
         if (status == RoleStatus.Normal) {
             ApplyNormal(ctx, role, dt);
         } else if (status == RoleStatus.Ladder) {
             ApplyLadder(ctx, role, dt);
         } else if (status == RoleStatus.Casting) {
             ApplyCasting(ctx, role, dt);
+        } else if (status == RoleStatus.Trampoline) {
+            ApplyTrampoline(ctx, role, dt);
         }
 
-    }
-
-    private static void ApplyCasting(GameContext ctx, RoleEntity role, float dt) {
-        var fsm = role.fsm;
-        if (fsm.isEnterCasting) {
-            fsm.isEnterCasting = false;
-        }
-        RoleDomain.Casting(ctx, role, dt);
-
-        RoleDomain.Owner_Move_InCasting(ctx, role);
-        RoleDomain.Jump(ctx, role);
-        RoleDomain.Falling(role, dt);
     }
 
     private static void ApplyAny(GameContext ctx, RoleEntity role, float dt) {
         var status = role.fsm.status;
-        if (status != RoleStatus.Ladder) {
+        if (status != RoleStatus.Ladder && status != RoleStatus.Trampoline) {
             RoleDomain.CurrentSkill_Tick(ctx, role);
         }
         RoleDomain.CD_Tick(ctx, role, dt);
@@ -42,7 +32,7 @@ public static class RoleFSMConTroller {
         if (fsm.isEnterNormal) {
             fsm.isEnterNormal = false;
         }
-        RoleDomain.Onwer_Move_InNormal(ctx, role);
+        RoleDomain.Onwer_Move_ByAxiX(ctx, role);
         RoleDomain.Jump(ctx, role);
         RoleDomain.Falling(role, dt);
 
@@ -67,5 +57,30 @@ public static class RoleFSMConTroller {
             ctx.GetCurrentMap().SetGridCollision();
         }
     }
+
+    private static void ApplyTrampoline(GameContext ctx, RoleEntity role, float dt) {
+        var fsm = role.fsm;
+        if (fsm.isEnterLadder) {
+            fsm.isEnterTrampoline = false;
+        }
+        RoleDomain.Onwer_Move_ByAxiX(ctx, role);
+        RoleDomain.Falling(role, dt);
+        if (role.isOnGround) {
+            fsm.EnterNormal();
+        }
+    }
+
+    private static void ApplyCasting(GameContext ctx, RoleEntity role, float dt) {
+        var fsm = role.fsm;
+        if (fsm.isEnterCasting) {
+            fsm.isEnterCasting = false;
+        }
+        RoleDomain.Casting(ctx, role, dt);
+
+        RoleDomain.Owner_Move_InCasting(ctx, role);
+        RoleDomain.Jump(ctx, role);
+        RoleDomain.Falling(role, dt);
+    }
+
 
 }

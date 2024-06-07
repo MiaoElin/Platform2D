@@ -22,6 +22,7 @@ public static class PropFsmController {
             if (prop.isOwnerOnTrampoline) {
                 prop.isOwnerOnTrampoline = false;
                 owenr.SetVelocityY(prop.jumpForce);
+                owenr.fsm.EnterTrampoline();
             }
         }
 

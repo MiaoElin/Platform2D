@@ -5,6 +5,8 @@ public class RoleFSMComponent {
     public RoleStatus status;
 
     public bool isEnterNormal;
+
+    public bool isEnterCasting;
     public bool isEnterCastStageReset;
     public SkillCastStage skillCastStage;
     // 前
@@ -20,19 +22,12 @@ public class RoleFSMComponent {
     public float lowestY;
     public float highestY;
 
-    public bool isEnterCasting;
+    public bool isEnterTrampoline;
 
     public void EnterNormal() {
         status = RoleStatus.Normal;
         isEnterNormal = true;
         isEnterCastStageReset = true;
-    }
-
-    public void RestCastStage(SkillSubEntity skill) {
-        skillCastStage = SkillCastStage.PreCast;
-        castingMainTimer = skill.castingMaintainSec;
-        castingIntervalTimer = skill.castingIntervalSec;
-        endCastTimer = skill.endCastSec;
     }
 
     public void EnterLadder(float lowestY, float highestY) {
@@ -47,4 +42,15 @@ public class RoleFSMComponent {
         isEnterCasting = true;
     }
 
+    public void RestCastStage(SkillSubEntity skill) {
+        skillCastStage = SkillCastStage.PreCast;
+        castingMainTimer = skill.castingMaintainSec;
+        castingIntervalTimer = skill.castingIntervalSec;
+        endCastTimer = skill.endCastSec;
+    }
+
+    public void EnterTrampoline() {
+        status = RoleStatus.Trampoline;
+        isEnterTrampoline = true;
+    }
 }

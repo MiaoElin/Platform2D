@@ -108,7 +108,7 @@ public static class RoleDomain {
         }
     }
     #region  Move
-    public static void Onwer_Move_InNormal(GameContext ctx, RoleEntity role) {
+    public static void Onwer_Move_ByAxiX(GameContext ctx, RoleEntity role) {
         role.MoveByAxisX(ctx.input.moveAxis.x);
         role.SetForward(ctx.input.moveAxis.x);
     }
@@ -172,6 +172,7 @@ public static class RoleDomain {
         }
         // Ground:3/Trampoline:6/Ladder:7
         var layerMask = 1 << 3 | 1 << 6;
+        role.isOnGround = false;
         Collider2D[] hits = Physics2D.OverlapBoxAll(role.Pos() + Vector2.down * role.height / 2, new Vector2(0.98f, 0.1f), 0, layerMask);
         if (hits.Length == 0) {
         }
@@ -179,6 +180,7 @@ public static class RoleDomain {
             if (hit.gameObject.layer == 3) {
                 role.ReuseJumpTimes();
                 role.Anim_JumpEnd();
+                role.isOnGround = true;
             } else if (hit.gameObject.layer == 6) {
                 var prop = hit.GetComponentInParent<PropEntity>();
                 prop.isOwnerOnTrampoline = true;

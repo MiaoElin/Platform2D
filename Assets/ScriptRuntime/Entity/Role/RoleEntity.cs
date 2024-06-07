@@ -23,6 +23,7 @@ public class RoleEntity : MonoBehaviour {
     public Transform launchPoint; // 发射点
 
     public bool isStayInGround;
+    public bool isOnGround;
     public float gravity;
     public float jumpForce;
     public bool isJumpKeyDown;
