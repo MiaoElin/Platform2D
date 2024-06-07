@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using System.Collections.Generic;
 
 [ExecuteInEditMode]
 public class RoleEM : MonoBehaviour {
@@ -10,7 +11,6 @@ public class RoleEM : MonoBehaviour {
     void Awake() {
         if (mod == null) {
             mod = GameObject.Instantiate(tm.mod, transform);
-
         }
     }
 }

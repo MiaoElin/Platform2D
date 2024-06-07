@@ -52,11 +52,19 @@ public class MapEM : MonoBehaviour {
                 tm.roleSpawnerTMs = new RoleSpawnerTM[roleEMs.Length];
                 for (int i = 0; i < roleEMs.Length; i++) {
                     var em = roleEMs[i];
+                    var path = em.transform.Find("path");
+                    var trans = path.GetComponentsInChildren<Transform>();
+                    Vector2[] posArray = new Vector2[trans.Length - 1];
+                    for (int j = 0; j < trans.Length - 1; j++) {
+                        posArray[j] = trans[j + 1].position;
+                    }
+
                     RoleSpawnerTM spawnerTM = new RoleSpawnerTM() {
                         roleTypeID = em.tm.typeID,
                         pos = em.transform.position,
                         rotation = em.transform.eulerAngles,
-                        localScale = em.transform.localScale
+                        localScale = em.transform.localScale,
+                        path = posArray
                     };
                     tm.roleSpawnerTMs[i] = spawnerTM;
                 }

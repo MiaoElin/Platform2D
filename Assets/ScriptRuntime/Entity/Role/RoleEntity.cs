@@ -185,6 +185,9 @@ public class RoleEntity : MonoBehaviour {
     }
 
     internal void Anim_Shoot(float axisX) {
+        if (!isOwner) {
+            return;
+        }
         if (axisX == 0) {
             anim.SetBool("B_StandShoot", true);
         } else {
