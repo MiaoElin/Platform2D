@@ -2,8 +2,8 @@ using UnityEngine;
 
 public static class BulletDomain {
 
-    public static BulletEntity Spawn(GameContext ctx, int typeID, Vector2 pos, Ally ally, float damageRate) {
-        var bullet = GameFactory.Bullet_Spawn(ctx, typeID, pos, ally, damageRate);
+    public static BulletEntity Spawn(GameContext ctx, int typeID, Vector2 pos, Ally ally) {
+        var bullet = GameFactory.Bullet_Spawn(ctx, typeID, pos, ally);
         ctx.bulletRepo.Add(bullet);
         // bullet.onTriggerEnterHandle += (Collider2D other) => {
         //     On_Trigger_EnterRoleEvent(ctx, bullet, other);

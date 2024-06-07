@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 100
   skillName: MonsterSkill
-  damageRate: 0.3
+  isCastBullet: 1
   bulletTypeID: 100
+  isCastProp: 0
+  propTypeID: 0
   cdMax: 0
   preCastCDMax: 0.2
   castingMaintainSec: 0.1

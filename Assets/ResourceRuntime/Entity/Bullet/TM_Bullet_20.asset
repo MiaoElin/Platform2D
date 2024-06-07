@@ -15,3 +15,4 @@ MonoBehaviour:
   typeID: 20
   mod: {fileID: 7803596589922138180, guid: 86793bc5c43eb1b4ab06e681a6384835, type: 3}
   moveSpeed: 60
+  damageRate: 3

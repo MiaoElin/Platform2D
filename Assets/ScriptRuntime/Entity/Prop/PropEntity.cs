@@ -5,7 +5,7 @@ public class PropEntity : MonoBehaviour {
     public int typeID;
     public int id;
     public PropFSMComponent fsm;
-    public GameObject mod;
+    GameObject mod;
     public SpriteRenderer sr;
     public Vector2 size;
 
@@ -22,6 +22,13 @@ public class PropEntity : MonoBehaviour {
     public float jumpForce;
     public Sprite[] anim_BePress;
 
+    // hurtFire
+    public bool isHurtFire;
+    public float hurtFireDamageRate;
+    public float hurtFireTimer;
+    public float hurtFireDuration;
+
+
     public bool isModifySize;
     public ColliderType colliderType;
     public BoxCollider2D boxCollider;
@@ -31,6 +38,10 @@ public class PropEntity : MonoBehaviour {
 
     public void Ctor() {
         fsm = new PropFSMComponent();
+    }
+
+    public void Reuse() {
+        GameObject.Destroy(mod.gameObject);
     }
 
     public void SetPos(Vector2 pos) {

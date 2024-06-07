@@ -3,15 +3,21 @@ using UnityEngine;
 
 public static class PropFsmController {
 
-    public static void ApplyFsm(GameContext ctx, PropEntity prop) {
+    public static void ApplyFsm(GameContext ctx, PropEntity prop, float dt) {
         var fsm = prop.fsm;
         var status = fsm.propStatus;
         if (status == PropStatus.Normal) {
-            ApplyNormal(ctx, prop);
+            ApplyNormal(ctx, prop, dt);
+        } else if (status == PropStatus.FadeOut) {
+            ApplyFadeOut(ctx, prop, dt);
         }
     }
 
-    private static void ApplyNormal(GameContext ctx, PropEntity prop) {
+    private static void ApplyFadeOut(GameContext ctx, PropEntity prop, float dt) {
+
+    }
+
+    private static void ApplyNormal(GameContext ctx, PropEntity prop, float dt) {
         var fsm = prop.fsm;
         var owenr = ctx.GetOwner();
         if (fsm.isEnterNormal) {
@@ -26,6 +32,7 @@ public static class PropFsmController {
             }
         }
 
+        // 楼梯 
         var pos = owenr.Pos();
         if (prop.isLadder) {
             Vector2 lowPos = prop.Pos() + Vector2.down * (prop.size.y / 2) + Vector2.left * prop.size.x / 2;
@@ -50,5 +57,14 @@ public static class PropFsmController {
             }
         }
 
+        // hurt fire
+        if (prop.isHurtFire) {
+            ref var timer = ref prop.hurtFireTimer;
+            timer -= dt;
+            if (timer <= 0) {
+                timer = prop.hurtFireDuration;
+                owenr.hp -= (int)prop.hurtFireDamageRate * CommonConst.BASEDAMAGE;
+            }
+        }
     }
 }

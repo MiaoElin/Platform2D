@@ -18,6 +18,12 @@ public class PropTM : ScriptableObject {
     public bool isTrampoline;
     public Sprite[] anim_Normal;
 
+    // hurtFire
+    public bool isHurtFire;
+    public float hurtFireDamageRate;
+    public float hurtFireDuration;
+
+
     public ColliderType colliderType;
 
 }

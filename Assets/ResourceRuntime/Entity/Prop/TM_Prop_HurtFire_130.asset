@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb05906384012354f97422a1e935be06, type: 3}
+  m_Name: TM_Prop_HurtFire_130
+  m_EditorClassIdentifier: 
+  typeID: 130
+  TypeName: hurtFire
+  mod: {fileID: 638021832257035120, guid: 303155d7b6c054540bbde857199dcccb, type: 3}
+  size: {x: 0, y: 0}
+  isLadder: 0
+  isAltar: 0
+  isTrampoline: 0
+  anim_Normal: []
+  isHurtFire: 1
+  hurtFireDamageRate: 0.1
+  hurtFireDuration: 1
+  colliderType: 0

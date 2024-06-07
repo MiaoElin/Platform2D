@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 40
   skillName: "\u52A0\u901F\u95EA\u73B0"
-  damageRate: 0
+  isCastBullet: 1
   bulletTypeID: 0
+  isCastProp: 0
+  propTypeID: 0
   cdMax: 5
   preCastCDMax: 0
   castingMaintainSec: 0.1

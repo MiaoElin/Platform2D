@@ -245,6 +245,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Skill
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 42c2888b492c8e443bc51d2d15cca110
+    m_Address: Assets/ResourceRuntime/Entity/Prop/TM_Prop_HurtFire_130.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Prop
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:

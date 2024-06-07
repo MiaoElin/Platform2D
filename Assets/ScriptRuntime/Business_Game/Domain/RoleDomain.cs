@@ -282,9 +282,14 @@ public static class RoleDomain {
                 role.fsm.castingIntervalTimer = skill.castingIntervalSec;
                 // todo发射技能
                 role.Anim_Shoot(ctx.input.moveAxis.x);
-                var bullet = BulletDomain.Spawn(ctx, skill.bulletTypeID, role.LaunchPoint(), role.ally, skill.damageRate);
-                bullet.faceDir = role.GetForWard();
-                bullet.SetForward();
+                if (skill.isCastBullet) {
+                    var bullet = BulletDomain.Spawn(ctx, skill.bulletTypeID, role.LaunchPoint(), role.ally);
+                    bullet.faceDir = role.GetForWard();
+                    bullet.SetForward();
+                }
+                if (skill.isCastProp) {
+                    var prop = PropDomain.Spawn(ctx, skill.propTypeID, role.LaunchPoint(), Vector3.zero, Vector3.one, false, Vector2.one, 0);
+                }
             }
             role.fsm.castingMainTimer -= dt;
             if (role.fsm.castingMainTimer <= 0) {

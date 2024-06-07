@@ -4,8 +4,13 @@ using UnityEngine;
 public class SkillTM : ScriptableObject {
     public int typeID;
     public string skillName;
-    public float damageRate;
+    // public float damageRate;
+
+    public bool isCastBullet;
     public int bulletTypeID;
+
+    public bool isCastProp;
+    public int propTypeID;
 
     // cd
     public float cdMax;

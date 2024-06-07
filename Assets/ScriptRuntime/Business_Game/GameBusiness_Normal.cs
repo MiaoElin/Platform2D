@@ -68,7 +68,7 @@ public static class GameBusiness_Normal {
 
         // Prop Logic
         ctx.propRepo.Foreach(prop => {
-            PropFsmController.ApplyFsm(ctx, prop);
+            PropFsmController.ApplyFsm(ctx, prop, dt);
         });
 
         // Loot Logic

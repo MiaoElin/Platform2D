@@ -96,16 +96,18 @@ public static class GameFactory {
         prop.SetMesh(tm.mod);
         prop.size = tm.size;
 
+        // 梯子
         prop.isLadder = tm.isLadder;
-
+        // 祭坛
         prop.isAltar = tm.isAltar;
-
+        // 蹦床
         prop.isTrampoline = tm.isTrampoline;
         prop.anim_BePress = tm.anim_Normal;
-        // prop.OnPressTrampolineHandle = (float jumpForce) => {
-        //     // TO do
-        //     ctx.GetOwner().SetVelocityY(jumpForce);
-        // };
+        // hurtFire
+        prop.isHurtFire = tm.isHurtFire;
+        prop.hurtFireDamageRate = tm.hurtFireDamageRate;
+        prop.hurtFireDuration = tm.hurtFireDuration;
+        prop.hurtFireTimer = 0;
 
         prop.SetCollider(tm.colliderType, isModifySize, sizeScale);
         prop.gameObject.SetActive(true);
@@ -185,8 +187,13 @@ public static class GameFactory {
         }
         SkillSubEntity skill = new SkillSubEntity();
         skill.typeID = tm.typeID;
-        skill.damageRate = tm.damageRate;
+
+        // skill.bulletDamageRate = tm.damageRate;
+        skill.isCastBullet = tm.isCastBullet;
         skill.bulletTypeID = tm.bulletTypeID;
+
+        skill.isCastProp = tm.isCastProp;
+        skill.propTypeID = tm.propTypeID;
 
         skill.cd = tm.cdMax;
         skill.cdMax = tm.cdMax;
@@ -205,7 +212,7 @@ public static class GameFactory {
         return bullet;
     }
 
-    public static BulletEntity Bullet_Spawn(GameContext ctx, int typeID, Vector2 pos, Ally ally, float damgeRate) {
+    public static BulletEntity Bullet_Spawn(GameContext ctx, int typeID, Vector2 pos, Ally ally) {
         ctx.asset.TryGet_BulletTM(typeID, out var tm);
         if (!tm) {
             Debug.LogError($"GameFactory.Bullet_Spawn {typeID} is not find");
@@ -216,7 +223,7 @@ public static class GameFactory {
         bullet.id = ctx.iDService.bulletIDRecord++;
         bullet.Ctor(tm.mod, tm.moveSpeed);
         bullet.SetPos(pos);
-        bullet.damgage = damgeRate * CommonConst.BASEDAMAGE;
+        bullet.damgage = tm.damageRate * CommonConst.BASEDAMAGE;
         bullet.gameObject.SetActive(true);
         return bullet;
     }
