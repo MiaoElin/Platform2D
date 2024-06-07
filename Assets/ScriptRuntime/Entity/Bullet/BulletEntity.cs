@@ -11,7 +11,7 @@ public class BulletEntity : MonoBehaviour {
     public Rigidbody2D rb;
     public float moveSpeed;
     public float damgage;
-    public Vector2 faceDir;
+    public Vector2 moveDir;
 
     public float flyTimer;
     public bool isTearDown;
@@ -44,7 +44,7 @@ public class BulletEntity : MonoBehaviour {
 
     public void Move(float dt) {
         var velocity = rb.velocity;
-        velocity = faceDir.normalized * moveSpeed;
+        velocity = moveDir.normalized * moveSpeed;
         rb.velocity = velocity;
         flyTimer -= dt;
         if (flyTimer <= 0) {
@@ -53,7 +53,7 @@ public class BulletEntity : MonoBehaviour {
     }
 
     internal void SetForward() {
-        float rad = Mathf.Atan2(faceDir.y, faceDir.x);
+        float rad = Mathf.Atan2(moveDir.y, moveDir.x);
         float deg = rad * Mathf.Rad2Deg;
         var euler = transform.eulerAngles;
         euler.z = deg;

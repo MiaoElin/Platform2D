@@ -39,7 +39,7 @@ public static class BulletDomain {
 
     public static void HitCheck(GameContext ctx, BulletEntity bullet) {
         var layerMask = 1 << 8;
-        RaycastHit2D[] all = Physics2D.RaycastAll(bullet.Pos(), bullet.faceDir, 0.1f, layerMask);
+        RaycastHit2D[] all = Physics2D.RaycastAll(bullet.Pos(), bullet.moveDir, 0.1f, layerMask);
         foreach (var hit in all) {
             var role = hit.collider.GetComponentInParent<RoleEntity>();
             if (role.ally == bullet.ally) {

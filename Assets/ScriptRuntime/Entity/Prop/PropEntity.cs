@@ -4,10 +4,15 @@ using System;
 public class PropEntity : MonoBehaviour {
     public int typeID;
     public int id;
+    public Ally ally;
+    public float moveSpeed;
+    public bool isPermanent;
+    public float activeTimer;
     public PropFSMComponent fsm;
     GameObject mod;
     public SpriteRenderer sr;
     public Vector2 size;
+    public Vector2 moveDir;
 
     // 梯子
     public bool isLadder;
@@ -42,6 +47,10 @@ public class PropEntity : MonoBehaviour {
 
     public void Reuse() {
         GameObject.Destroy(mod.gameObject);
+    }
+
+    internal void Move(float dt) {
+        transform.position += (Vector3)moveDir.normalized * moveSpeed * dt;
     }
 
     public void SetPos(Vector2 pos) {

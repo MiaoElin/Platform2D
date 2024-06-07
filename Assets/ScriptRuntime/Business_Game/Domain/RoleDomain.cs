@@ -284,11 +284,12 @@ public static class RoleDomain {
                 role.Anim_Shoot(ctx.input.moveAxis.x);
                 if (skill.isCastBullet) {
                     var bullet = BulletDomain.Spawn(ctx, skill.bulletTypeID, role.LaunchPoint(), role.ally);
-                    bullet.faceDir = role.GetForWard();
+                    bullet.moveDir = role.GetForWard();
                     bullet.SetForward();
                 }
                 if (skill.isCastProp) {
-                    var prop = PropDomain.Spawn(ctx, skill.propTypeID, role.LaunchPoint(), Vector3.zero, Vector3.one, false, Vector2.one, 0);
+                    var prop = PropDomain.Spawn(ctx, skill.propTypeID, role.LaunchPoint(), Vector3.zero, Vector3.one, false, Vector2.one, 0, role.ally);
+                    prop.moveDir = role.GetForWard();
                 }
             }
             role.fsm.castingMainTimer -= dt;

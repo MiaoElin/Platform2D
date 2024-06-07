@@ -20,6 +20,18 @@ public static class PropFsmController {
     private static void ApplyNormal(GameContext ctx, PropEntity prop, float dt) {
         var fsm = prop.fsm;
         var owenr = ctx.GetOwner();
+
+        PropDomain.Move(prop, dt);
+
+        if (!prop.isPermanent) {
+            prop.activeTimer -= dt;
+            if (prop.activeTimer <= 0) {
+                Debug.Log("fadeout");
+                prop.fsm.EnterFadeOut();
+            }
+        }
+
+
         if (fsm.isEnterNormal) {
             fsm.isEnterNormal = false;
         }

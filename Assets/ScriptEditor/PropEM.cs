@@ -10,6 +10,7 @@ public class PropEM : MonoBehaviour {
     public bool isModifySize;
     public Vector2 sizeScalse;
     public float jumpForce;
+    public Ally ally;
 
     void Awake() {
         if (mod == null) {

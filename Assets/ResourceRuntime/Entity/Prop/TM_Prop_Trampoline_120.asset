@@ -14,19 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 120
   TypeName: TM_Prop_Trampoline_120
+  moveSpeed: 0
+  isPermanent: 1
+  activeTimer: 0
   mod: {fileID: 638021832257035120, guid: 81eaac078aa891b4f91c58226be10d9c, type: 3}
   size: {x: 2, y: 0.9}
   isLadder: 0
   isAltar: 0
   isTrampoline: 1
-  anim_BePress:
-  - {fileID: -6451659011051416826, guid: e90a5430795fe4646bcffae9e8e78a52, type: 3}
-  - {fileID: 5763944664088261270, guid: e90a5430795fe4646bcffae9e8e78a52, type: 3}
-  - {fileID: -241156948233288094, guid: e90a5430795fe4646bcffae9e8e78a52, type: 3}
-  - {fileID: 1379929217135556736, guid: e90a5430795fe4646bcffae9e8e78a52, type: 3}
-  - {fileID: 1018185316041469859, guid: e90a5430795fe4646bcffae9e8e78a52, type: 3}
-  - {fileID: 4533643106053293943, guid: e90a5430795fe4646bcffae9e8e78a52, type: 3}
-  - {fileID: 2358241775649404834, guid: e90a5430795fe4646bcffae9e8e78a52, type: 3}
-  - {fileID: 3670861799719939002, guid: e90a5430795fe4646bcffae9e8e78a52, type: 3}
-  - {fileID: 5720627644259429545, guid: e90a5430795fe4646bcffae9e8e78a52, type: 3}
+  anim_Normal: []
+  isHurtFire: 0
+  hurtFireDamageRate: 0
+  hurtFireDuration: 0
   colliderType: 2

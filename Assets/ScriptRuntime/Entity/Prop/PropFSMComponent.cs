@@ -12,4 +12,9 @@ public class PropFSMComponent {
         propStatus = PropStatus.Normal;
         isEnterNormal = true;
     }
+
+    public void EnterFadeOut() {
+        propStatus = PropStatus.FadeOut;
+        isEnterFadeOut = true;
+    }
 }

@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 130
   TypeName: hurtFire
+  moveSpeed: 0
+  isPermanent: 0
+  activeTimer: 4
   mod: {fileID: 638021832257035120, guid: 303155d7b6c054540bbde857199dcccb, type: 3}
   size: {x: 0, y: 0}
   isLadder: 0
