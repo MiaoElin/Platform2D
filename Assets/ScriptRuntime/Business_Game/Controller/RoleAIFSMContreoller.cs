@@ -22,7 +22,7 @@ public static class RoleAIFSMController {
         if (fsm.isEnterNormal) {
             fsm.isEnterNormal = false;
         }
-        RoleDomain.AI_Move(ctx, role);
+        RoleDomain.AI_Move(ctx, role, dt);
     }
 
     private static void ApplyCasting(GameContext ctx, RoleEntity role, float dt) {
@@ -30,7 +30,7 @@ public static class RoleAIFSMController {
         if (fsm.isEnterCasting) {
             fsm.isEnterCasting = false;
         }
-        RoleDomain.AI_Move(ctx, role);
+        RoleDomain.AI_Move(ctx, role, dt);
         RoleDomain.Casting(ctx, role, dt);
     }
 }

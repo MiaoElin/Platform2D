@@ -16,6 +16,7 @@ public class RoleEntity : MonoBehaviour {
     public AIType aiType;
     public Vector2 faceDir;
     public Vector2[] path;
+    public int pathIndex;
     [SerializeField] Rigidbody2D rb;
     public Animator anim;
     public GameObject body;
@@ -115,8 +116,22 @@ public class RoleEntity : MonoBehaviour {
         rb.velocity = velocity;
     }
 
-    public void MoveByPath() {
+    public void MoveByPath(float dt) {
+        if (pathIndex >= path.Length) {
+            // rb.velocity = Vector2.zero;
+            pathIndex = 0;
+            return;
+        }
+        var nextPos = path[pathIndex];
+        Vector2 dir = nextPos - Pos();
+        if (Vector2.SqrMagnitude(dir) <= (moveSpeed * dt) * (moveSpeed * dt)) {
+            pathIndex++;
+        }
 
+        var velocity = rb.velocity;
+        velocity = dir.normalized * moveSpeed;
+        rb.velocity = velocity;
+        SetForward(velocity.x);
     }
 
     public void MoveByTarget(Vector2 target) {
@@ -160,6 +175,7 @@ public class RoleEntity : MonoBehaviour {
     }
 
     // === Anim ===
+    #region Animator
     public void Anim_Run() {
         var speed = Mathf.Abs(rb.velocity.x);
         anim.SetFloat("F_MoveSpeed", speed);
@@ -196,7 +212,10 @@ public class RoleEntity : MonoBehaviour {
         }
     }
 
+    #endregion
+
     // Collider
+    #region  Collider
     void OnTriggerExit2D(Collider2D other) {
         if (other.tag == "Ground") {
             isStayInGround = false;
@@ -222,6 +241,6 @@ public class RoleEntity : MonoBehaviour {
             OnTriggerStayHandle.Invoke(other);
         }
     }
-
+    #endregion
 
 }

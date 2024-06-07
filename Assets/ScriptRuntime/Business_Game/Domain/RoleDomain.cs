@@ -117,9 +117,9 @@ public static class RoleDomain {
         role.MoveByAxisX(ctx.input.moveAxis.x);
     }
 
-    public static void AI_Move(GameContext ctx, RoleEntity role) {
+    public static void AI_Move(GameContext ctx, RoleEntity role, float dt) {
         if (role.aiType == AIType.ByPath) {
-            role.MoveByPath();
+            role.MoveByPath(dt);
         } else if (role.aiType == AIType.ByTarget) {
             role.MoveByTarget(ctx.GetOwner().Pos());
         }

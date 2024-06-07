@@ -54,9 +54,9 @@ public class MapEM : MonoBehaviour {
                     var em = roleEMs[i];
                     var path = em.transform.Find("path");
                     var trans = path.GetComponentsInChildren<Transform>();
-                    Vector2[] posArray = new Vector2[trans.Length - 1];
-                    for (int j = 0; j < trans.Length - 1; j++) {
-                        posArray[j] = trans[j + 1].position;
+                    Vector2[] posArray = new Vector2[trans.Length];
+                    for (int j = 0; j < trans.Length; j++) {
+                        posArray[j] = trans[j].position;
                     }
 
                     RoleSpawnerTM spawnerTM = new RoleSpawnerTM() {
