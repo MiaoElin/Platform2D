@@ -9,15 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ca41f76dbcb295458c46ab71e50da33, type: 3}
-  m_Name: TM_Monster_Skill_100
+  m_Script: {fileID: 11500000, guid: c51d036dd959bbc4998ba4711185d6ef, type: 3}
+  m_Name: TM_Bullet_Monster_110
   m_EditorClassIdentifier: 
-  typeID: 100
-  skillName: MonsterSkill
-  damageRate: 0.3
-  bulletTypeID: 100
-  cdMax: 0
-  preCastCDMax: 0.2
-  castingMaintainSec: 0.1
-  castingIntervalSec: 0.1
-  endCastSec: 2
+  typeID: 110
+  mod: {fileID: 7803596589922138180, guid: 3141c4f2ea394654b9e8271bb6c59bc4, type: 3}
+  moveSpeed: 8

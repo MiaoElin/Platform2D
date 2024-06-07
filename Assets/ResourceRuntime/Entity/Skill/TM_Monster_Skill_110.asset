@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ca41f76dbcb295458c46ab71e50da33, type: 3}
-  m_Name: TM_Monster_Skill_100
+  m_Name: TM_Monster_Skill_110
   m_EditorClassIdentifier: 
-  typeID: 100
+  typeID: 110
   skillName: MonsterSkill
-  damageRate: 0.3
-  bulletTypeID: 100
+  damageRate: 0.4
+  bulletTypeID: 110
   cdMax: 0
   preCastCDMax: 0.2
   castingMaintainSec: 0.1

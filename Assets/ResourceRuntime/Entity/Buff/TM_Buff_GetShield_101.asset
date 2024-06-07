@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TM_Buff_GetShield_101
   m_EditorClassIdentifier: 
   typeID: 101
-  icon: {fileID: 21300000, guid: 34bfd62b9cd588f4aa1e4543bd9ddab2, type: 2}
+  icon: {fileID: 21300000, guid: 3b799b8cfb6a0014e9daf8a87a0e6a6a, type: 2}
   isPermanent: 1
   isGetShield: 1
   shieldValue: 60

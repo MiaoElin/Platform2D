@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 110
   hpMax: 50
+  regenerationHpMax: 0
+  regenerationDuration: 0
   moveSpeed: 4
   height: 3
   attackRange: 30
@@ -23,4 +25,4 @@ MonoBehaviour:
   jumpForce: 0
   jumpTimesMax: 0
   sKillTMs:
-  - {fileID: 11400000, guid: ff5f136c7140e744282b87446509449f, type: 2}
+  - {fileID: 11400000, guid: 5122122ee4a04ae409a687d2ea904d25, type: 2}

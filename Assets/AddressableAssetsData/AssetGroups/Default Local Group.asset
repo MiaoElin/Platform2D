@@ -233,6 +233,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Loot
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 770ad4f072b41a746bdda00ab4dfddb8
+    m_Address: Assets/ResourceRuntime/Entity/Bullet/TM_Bullet_Monster_110.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Bullet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5122122ee4a04ae409a687d2ea904d25
+    m_Address: Assets/ResourceRuntime/Entity/Skill/TM_Monster_Skill_110.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Skill
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:
