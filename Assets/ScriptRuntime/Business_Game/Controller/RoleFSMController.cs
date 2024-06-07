@@ -23,6 +23,7 @@ public static class RoleFSMConTroller {
             fsm.isEnterCasting = false;
         }
         RoleDomain.Casting(ctx, role, dt);
+
         RoleDomain.Owner_Move_InCasting(ctx, role);
         RoleDomain.Jump(ctx, role);
         RoleDomain.Falling(role, dt);

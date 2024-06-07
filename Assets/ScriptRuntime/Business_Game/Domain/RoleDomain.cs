@@ -107,14 +107,23 @@ public static class RoleDomain {
             loot.isDead = true;
         }
     }
-
+    #region  Move
     public static void Onwer_Move_InNormal(GameContext ctx, RoleEntity role) {
         role.MoveByAxisX(ctx.input.moveAxis.x);
         role.SetForward(ctx.input.moveAxis.x);
     }
 
+    public static void Move_InLadder(GameContext ctx, RoleEntity role) {
+        role.MoveByAxisY(ctx.input.moveAxis.y);
+    }
+
     public static void Owner_Move_InCasting(GameContext ctx, RoleEntity role) {
         role.MoveByAxisX(ctx.input.moveAxis.x);
+        bool has = FindNearlyEnemy(ctx, role, out var nearlyEnemy);
+        if (has) {
+            var dir = nearlyEnemy.Pos() - role.Pos();
+            role.SetForward(dir.x);
+        }
     }
 
     public static void AI_Move(GameContext ctx, RoleEntity role, float dt) {
@@ -124,9 +133,29 @@ public static class RoleDomain {
             role.MoveByTarget(ctx.GetOwner().Pos());
         }
     }
+    #endregion
 
-    public static void Move_InLadder(GameContext ctx, RoleEntity role) {
-        role.MoveByAxisY(ctx.input.moveAxis.y);
+    public static bool FindNearlyEnemy(GameContext ctx, RoleEntity role, out RoleEntity nearlyEnermy) {
+        float nearlyDistance = Mathf.Pow(role.attackRange, 2);
+        RoleEntity nearEnemy = null;
+        ctx.roleRepo.Foreach(enemy => {
+            if (role.ally == enemy.ally) {
+                return;
+            }
+            float distance = Vector2.SqrMagnitude(enemy.Pos() - role.Pos());
+            if (distance <= nearlyDistance) {
+                nearlyDistance = distance;
+                nearEnemy = enemy;
+            }
+        });
+
+        if (nearEnemy == null) {
+            nearlyEnermy = null;
+            return false;
+        } else {
+            nearlyEnermy = nearEnemy;
+            return true;
+        }
     }
 
     public static void Jump(GameContext ctx, RoleEntity role) {
