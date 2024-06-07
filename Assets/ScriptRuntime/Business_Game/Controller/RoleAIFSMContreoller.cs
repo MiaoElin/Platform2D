@@ -14,7 +14,8 @@ public static class RoleAIFSMController {
     }
 
     private static void ApplyAny(GameContext ctx, RoleEntity role, float dt) {
-        RoleDomain.AI_AttakRange_Tick(ctx, role);
+        RoleDomain.AI_EnterAttakRange_Tick(ctx, role);
+        RoleDomain.AI_MeetTOwner_Check(ctx, role);
     }
 
     private static void ApllyNormal(GameContext ctx, RoleEntity role, float dt) {

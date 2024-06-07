@@ -22,7 +22,11 @@ public static class RoleDomain {
         return role;
     }
 
-    internal static void AI_AttakRange_Tick(GameContext ctx, RoleEntity role) {
+    internal static void AI_MeetTOwner_Check(GameContext ctx, RoleEntity role) {
+        // Vector2.SqrMagnitude(role.)
+    }
+
+    internal static void AI_EnterAttakRange_Tick(GameContext ctx, RoleEntity role) {
         var target = ctx.GetOwner().Pos();
         bool isInRange = PureFunction.IsInRange(target, role.Pos(), role.attackRange);
         if (isInRange) {
@@ -42,6 +46,18 @@ public static class RoleDomain {
         role.Reuse();
         role.gameObject.SetActive(false);
         ctx.poolService.ReturnRole(role);
+    }
+
+    public static void Owner_Rehp_Tick(RoleEntity owner, float dt) {
+        ref var timer = ref owner.regenerationTimer;
+        timer -= dt;
+        if (timer <= 0) {
+            timer = owner.regenerationDuration;
+            owner.hp += owner.regenerationHpMax;
+            if (owner.hp > owner.hpMax) {
+                owner.hp = owner.hpMax;
+            }
+        }
     }
 
     private static void On_Owner_TriggerExitEvent(GameContext ctx, Collider2D other) {
@@ -166,6 +182,7 @@ public static class RoleDomain {
         role.Falling(dt);
     }
 
+    #region  CheckGround
     public static void CheckGround(GameContext ctx, RoleEntity role) {
         if (role.GetVelocityY() > 0) {
             return;
@@ -187,7 +204,9 @@ public static class RoleDomain {
             }
         }
     }
+    #endregion
 
+    #region Skill
     internal static void CD_Tick(GameContext ctx, RoleEntity role, float dt) {
         var skillCom = role.skillCom;
         skillCom.Foreach(skill => {
@@ -281,5 +300,24 @@ public static class RoleDomain {
             }
         }
     }
+    #endregion
 
+    #region Buff
+    public static void Owner_Buff_Tick(GameContext ctx) {
+        var owner = ctx.GetOwner();
+        var buffCom = owner.buffCom;
+        buffCom.Foreach(buff => {
+            if (!buff.isPermanent) {
+                return;
+            }
+
+            if (buff.isAddHp) {
+                owner.hpMax += buff.addHpMax;
+                owner.regenerationHpMax += buff.regenerationHpMax;
+                buff.isPermanent = false;
+            }
+        });
+
+    }
+    #endregion
 }

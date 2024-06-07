@@ -22,4 +22,4 @@ MonoBehaviour:
   shieldDuration: 0
   isAddHp: 1
   addHpMax: 0
-  regenerationPerSecond: 2
+  regenerationHpMax: 1

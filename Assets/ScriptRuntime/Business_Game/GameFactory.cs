@@ -23,6 +23,9 @@ public static class GameFactory {
         role.path = path;
         role.hp = tm.hpMax;
         role.hpMax = tm.hpMax;
+        role.regenerationTimer = tm.regenerationDuration;
+        role.regenerationDuration = tm.regenerationDuration;
+        role.regenerationHpMax = tm.regenerationHpMax;
         role.moveSpeed = tm.moveSpeed;
         role.height = tm.height;
         role.attackRange = tm.attackRange;
@@ -169,7 +172,7 @@ public static class GameFactory {
 
         buff.isAddHp = tm.isAddHp;
         buff.addHpMax = tm.addHpMax;
-        buff.regenerationPerSecond = tm.regenerationPerSecond;
+        buff.regenerationHpMax = tm.regenerationHpMax;
 
         return buff;
     }

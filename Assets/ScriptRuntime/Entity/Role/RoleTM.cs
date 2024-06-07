@@ -6,6 +6,8 @@ public class RoleTM : ScriptableObject {
 
     public int typeID;
     public int hpMax;
+    public int regenerationHpMax;
+    public float regenerationDuration;
     public float moveSpeed;
     public float height;
     public float attackRange;

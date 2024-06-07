@@ -8,6 +8,9 @@ public class RoleEntity : MonoBehaviour {
     public bool isOwner;
     public int hp;
     public int hpMax;
+    public int regenerationHpMax;
+    public float regenerationTimer;
+    public float regenerationDuration;
     public float moveSpeed;
     public float height;
     public float attackRange;
@@ -24,6 +27,7 @@ public class RoleEntity : MonoBehaviour {
 
     public bool isStayInGround;
     public bool isOnGround;
+    public bool meetTarget;
     public float gravity;
     public float jumpForce;
     public bool isJumpKeyDown;
@@ -121,6 +125,10 @@ public class RoleEntity : MonoBehaviour {
         if (pathIndex >= path.Length) {
             // rb.velocity = Vector2.zero;
             pathIndex = 0;
+            return;
+        }
+        if (meetTarget) {
+            rb.velocity = Vector2.zero;
             return;
         }
         var nextPos = path[pathIndex];

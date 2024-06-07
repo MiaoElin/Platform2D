@@ -20,7 +20,7 @@ public class BuffSubEntity {
 
     // 提高生命值
     public bool isAddHp; // 增加血量
-    public float addHpMax; // 最大增加量
-    public float regenerationPerSecond; // 每秒回血量
+    public int addHpMax; // 最大增加量
+    public int regenerationHpMax; // 每秒回血量
 
 }

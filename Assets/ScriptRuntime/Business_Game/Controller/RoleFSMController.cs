@@ -6,7 +6,6 @@ public static class RoleFSMConTroller {
     public static void ApplyFsm(GameContext ctx, RoleEntity role, float dt) {
         var status = role.fsm.status;
         ApplyAny(ctx, role, dt);
-        Debug.Log(status);
         if (status == RoleStatus.Normal) {
             ApplyNormal(ctx, role, dt);
         } else if (status == RoleStatus.Ladder) {
@@ -25,6 +24,8 @@ public static class RoleFSMConTroller {
             RoleDomain.CurrentSkill_Tick(ctx, role);
         }
         RoleDomain.CD_Tick(ctx, role, dt);
+        RoleDomain.Owner_Buff_Tick(ctx);
+        RoleDomain.Owner_Rehp_Tick(role, dt);
     }
 
     private static void ApplyNormal(GameContext ctx, RoleEntity role, float dt) {
