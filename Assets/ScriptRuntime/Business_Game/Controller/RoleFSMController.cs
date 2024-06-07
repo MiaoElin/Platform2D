@@ -24,7 +24,7 @@ public static class RoleFSMConTroller {
             RoleDomain.CurrentSkill_Tick(ctx, role);
         }
         RoleDomain.CD_Tick(ctx, role, dt);
-        RoleDomain.Owner_Buff_Tick(ctx);
+        RoleDomain.Owner_Buff_Tick(ctx, dt);
         RoleDomain.Owner_Rehp_Tick(role, dt);
     }
 

@@ -8,6 +8,8 @@ public class RoleEntity : MonoBehaviour {
     public bool isOwner;
     public int hp;
     public int hpMax;
+    public int shieldMax;
+    public int shield;
     public int regenerationHpMax;
     public float regenerationTimer;
     public float regenerationDuration;

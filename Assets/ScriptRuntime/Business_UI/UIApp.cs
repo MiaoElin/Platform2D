@@ -49,8 +49,8 @@ public class UIApp {
         Panel_PlayerStatus_Domain.Hide(ctx);
     }
 
-    public void Panel_PlayerStatus_Update(int hpMax, int hp, int coinCount, BuffSlotComponent buffCom) {
-        Panel_PlayerStatus_Domain.Update_Tick(ctx, hpMax, coinCount, hp, buffCom);
+    public void Panel_PlayerStatus_Update(int hpMax, int shield, int hp, int coinCount, BuffSlotComponent buffCom) {
+        Panel_PlayerStatus_Domain.Update_Tick(ctx, hpMax, shield, coinCount, hp, buffCom);
     }
 
     public void Panel_SkillSlot_Open(float mask1TimeMax, float mask2TimeMax, float mask3TimeMax, float mask4TimeMax) {

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fdf773352e7c5459dbf0402daf21b2, type: 3}
+  m_Name: TM_Loot_GetShield_101
+  m_EditorClassIdentifier: 
+  typeID: 101
+  price: 0
+  mod: {fileID: 1263152816738523673, guid: ebebcd5e7b91ef04ab80c760e1c4d2c9, type: 3}
+  isGetCoin: 0
+  coinCount: 0
+  needHints: 0
+  isDropLoot: 0
+  easingInduration: 1
+  isGetBuff: 1
+  buffTypeId: 101
+  isGetStuff: 0

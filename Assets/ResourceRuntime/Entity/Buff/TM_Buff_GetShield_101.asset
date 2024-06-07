@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d49d9458d05da97459061570ea47ce47, type: 3}
-  m_Name: TM_Buff_GetShield_100
+  m_Name: TM_Buff_GetShield_101
   m_EditorClassIdentifier: 
-  typeID: 100
-  icon: {fileID: 21300000, guid: 7cdb0f3a42f0d5140810ee95662bc13b, type: 2}
+  typeID: 101
+  icon: {fileID: 21300000, guid: 34bfd62b9cd588f4aa1e4543bd9ddab2, type: 2}
   isPermanent: 1
   isGetShield: 1
-  shieldValue: 0
-  shieldPersent: 0.3
-  shieldCDMax: 20
+  shieldValue: 60
+  shieldPersent: 0
+  shieldCDMax: 0
   shieldDuration: 10
   isAddHp: 0
   addHpMax: 0

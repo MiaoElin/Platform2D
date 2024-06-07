@@ -169,6 +169,7 @@ public static class GameFactory {
         buff.shieldPersent = tm.shieldPersent;
         buff.shieldCDMax = tm.shieldCDMax;
         buff.shieldDuration = tm.shieldDuration;
+        buff.shieldTimer = 0;
 
         buff.isAddHp = tm.isAddHp;
         buff.addHpMax = tm.addHpMax;

@@ -303,7 +303,7 @@ public static class RoleDomain {
     #endregion
 
     #region Buff
-    public static void Owner_Buff_Tick(GameContext ctx) {
+    public static void Owner_Buff_Tick(GameContext ctx, float dt) {
         var owner = ctx.GetOwner();
         var buffCom = owner.buffCom;
         buffCom.Foreach(buff => {
@@ -316,8 +316,36 @@ public static class RoleDomain {
                 owner.regenerationHpMax += buff.regenerationHpMax;
                 buff.isPermanent = false;
             }
+            if (buff.isGetShield) {
+                ref var timer = ref buff.shieldTimer;
+                var duration = buff.shieldDuration;
+                timer -= dt;
+                // to do 盾的添加量为0；
+                if (timer <= 0 && buff.isAddShield == false) {
+                    buff.isAddShield = true;
+                    GetShield(owner, buff);
+                } else if (timer <= -duration) {
+                    timer = buff.shieldCDMax;
+                    buff.isAddShield = false;
+                    ReturnShield(owner, buff);
+                }
+            }
         });
 
+    }
+
+    public static void GetShield(RoleEntity Owner, BuffSubEntity buff) {
+        float shield = Owner.shield;
+        int hpMax = Owner.hpMax;
+        shield += (int)hpMax * buff.shieldPersent + (int)buff.shieldValue;
+        Owner.shield = (int)shield;
+    }
+
+    public static void ReturnShield(RoleEntity Owner, BuffSubEntity buff) {
+        float shield = Owner.shield;
+        int hpMax = Owner.hpMax;
+        shield -= (int)hpMax * buff.shieldPersent + (int)buff.shieldValue;
+        Owner.shield = (int)shield;
     }
     #endregion
 }

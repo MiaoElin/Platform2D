@@ -221,6 +221,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Role
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e961b09f034fdf4e98e4a822fa049a3
+    m_Address: Assets/ResourceRuntime/Entity/Buff/TM_Buff_GetShield_101.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Buff
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0877f86ed8d714b46a8ff77c23145b78
+    m_Address: Assets/ResourceRuntime/Entity/Loot/TM_Loot_GetShield_101.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Loot
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:
