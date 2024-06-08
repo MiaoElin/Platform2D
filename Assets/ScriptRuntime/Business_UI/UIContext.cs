@@ -6,6 +6,7 @@ public class UIContext {
     public UIRepo uIRepo;
     public HUD_HintsRepo hud_HintsRepo;
     public HUD_HPBarRepo hud_HPBarRepo;
+    public HUD_HurtInfoRepo hUD_HurtInfoRepo;
 
     public Transform screenCanvas;
     public Transform hudCanvas;
@@ -17,5 +18,6 @@ public class UIContext {
         uIRepo = new UIRepo();
         hud_HintsRepo = new HUD_HintsRepo();
         hud_HPBarRepo = new HUD_HPBarRepo();
+        hUD_HurtInfoRepo = new HUD_HurtInfoRepo();
     }
 }

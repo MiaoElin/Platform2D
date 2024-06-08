@@ -22,6 +22,7 @@ public static class GameFactory {
         role.ally = ally;
         role.path = path;
         role.hp = tm.hpMax;
+        role.lastHp = role.hp;
         role.hpMax = tm.hpMax;
         role.regenerationTimer = tm.regenerationDuration;
         role.regenerationDuration = tm.regenerationDuration;

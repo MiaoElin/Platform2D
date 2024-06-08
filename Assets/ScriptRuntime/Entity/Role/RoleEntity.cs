@@ -7,6 +7,7 @@ public class RoleEntity : MonoBehaviour {
     public int typeID;
     public bool isOwner;
     public int hp;
+    public int lastHp;
     public int hpMax;
     public int shieldMax;
     public int shield;

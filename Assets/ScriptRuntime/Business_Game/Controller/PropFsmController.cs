@@ -26,36 +26,6 @@ public static class PropFsmController {
         }
     }
 
-    private static void ApplyFadeOut(GameContext ctx, PropEntity prop, float dt) {
-        var fsm = prop.fsm;
-        if (fsm.isEnterFadeOut) {
-            fsm.isEnterFadeOut = false;
-            prop.Anim_FadOut();
-        }
-        ref var timer = ref fsm.fadeOutTimer;
-        timer -= dt;
-        if (timer <= 0) {
-            prop.isTearDown = true;
-        }
-    }
-
-    private static void ApplyHurt(GameContext ctx, PropEntity prop, float dt) {
-        var fsm = prop.fsm;
-        if (fsm.isEnterHurt) {
-            fsm.isEnterHurt = false;
-        }
-        var owner = ctx.GetOwner();
-        // hurt fire
-        if (prop.isHurtFire) {
-            ref var timer = ref prop.hurtFireTimer;
-            timer -= dt;
-            if (timer <= 0) {
-                timer = prop.hurtFireDuration;
-                owner.hp -= (int)(prop.hurtFireDamageRate * CommonConst.BASEDAMAGE);
-            }
-        }
-    }
-
     private static void ApplyNormal(GameContext ctx, PropEntity prop, float dt) {
         var fsm = prop.fsm;
         var owenr = ctx.GetOwner();
@@ -98,6 +68,37 @@ public static class PropFsmController {
                 }
             }
         }
-
     }
+
+    private static void ApplyFadeOut(GameContext ctx, PropEntity prop, float dt) {
+        var fsm = prop.fsm;
+        if (fsm.isEnterFadeOut) {
+            fsm.isEnterFadeOut = false;
+            prop.Anim_FadOut();
+        }
+        ref var timer = ref fsm.fadeOutTimer;
+        timer -= dt;
+        if (timer <= 0) {
+            prop.isTearDown = true;
+        }
+    }
+
+    private static void ApplyHurt(GameContext ctx, PropEntity prop, float dt) {
+        var fsm = prop.fsm;
+        if (fsm.isEnterHurt) {
+            fsm.isEnterHurt = false;
+        }
+        var owner = ctx.GetOwner();
+        // hurt fire
+        if (prop.isHurtFire) {
+            ref var timer = ref prop.hurtFireTimer;
+            timer -= dt;
+            if (timer <= 0) {
+                timer = prop.hurtFireDuration;
+                owner.hp -= (int)(prop.hurtFireDamageRate * CommonConst.BASEDAMAGE);
+                UIDomain.HUD_HurtInfo_Open(ctx, owner.Pos() + Vector2.up * 2, (int)(prop.hurtFireDamageRate * CommonConst.BASEDAMAGE));
+            }
+        }
+    }
+
 }

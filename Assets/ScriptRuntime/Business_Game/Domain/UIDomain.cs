@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public static class UIDomain {
 
@@ -28,6 +29,18 @@ public static class UIDomain {
 
     public static void HUD_HPBar_Close(GameContext ctx, int id) {
         ctx.uIApp.HUD_HPBar_Close(id);
+    }
+
+    public static void HUD_HurtInfo_Open(GameContext ctx, Vector2 pos, int hurtInfo) {
+        ctx.uIApp.HUD_HurtInfo_Open(pos, hurtInfo);
+    }
+
+    public static void HUD_HurtInfo_Close(GameContext ctx, HUD_HurtInfo hud) {
+        ctx.uIApp.HUD_HurtInfo_Close(hud);
+    }
+
+    public static void HUD_HurtInfo_Foreach(GameContext ctx, Action<HUD_HurtInfo> action) {
+        ctx.uIApp.HUD_HurtInfo_Foreach(action);
     }
 
 

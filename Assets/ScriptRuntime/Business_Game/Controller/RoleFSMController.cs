@@ -6,6 +6,7 @@ public static class RoleFSMConTroller {
     public static void ApplyFsm(GameContext ctx, RoleEntity role, float dt) {
         var status = role.fsm.status;
         ApplyAny(ctx, role, dt);
+        Debug.Log(status);
         if (status == RoleStatus.Normal) {
             ApplyNormal(ctx, role, dt);
         } else if (status == RoleStatus.Ladder) {
@@ -43,6 +44,8 @@ public static class RoleFSMConTroller {
         var fsm = role.fsm;
         if (fsm.isEnterLadder) {
             fsm.isEnterLadder = false;
+            // 将当前技能清空，防止按住技能键爬楼梯，落地后进不去casting状态
+            role.skillCom.SetCurrentKey(InputKeyEnum.None);
             ctx.GetCurrentMap().SetGridTrigger();
         }
 

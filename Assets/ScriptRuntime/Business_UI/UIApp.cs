@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class UIApp {
 
@@ -63,5 +64,17 @@ public class UIApp {
 
     public void Panel_SkillSlot_CD_Tick(float skill1Time, float skill2Time, float skill3Time, float skill4Time) {
         Panel_SkillSlot_Domain.CD_Tick(ctx, skill1Time, skill2Time, skill3Time, skill4Time);
+    }
+
+    public void HUD_HurtInfo_Open(Vector2 pos, int hurtInfo) {
+        HUD_HurtInfo_Domain.Open(ctx, pos, hurtInfo);
+    }
+
+    public void HUD_HurtInfo_Close(HUD_HurtInfo hud) {
+        HUD_HurtInfo_Domain.Close(ctx, hud);
+    }
+
+    public void HUD_HurtInfo_Foreach(Action<HUD_HurtInfo> action) {
+        HUD_HurtInfo_Domain.Foreach(ctx, action);
     }
 }
