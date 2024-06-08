@@ -7,9 +7,9 @@ public class LootEntity : MonoBehaviour {
     public int typeID;
     public int id;
     public int price;
-
     public GameObject mod;
     public Animator anim;
+    public Transform setHintsPoint;
     public LootFSMComponent fsm;
 
     public bool isDead;
@@ -34,6 +34,7 @@ public class LootEntity : MonoBehaviour {
         this.mod = GameObject.Instantiate(mod, transform);
         this.anim = this.mod.GetComponentInChildren<Animator>();
         fsm = new LootFSMComponent();
+        setHintsPoint = this.mod.transform.Find("SetHintsPoint");
     }
 
     internal void Reuse() {

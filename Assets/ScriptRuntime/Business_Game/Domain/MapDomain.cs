@@ -9,7 +9,7 @@ public static class MapDomain {
         var propSpawnerTMs = map.propSpawnerTMs;
         {
             foreach (var tm in propSpawnerTMs) {
-                PropDomain.Spawn(ctx, tm.propTypeID, tm.pos, tm.rotation, tm.localScale, tm.isModifySize, tm.sizeScale, tm.jumpForce,tm.ally);
+                PropDomain.Spawn(ctx, tm.propTypeID, tm.pos, tm.rotation, tm.localScale, tm.isModifySize, tm.sizeScale, tm.jumpForce, tm.ally);
             }
         }
 
@@ -17,7 +17,7 @@ public static class MapDomain {
         {
             foreach (var tm in lootSpawnerTMs) {
                 var loot = LootDomain.Spawn(ctx, tm.lootTypeID, tm.pos, tm.rotation, tm.localScale);
-                UIDomain.HUD_Hints_Open(ctx, loot.id, loot.Pos() + Vector2.up * 3, loot.price);
+                UIDomain.HUD_Hints_Open(ctx, loot.id, loot.setHintsPoint.position, loot.price);
             }
         }
 
