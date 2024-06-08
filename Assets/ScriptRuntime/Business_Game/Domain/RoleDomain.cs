@@ -77,6 +77,11 @@ public static class RoleDomain {
                 var pos = loot.Pos() + Vector2.up * 3;
                 UIDomain.HUD_Hints_ShowHIntIcon(ctx, loot.id);
             }
+        } else if (other.tag == "Prop") {
+            var prop = other.GetComponentInParent<PropEntity>();
+            if (prop.isHurtFire) {
+                prop.fsm.EnterHurt();
+            }
         }
     }
 

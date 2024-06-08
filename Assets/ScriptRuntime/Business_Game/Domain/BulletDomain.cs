@@ -56,6 +56,5 @@ public static class BulletDomain {
                 }
             }
         }
-
     }
 }

@@ -6,10 +6,23 @@ public static class PropFsmController {
     public static void ApplyFsm(GameContext ctx, PropEntity prop, float dt) {
         var fsm = prop.fsm;
         var status = fsm.propStatus;
+        ApplyAny(ctx, prop, dt);
         if (status == PropStatus.Normal) {
             ApplyNormal(ctx, prop, dt);
+        } else if (status == PropStatus.Hurt) {
+            ApplyHurt(ctx, prop, dt);
         } else if (status == PropStatus.FadeOut) {
             ApplyFadeOut(ctx, prop, dt);
+        }
+    }
+
+    private static void ApplyAny(GameContext ctx, PropEntity prop, float dt) {
+        if (!prop.isPermanent) {
+            prop.activeTimer -= dt;
+            if (prop.activeTimer <= 0) {
+                prop.fsm.EnterFadeOut();
+            }
+            return;
         }
     }
 
@@ -26,20 +39,28 @@ public static class PropFsmController {
         }
     }
 
+    private static void ApplyHurt(GameContext ctx, PropEntity prop, float dt) {
+        var fsm = prop.fsm;
+        if (fsm.isEnterHurt) {
+            fsm.isEnterHurt = false;
+        }
+        var owner = ctx.GetOwner();
+        // hurt fire
+        if (prop.isHurtFire) {
+            ref var timer = ref prop.hurtFireTimer;
+            timer -= dt;
+            if (timer <= 0) {
+                timer = prop.hurtFireDuration;
+                owner.hp -= (int)(prop.hurtFireDamageRate * CommonConst.BASEDAMAGE);
+            }
+        }
+    }
+
     private static void ApplyNormal(GameContext ctx, PropEntity prop, float dt) {
         var fsm = prop.fsm;
         var owenr = ctx.GetOwner();
 
         PropDomain.Move(prop, dt);
-
-        if (!prop.isPermanent) {
-            prop.activeTimer -= dt;
-            if (prop.activeTimer <= 0) {
-                prop.fsm.EnterFadeOut();
-            }
-            return;
-        }
-
 
         if (fsm.isEnterNormal) {
             fsm.isEnterNormal = false;
@@ -65,7 +86,6 @@ public static class PropFsmController {
             // 限制x的范围
             if (pos.x > lowPos.x && pos.x < hightPos.x) {
                 // 往上爬的Y范围
-                Debug.Log("IN");
                 if (pos.y + owenr.height / 2 > lowPos.y && pos.y < hightPos.y) {
                     if (ctx.input.moveAxis.y > 0) {
                         owenr.fsm.EnterLadder(lowestY, highestY);
@@ -79,14 +99,5 @@ public static class PropFsmController {
             }
         }
 
-        // hurt fire
-        if (prop.isHurtFire) {
-            ref var timer = ref prop.hurtFireTimer;
-            timer -= dt;
-            if (timer <= 0) {
-                timer = prop.hurtFireDuration;
-                owenr.hp -= (int)prop.hurtFireDamageRate * CommonConst.BASEDAMAGE;
-            }
-        }
     }
 }

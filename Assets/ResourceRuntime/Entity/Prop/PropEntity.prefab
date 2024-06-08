@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7998489540482001482}
   m_Layer: 0
   m_Name: PropEntity
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,11 +45,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeID: 0
-  modTransform: {fileID: 1464736510927781515}
-  size: {x: 0, y: 0}
+  id: 0
+  ally: 0
+  moveSpeed: 0
+  isPermanent: 0
+  activeTimer: 0
+  sr: {fileID: 0}
+  srBaseSize: {x: 0, y: 0}
+  moveDir: {x: 0, y: 0}
+  hasAnim: 0
+  anim: {fileID: 0}
   isLadder: 0
+  isOwnerOnLadder: 0
   isAltar: 0
   isTrampoline: 0
+  isOwnerOnTrampoline: 0
   jumpForce: 0
   anim_BePress: []
+  isHurtFire: 0
+  hurtFireDamageRate: 0
+  hurtFireTimer: 0
+  hurtFireDuration: 0
+  isTearDown: 0
+  isModifySize: 0
   colliderType: 0
+  boxCollider: {fileID: 0}
+  capsuleCollider: {fileID: 0}
+  circleCollider: {fileID: 0}
