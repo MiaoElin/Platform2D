@@ -26,7 +26,6 @@ public static class PropFsmController {
         if (!prop.isPermanent) {
             prop.activeTimer -= dt;
             if (prop.activeTimer <= 0) {
-                Debug.Log("fadeout");
                 prop.fsm.EnterFadeOut();
             }
         }
