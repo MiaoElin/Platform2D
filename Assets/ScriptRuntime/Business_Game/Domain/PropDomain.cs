@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public static class PropDomain {
@@ -13,4 +14,10 @@ public static class PropDomain {
         prop.Move(dt);
     }
 
+    internal static void UnSpawn(GameContext ctx, PropEntity prop) {
+        ctx.propRepo.Remove(prop);
+        prop.Reuse();
+        prop.gameObject.SetActive(false);
+        ctx.poolService.ReturnProp(prop);
+    }
 }

@@ -18,7 +18,9 @@ MonoBehaviour:
   isPermanent: 1
   activeTimer: 0
   mod: {fileID: 638021832257035120, guid: 1089b7e1948ff914ebc5be74bbd8a80a, type: 3}
-  size: {x: 1, y: 1}
+  srBaseSize: {x: 1, y: 1}
+  hasAnim: 0
+  fadeOutTimer: 0
   isLadder: 1
   isAltar: 0
   isTrampoline: 0

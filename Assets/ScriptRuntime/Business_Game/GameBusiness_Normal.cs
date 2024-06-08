@@ -109,6 +109,15 @@ public static class GameBusiness_Normal {
             }
         }
 
+        // Prop TearDown
+        int propLen = ctx.propRepo.TakeAll(out var allProp);
+        for (int i = 0; i < propLen; i++) {
+            var prop = allProp[i];
+            if (prop.isTearDown) {
+                PropDomain.UnSpawn(ctx, prop);
+            }
+        }
+
         Physics2D.Simulate(dt);
         RoleDomain.CheckGround(ctx, owner);
         ctx.bulletRepo.Foreach(bullet => {

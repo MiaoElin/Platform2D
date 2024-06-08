@@ -9,7 +9,10 @@ public class PropTM : ScriptableObject {
     public bool isPermanent;
     public float activeTimer;
     public GameObject mod;
-    public Vector2 size;
+    public Vector2 srBaseSize;
+
+    public bool hasAnim;
+    public float fadeOutTimer; 
 
     // 梯子
     public bool isLadder;

@@ -7,6 +7,7 @@ public class PropFSMComponent {
     public bool isEterReborn;
 
     public bool isEnterFadeOut;
+    public float fadeOutTimer;
 
     public void EnterNormal() {
         propStatus = PropStatus.Normal;

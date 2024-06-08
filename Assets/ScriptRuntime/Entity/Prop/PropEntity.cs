@@ -8,11 +8,16 @@ public class PropEntity : MonoBehaviour {
     public float moveSpeed;
     public bool isPermanent;
     public float activeTimer;
+
     public PropFSMComponent fsm;
     GameObject mod;
     public SpriteRenderer sr;
-    public Vector2 size;
+    public Vector2 srBaseSize;
     public Vector2 moveDir;
+
+    public bool hasAnim;
+    public Animator anim;
+
 
     // 梯子
     public bool isLadder;
@@ -33,6 +38,7 @@ public class PropEntity : MonoBehaviour {
     public float hurtFireTimer;
     public float hurtFireDuration;
 
+    public bool isTearDown;
 
     public bool isModifySize;
     public ColliderType colliderType;
@@ -47,6 +53,7 @@ public class PropEntity : MonoBehaviour {
 
     public void Reuse() {
         GameObject.Destroy(mod.gameObject);
+        isTearDown=false;
     }
 
     internal void Move(float dt) {
@@ -69,9 +76,13 @@ public class PropEntity : MonoBehaviour {
         transform.localScale = scale;
     }
 
-    public void SetMesh(GameObject mod) {
+    public void SetMesh(GameObject mod, bool hasAnim) {
         this.mod = GameObject.Instantiate(mod, transform);
         this.sr = this.mod.GetComponentInChildren<SpriteRenderer>();
+        this.hasAnim = hasAnim;
+        if (hasAnim) {
+            anim = this.mod.GetComponentInChildren<Animator>();
+        }
     }
 
     public void SetCollider(ColliderType colliderType, bool isModifySize, Vector2 sizeScale) {
@@ -84,7 +95,7 @@ public class PropEntity : MonoBehaviour {
             if (isModifySize) {
                 boxCollider.size = sizeScale;
                 sr.size = sizeScale;
-                size = new Vector2(size.x * sizeScale.x, size.y * sizeScale.y);
+                srBaseSize = new Vector2(srBaseSize.x * sizeScale.x, srBaseSize.y * sizeScale.y);
             }
         } else if (colliderType == ColliderType.Capsule) {
             capsuleCollider = mod.transform.GetComponent<CapsuleCollider2D>();
@@ -107,4 +118,7 @@ public class PropEntity : MonoBehaviour {
         this.circleCollider.gameObject.SetActive(false);
     }
 
+    public void Anim_FadOut() {
+        anim.CrossFade("FadeOut", 0);
+    }
 }
