@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 30
   mod: {fileID: 7803596589922138180, guid: 5177c9225e2918f4ca19928f3ab2eb97, type: 3}
+  moveType: 2
   moveSpeed: 60
   damageRate: 0.6

@@ -27,8 +27,17 @@ public static class RoleDomain {
     }
 
     internal static void AI_EnterAttakRange_Tick(GameContext ctx, RoleEntity role) {
-        var target = ctx.GetOwner().Pos();
-        bool isInRange = PureFunction.IsInRange(target, role.Pos(), role.attackRange);
+        bool isInRange = false;
+
+        if (role.ally == Ally.Monster) {
+            var target = ctx.GetOwner().Pos();
+            isInRange = PureFunction.IsInRange(target, role.Pos(), role.attackRange);
+
+        } else if (role.ally == Ally.Player) {
+            isInRange = FindNearlyEnemy(ctx, role, out var nearlyEnemy);
+            role.targeID = nearlyEnemy.id;
+        }
+
         if (isInRange) {
             role.fsm.EnterCasting();
         } else {
@@ -123,6 +132,7 @@ public static class RoleDomain {
                 } else if (loot.isGetRole) {
                     var role = RoleDomain.Spawn(ctx, loot.roleTypeID, owner.robotPoint.position, owner.ally, null);
                     role.moveSpeed = owner.moveSpeed;
+                    RoleDomain.AI_SetCurrentSkill(ctx, role);
                     loot.fsm.EnterUsed();
                     UIDomain.HUD_Hints_Close(ctx, loot.id);
                 }
@@ -156,15 +166,15 @@ public static class RoleDomain {
     }
 
     public static void AI_Move(GameContext ctx, RoleEntity role, float dt) {
+        var owner = ctx.GetOwner();
+        var dir = owner.Pos() - role.Pos();
         if (role.aiType == AIType.ByPath) {
             role.MoveByPath(dt);
         } else if (role.aiType == AIType.ByOwner) {
-            var dir = ctx.GetOwner().Pos() - role.Pos();
-            role.MoveByTarget(ctx.GetOwner().Pos());
+            role.MoveByTarget(owner.Pos());
             role.SetForwardByOwner(dir);
         } else if (role.aiType == AIType.ByRobotPoint) {
-            var dir = ctx.GetOwner().Pos() - role.Pos();
-            role.MoveByTarget(ctx.GetOwner().robotPoint.position);
+            role.MoveByTarget(owner.robotPoint.position);
             role.SetForward(dir.x);
         }
     }
@@ -303,8 +313,12 @@ public static class RoleDomain {
                 role.Anim_Shoot(ctx.input.moveAxis.x);
                 if (skill.isCastBullet) {
                     var bullet = BulletDomain.Spawn(ctx, skill.bulletTypeID, role.LaunchPoint(), role.ally);
-                    bullet.moveDir = role.GetForWard();
-                    bullet.SetForward();
+                    if (bullet.moveType == MoveType.ByStatic) {
+                        bullet.moveDir = role.GetForWard();
+                    } else if (bullet.moveType == MoveType.ByTrack) {
+                        bullet.targetID = role.targeID;
+                    }
+
                 }
                 if (skill.isCastProp) {
                     var prop = PropDomain.Spawn(ctx, skill.propTypeID, role.LaunchPoint(), Vector3.zero, Vector3.one, false, Vector2.one, 0, role.ally);

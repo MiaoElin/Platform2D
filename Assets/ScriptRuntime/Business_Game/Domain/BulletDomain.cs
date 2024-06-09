@@ -18,8 +18,20 @@ public static class BulletDomain {
         ctx.poolService.ReturnBullet(bullet);
     }
 
-    public static void Move(BulletEntity bullet, float dt) {
-        bullet.Move(dt);
+    public static void Move(GameContext ctx, BulletEntity bullet, float dt) {
+        if (bullet.moveType == MoveType.ByTrack) {
+            if (bullet.ally == Ally.Player) {
+                // 找最近的敌人
+                bool has = ctx.roleRepo.TryGet(bullet.targetID, out var targetRole);
+                if (has) {
+                    bullet.MoveByTarget(targetRole.Pos());
+                }
+            } else if (bullet.ally == Ally.Monster) {
+                bullet.MoveByTarget(ctx.GetOwner().Pos());
+            }
+        } else {
+            bullet.Move(bullet.moveDir, dt);
+        }
         // anim
         bullet.Anim_Shoot();
     }
@@ -47,7 +59,7 @@ public static class BulletDomain {
             } else {
                 bullet.isTearDown = true;
                 role.hp -= (int)bullet.damgage;
-                UIDomain.HUD_HurtInfo_Open(ctx, role.Pos() + Vector2.up * 2,(int)bullet.damgage);
+                UIDomain.HUD_HurtInfo_Open(ctx, role.Pos() + Vector2.up * 2, (int)bullet.damgage);
                 if (role.hp <= 0) {
                     if (role.shield > 0) {
                         role.shield -= Mathf.Abs(role.hp);

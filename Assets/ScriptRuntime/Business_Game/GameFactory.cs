@@ -234,6 +234,7 @@ public static class GameFactory {
         bullet.SetPos(pos);
         bullet.damgage = tm.damageRate * CommonConst.BASEDAMAGE;
         bullet.gameObject.SetActive(true);
+        bullet.moveType = tm.moveType;
         return bullet;
     }
 }

@@ -17,6 +17,7 @@ public class RoleEntity : MonoBehaviour {
     public float moveSpeed;
     public float height;
     public float attackRange;
+    public int targeID;
     public bool isDead;
     public Ally ally;
     public AIType aiType;
@@ -60,6 +61,7 @@ public class RoleEntity : MonoBehaviour {
 
     internal void Reuse() {
         Destroy(body.gameObject);
+        isDead = false;
     }
 
     public void SetForward(float axisX) {

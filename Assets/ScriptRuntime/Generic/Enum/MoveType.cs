@@ -1,6 +1,5 @@
-public enum AIType {
+public enum MoveType {
     None,
-    ByPath,
-    ByOwner,
-    ByRobotPoint
+    ByTrack,
+    ByStatic
 }

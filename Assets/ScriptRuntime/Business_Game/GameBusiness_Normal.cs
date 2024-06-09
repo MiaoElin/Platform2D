@@ -78,7 +78,7 @@ public static class GameBusiness_Normal {
 
         // Bullet Logic
         ctx.bulletRepo.Foreach(bullet => {
-            BulletDomain.Move(bullet, dt);
+            BulletDomain.Move(ctx, bullet, dt);
         });
 
         // Role TearDown

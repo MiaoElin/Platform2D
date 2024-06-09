@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c51d036dd959bbc4998ba4711185d6ef, type: 3}
-  m_Name: TM_Bullet_Monster_110
+  m_Name: TM_Robot_Bullet_50
   m_EditorClassIdentifier: 
-  typeID: 110
-  mod: {fileID: 7803596589922138180, guid: 3141c4f2ea394654b9e8271bb6c59bc4, type: 3}
-  moveType: 3
-  moveSpeed: 8
-  damageRate: 0
+  typeID: 50
+  mod: {fileID: 7803596589922138180, guid: e9f46e6163f189049ab7f4bbf89402c9, type: 3}
+  moveType: 1
+  moveSpeed: 20
+  damageRate: 0.8
