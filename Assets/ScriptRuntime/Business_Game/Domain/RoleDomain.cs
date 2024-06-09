@@ -35,7 +35,9 @@ public static class RoleDomain {
 
         } else if (role.ally == Ally.Player) {
             isInRange = FindNearlyEnemy(ctx, role, out var nearlyEnemy);
-            role.targeID = nearlyEnemy.id;
+            if (isInRange) {
+                role.targeID = nearlyEnemy.id;
+            }
         }
 
         if (isInRange) {
