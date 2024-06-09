@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TM_Monster_110
   m_EditorClassIdentifier: 
   typeID: 110
+  price: 30
   hpMax: 50
   regenerationHpMax: 0
   regenerationDuration: 0

@@ -65,6 +65,9 @@ public static class BulletDomain {
                         role.shield -= Mathf.Abs(role.hp);
                     } else if (role.shield <= 0) {
                         role.isDead = true;
+                        if (role.ally == Ally.Monster) {
+                            ctx.player.coinCount += role.price;
+                        }
                     }
                 }
             }
