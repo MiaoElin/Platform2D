@@ -21,6 +21,7 @@ public static class GameFactory {
         role.SetPos(pos);
         role.ally = ally;
         role.path = path;
+        role.price = tm.price;
         role.hp = tm.hpMax;
         role.lastHp = role.hp;
         role.hpMax = tm.hpMax;

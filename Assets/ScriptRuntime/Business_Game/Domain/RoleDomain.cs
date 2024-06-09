@@ -132,9 +132,12 @@ public static class RoleDomain {
                     loot.fsm.EnterUsed();
                     UIDomain.HUD_Hints_Close(ctx, loot.id);
                 } else if (loot.isGetRole) {
-                    var role = RoleDomain.Spawn(ctx, loot.roleTypeID, owner.robotPoint.position, owner.ally, null);
+                    var role = RoleDomain.Spawn(ctx, loot.roleTypeID, loot.Pos(), owner.ally, null);
                     role.moveSpeed = owner.moveSpeed;
                     RoleDomain.AI_SetCurrentSkill(ctx, role);
+
+                    owner.robotCom.Add(role.id);
+
                     loot.fsm.EnterUsed();
                     UIDomain.HUD_Hints_Close(ctx, loot.id);
                 }
@@ -176,7 +179,7 @@ public static class RoleDomain {
             role.MoveByTarget(owner.Pos(), dt);
             role.SetForwardByOwner(dir);
         } else if (role.aiType == AIType.ByRobotPoint) {
-            role.MoveByTarget(owner.robotPoint.position, dt);
+            role.MoveByTarget(owner.robotCom.GetRobotPositon(role.id), dt);
             role.SetForward(dir.x);
         }
     }

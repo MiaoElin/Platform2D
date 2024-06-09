@@ -5,6 +5,7 @@ public class RoleTM : ScriptableObject {
 
 
     public int typeID;
+    public int price;
     public int hpMax;
     public int regenerationHpMax;
     public float regenerationDuration;

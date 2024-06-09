@@ -5,6 +5,7 @@ public class RoleEntity : MonoBehaviour {
 
     public int id;
     public int typeID;
+    public int price;
     public bool isOwner;
     public int hp;
     public int lastHp;
@@ -28,8 +29,8 @@ public class RoleEntity : MonoBehaviour {
     public Animator anim;
     public GameObject body;
     public Transform launchPoint; // 发射点
-    public Transform robotPoint;
-
+    // public Transform robotPoint;
+    public RobotComponent robotCom;
     public bool isStayInGround;
     public bool isOnGround;
     public bool meetTarget;
@@ -49,14 +50,18 @@ public class RoleEntity : MonoBehaviour {
     public Action<Collider2D> OnTriggerStayHandle;
 
     public void Ctor(GameObject mod) {
-        body = GameObject.Instantiate(mod, transform);
-        launchPoint = body.transform.Find("LaunchPoint").transform;
-        robotPoint = body.transform.Find("RobotPoint");
-        this.anim = body.GetComponentInChildren<Animator>();
         fsm = new RoleFSMComponent();
         fsm.EnterNormal();
         buffCom = new BuffSlotComponent();
         skillCom = new SkillSlotComponent();
+        robotCom = new RobotComponent();
+
+        body = GameObject.Instantiate(mod, transform);
+        launchPoint = body.transform.Find("LaunchPoint").transform;
+        var robotPoint = body.transform.Find("RobotPoint");
+        robotCom.SetRobotPoint(robotPoint);
+        this.anim = body.GetComponentInChildren<Animator>();
+
     }
 
     internal void Reuse() {

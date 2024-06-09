@@ -53,12 +53,6 @@ public class InputEntity {
             RemoveSkillKey(InputKeyEnum.SKill3);
         }
 
-        // if (Input.GetKey(KeyCode.V)) {
-        //     AddSkillkey(InputKeyEnum.Skill4);
-        // } else {
-        //     RemoveSkillKey(InputKeyEnum.Skill4);
-        // }
-
     }
 
 

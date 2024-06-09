@@ -50,20 +50,30 @@ MonoBehaviour:
   typeID: 0
   isOwner: 0
   hp: 0
+  lastHp: 0
   hpMax: 0
+  shieldMax: 0
+  shield: 0
+  regenerationHpMax: 0
+  regenerationTimer: 0
+  regenerationDuration: 0
   moveSpeed: 0
   height: 0
   attackRange: 0
+  targeID: 0
   isDead: 0
   ally: 0
   aiType: 0
   faceDir: {x: 0, y: 0}
   path: []
+  pathIndex: 0
   rb: {fileID: 5888657450253955265}
   anim: {fileID: 0}
-  body: {fileID: 6976518383871752290}
+  body: {fileID: 4570821163207042158}
   launchPoint: {fileID: 0}
   isStayInGround: 0
+  isOnGround: 0
+  meetTarget: 0
   gravity: 0
   jumpForce: 0
   isJumpKeyDown: 0
@@ -112,7 +122,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6976518383871752290
 Transform:
   m_ObjectHideFlags: 0
