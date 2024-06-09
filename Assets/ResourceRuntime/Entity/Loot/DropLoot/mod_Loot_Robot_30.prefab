@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 6660576706081225118}
   - component: {fileID: 9069809852663909107}
   m_Layer: 0
-  m_Name: mod_Loot_Robort_30
+  m_Name: mod_Loot_Robot_30
   m_TagString: Loot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

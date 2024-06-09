@@ -30,6 +30,11 @@ public class LootEntity : MonoBehaviour {
     // GetStuff
     public bool isGetStuff;
 
+    // GetRobort
+    public bool isGetRole;
+    public int roleTypeID;
+
+
     public void Ctor(GameObject mod) {
         this.mod = GameObject.Instantiate(mod, transform);
         this.anim = this.mod.GetComponentInChildren<Animator>();

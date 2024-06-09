@@ -15,11 +15,13 @@ MonoBehaviour:
   typeID: 30
   price: 100
   mod: {fileID: 1263152816738523673, guid: be7bfdd3844a04748b71c8e127829e13, type: 3}
+  needHints: 1
+  isDropLoot: 0
+  easingInduration: 0
   isGetCoin: 0
   coinCount: 0
-  needHints: 1
-  isDropLoot: 1
-  easingInduration: 0
   isGetBuff: 0
   buffTypeId: 0
   isGetStuff: 0
+  isGetRole: 1
+  roleTypeID: 50

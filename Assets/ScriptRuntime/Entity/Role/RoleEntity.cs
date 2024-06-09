@@ -27,6 +27,7 @@ public class RoleEntity : MonoBehaviour {
     public Animator anim;
     public GameObject body;
     public Transform launchPoint; // 发射点
+    public Transform robotPoint;
 
     public bool isStayInGround;
     public bool isOnGround;
@@ -48,7 +49,8 @@ public class RoleEntity : MonoBehaviour {
 
     public void Ctor(GameObject mod) {
         body = GameObject.Instantiate(mod, transform);
-        launchPoint = body.transform.Find("launchPoint").transform;
+        launchPoint = body.transform.Find("LaunchPoint").transform;
+        robotPoint = body.transform.Find("RobotPoint");
         this.anim = body.GetComponentInChildren<Animator>();
         fsm = new RoleFSMComponent();
         fsm.EnterNormal();
@@ -70,7 +72,7 @@ public class RoleEntity : MonoBehaviour {
         body.transform.localScale = scale;
     }
 
-    private void SetForwardByTarget(Vector2 dir) {
+    public void SetForwardByOwner(Vector2 dir) {
         float rad = Mathf.Atan2(dir.y, dir.x);
         float deg = rad * Mathf.Rad2Deg;
         var euler = transform.eulerAngles;
@@ -80,7 +82,7 @@ public class RoleEntity : MonoBehaviour {
     }
 
     public Vector2 GetForWard() {
-        if (aiType == AIType.ByTarget) {
+        if (aiType == AIType.ByOwner) {
             return faceDir;
         } else {
             if (body.transform.localScale.x > 0) {
@@ -151,7 +153,6 @@ public class RoleEntity : MonoBehaviour {
         var velocity = rb.velocity;
         velocity = dir.normalized * moveSpeed;
         rb.velocity = velocity;
-        SetForwardByTarget(dir.normalized);
     }
     #endregion
 

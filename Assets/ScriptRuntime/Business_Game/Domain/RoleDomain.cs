@@ -60,6 +60,7 @@ public static class RoleDomain {
         }
     }
 
+    #region Collider
     private static void On_Owner_TriggerExitEvent(GameContext ctx, Collider2D other) {
         if (other.tag == "Loot") {
             var loot = other.GetComponentInParent<LootEntity>();
@@ -119,6 +120,11 @@ public static class RoleDomain {
                     ctx.player.coinCount += loot.coinCount;
                     loot.fsm.EnterUsed();
                     UIDomain.HUD_Hints_Close(ctx, loot.id);
+                } else if (loot.isGetRole) {
+                    var role = RoleDomain.Spawn(ctx, loot.roleTypeID, owner.robotPoint.position, owner.ally, null);
+                    role.moveSpeed = owner.moveSpeed;
+                    loot.fsm.EnterUsed();
+                    UIDomain.HUD_Hints_Close(ctx, loot.id);
                 }
             }
 
@@ -128,6 +134,8 @@ public static class RoleDomain {
             loot.isDead = true;
         }
     }
+    #endregion
+
     #region  Move
     public static void Onwer_Move_ByAxiX(GameContext ctx, RoleEntity role) {
         role.MoveByAxisX(ctx.input.moveAxis.x);
@@ -150,8 +158,14 @@ public static class RoleDomain {
     public static void AI_Move(GameContext ctx, RoleEntity role, float dt) {
         if (role.aiType == AIType.ByPath) {
             role.MoveByPath(dt);
-        } else if (role.aiType == AIType.ByTarget) {
+        } else if (role.aiType == AIType.ByOwner) {
+            var dir = ctx.GetOwner().Pos() - role.Pos();
             role.MoveByTarget(ctx.GetOwner().Pos());
+            role.SetForwardByOwner(dir);
+        } else if (role.aiType == AIType.ByRobotPoint) {
+            var dir = ctx.GetOwner().Pos() - role.Pos();
+            role.MoveByTarget(ctx.GetOwner().robotPoint.position);
+            role.SetForward(dir.x);
         }
     }
     #endregion

@@ -1,5 +1,6 @@
 public enum AIType {
     None,
     ByPath,
-    ByTarget,
+    ByOwner,
+    ByRobotPoint
 }

@@ -156,6 +156,9 @@ public static class GameFactory {
 
         loot.isGetStuff = tm.isGetStuff;
 
+        loot.isGetRole = tm.isGetRole;
+        loot.roleTypeID = tm.roleTypeID;
+
         loot.gameObject.SetActive(true);
         return loot;
     }

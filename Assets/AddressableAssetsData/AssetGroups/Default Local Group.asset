@@ -263,6 +263,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Loot
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7ab884da41316944a56ed7ded0050bd
+    m_Address: Assets/ResourceRuntime/Entity/Role/Role_Robot/TM_Robot_50.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Role
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:
