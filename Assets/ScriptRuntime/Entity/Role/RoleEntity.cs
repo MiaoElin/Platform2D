@@ -150,8 +150,12 @@ public class RoleEntity : MonoBehaviour {
         SetForward(velocity.x);
     }
 
-    public void MoveByTarget(Vector2 target) {
+    public void MoveByTarget(Vector2 target, float dt) {
         Vector2 dir = target - Pos();
+        if (Vector2.SqrMagnitude(dir) < Mathf.Pow(moveSpeed * dt, 2)) {
+            rb.velocity = Vector2.zero;
+            return;
+        }
         var velocity = rb.velocity;
         velocity = dir.normalized * moveSpeed;
         rb.velocity = velocity;

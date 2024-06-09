@@ -173,10 +173,10 @@ public static class RoleDomain {
         if (role.aiType == AIType.ByPath) {
             role.MoveByPath(dt);
         } else if (role.aiType == AIType.ByOwner) {
-            role.MoveByTarget(owner.Pos());
+            role.MoveByTarget(owner.Pos(), dt);
             role.SetForwardByOwner(dir);
         } else if (role.aiType == AIType.ByRobotPoint) {
-            role.MoveByTarget(owner.robotPoint.position);
+            role.MoveByTarget(owner.robotPoint.position, dt);
             role.SetForward(dir.x);
         }
     }
