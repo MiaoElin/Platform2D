@@ -64,6 +64,10 @@ public class RoleEntity : MonoBehaviour {
 
     }
 
+    public Vector2 GetAbdomen() {
+        return body.transform.Find("Abdomen").transform.position;
+    }
+
     internal void Reuse() {
         Destroy(body.gameObject);
         isDead = false;
@@ -98,7 +102,6 @@ public class RoleEntity : MonoBehaviour {
                 return Vector2.left;
             }
         }
-
     }
 
     public void SetPos(Vector2 pos) {

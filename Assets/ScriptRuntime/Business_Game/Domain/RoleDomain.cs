@@ -275,6 +275,9 @@ public static class RoleDomain {
 
         if (usableSkillKeys.Contains(InputKeyEnum.Skill4)) {
             role.isFlashKeyDown = true;
+            
+            role.fsm.EnterFlash();
+            return;
         }
 
         if (usableSkillKeys.Contains(InputKeyEnum.SKill3)) {
@@ -314,9 +317,11 @@ public static class RoleDomain {
             role.fsm.castingIntervalTimer -= dt;
             if (role.fsm.castingIntervalTimer <= 0) {
                 role.fsm.castingIntervalTimer = skill.castingIntervalSec;
-                // todo发射技能
-                role.Anim_Shoot(ctx.input.moveAxis.x);
+
                 if (skill.isCastBullet) {
+                    // todo发射技能
+                    role.Anim_Shoot(ctx.input.moveAxis.x);
+
                     var bullet = BulletDomain.Spawn(ctx, skill.bulletTypeID, role.LaunchPoint(), role.ally);
                     if (bullet.moveType == MoveType.ByStatic) {
                         bullet.moveDir = role.GetForWard();
@@ -328,6 +333,17 @@ public static class RoleDomain {
                 if (skill.isCastProp) {
                     var prop = PropDomain.Spawn(ctx, skill.propTypeID, role.LaunchPoint(), Vector3.zero, Vector3.one, false, Vector2.one, 0, role.ally);
                     prop.moveDir = role.GetForWard();
+                }
+                if (skill.isFlash) {
+                    // var owner = ctx.GetOwner();
+
+                    // ctx.asset.TryGet_RoleTM(owner.typeID, out var tm);
+                    // VFXDomain.Play(ctx, owner.Pos(), tm.vfx_Flash);
+
+                    // owner.fsm.EnterFlash();
+
+                    // role.fsm.isEnterCastStageReset = true;
+                    // skillCom.SetCurrentKey(InputKeyEnum.None);
                 }
             }
             role.fsm.castingMainTimer -= dt;

@@ -14,6 +14,8 @@ public static class RoleFSMConTroller {
             ApplyCasting(ctx, role, dt);
         } else if (status == RoleStatus.Trampoline) {
             ApplyTrampoline(ctx, role, dt);
+        } else if (status == RoleStatus.Flash) {
+            ApplyFlash(ctx, role, dt);
         }
 
     }
@@ -85,5 +87,24 @@ public static class RoleFSMConTroller {
         RoleDomain.Falling(role, dt);
     }
 
+    private static void ApplyFlash(GameContext ctx, RoleEntity role, float dt) {
+        var fsm = role.fsm;
+        if (fsm.isEnterFlash) {
+            fsm.isEnterFlash = false;
+            // vfx
+            ctx.asset.TryGet_RoleTM(role.typeID, out var tm);
+            VFXDomain.Play(ctx, role.Pos(), tm.vfx_Flash);
+            // move
+            LayerMask layerMask = 1 << 3;
+            RaycastHit2D ray = Physics2D.Raycast(role.GetAbdomen(), role.GetForWard(), 5f, layerMask);
+            if (ray) {
+                role.SetPos(ray.point - role.GetAbdomen() + role.Pos());
+            } else {
+                role.SetPos(role.Pos() + role.GetForWard() * 5f);
+            }
+
+        }
+        fsm.EnterNormal();
+    }
 
 }

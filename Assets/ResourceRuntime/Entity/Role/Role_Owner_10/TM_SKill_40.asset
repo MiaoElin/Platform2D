@@ -18,7 +18,8 @@ MonoBehaviour:
   bulletTypeID: 0
   isCastProp: 0
   propTypeID: 0
-  cdMax: 5
+  isFlash: 1
+  cdMax: 2
   preCastCDMax: 0
   castingMaintainSec: 0.1
   castingIntervalSec: 0.1

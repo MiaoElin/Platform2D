@@ -205,6 +205,8 @@ public static class GameFactory {
         skill.isCastProp = tm.isCastProp;
         skill.propTypeID = tm.propTypeID;
 
+        skill.isFlash = tm.isFlash;
+
         skill.cd = tm.cdMax;
         skill.cdMax = tm.cdMax;
         skill.preCastCDMax = tm.preCastCDMax;
@@ -237,5 +239,13 @@ public static class GameFactory {
         bullet.gameObject.SetActive(true);
         bullet.moveType = tm.moveType;
         return bullet;
+    }
+
+    public static VFXModel VFX_Spawn(GameContext ctx, Sprite[] sprites, Vector2 pos) {
+        ctx.asset.TryGet_Entity_Prefab(typeof(VFXModel).Name, out var prefab);
+        VFXModel vfx = GameObject.Instantiate(prefab, ctx.vfxGroup).GetComponent<VFXModel>();
+        vfx.Init(sprites);
+        vfx.SetPos(pos);
+        return vfx;
     }
 }

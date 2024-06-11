@@ -1,5 +1,6 @@
 using UnityEngine;
 using Cinemachine;
+using System.Collections.Generic;
 
 public class GameContext {
 
@@ -23,6 +24,8 @@ public class GameContext {
     public CameraEntity camera;
     public BackSceneEntity backScene;
     public PlayerEntity player;
+    public List<VFXModel> vfxs;
+    public Transform vfxGroup;
 
     // EventCenter
     public EventCenter eventCenter;
@@ -47,11 +50,13 @@ public class GameContext {
         input = new InputEntity();
         camera = new CameraEntity();
         player = new PlayerEntity();
+        vfxs = new List<VFXModel>();
         // EventCenter
         eventCenter = new EventCenter();
     }
 
     public void Inject(CinemachineVirtualCamera camera, Canvas screenCanvas, Canvas hudCanvas) {
+        vfxGroup = new GameObject("VFXGroup").transform;
         this.camera.Inject(camera);
         this.uIApp.Inject(asset, screenCanvas, hudCanvas);
     }

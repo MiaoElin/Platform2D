@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TM_Role_Owner_10
   m_EditorClassIdentifier: 
   typeID: 10
+  price: 0
   hpMax: 200
   regenerationHpMax: 1
   regenerationDuration: 2
@@ -29,3 +30,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ac6f058621717704b84ba8ac26f9aba3, type: 2}
   - {fileID: 11400000, guid: e4b2054ec3635bb4ab2fdaa98eb5785a, type: 2}
   - {fileID: 11400000, guid: 56683e4566811404d9c57e6d5da136a2, type: 2}
+  vfx_Flash:
+  - {fileID: 21300000, guid: 5e70aaf41bcf8e44d97cbedb3c8ab6cb, type: 3}
+  - {fileID: 21300000, guid: a81ec34e533094f4c97fcb61b7d2b504, type: 3}
+  - {fileID: 21300000, guid: 377ed97c0cd94784fa1775e96bae2c98, type: 3}
+  - {fileID: 21300000, guid: 646987de4785e4b449cf3c7832fe188b, type: 3}
+  - {fileID: 21300000, guid: 1a640bd3485db1b46a9fb6e830941397, type: 3}
+  - {fileID: 21300000, guid: a25cb0f29832ce64cb61d171a1afb986, type: 3}
+  - {fileID: 21300000, guid: 7a025ba7a9ebb1443baa4cbca9d12e97, type: 3}

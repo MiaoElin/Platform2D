@@ -7,6 +7,7 @@ public class InputEntity {
 
     public bool isJumpKeyDown;
     public bool isInteractKeyDown;
+    public bool isFlashKeyDown;
 
     public List<InputKeyEnum> waitToCastSkills;
 
@@ -53,8 +54,14 @@ public class InputEntity {
             RemoveSkillKey(InputKeyEnum.SKill3);
         }
 
-    }
+        // flash
+        if (Input.GetKeyDown(KeyCode.LeftShift)) {
+            AddSkillkey(InputKeyEnum.Skill4);
+        } else {
+            RemoveSkillKey(InputKeyEnum.Skill4);
+        }
 
+    }
 
     public void AddSkillkey(InputKeyEnum inputKeyEnum) {
         if (!waitToCastSkills.Contains(inputKeyEnum)) {

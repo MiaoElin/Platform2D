@@ -6,12 +6,16 @@ public class SkillTM : ScriptableObject {
     public string skillName;
     // public float damageRate;
 
+    // castBullet
     public bool isCastBullet;
     public int bulletTypeID;
 
+    // castProp
     public bool isCastProp;
     public int propTypeID;
 
+    // castFlash
+    public bool isFlash;
     // cd
     public float cdMax;
 

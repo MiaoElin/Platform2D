@@ -153,6 +153,10 @@ public static class GameBusiness_Normal {
             }
         });
 
+        for (int i = 0; i < ctx.vfxs.Count; i++) {
+            var vfx = ctx.vfxs[i];
+            VFXDomain.Tick(ctx, vfx, dt);
+        }
 
     }
 }

@@ -5,12 +5,16 @@ public class SkillSubEntity {
     public int typeID;
     public int id;
 
+    // castBullet
     public bool isCastBullet;
-    // public float bulletDamageRate;
     public int bulletTypeID;
 
+    // castProp
     public bool isCastProp;
     public int propTypeID;
+
+    // castFlash
+    public bool isFlash;
 
     // cd
     public float cd;

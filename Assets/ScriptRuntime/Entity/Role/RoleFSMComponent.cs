@@ -24,6 +24,8 @@ public class RoleFSMComponent {
 
     public bool isEnterTrampoline;
 
+    public bool isEnterFlash;
+
     public void EnterNormal() {
         status = RoleStatus.Normal;
         isEnterNormal = true;
@@ -52,5 +54,10 @@ public class RoleFSMComponent {
     public void EnterTrampoline() {
         status = RoleStatus.Trampoline;
         isEnterTrampoline = true;
+    }
+
+    public void EnterFlash() {
+        status = RoleStatus.Flash;
+        isEnterFlash = true;
     }
 }
