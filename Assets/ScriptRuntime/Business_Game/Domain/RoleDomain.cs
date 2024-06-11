@@ -132,8 +132,13 @@ public static class RoleDomain {
                     loot.fsm.EnterUsed();
                     UIDomain.HUD_Hints_Close(ctx, loot.id);
                 } else if (loot.isGetRole) {
-                    var role = RoleDomain.Spawn(ctx, loot.roleTypeID, loot.Pos(), owner.ally, null);
+                    // 随机生成一种robot 
+                    ctx.asset.TryGetRobotTMArray(out var allRobot);
+                    int index = UnityEngine.Random.Range(0, allRobot.Count);
+                    var role = RoleDomain.Spawn(ctx, allRobot[index].typeID, loot.Pos(), owner.ally, null);
+                    // 将robot的速度跟owner设为一样
                     role.moveSpeed = owner.moveSpeed;
+                    // 将robot的技能设为1技能
                     RoleDomain.AI_SetCurrentSkill(ctx, role);
 
                     owner.robotCom.Add(role.id);
@@ -275,7 +280,7 @@ public static class RoleDomain {
 
         if (usableSkillKeys.Contains(InputKeyEnum.Skill4)) {
             role.isFlashKeyDown = true;
-            
+
             role.fsm.EnterFlash();
             return;
         }

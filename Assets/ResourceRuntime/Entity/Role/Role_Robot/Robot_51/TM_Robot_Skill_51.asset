@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ca41f76dbcb295458c46ab71e50da33, type: 3}
-  m_Name: TM_SKill_40
+  m_Name: TM_Robot_Skill_51
   m_EditorClassIdentifier: 
-  typeID: 40
-  skillName: "\u52A0\u901F\u95EA\u73B0"
+  typeID: 51
+  skillName: MonsterSkill
   isCastBullet: 0
   bulletTypeID: 0
   isCastProp: 0
   propTypeID: 0
-  isFlash: 1
-  cdMax: 3
-  preCastCDMax: 0
+  isFlash: 0
+  cdMax: 0
+  preCastCDMax: 0.2
   castingMaintainSec: 0.1
   castingIntervalSec: 0.1
-  endCastSec: 0
+  endCastSec: 1

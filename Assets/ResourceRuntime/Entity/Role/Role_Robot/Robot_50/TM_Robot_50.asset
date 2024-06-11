@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: TM_Robot_50
   m_EditorClassIdentifier: 
   typeID: 50
+  isRobot: 1
+  price: 0
   hpMax: 100
   regenerationHpMax: 0
   regenerationDuration: 0
@@ -26,3 +28,4 @@ MonoBehaviour:
   jumpTimesMax: 0
   sKillTMs:
   - {fileID: 11400000, guid: cf93106974ffc4c4a870aba3ba019831, type: 2}
+  vfx_Flash: []

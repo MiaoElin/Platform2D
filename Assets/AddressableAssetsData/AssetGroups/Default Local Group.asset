@@ -287,6 +287,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Entity
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6084cae0f113856498ba372fc0f09b90
+    m_Address: Assets/ResourceRuntime/Entity/Role/Role_Robot/Robot_51/TM_Robot_Skill_51.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fbfc3e4ad3c6b694988e593a39aad2dd
+    m_Address: Assets/ResourceRuntime/Entity/Role/Role_Robot/Robot_51/TM_Robot_51.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Role
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:

@@ -149,6 +149,20 @@ public class Asset_Core {
         return roleTMs.TryGetValue(typeID, out tm);
     }
 
+    public bool TryGetRobotTMArray(out List<RoleTM> allRobot) {
+        if (roleTMs == null) {
+            allRobot = null;
+            return false;
+        }
+        allRobot = new List<RoleTM>();
+        foreach (var val in roleTMs) {
+            if (val.Value.isRobot) {
+                allRobot.Add(val.Value);
+            }
+        }
+        return true;
+    }
+
     public bool TryGet_MapTM(int stage, out MapTM tm) {
         return mapTMs.TryGetValue(stage, out tm);
     }

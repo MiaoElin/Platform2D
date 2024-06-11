@@ -26,7 +26,7 @@ Panel_PlayerStatus
 
 
 === 机器人Loot ===
-- 会生成一个AIRoleEntity，属于Owner - 无人机，会自己帮你攻击敌人，但是它会损坏，修复需要花钱
+√- 会生成一个AIRoleEntity，属于Owner - 无人机，会自己帮你攻击敌人，但是它会损坏，修复需要花钱
 
 
 === Stuff ===

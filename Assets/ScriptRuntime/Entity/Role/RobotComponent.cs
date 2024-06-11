@@ -15,8 +15,8 @@ public class RobotComponent {
     }
 
     public void Add(int id) {
-        var trans = GameObject.Instantiate(robotPoint, robotPoint);
-        trans.localPosition = new Vector3(all.Count, 0, 0);
+        var trans = GameObject.Instantiate(robotPoint.gameObject, robotPoint).transform;
+        trans.localPosition = new Vector3(all.Count * 1.5f, 0, 0);
         all.Add(id, trans);
     }
 

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TM_Role_Owner_10
   m_EditorClassIdentifier: 
   typeID: 10
+  isRobot: 0
   price: 0
   hpMax: 200
   regenerationHpMax: 1
@@ -24,7 +25,7 @@ MonoBehaviour:
   mod: {fileID: 6480961630456752770, guid: 369974eb653cb584eb807d7d78a57348, type: 3}
   gravity: 40
   jumpForce: 14
-  jumpTimesMax: 2
+  jumpTimesMax: 1
   sKillTMs:
   - {fileID: 11400000, guid: d50f4f66ce065454da74215d50a21113, type: 2}
   - {fileID: 11400000, guid: ac6f058621717704b84ba8ac26f9aba3, type: 2}

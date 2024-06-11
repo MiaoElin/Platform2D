@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09854012fe5474b4caebfd1b2fa66e6c, type: 3}
+  m_Name: TM_Robot_51
+  m_EditorClassIdentifier: 
+  typeID: 51
+  isRobot: 1
+  price: 0
+  hpMax: 100
+  regenerationHpMax: 0
+  regenerationDuration: 0
+  moveSpeed: 0
+  height: 0
+  attackRange: 30
+  aiType: 3
+  mod: {fileID: 6480961630456752770, guid: 7097a38943bb9cb4f9fac485918d7642, type: 3}
+  gravity: 0
+  jumpForce: 0
+  jumpTimesMax: 0
+  sKillTMs:
+  - {fileID: 11400000, guid: cf93106974ffc4c4a870aba3ba019831, type: 2}
+  vfx_Flash: []
