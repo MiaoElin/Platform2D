@@ -16,6 +16,15 @@ public class SkillTM : ScriptableObject {
 
     // castFlash
     public bool isFlash;
+
+    // cure
+    public bool isCure;
+    public int addHpMax;
+
+    // melee
+    public bool isMelee;
+    public float meleeDamageRate;
+
     // cd
     public float cdMax;
 

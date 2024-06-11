@@ -339,18 +339,31 @@ public static class RoleDomain {
                     var prop = PropDomain.Spawn(ctx, skill.propTypeID, role.LaunchPoint(), Vector3.zero, Vector3.one, false, Vector2.one, 0, role.ally);
                     prop.moveDir = role.GetForWard();
                 }
-                if (skill.isFlash) {
-                    // var owner = ctx.GetOwner();
-
-                    // ctx.asset.TryGet_RoleTM(owner.typeID, out var tm);
-                    // VFXDomain.Play(ctx, owner.Pos(), tm.vfx_Flash);
-
-                    // owner.fsm.EnterFlash();
-
-                    // role.fsm.isEnterCastStageReset = true;
-                    // skillCom.SetCurrentKey(InputKeyEnum.None);
+                if (skill.isCure) {
+                    var owner = ctx.GetOwner();
+                    owner.hp += skill.addHpMax;
+                    if (owner.hp > owner.hpMax) {
+                        owner.hp = owner.hpMax;
+                    }
+                }
+                if (skill.isMelee) {
+                    var owner = ctx.GetOwner();
+                    // 扣血
+                    int hurt = (int)(skill.meleeDamageRate * CommonConst.BASEDAMAGE);
+                    owner.hp -= hurt;
+                    if (owner.hp < 0) {
+                        if (owner.shield > 0) {
+                            owner.shield -= Mathf.Abs(owner.hp);
+                            if (owner.shield <= 0) {
+                                owner.isDead = true;
+                            }
+                        }
+                    }
+                    // 扣血的ui显示
+                    UIDomain.HUD_HurtInfo_Open(ctx, owner.Pos() + Vector2.up * 2, hurt);
                 }
             }
+
             role.fsm.castingMainTimer -= dt;
             if (role.fsm.castingMainTimer <= 0) {
                 stage = SkillCastStage.EndCast;

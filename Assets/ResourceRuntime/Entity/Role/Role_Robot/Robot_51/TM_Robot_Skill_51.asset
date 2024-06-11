@@ -19,8 +19,10 @@ MonoBehaviour:
   isCastProp: 0
   propTypeID: 0
   isFlash: 0
-  cdMax: 0
-  preCastCDMax: 0.2
+  isCure: 1
+  addHpMax: 1
+  cdMax: 1
+  preCastCDMax: 0
   castingMaintainSec: 0.1
   castingIntervalSec: 0.1
-  endCastSec: 1
+  endCastSec: 0

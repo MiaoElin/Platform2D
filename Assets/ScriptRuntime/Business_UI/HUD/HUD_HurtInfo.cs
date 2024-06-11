@@ -26,7 +26,7 @@ public class HUD_HurtInfo : MonoBehaviour {
             time = 0;
             isTearDown = true;
         } else {
-            transform.position = GFEasing.Ease2D(GFEasingEnum.MountainInCirc, time, duration + 0.2f, startPos, startPos + Vector2.up * 2);
+            transform.position = GFEasing.Ease2D(GFEasingEnum.MountainInCirc, time, duration + 0.2f, startPos, startPos + Vector2.up * 3);
             var scale = GFEasing.Ease2D(GFEasingEnum.Linear, time, duration, Vector2.one, Vector2.zero);
             transform.localScale = scale;
             time += dt;

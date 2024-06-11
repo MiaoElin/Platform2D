@@ -207,6 +207,12 @@ public static class GameFactory {
 
         skill.isFlash = tm.isFlash;
 
+        skill.isCure = tm.isCure;
+        skill.addHpMax = tm.addHpMax;
+
+        skill.isMelee = tm.isMelee;
+        skill.meleeDamageRate = tm.meleeDamageRate;
+
         skill.cd = tm.cdMax;
         skill.cdMax = tm.cdMax;
         skill.preCastCDMax = tm.preCastCDMax;
