@@ -3,7 +3,7 @@ Panel_PlayerStatus
  √- 金币数
  √- 被动装备栏
  √-Panel_Hints // 2D用世界坐标比较好，镜头会跟着角色动，屏幕坐标会一直变
--Panel_SkillSlot
+ √-Panel_SkillSlot
 
 
 === 学习 ===
@@ -39,3 +39,9 @@ Panel_PlayerStatus
 
 === buff ===
 - 用不同外框颜色来区分不同功效的buff
+
+=== 问题  ===
+射击的动画
+机器人弧线 会用什么方式，Line render?
+护盾的问题（我现在是先扣hp，再扣dun，应该是先扣盾）
+Tri_Inspector

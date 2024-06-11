@@ -28,6 +28,7 @@ public class LootRepo {
             action(loot);
         }
     }
+    
     public int TakeAll(out LootEntity[] allprop) {
         if (all.Count > temp.Length) {
             temp = new LootEntity[(int)(all.Count * 1.5f)];

@@ -28,16 +28,22 @@ public static class RoleFSMConTroller {
         RoleDomain.CD_Tick(ctx, role, dt);
         RoleDomain.Owner_Buff_Tick(ctx, dt);
         RoleDomain.Owner_Rehp_Tick(role, dt);
+
+        // RoleDomain.CalculateAttr();
     }
 
     private static void ApplyNormal(GameContext ctx, RoleEntity role, float dt) {
         var fsm = role.fsm;
         if (fsm.isEnterNormal) {
             fsm.isEnterNormal = false;
+
+            // ctx.GetOwner().anim.Play("Idle", 0);
         }
+
         RoleDomain.Onwer_Move_ByAxiX(ctx, role);
         RoleDomain.Jump(ctx, role);
         RoleDomain.Falling(role, dt);
+        // RoleDomain.Cast();
 
     }
 
@@ -77,14 +83,22 @@ public static class RoleFSMConTroller {
 
     private static void ApplyCasting(GameContext ctx, RoleEntity role, float dt) {
         var fsm = role.fsm;
+
+        // Enter
         if (fsm.isEnterCasting) {
             fsm.isEnterCasting = false;
         }
+
+        // Execute
         RoleDomain.Casting(ctx, role, dt);
 
         RoleDomain.Owner_Move_InCasting(ctx, role);
         RoleDomain.Jump(ctx, role);
         RoleDomain.Falling(role, dt);
+        // RoleDomain.CastWhenCasting();
+
+        // Exit
+
     }
 
     private static void ApplyFlash(GameContext ctx, RoleEntity role, float dt) {

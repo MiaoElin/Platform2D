@@ -10,6 +10,10 @@ public class UIApp {
         ctx = new UIContext();
     }
 
+    public void TearDown() {
+
+    }
+
     public void Inject(Asset_Core asset, Canvas screenCanvas, Canvas hudCanvas) {
         ctx.Inject(asset, screenCanvas, hudCanvas);
     }
@@ -74,7 +78,7 @@ public class UIApp {
         HUD_HurtInfo_Domain.Close(ctx, hud);
     }
 
-    public void HUD_HurtInfo_Foreach(Action<HUD_HurtInfo> action) {
-        HUD_HurtInfo_Domain.Foreach(ctx, action);
+    public void HUD_HurtInfo_Tick(float dt) {
+        HUD_HurtInfo_Domain.Tick(ctx, dt);
     }
 }

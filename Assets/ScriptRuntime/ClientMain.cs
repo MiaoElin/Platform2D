@@ -47,6 +47,7 @@ public class ClientMain : MonoBehaviour {
             return;
         }
         ctx.asset.Unload();
+
         isTearDown = true;
     }
 

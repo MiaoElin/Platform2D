@@ -1,12 +1,16 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RoleEntity : MonoBehaviour {
 
+    // public EntityType type; // EntityType.Role;
     public int id;
     public int typeID;
     public int price;
     public bool isOwner;
+
+    // ==== Attribute ====
     public int hp;
     public int lastHp;
     public int hpMax;
@@ -18,6 +22,23 @@ public class RoleEntity : MonoBehaviour {
     public float moveSpeed;
     public float height;
     public float attackRange;
+
+    // A 50
+    Dictionary<int /*EntityID*/, int /*Shield*/> shieldDict; // 过程
+    public void BuffShieldSet(int id, int value) {
+        if (shieldDict.ContainsKey(id)) {
+            shieldDict[id] = value;
+        } else {
+            shieldDict.Add(id, value);
+        }
+    }
+
+    public void BuffRemove(int id) {
+        if (shieldDict.ContainsKey(id)) {
+            shieldDict.Remove(id);
+        }
+    }
+
     public int targeID;
     public bool isDead;
     public Ally ally;
@@ -218,6 +239,7 @@ public class RoleEntity : MonoBehaviour {
     }
 
     public void Anim_FallingStart() {
+        anim.ResetTrigger("T_FallingStart");
         anim.SetTrigger("T_FallingStart");
     }
 

@@ -45,6 +45,7 @@ public class LootEntity : MonoBehaviour {
     internal void Reuse() {
         isDead = false;
         GameObject.Destroy(mod.gameObject);
+        mod = null;
     }
 
     public void SetPos(Vector2 pos) {

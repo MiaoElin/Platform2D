@@ -39,8 +39,8 @@ public static class UIDomain {
         ctx.uIApp.HUD_HurtInfo_Close(hud);
     }
 
-    public static void HUD_HurtInfo_Foreach(GameContext ctx, Action<HUD_HurtInfo> action) {
-        ctx.uIApp.HUD_HurtInfo_Foreach(action);
+    public static void HUD_HurtInfo_Tick(GameContext ctx,float dt) {
+        ctx.uIApp.HUD_HurtInfo_Tick(dt);
     }
 
 
@@ -88,4 +88,5 @@ public static class UIDomain {
     public static void Panel_SkillSlot_Hide(GameContext ctx) {
         ctx.uIApp.Panel_SkillSlot_Hide();
     }
+
 }

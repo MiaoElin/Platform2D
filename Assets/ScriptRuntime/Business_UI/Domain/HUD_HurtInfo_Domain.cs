@@ -16,7 +16,13 @@ public static class HUD_HurtInfo_Domain {
         hud.Close();
     }
 
-    public static void Foreach(UIContext ctx, Action<HUD_HurtInfo> action) {
-        ctx.hUD_HurtInfoRepo.Foreach(action);
+    public static void Tick(UIContext ctx, float dt) {
+        ctx.hUD_HurtInfoRepo.Foreach(hud => {
+            if (hud.isTearDown) {
+                Close(ctx, hud);
+            } else {
+                hud.Easing(dt);
+            }
+        });
     }
 }

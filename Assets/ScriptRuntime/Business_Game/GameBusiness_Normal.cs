@@ -141,22 +141,16 @@ public static class GameBusiness_Normal {
             owner.lastHp = owner.hp;
         }
 
-        UIDomain.HUD_HurtInfo_Foreach(ctx, hud => {
-            if (!hud.isTearDown) {
-                hud.Easing(dt);
-            }
-        });
-
-        UIDomain.HUD_HurtInfo_Foreach(ctx, hud => {
-            if (hud.isTearDown) {
-                UIDomain.HUD_HurtInfo_Close(ctx, hud);
-            }
-        });
+        UIDomain.HUD_HurtInfo_Tick(ctx, dt);
 
         for (int i = 0; i < ctx.vfxs.Count; i++) {
             var vfx = ctx.vfxs[i];
             VFXDomain.Tick(ctx, vfx, dt);
         }
 
+    }
+
+    public static void TearDown() {
+        // todo
     }
 }

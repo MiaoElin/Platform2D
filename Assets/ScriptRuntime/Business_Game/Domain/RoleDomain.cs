@@ -73,8 +73,9 @@ public static class RoleDomain {
 
     #region Collider
     private static void On_Owner_TriggerExitEvent(GameContext ctx, Collider2D other) {
-        if (other.tag == "Loot") {
+        if (other.gameObject.tag == "Loot") {
             var loot = other.GetComponentInParent<LootEntity>();
+            Debug.Assert(loot != null);
             if (loot.fsm.status == LootStatus.Normal && loot.needHints) {
                 UIDomain.HUD_Hints_Hide(ctx, loot.id);
             }
@@ -82,7 +83,6 @@ public static class RoleDomain {
     }
 
     private static void On_Owner_TriggerEnterEvent(GameContext ctx, Collider2D other) {
-        var owner = ctx.GetOwner();
         if (other.tag == "Loot") {
             var loot = other.GetComponentInParent<LootEntity>();
             if (loot.fsm.status == LootStatus.Normal && loot.needHints) {
@@ -151,6 +151,8 @@ public static class RoleDomain {
         } else if (loot.isGetBuff) {
             var buff = BuffDomain.Spawn(ctx, loot.buffTypeId);
             owner.buffCom.Add(buff);
+
+            // Calculate: 叠加一次
             loot.isDead = true;
         }
     }
@@ -273,7 +275,6 @@ public static class RoleDomain {
 
         if (usableSkillKeys.Count == 0) {
             skillCom.SetCurrentKey(InputKeyEnum.None);
-            role.anim.SetBool("B_StandShoot", false);
             role.fsm.EnterNormal();
             return;
         }
@@ -405,25 +406,40 @@ public static class RoleDomain {
                 } else if (timer <= -duration) {
                     timer = buff.shieldCDMax;
                     buff.isAddShield = false;
-                    ReturnShield(owner, buff);
+                    // GetShield(owner, buff);
+                    RemoveShield(owner, buff);
                 }
             }
         });
 
     }
 
+    // Buff Attach:
+
+    // Buff Tick Interval:
+
+    // Buff Remove:
+
     public static void GetShield(RoleEntity Owner, BuffSubEntity buff) {
-        float shield = Owner.shield;
+        // finalShield = role.baseShield + hpMax * buff.shieldPersent + buff.shield
+        // float shield = Owner.shield;
+        // int hpMax = Owner.hpMax;
+        // shield += (int)hpMax * buff.shieldPersent + (int)buff.shieldValue;
+        // Owner.shield = (int)shield;
+
         int hpMax = Owner.hpMax;
-        shield += (int)hpMax * buff.shieldPersent + (int)buff.shieldValue;
-        Owner.shield = (int)shield;
+        float value = hpMax * buff.shieldPersent + buff.shieldValue;
+        Owner.BuffShieldSet(buff.id, (int)value);
+
     }
 
-    public static void ReturnShield(RoleEntity Owner, BuffSubEntity buff) {
-        float shield = Owner.shield;
-        int hpMax = Owner.hpMax;
-        shield -= (int)hpMax * buff.shieldPersent + (int)buff.shieldValue;
-        Owner.shield = (int)shield;
+    public static void RemoveShield(RoleEntity Owner, BuffSubEntity buff) {
+        // float shield = Owner.shield;
+        // int hpMax = Owner.hpMax;
+        // shield -= (int)hpMax * buff.shieldPersent + (int)buff.shieldValue;
+        // Owner.shield = (int)shield;
+
+        Owner.BuffRemove(buff.id);
     }
     #endregion
 }
