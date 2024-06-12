@@ -75,7 +75,10 @@ public static class RoleDomain {
     private static void On_Owner_TriggerExitEvent(GameContext ctx, Collider2D other) {
         if (other.gameObject.tag == "Loot") {
             var loot = other.GetComponentInParent<LootEntity>();
-            Debug.Assert(loot != null);
+            // Debug.Assert(loot != null);
+            if (loot == null) {
+                return;
+            }
             if (loot.fsm.status == LootStatus.Normal && loot.needHints) {
                 UIDomain.HUD_Hints_Hide(ctx, loot.id);
             }
@@ -172,8 +175,10 @@ public static class RoleDomain {
         role.MoveByAxisX(ctx.input.moveAxis.x);
         bool has = FindNearlyEnemy(ctx, role, out var nearlyEnemy);
         if (has) {
-            var dir = nearlyEnemy.Pos() - role.Pos();
-            role.SetForward(dir.x);
+            if (nearlyEnemy.Pos().y > role.Pos().y - 5 && nearlyEnemy.Pos().y < role.Pos().y + 5) {
+                var dir = nearlyEnemy.Pos() - role.Pos();
+                role.SetForward(dir.x);
+            }
         }
     }
 
@@ -273,29 +278,17 @@ public static class RoleDomain {
             }
         }
 
-        if (usableSkillKeys.Count == 0) {
-            skillCom.SetCurrentKey(InputKeyEnum.None);
-            role.fsm.EnterNormal();
-            return;
+        if (usableSkillKeys.Count > 0) {
+            if (usableSkillKeys.Contains(InputKeyEnum.Skill4)) {
+                skillCom.SetCurrentKey(InputKeyEnum.Skill4);
+            } else if (usableSkillKeys.Contains(InputKeyEnum.SKill3)) {
+                skillCom.SetCurrentKey(InputKeyEnum.SKill3);
+            } else if (usableSkillKeys.Contains(InputKeyEnum.SKill2)) {
+                skillCom.SetCurrentKey(InputKeyEnum.SKill2);
+            } else if (usableSkillKeys.Contains(InputKeyEnum.SKill1)) {
+                skillCom.SetCurrentKey(InputKeyEnum.SKill1);
+            }
         }
-
-        if (usableSkillKeys.Contains(InputKeyEnum.Skill4)) {
-            role.isFlashKeyDown = true;
-
-            role.fsm.EnterFlash();
-            return;
-        }
-
-        if (usableSkillKeys.Contains(InputKeyEnum.SKill3)) {
-            skillCom.SetCurrentKey(InputKeyEnum.SKill3);
-        } else if (usableSkillKeys.Contains(InputKeyEnum.SKill2)) {
-            skillCom.SetCurrentKey(InputKeyEnum.SKill2);
-        } else if (usableSkillKeys.Contains(InputKeyEnum.SKill1)) {
-            skillCom.SetCurrentKey(InputKeyEnum.SKill1);
-        }
-
-        role.fsm.EnterCasting();
-        // Debug.Log(skillCom.waitToCastKeys.Count);
     }
 
     internal static void Casting(GameContext ctx, RoleEntity role, float dt) {
@@ -305,8 +298,11 @@ public static class RoleDomain {
         if (key == InputKeyEnum.None) {
             return;
         }
-
         skillCom.TryGet(key, out var skill);
+        // if (role.isOwner) {
+        //     Debug.Log(key + "" + role.fsm.skillCastStage);
+        // }
+
         if (role.fsm.isEnterCastStageReset) {
             role.fsm.isEnterCastStageReset = false;
             role.fsm.RestCastStage(skill);

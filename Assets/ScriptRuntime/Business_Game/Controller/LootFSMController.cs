@@ -49,7 +49,7 @@ public static class LootFSMController {
             fsm.isEnterDestroy = false;
             return;
         }
-        LootDomain.UnSpawn(ctx, loot);
+        // LootDomain.UnSpawn(ctx, loot);
 
     }
 

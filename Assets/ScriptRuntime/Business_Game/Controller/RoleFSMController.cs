@@ -21,29 +21,51 @@ public static class RoleFSMConTroller {
     }
 
     private static void ApplyAny(GameContext ctx, RoleEntity role, float dt) {
-        var status = role.fsm.status;
-        if (status != RoleStatus.Ladder && status != RoleStatus.Trampoline) {
-            RoleDomain.CurrentSkill_Tick(ctx, role);
-        }
         RoleDomain.CD_Tick(ctx, role, dt);
         RoleDomain.Owner_Buff_Tick(ctx, dt);
         RoleDomain.Owner_Rehp_Tick(role, dt);
-
-        // RoleDomain.CalculateAttr();
     }
 
     private static void ApplyNormal(GameContext ctx, RoleEntity role, float dt) {
         var fsm = role.fsm;
         if (fsm.isEnterNormal) {
             fsm.isEnterNormal = false;
-
-            // ctx.GetOwner().anim.Play("Idle", 0);
+            ctx.GetOwner().anim.CrossFade("Idle", 0);
         }
-
         RoleDomain.Onwer_Move_ByAxiX(ctx, role);
         RoleDomain.Jump(ctx, role);
         RoleDomain.Falling(role, dt);
-        // RoleDomain.Cast();
+
+        // 切换状态
+        var skillCom = role.skillCom;
+        var waitToCastKeys = ctx.input.waitToCastSkills;
+        var usableSkillKeys = skillCom.usableSkillKeys;
+        usableSkillKeys.Clear();
+        foreach (var key in waitToCastKeys) {
+            skillCom.TryGet(key, out var skill);
+            if (skill.cd <= 0) {
+                usableSkillKeys.Add(key);
+            }
+        }
+
+        if (usableSkillKeys.Count > 0) {
+            if (usableSkillKeys.Contains(InputKeyEnum.Skill4)) {
+                skillCom.TryGet(InputKeyEnum.Skill4, out var skill);
+                skill.cd = skill.cdMax;
+                role.fsm.EnterFlash();
+                return;
+            }
+
+            if (usableSkillKeys.Contains(InputKeyEnum.SKill3)) {
+                skillCom.SetCurrentKey(InputKeyEnum.SKill3);
+            } else if (usableSkillKeys.Contains(InputKeyEnum.SKill2)) {
+                skillCom.SetCurrentKey(InputKeyEnum.SKill2);
+            } else if (usableSkillKeys.Contains(InputKeyEnum.SKill1)) {
+                skillCom.SetCurrentKey(InputKeyEnum.SKill1);
+            }
+
+            role.fsm.EnterCasting();
+        }
 
     }
 
@@ -57,6 +79,8 @@ public static class RoleFSMConTroller {
         }
 
         RoleDomain.Move_InLadder(ctx, role);
+
+        // 切换状态
         if (role.Pos().y <= fsm.lowestY || role.Pos().y > fsm.highestY) {
             fsm.EnterNormal();
             ctx.GetCurrentMap().SetGridCollision();
@@ -91,14 +115,24 @@ public static class RoleFSMConTroller {
 
         // Execute
         RoleDomain.Casting(ctx, role, dt);
-
         RoleDomain.Owner_Move_InCasting(ctx, role);
         RoleDomain.Jump(ctx, role);
         RoleDomain.Falling(role, dt);
-        // RoleDomain.CastWhenCasting();
-
+        RoleDomain.CurrentSkill_Tick(ctx, role);
         // Exit
-
+        var usableSkillKeys = role.skillCom.usableSkillKeys;
+        var skillCom = role.skillCom;
+        if (usableSkillKeys.Count == 0) {
+            skillCom.SetCurrentKey(InputKeyEnum.None);
+            role.fsm.EnterNormal();
+            return;
+        } else {
+            if (skillCom.GetCurrentKey() == InputKeyEnum.Skill4) {
+                skillCom.TryGet(InputKeyEnum.Skill4, out var skill);
+                skill.cd = skill.cdMax;
+                role.fsm.EnterFlash();
+            }
+        }
     }
 
     private static void ApplyFlash(GameContext ctx, RoleEntity role, float dt) {

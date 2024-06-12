@@ -82,6 +82,7 @@ public class RoleEntity : MonoBehaviour {
         var robotPoint = body.transform.Find("RobotPoint");
         robotCom.SetRobotPoint(robotPoint);
         this.anim = body.GetComponentInChildren<Animator>();
+        shieldDict = new Dictionary<int, int>();
 
     }
 
@@ -254,9 +255,8 @@ public class RoleEntity : MonoBehaviour {
             return;
         }
         if (axisX == 0) {
-            anim.SetBool("B_StandShoot", true);
+            anim.CrossFade("Stand_Shoot", 0);
         } else {
-            anim.SetBool("B_StandShoot", false);
             anim.CrossFade("Run_Shoot", 0);
         }
     }
