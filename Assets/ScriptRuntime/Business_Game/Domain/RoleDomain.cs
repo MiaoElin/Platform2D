@@ -417,25 +417,13 @@ public static class RoleDomain {
     // Buff Remove:
 
     public static void GetShield(RoleEntity Owner, BuffSubEntity buff) {
-        // finalShield = role.baseShield + hpMax * buff.shieldPersent + buff.shield
-        // float shield = Owner.shield;
-        // int hpMax = Owner.hpMax;
-        // shield += (int)hpMax * buff.shieldPersent + (int)buff.shieldValue;
-        // Owner.shield = (int)shield;
-
         int hpMax = Owner.hpMax;
         float value = hpMax * buff.shieldPersent + buff.shieldValue;
         Owner.BuffShieldSet(buff.id, (int)value);
-
     }
 
     public static void RemoveShield(RoleEntity Owner, BuffSubEntity buff) {
-        // float shield = Owner.shield;
-        // int hpMax = Owner.hpMax;
-        // shield -= (int)hpMax * buff.shieldPersent + (int)buff.shieldValue;
-        // Owner.shield = (int)shield;
-
-        Owner.BuffRemove(buff.id);
+        Owner.BuffShieldRemove(buff.id);
     }
     #endregion
 }

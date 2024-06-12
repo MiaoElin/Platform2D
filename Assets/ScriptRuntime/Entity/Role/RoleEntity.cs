@@ -23,21 +23,9 @@ public class RoleEntity : MonoBehaviour {
     public float height;
     public float attackRange;
 
-    // A 50
+    // buff Shield Dic
     Dictionary<int /*EntityID*/, int /*Shield*/> shieldDict; // 过程
-    public void BuffShieldSet(int id, int value) {
-        if (shieldDict.ContainsKey(id)) {
-            shieldDict[id] = value;
-        } else {
-            shieldDict.Add(id, value);
-        }
-    }
 
-    public void BuffRemove(int id) {
-        if (shieldDict.ContainsKey(id)) {
-            shieldDict.Remove(id);
-        }
-    }
 
     public int targeID;
     public bool isDead;
@@ -58,7 +46,7 @@ public class RoleEntity : MonoBehaviour {
     public float gravity;
     public float jumpForce;
     public bool isJumpKeyDown;
-    public bool isFlashKeyDown;
+    // public bool isFlashKeyDown;
     public int jumpTimes;
     public int jumpTimesMax;
 
@@ -292,4 +280,27 @@ public class RoleEntity : MonoBehaviour {
     }
     #endregion
 
+    #region ShieldDic
+    public void BuffShieldSet(int id, int value) {
+        if (shieldDict.ContainsKey(id)) {
+            shieldDict[id] = value;
+        } else {
+            shieldDict.Add(id, value);
+        }
+    }
+
+    public void BuffShieldRemove(int id) {
+        if (shieldDict.ContainsKey(id)) {
+            shieldDict.Remove(id);
+        }
+    }
+
+    public int GetallShield() {
+        shield = 0;
+        foreach (var val in shieldDict) {
+            shield += val.Value;
+        }
+        return shield;
+    }
+    #endregion
 }

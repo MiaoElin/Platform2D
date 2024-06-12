@@ -39,7 +39,7 @@ public static class UIDomain {
         ctx.uIApp.HUD_HurtInfo_Close(hud);
     }
 
-    public static void HUD_HurtInfo_Tick(GameContext ctx,float dt) {
+    public static void HUD_HurtInfo_Tick(GameContext ctx, float dt) {
         ctx.uIApp.HUD_HurtInfo_Tick(dt);
     }
 
@@ -54,7 +54,7 @@ public static class UIDomain {
 
     public static void Panel_PlayerStatus_Update(GameContext ctx) {
         var owner = ctx.GetOwner();
-        ctx.uIApp.Panel_PlayerStatus_Update(owner.hpMax, owner.shield, owner.hp, ctx.player.coinCount, owner.buffCom);
+        ctx.uIApp.Panel_PlayerStatus_Update(owner.hpMax, owner.GetallShield(), owner.hp, ctx.player.coinCount, owner.buffCom);
     }
 
     public static void Panel_SkillSlot_Open(GameContext ctx) {
