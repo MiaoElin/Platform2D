@@ -39,6 +39,13 @@ public class RoleEntity : MonoBehaviour {
     public Transform launchPoint; // 发射点
     // public Transform robotPoint;
     public RobotComponent robotCom;
+    // LineRender
+    public bool isCureRole;
+    public LineRenderer lineR;
+    List<Vector3> bezierPoints;
+    public float bezierTimer;
+    public float bezierTimeMax;
+
     public bool isStayInGround;
     public bool isOnGround;
     public bool meetTarget;
@@ -64,11 +71,15 @@ public class RoleEntity : MonoBehaviour {
         skillCom = new SkillSlotComponent();
         robotCom = new RobotComponent();
 
+        // Body
         body = GameObject.Instantiate(mod, transform);
         launchPoint = body.transform.Find("LaunchPoint").transform;
-        var robotPoint = body.transform.Find("RobotPoint");
-        robotCom.SetRobotPoint(robotPoint);
+        // RobotGroup
+        var robotGroup = body.transform.Find("RobotPoint");
+        robotCom.SetRobotPoint(robotGroup);
+        // Anim
         this.anim = body.GetComponentInChildren<Animator>();
+
         shieldDict = new Dictionary<int, int>();
 
     }
@@ -318,6 +329,57 @@ public class RoleEntity : MonoBehaviour {
             return;
         }
         shieldDict[typeID] -= reduceValue;
+    }
+
+    #endregion
+
+    #region  LineRender
+
+    public void OpenLineR(Vector2 ownerPos) {
+        this.isCureRole = true;
+        GetLineRender();
+        // LR_SetColor();
+        LR_SetWidth();
+        LR_Tick(ownerPos);
+    }
+
+    public void GetLineRender() {
+        // Line Render
+        this.lineR = body.GetComponentInChildren<LineRenderer>();
+        bezierPoints = new List<Vector3>();
+    }
+
+    public void LR_SetColor() {
+        lineR.startColor = new Color((float)103 / 255, 1f, (float)68 / 255, 0.4f);
+        lineR.endColor = new Color((float)103 / 255, 1f, (float)68 / 255, 0f);
+    }
+
+    public void LR_SetWidth() {
+        lineR.startWidth = 0.4f;
+        lineR.endWidth = 0.15f;
+    }
+
+    public void LR_Tick(Vector2 end) {
+        var p0 = lineR.transform.Find("p0").transform.position;
+        var p1 = lineR.transform.Find("p1").transform.position;
+        var p2 = end;
+        bezierPoints.Clear();
+        for (int i = 0; i < 101; i++) {
+            float t = (float)i / 100;
+            var pos = GetCurrentPoint(t, p0, p1, p2);
+            bezierPoints.Add(pos);
+        }
+
+        lineR.positionCount = bezierPoints.Count;
+        lineR.SetPositions(bezierPoints.ToArray());
+
+    }
+
+    public Vector2 GetCurrentPoint(float t, Vector2 p0, Vector2 p1, Vector2 p2) {
+        Vector2 p0_1 = Vector2.Lerp(p0, p1, t);
+        Vector2 p1_2 = Vector2.Lerp(p1, p2, t);
+        Vector2 p01_p12 = Vector2.Lerp(p0_1, p1_2, t);
+        return p01_p12;
     }
 
     #endregion

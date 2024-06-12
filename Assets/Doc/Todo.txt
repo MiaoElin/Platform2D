@@ -43,5 +43,5 @@ Panel_PlayerStatus
 === 问题  ===
 射击的动画
 机器人弧线 会用什么方式，Line render?
-护盾的问题（我现在是先扣hp，再扣dun，应该是先扣盾）
-Tri_Inspector
+√-护盾的问题（我现在是先扣hp，再扣dun，应该是先扣盾）
+√-Tri_Inspector

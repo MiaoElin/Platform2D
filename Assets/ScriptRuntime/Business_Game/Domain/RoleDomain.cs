@@ -18,6 +18,7 @@ public static class RoleDomain {
         role.OnTriggerExitHandle = (Collider2D other) => {
             On_Owner_TriggerExitEvent(ctx, other);
         };
+
         role.fsm.EnterNormal();
         return role;
     }
@@ -143,7 +144,11 @@ public static class RoleDomain {
                     role.moveSpeed = owner.moveSpeed;
                     // 将robot的技能设为1技能
                     RoleDomain.AI_SetCurrentSkill(ctx, role);
-
+                    // 打开LineR
+                    role.skillCom.TryGet(InputKeyEnum.SKill1, out var skill);
+                    if (skill.isCure) {
+                        role.OpenLineR(owner.Pos());
+                    }
                     owner.robotCom.Add(role.id);
 
                     loot.fsm.EnterUsed();
@@ -193,6 +198,9 @@ public static class RoleDomain {
         } else if (role.aiType == AIType.ByRobotPoint) {
             role.MoveByTarget(owner.robotCom.GetRobotPositon(role.id), dt);
             role.SetForward(dir.x);
+            if (role.isCureRole) {
+                role.LR_Tick(owner.Pos());
+            }
         }
     }
     #endregion

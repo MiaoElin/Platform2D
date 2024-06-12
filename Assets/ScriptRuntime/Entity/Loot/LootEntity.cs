@@ -35,6 +35,7 @@ public class LootEntity : MonoBehaviour {
     public int roleTypeID;
 
 
+
     public void Ctor(GameObject mod) {
         this.mod = GameObject.Instantiate(mod, transform);
         this.anim = this.mod.GetComponentInChildren<Animator>();

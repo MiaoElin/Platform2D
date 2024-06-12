@@ -263,12 +263,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Loot
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c7ab884da41316944a56ed7ded0050bd
-    m_Address: Assets/ResourceRuntime/Entity/Role/Role_Robot/TM_Robot_50.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - TM_Role
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cf93106974ffc4c4a870aba3ba019831
     m_Address: Assets/ResourceRuntime/Entity/Skill/TM_Robot_Skill_50.asset
     m_ReadOnly: 0
@@ -295,6 +289,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fbfc3e4ad3c6b694988e593a39aad2dd
     m_Address: Assets/ResourceRuntime/Entity/Role/Role_Robot/Robot_51/TM_Robot_51.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Role
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7ab884da41316944a56ed7ded0050bd
+    m_Address: Assets/ResourceRuntime/Entity/Role/Role_Robot/Robot_50/TM_Robot_50.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Role
