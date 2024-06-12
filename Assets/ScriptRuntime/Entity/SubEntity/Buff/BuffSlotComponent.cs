@@ -4,7 +4,7 @@ using System;
 
 public class BuffSlotComponent {
 
-    public Dictionary<int, BuffSubEntity> all;
+    Dictionary<int, BuffSubEntity> all;
     BuffSubEntity[] temp;
 
     public BuffSlotComponent() {
@@ -13,25 +13,31 @@ public class BuffSlotComponent {
     }
 
     public void Add(BuffSubEntity buff) {
-        all.Add(buff.id, buff);
+        if (all.ContainsKey(buff.typeID)) {
+            all[buff.typeID].count++;
+            return;
+        }
+        all.Add(buff.typeID, buff);
     }
 
     public void Remove(BuffSubEntity buff) {
-        all.Remove(buff.id);
+        all.Remove(buff.typeID);
     }
 
     public void Foreach(Action<BuffSubEntity> action) {
-        foreach (var prop in all.Values) {
-            action(prop);
+        int len = TakeAll(out var allBuff);
+        for (int i = 0; i < len; i++) {
+            var buff = allBuff[i];
+            action.Invoke(buff);
         }
     }
 
-    public int TakeAll(out BuffSubEntity[] Allprop) {
+    public int TakeAll(out BuffSubEntity[] allBuff) {
         if (all.Count > temp.Length) {
             temp = new BuffSubEntity[(int)(all.Count * 1.5f)];
         }
         all.Values.CopyTo(temp, 0);
-        Allprop = temp;
+        allBuff = temp;
         return all.Count;
     }
 }

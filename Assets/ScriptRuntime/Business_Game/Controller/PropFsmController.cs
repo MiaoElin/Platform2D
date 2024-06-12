@@ -95,8 +95,8 @@ public static class PropFsmController {
             timer -= dt;
             if (timer <= 0) {
                 timer = prop.hurtFireDuration;
-                owner.hp -= (int)(prop.hurtFireDamageRate * CommonConst.BASEDAMAGE);
-                UIDomain.HUD_HurtInfo_Open(ctx, owner.Pos() + Vector2.up * 2, (int)(prop.hurtFireDamageRate * CommonConst.BASEDAMAGE));
+                int damage = (int)(prop.hurtFireDamageRate * CommonConst.BASEDAMAGE);
+                RoleDomain.Role_Hurt(ctx, owner, damage);
             }
         }
     }

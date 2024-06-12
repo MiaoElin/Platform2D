@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using TriInspector;
 
 [CreateAssetMenu(menuName = "TM/TM_Loot", fileName = "TM_Loot_")]
 public class LootTM : ScriptableObject {
@@ -9,6 +10,7 @@ public class LootTM : ScriptableObject {
 
     public GameObject mod;
 
+    [Title("Need Hints")]
     public bool needHints;
     // DropLoot
     public bool isDropLoot; // 会掉落loot
@@ -18,7 +20,7 @@ public class LootTM : ScriptableObject {
     public bool isGetCoin;
     public int coinCount;
 
-    // Don't need Hints
+    [Title("Don't Need Hints")]
     // GetBuff
     public bool isGetBuff;
     public int buffTypeId;

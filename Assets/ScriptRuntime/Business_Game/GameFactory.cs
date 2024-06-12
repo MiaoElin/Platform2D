@@ -23,7 +23,6 @@ public static class GameFactory {
         role.path = path;
         role.price = tm.price;
         role.hp = tm.hpMax;
-        role.lastHp = role.hp;
         role.hpMax = tm.hpMax;
         role.regenerationTimer = tm.regenerationDuration;
         role.regenerationDuration = tm.regenerationDuration;
@@ -172,7 +171,7 @@ public static class GameFactory {
 
         BuffSubEntity buff = ctx.poolService.GetBuff();
         buff.typeID = typeID;
-        buff.id = ctx.iDService.buffIDRecord++;
+        buff.typeID = ctx.iDService.buffIDRecord++;
         buff.icon = tm.icon;
         buff.isPermanent = tm.isPermanent;
 
@@ -180,8 +179,9 @@ public static class GameFactory {
         buff.shieldValue = tm.shieldValue;
         buff.shieldPersent = tm.shieldPersent;
         buff.shieldCDMax = tm.shieldCDMax;
+        buff.shieldCD = 0;
         buff.shieldDuration = tm.shieldDuration;
-        buff.shieldTimer = 0;
+        buff.shieldTimer = tm.shieldDuration;
 
         buff.isAddHp = tm.isAddHp;
         buff.addHpMax = tm.addHpMax;

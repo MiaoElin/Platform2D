@@ -17,7 +17,7 @@ MonoBehaviour:
   isPermanent: 1
   isGetShield: 1
   shieldValue: 0
-  shieldPersent: 0.3
+  shieldPersent: 0.2
   shieldCDMax: 20
   shieldDuration: 10
   isAddHp: 0

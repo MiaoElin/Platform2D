@@ -347,17 +347,7 @@ public static class RoleDomain {
                     var owner = ctx.GetOwner();
                     // 扣血
                     int hurt = (int)(skill.meleeDamageRate * CommonConst.BASEDAMAGE);
-                    owner.hp -= hurt;
-                    if (owner.hp < 0) {
-                        if (owner.shield > 0) {
-                            owner.shield -= Mathf.Abs(owner.hp);
-                            if (owner.shield <= 0) {
-                                owner.isDead = true;
-                            }
-                        }
-                    }
-                    // 扣血的ui显示
-                    UIDomain.HUD_HurtInfo_Open(ctx, owner.Pos() + Vector2.up * 2, hurt);
+                    Role_Hurt(ctx, owner, hurt);
                 }
             }
 
@@ -377,6 +367,68 @@ public static class RoleDomain {
     }
     #endregion
 
+    #region OwnerHurt
+
+    public static int FindMinTimerShield(GameContext ctx, out int shieldValue) {
+        var owner = ctx.GetOwner();
+        int minShiledTypeID = default;
+        float minTimer = float.MaxValue;
+        int shield = 0;
+        owner.buffCom.Foreach(buff => {
+            if (!buff.isGetShield) {
+                return;
+            }
+
+            if (buff.shieldCD > 0) {
+                return;
+            }
+
+            if (buff.shieldTimer > 0) {
+                if (buff.shieldTimer < minTimer) {
+                    // 且护盾有值
+                    owner.ShieldDicTryget(buff.typeID, out var value);
+                    if (value > 0) {
+                        minTimer = buff.shieldTimer;
+                        minShiledTypeID = buff.typeID;
+                        shield = value;
+                    }
+                }
+            }
+        });
+
+        shieldValue = shield;
+
+        if (minTimer != float.MaxValue) {
+            return minShiledTypeID;
+        } else {
+            return minShiledTypeID;
+        }
+    }
+
+    public static void Role_Hurt(GameContext ctx, RoleEntity role, int damage) {
+        int shield = role.GetallShield();
+        // 扣血的ui显示
+        UIDomain.HUD_HurtInfo_Open(ctx, role.Pos() + Vector2.up * 2, damage);
+
+        if (shield < damage) {
+            role.BuffShieldUseAll();
+            role.hp -= damage - shield;
+            if (role.hp <= 0) {
+                role.isDead = true;
+            }
+            return;
+        }
+        int typeid = FindMinTimerShield(ctx, out var shieldValue);
+        role.BuffShieldReduce(typeid, damage);
+        while (shieldValue < damage) {
+            damage -= shieldValue;
+            FindMinTimerShield(ctx, out var shieldValueNext);
+            role.BuffShieldReduce(typeid, damage);
+            shieldValue = shieldValueNext;
+        }
+    }
+    #endregion
+
     #region Buff
     public static void Owner_Buff_Tick(GameContext ctx, float dt) {
         var owner = ctx.GetOwner();
@@ -391,19 +443,25 @@ public static class RoleDomain {
                 owner.regenerationHpMax += buff.regenerationHpMax;
                 buff.isPermanent = false;
             }
+
             if (buff.isGetShield) {
+                ref var cd = ref buff.shieldCD;
                 ref var timer = ref buff.shieldTimer;
                 var duration = buff.shieldDuration;
-                timer -= dt;
-                // to do 盾的添加量为0；
-                if (timer <= 0 && buff.isAddShield == false) {
-                    buff.isAddShield = true;
-                    GetShield(owner, buff);
-                } else if (timer <= -duration) {
-                    timer = buff.shieldCDMax;
-                    buff.isAddShield = false;
-                    // GetShield(owner, buff);
-                    RemoveShield(owner, buff);
+                cd -= dt;
+                if (cd <= 0) {
+                    timer -= dt;
+                    if (timer <= 0) {
+                        buff.hasAdd = false;
+                        timer = duration;
+                        cd = buff.shieldCDMax;
+                        RemoveShield(owner, buff);
+                    } else {
+                        if (!buff.hasAdd) {
+                            buff.hasAdd = true;
+                            GetShield(owner, buff);
+                        }
+                    }
                 }
             }
         });
@@ -419,11 +477,12 @@ public static class RoleDomain {
     public static void GetShield(RoleEntity Owner, BuffSubEntity buff) {
         int hpMax = Owner.hpMax;
         float value = hpMax * buff.shieldPersent + buff.shieldValue;
-        Owner.BuffShieldSet(buff.id, (int)value);
+        value *= buff.count; // 完全叠加，后面有特殊的再处理
+        Owner.BuffShieldAdd(buff.typeID, (int)value);
     }
 
     public static void RemoveShield(RoleEntity Owner, BuffSubEntity buff) {
-        Owner.BuffShieldRemove(buff.id);
+        Owner.BuffShieldRemove(buff.typeID);
     }
     #endregion
 }

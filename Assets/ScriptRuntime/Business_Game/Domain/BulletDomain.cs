@@ -58,18 +58,8 @@ public static class BulletDomain {
                 continue;
             } else {
                 bullet.isTearDown = true;
-                role.hp -= (int)bullet.damgage;
-                UIDomain.HUD_HurtInfo_Open(ctx, role.Pos() + Vector2.up * 2, (int)bullet.damgage);
-                if (role.hp <= 0) {
-                    if (role.shield > 0) {
-                        role.shield -= Mathf.Abs(role.hp);
-                    } else if (role.shield <= 0) {
-                        role.isDead = true;
-                        if (role.ally == Ally.Monster) {
-                            ctx.player.coinCount += role.price;
-                        }
-                    }
-                }
+                int damgage = (int)bullet.damgage;
+                RoleDomain.Role_Hurt(ctx, role, damgage);
             }
         }
     }

@@ -16,7 +16,9 @@ public static class HUD_Hints_Domain {
 
     public static void ShowHIntIcon(UIContext ctx, int id) {
         ctx.hud_HintsRepo.TryGet(id, out var hud);
-        hud?.ShowHintsIcon();
+        if (hud != null) {
+            hud.ShowHintsIcon();
+        }
     }
 
 

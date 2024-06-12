@@ -12,7 +12,6 @@ public class RoleEntity : MonoBehaviour {
 
     // ==== Attribute ====
     public int hp;
-    public int lastHp;
     public int hpMax;
     public int shieldMax;
     public int shield;
@@ -281,17 +280,23 @@ public class RoleEntity : MonoBehaviour {
     #endregion
 
     #region ShieldDic
-    public void BuffShieldSet(int id, int value) {
-        if (shieldDict.ContainsKey(id)) {
-            shieldDict[id] = value;
+    public void BuffShieldAdd(int typeID, int value) {
+        if (shieldDict.ContainsKey(typeID)) {
+            shieldDict[typeID] += value;
         } else {
-            shieldDict.Add(id, value);
+            shieldDict.Add(typeID, value);
         }
     }
 
     public void BuffShieldRemove(int id) {
         if (shieldDict.ContainsKey(id)) {
             shieldDict.Remove(id);
+        }
+    }
+
+    public void BuffShieldUseAll() {
+        for (int i = 0; i < shieldDict.Count; i++) {
+            shieldDict[i] = 0;
         }
     }
 
@@ -302,5 +307,18 @@ public class RoleEntity : MonoBehaviour {
         }
         return shield;
     }
+
+    public bool ShieldDicTryget(int typeID, out int shield) {
+        return shieldDict.TryGetValue(typeID, out shield);
+    }
+
+    public void BuffShieldReduce(int typeID, int reduceValue) {
+        if (shieldDict[typeID] < reduceValue) {
+            shieldDict[typeID] = 0;
+            return;
+        }
+        shieldDict[typeID] -= reduceValue;
+    }
+
     #endregion
 }

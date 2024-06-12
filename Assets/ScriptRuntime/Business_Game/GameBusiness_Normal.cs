@@ -135,12 +135,6 @@ public static class GameBusiness_Normal {
             UIDomain.HUD_HPBar_UpdateTick(ctx, role);
         });
 
-        var owner = ctx.GetOwner();
-        if (owner.hp < owner.lastHp) {
-            // UIDomain.HUD_HurtInfo_Open(ctx, owner.Pos() + Vector2.up * 2, owner.lastHp - owner.hp);
-            owner.lastHp = owner.hp;
-        }
-
         UIDomain.HUD_HurtInfo_Tick(ctx, dt);
 
         for (int i = 0; i < ctx.vfxs.Count; i++) {

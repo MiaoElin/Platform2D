@@ -16,9 +16,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 3b799b8cfb6a0014e9daf8a87a0e6a6a, type: 2}
   isPermanent: 1
   isGetShield: 1
-  shieldValue: 60
+  shieldValue: 30
   shieldPersent: 0
-  shieldCDMax: 0
+  shieldCDMax: 20
   shieldDuration: 10
   isAddHp: 0
   addHpMax: 0
