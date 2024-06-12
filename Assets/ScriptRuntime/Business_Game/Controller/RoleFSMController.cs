@@ -44,9 +44,13 @@ public static class RoleFSMConTroller {
         var currentSkillKey = skillCom.GetCurrentKey();
         if (usableSkillKeys.Count > 0) {
             if (currentSkillKey == InputKeyEnum.Skill4) {
+                // 重置cd
                 skillCom.TryGet(InputKeyEnum.Skill4, out var skill);
                 skill.cd = skill.cdMax;
+                // 进入flash状态
                 role.fsm.EnterFlash();
+                // 将当前技能使用
+                skillCom.SetCurrentKey(InputKeyEnum.None);
             } else {
                 role.fsm.EnterCasting();
             }
@@ -114,9 +118,13 @@ public static class RoleFSMConTroller {
             return;
         } else {
             if (skillCom.GetCurrentKey() == InputKeyEnum.Skill4) {
+                // 重置cd
                 skillCom.TryGet(InputKeyEnum.Skill4, out var skill);
                 skill.cd = skill.cdMax;
+                // 进入flash状态
                 role.fsm.EnterFlash();
+                // 将当前技能使用
+                skillCom.SetCurrentKey(InputKeyEnum.None);
             }
         }
     }
@@ -138,7 +146,6 @@ public static class RoleFSMConTroller {
                 // 闪现
                 role.SetPos(role.Pos() + role.GetForWard() * 5f);
             }
-
         }
         fsm.EnterNormal();
     }
