@@ -32,39 +32,24 @@ public static class RoleFSMConTroller {
             fsm.isEnterNormal = false;
             ctx.GetOwner().anim.CrossFade("Idle", 0);
         }
+        // Execute
         RoleDomain.Onwer_Move_ByAxiX(ctx, role);
         RoleDomain.Jump(ctx, role);
         RoleDomain.Falling(role, dt);
+        RoleDomain.CurrentSkill_Tick(ctx, role);
 
-        // 切换状态
+        // Exit
         var skillCom = role.skillCom;
-        var waitToCastKeys = ctx.input.waitToCastSkills;
         var usableSkillKeys = skillCom.usableSkillKeys;
-        usableSkillKeys.Clear();
-        foreach (var key in waitToCastKeys) {
-            skillCom.TryGet(key, out var skill);
-            if (skill.cd <= 0) {
-                usableSkillKeys.Add(key);
-            }
-        }
-
+        var currentSkillKey = skillCom.GetCurrentKey();
         if (usableSkillKeys.Count > 0) {
-            if (usableSkillKeys.Contains(InputKeyEnum.Skill4)) {
+            if (currentSkillKey == InputKeyEnum.Skill4) {
                 skillCom.TryGet(InputKeyEnum.Skill4, out var skill);
                 skill.cd = skill.cdMax;
                 role.fsm.EnterFlash();
-                return;
+            } else {
+                role.fsm.EnterCasting();
             }
-
-            if (usableSkillKeys.Contains(InputKeyEnum.SKill3)) {
-                skillCom.SetCurrentKey(InputKeyEnum.SKill3);
-            } else if (usableSkillKeys.Contains(InputKeyEnum.SKill2)) {
-                skillCom.SetCurrentKey(InputKeyEnum.SKill2);
-            } else if (usableSkillKeys.Contains(InputKeyEnum.SKill1)) {
-                skillCom.SetCurrentKey(InputKeyEnum.SKill1);
-            }
-
-            role.fsm.EnterCasting();
         }
 
     }
@@ -80,7 +65,7 @@ public static class RoleFSMConTroller {
 
         RoleDomain.Move_InLadder(ctx, role);
 
-        // 切换状态
+        // Exit
         if (role.Pos().y <= fsm.lowestY || role.Pos().y > fsm.highestY) {
             fsm.EnterNormal();
             ctx.GetCurrentMap().SetGridCollision();
@@ -111,6 +96,7 @@ public static class RoleFSMConTroller {
         // Enter
         if (fsm.isEnterCasting) {
             fsm.isEnterCasting = false;
+
         }
 
         // Execute
@@ -146,8 +132,10 @@ public static class RoleFSMConTroller {
             LayerMask layerMask = 1 << 3;
             RaycastHit2D ray = Physics2D.Raycast(role.GetAbdomen(), role.GetForWard(), 5f, layerMask);
             if (ray) {
-                role.SetPos(ray.point - role.GetAbdomen() + role.Pos());
+                // 有障碍物，移动的最远距离：肚子贴着障碍物
+                role.SetPos(ray.point - (role.GetAbdomen() - role.Pos()));
             } else {
+                // 闪现
                 role.SetPos(role.Pos() + role.GetForWard() * 5f);
             }
 
