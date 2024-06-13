@@ -141,7 +141,7 @@ public static class GameFactory {
         loot.SetRotation(rotation);
         loot.SetLocalScale(localScale);
         loot.price = tm.price;
-        loot.isDead = false;
+        // loot.isDead = false;
 
         loot.needHints = tm.needHints;
 

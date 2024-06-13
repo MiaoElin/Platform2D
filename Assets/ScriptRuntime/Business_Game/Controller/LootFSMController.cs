@@ -70,10 +70,8 @@ public static class LootFSMController {
         var fsm = loot.fsm;
         if (fsm.isEnterDestroy) {
             fsm.isEnterDestroy = false;
-            return;
         }
-        // LootDomain.UnSpawn(ctx, loot);
-
+        LootDomain.UnSpawn(ctx, loot);
     }
 
 }

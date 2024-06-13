@@ -167,9 +167,8 @@ public static class RoleDomain {
             owner.buffCom.Add(buff);
 
             // Calculate: 叠加一次
-            loot.isDead = true;
-        } else if (loot.isCoin) {
-            loot.isDead = true;
+            loot.fsm.EnterDestroy();
+            // loot.isDead = true;
         }
     }
     #endregion

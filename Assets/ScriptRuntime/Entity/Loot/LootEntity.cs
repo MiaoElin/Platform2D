@@ -14,7 +14,7 @@ public class LootEntity : MonoBehaviour {
     Transform foot;
     public LootFSMComponent fsm;
 
-    public bool isDead;
+    // public bool isTearDown;
 
     // DropLoot
     public bool needHints;
@@ -55,7 +55,6 @@ public class LootEntity : MonoBehaviour {
     }
 
     internal void Reuse() {
-        isDead = false;
         GameObject.Destroy(mod.gameObject);
         mod = null;
     }
@@ -141,7 +140,14 @@ public class LootEntity : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other) {
         if (isCoin) {
             if (other.tag == "Ground") {
-                isDead = true;
+                // isDead = true;
+                fsm.EnterDestroy();
+            }
+
+            if (other.tag == "Role") {
+                if (fsm.status == LootStatus.MovetoOwner) {
+                    fsm.EnterDestroy();
+                }
             }
         }
     }

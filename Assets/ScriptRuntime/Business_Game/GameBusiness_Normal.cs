@@ -91,14 +91,14 @@ public static class GameBusiness_Normal {
             }
         }
 
-        // Loot TearDown
-        int lootLen = ctx.lootRepo.TakeAll(out var allLoot);
-        for (int i = 0; i < lootLen; i++) {
-            var loot = allLoot[i];
-            if (loot.isDead) {
-                LootDomain.UnSpawn(ctx, loot);
-            }
-        }
+        // // Loot TearDown
+        // int lootLen = ctx.lootRepo.TakeAll(out var allLoot);
+        // for (int i = 0; i < lootLen; i++) {
+        //     var loot = allLoot[i];
+        //     if (loot.isDead) {
+        //         LootDomain.UnSpawn(ctx, loot);
+        //     }
+        // }
 
         // Bullet TearDown
         int bulletLen = ctx.bulletRepo.TakeAll(out var allBullet);
