@@ -1,0 +1,6 @@
+Loot Coin : 2
+loot other : 1
+Role : 100
+Bullet : 100
+Map : 0
+Prop : 1

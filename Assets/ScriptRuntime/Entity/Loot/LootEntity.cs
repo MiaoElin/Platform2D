@@ -136,4 +136,14 @@ public class LootEntity : MonoBehaviour {
         rb.velocity = velocity;
     }
     #endregion
+
+    #region Collider
+    void OnTriggerEnter2D(Collider2D other) {
+        if (isCoin) {
+            if (other.tag == "Ground") {
+                isDead = true;
+            }
+        }
+    }
+    #endregion
 }
