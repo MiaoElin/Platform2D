@@ -185,6 +185,9 @@ public class Asset_Core {
             if (loot.Value.needHints) {
                 continue;
             }
+            if (loot.Value.isCoin) {
+                continue;
+            }
             allLoot.Add(loot.Value);
         }
         return true;
