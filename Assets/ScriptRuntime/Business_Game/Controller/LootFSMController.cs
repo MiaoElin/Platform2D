@@ -13,6 +13,23 @@ public static class LootFSMController {
             ApplyUsed(ctx, loot, dt);
         } else if (status == LootStatus.Destroy) {
             ApplyDestroy(ctx, loot);
+        } else if (status == LootStatus.MovetoOwner) {
+            ApplyMoveToOwner(ctx, loot, dt);
+        }
+    }
+
+    private static void ApplyMoveToOwner(GameContext ctx, LootEntity loot, float dt) {
+        var fsm = loot.fsm;
+        ref var timer = ref loot.coinFlyTimer;
+        if (fsm.isEnterMoveToOwner) {
+            fsm.isEnterMoveToOwner = false;
+            timer = UnityEngine.Random.Range(0.8f, 1.5f);
+        }
+        if (timer <= 0) {
+            timer = 0;
+            LootDomain.Move(ctx, loot);
+        } else {
+            timer -= dt;
         }
     }
 
@@ -32,6 +49,12 @@ public static class LootFSMController {
         if (fsm.isEnterNormal) {
             fsm.isEnterNormal = false;
         }
+
+        if (loot.isCoin) {
+            loot.Falling(dt);
+            LootDomain.CheckGround(ctx, loot);
+        }
+
     }
 
     private static void ApplyUsed(GameContext ctx, LootEntity loot, float dt) {

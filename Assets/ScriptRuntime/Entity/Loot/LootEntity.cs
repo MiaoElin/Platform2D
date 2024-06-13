@@ -10,17 +10,28 @@ public class LootEntity : MonoBehaviour {
     public GameObject mod;
     public Animator anim;
     public Transform setHintsPoint;
+    [SerializeField] Rigidbody2D rb;
+    Transform foot;
     public LootFSMComponent fsm;
 
     public bool isDead;
 
-    // GetCoin
-    public bool isGetCoin;
-    public int coinCount;
-
     // DropLoot
     public bool needHints;
     public bool isDropLoot; // 会掉落loot
+
+    // GetCoin
+    public bool isGetCoin;
+    public int coinCount;
+    public int coinTypeID;
+
+    // IsCoin
+    public bool isCoin;
+    public float moveSpeed;
+    public float gravity;
+    public float centrifugalForce;
+    public bool isEnterGround; //检测到地面以后 重力失效，飞向owner
+    public float coinFlyTimer;
 
     // GetBuff
     public bool isGetBuff;
@@ -35,12 +46,12 @@ public class LootEntity : MonoBehaviour {
     public int roleTypeID;
 
 
-
     public void Ctor(GameObject mod) {
         this.mod = GameObject.Instantiate(mod, transform);
         this.anim = this.mod.GetComponentInChildren<Animator>();
         fsm = new LootFSMComponent();
         setHintsPoint = this.mod.transform.Find("SetHintsPoint");
+        foot = this.mod.transform.Find("Foot");
     }
 
     internal void Reuse() {
@@ -87,4 +98,42 @@ public class LootEntity : MonoBehaviour {
             fsm.isEasingIn = false;
         }
     }
+
+    #region Rb
+    public void Falling(float dt) {
+        var velocity = rb.velocity;
+        velocity.y -= gravity * dt;
+        rb.velocity = velocity;
+    }
+
+    public void RbAddForce_ByDir(Vector2 dir) {
+        // rb.AddForce(dir.normalized * centrifugalForce, ForceMode2D.Force);
+        rb.velocity = dir * centrifugalForce;
+        // var velocity = rb.velocity;
+        // velocity.y = centrifugalForce;
+        // rb.velocity = velocity;
+    }
+
+    public void SetVelocityZero() {
+        rb.velocity = Vector2.zero;
+    }
+
+    public float GetVelocityY() {
+        return rb.velocity.y;
+    }
+
+    public Vector2 GetFootPos() {
+        return foot.position;
+    }
+
+    #endregion
+
+    #region Move
+    internal void Move_To(Vector2 target) {
+        var dir = target - (Vector2)transform.position;
+        var velocity = rb.velocity;
+        velocity = dir.normalized * moveSpeed;
+        rb.velocity = velocity;
+    }
+    #endregion
 }

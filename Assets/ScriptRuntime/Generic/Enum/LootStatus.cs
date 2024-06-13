@@ -4,5 +4,6 @@ public enum LootStatus {
     EasingIn,
     Normal,
     Used,
-    Destroy
+    Destroy,
+    MovetoOwner
 }

@@ -18,12 +18,14 @@ public class LootFSMComponent {
 
     public bool isEnterDestroy;
 
-    public void EnterEasingIn(Vector2 starPos) {
+    public bool isEnterMoveToOwner;
+
+    public void EnterEasingIn(Vector2 starPos, Vector2 endPos) {
         status = LootStatus.EasingIn;
         isEnterEasingIn = true;
         isEasingIn = true;
         easingInStartPos = starPos;
-        easingInEndPos = starPos + Vector2.up * 4f;
+        easingInEndPos = endPos;
     }
 
     public void EnterNormal() {
@@ -39,5 +41,10 @@ public class LootFSMComponent {
     internal void EnterDestroy() {
         status = LootStatus.Destroy;
         isEnterDestroy = true;
+    }
+
+    public void EnterMoveToOwner() {
+        status = LootStatus.MovetoOwner;
+        isEnterMoveToOwner = true;
     }
 }

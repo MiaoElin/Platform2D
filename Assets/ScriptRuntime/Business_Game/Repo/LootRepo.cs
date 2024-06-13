@@ -24,17 +24,19 @@ public class LootRepo {
     }
 
     public void Foreach(Action<LootEntity> action) {
-        foreach (var loot in all.Values) {
-            action(loot);
+        int len = TakeAll(out var allLoot);
+        for (int i = 0; i < len; i++) {
+            var loot = allLoot[i];
+            action.Invoke(loot);
         }
     }
-    
-    public int TakeAll(out LootEntity[] allprop) {
+
+    public int TakeAll(out LootEntity[] allLoot) {
         if (all.Count > temp.Length) {
             temp = new LootEntity[(int)(all.Count * 1.5f)];
         }
         all.Values.CopyTo(temp, 0);
-        allprop = temp;
+        allLoot = temp;
         return all.Count;
     }
 }

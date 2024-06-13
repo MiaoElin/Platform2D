@@ -102,10 +102,10 @@ public static class RoleDomain {
     }
 
     private static void On_Owner_TriggerStayEvent(GameContext ctx, Collider2D other) {
-        On_Owner_Trigger_LootEvent(ctx, other);
+        On_Owner_Trigger_LootStayEvent(ctx, other);
     }
 
-    public static void On_Owner_Trigger_LootEvent(GameContext ctx, Collider2D other) {
+    public static void On_Owner_Trigger_LootStayEvent(GameContext ctx, Collider2D other) {
         var owner = ctx.GetOwner();
         if (other.tag != "Loot") {
             return;
@@ -125,7 +125,7 @@ public static class RoleDomain {
                         int index = UnityEngine.Random.Range(0, allloot.Count);
                         int typeID = allloot[index].typeID;
                         var newLoot = LootDomain.Spawn(ctx, typeID, loot.Pos() + Vector2.up * 3, Vector3.zero, Vector3.one);
-                        newLoot.fsm.EnterEasingIn(loot.Pos());
+                        newLoot.fsm.EnterEasingIn(loot.Pos(), loot.Pos() + Vector2.up * 4f);
                         // 关闭UI
                         UIDomain.HUD_Hints_Close(ctx, loot.id);
                         // loot进入used状态
@@ -135,6 +135,12 @@ public static class RoleDomain {
                     ctx.player.coinCount += loot.coinCount;
                     loot.fsm.EnterUsed();
                     UIDomain.HUD_Hints_Close(ctx, loot.id);
+                    // 掉落金币（表现）
+                    // 随机方向
+                    for (int i = 0; i < 10; i++) {
+                        LootDomain.SpawnCoin(ctx, loot.coinTypeID, loot.Pos());
+                    }
+
                 } else if (loot.isGetRole) {
                     // 随机生成一种robot 
                     ctx.asset.TryGetRobotTMArray(out var allRobot);
@@ -161,6 +167,8 @@ public static class RoleDomain {
             owner.buffCom.Add(buff);
 
             // Calculate: 叠加一次
+            loot.isDead = true;
+        } else if (loot.isCoin) {
             loot.isDead = true;
         }
     }
@@ -346,6 +354,12 @@ public static class RoleDomain {
                 }
                 if (skill.isCure) {
                     var owner = ctx.GetOwner();
+                    // if (owner.hp < owner.hpMax) {
+                    // todo缓动
+                    //     role.LineREnable(true);
+                    // } else {
+                    //     role.LineREnable(false);
+                    // }
                     owner.hp += skill.addHpMax;
                     if (owner.hp > owner.hpMax) {
                         owner.hp = owner.hpMax;

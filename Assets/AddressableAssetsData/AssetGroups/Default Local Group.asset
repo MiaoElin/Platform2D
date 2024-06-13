@@ -299,6 +299,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Role
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31a44928c86b50f42800a827a5925e35
+    m_Address: Assets/ResourceRuntime/Entity/Loot/Coin_120/Coin_120/TM_Loot_Coin_120.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Loot
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:

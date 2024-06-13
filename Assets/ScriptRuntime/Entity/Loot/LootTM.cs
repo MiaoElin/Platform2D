@@ -19,8 +19,17 @@ public class LootTM : ScriptableObject {
     // GetCoin
     public bool isGetCoin;
     public int coinCount;
+    public int coinTypeID;
 
     [Title("Don't Need Hints")]
+    // IsCoin
+    public bool isCoin;
+    public float moveSpeed;
+    public float gravity;
+    public float centrifugalForce; // 用范围内随机更好
+
+    // public float ;
+
     // GetBuff
     public bool isGetBuff;
     public int buffTypeId;

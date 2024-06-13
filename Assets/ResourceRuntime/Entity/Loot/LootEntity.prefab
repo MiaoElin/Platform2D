@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4525837666539562595}
   - component: {fileID: 8680118692935862887}
+  - component: {fileID: -2317386940444136411}
   m_Layer: 0
   m_Name: LootEntity
   m_TagString: Loot
@@ -46,6 +47,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 0
   id: 0
-  sr: {fileID: 0}
-  isDropLoot: 0
+  price: 0
+  mod: {fileID: 0}
+  anim: {fileID: 0}
+  setHintsPoint: {fileID: 0}
+  rb: {fileID: -2317386940444136411}
+  isDead: 0
   needHints: 0
+  isDropLoot: 0
+  isGetCoin: 0
+  coinCount: 0
+  coinTypeID: 0
+  isCoin: 0
+  gravity: 0
+  centrifugalForce: 0
+  isEnterGround: 0
+  isGetBuff: 0
+  buffTypeId: 0
+  isGetStuff: 0
+  isGetRole: 0
+  roleTypeID: 0
+--- !u!50 &-2317386940444136411
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8727721990402774529}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

@@ -10,16 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fdf773352e7c5459dbf0402daf21b2, type: 3}
-  m_Name: TM_Loot_Coin_20
+  m_Name: TM_Loot_Coin_120
   m_EditorClassIdentifier: 
-  typeID: 20
+  typeID: 120
   price: 0
-  mod: {fileID: 1263152816738523673, guid: 082765f37c5cd8a46958f26889a33b01, type: 3}
-  isGetCoin: 1
-  coinCount: 30
-  needHints: 1
+  mod: {fileID: 337244406902320703, guid: f63e98900a9b6f347a7271e0d25db118, type: 3}
+  needHints: 0
   isDropLoot: 0
   easingInduration: 0
+  isGetCoin: 0
+  coinCount: 0
+  coinTypeID: 0
+  isCoin: 1
+  moveSpeed: 50
+  gravity: 15
+  centrifugalForce: 10
   isGetBuff: 0
   buffTypeId: 0
   isGetStuff: 0
+  isGetRole: 0
+  roleTypeID: 0

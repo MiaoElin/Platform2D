@@ -190,6 +190,7 @@ public class RoleEntity : MonoBehaviour {
     }
     #endregion
 
+    #region  Jump
     public void Jump() {
         if (isJumpKeyDown && jumpTimes > 0) {
             var velocity = rb.velocity;
@@ -201,16 +202,6 @@ public class RoleEntity : MonoBehaviour {
             Anim_Jump();
         }
     }
-
-    public void Falling(float dt) {
-        var velocity = rb.velocity;
-        velocity.y -= gravity * dt;
-        rb.velocity = velocity;
-        if (velocity.y < 0) {
-            Anim_FallingStart();
-        }
-    }
-
     internal void SetVelocityY(float jumpForce) {
         var velocity = rb.velocity;
         velocity.y = jumpForce;
@@ -220,6 +211,19 @@ public class RoleEntity : MonoBehaviour {
     public float GetVelocityY() {
         return rb.velocity.y;
     }
+
+    #endregion
+
+    #region  Falling
+    public void Falling(float dt) {
+        var velocity = rb.velocity;
+        velocity.y -= gravity * dt;
+        rb.velocity = velocity;
+        if (velocity.y < 0) {
+            Anim_FallingStart();
+        }
+    }
+    #endregion
 
     // === Anim ===
     #region Animator
@@ -338,13 +342,16 @@ public class RoleEntity : MonoBehaviour {
     public void OpenLineR(Vector2 ownerPos) {
         this.isCureRole = true;
         GetLineRender();
-        // LR_SetColor();
         LR_SetWidth();
         LR_Tick(ownerPos);
+        // LineREnable(false);
+    }
+
+    public void LineREnable(bool b) {
+        lineR.enabled = b;
     }
 
     public void GetLineRender() {
-        // Line Render
         this.lineR = body.GetComponentInChildren<LineRenderer>();
         bezierPoints = new List<Vector3>();
     }

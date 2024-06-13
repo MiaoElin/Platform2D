@@ -143,13 +143,19 @@ public static class GameFactory {
         loot.price = tm.price;
         loot.isDead = false;
 
-        loot.isGetCoin = tm.isGetCoin;
-        loot.coinCount = tm.coinCount;
-
         loot.needHints = tm.needHints;
 
         loot.isDropLoot = tm.isDropLoot;
         loot.fsm.easingInduration = tm.easingInduration;
+
+        loot.isGetCoin = tm.isGetCoin;
+        loot.coinCount = tm.coinCount;
+        loot.coinTypeID = tm.coinTypeID;
+
+        loot.isCoin = tm.isCoin;
+        loot.moveSpeed = tm.moveSpeed;
+        loot.gravity = tm.gravity;
+        loot.centrifugalForce = tm.centrifugalForce;
 
         loot.isGetBuff = tm.isGetBuff;
         loot.buffTypeId = tm.buffTypeId;

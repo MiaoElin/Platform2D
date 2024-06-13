@@ -24,6 +24,9 @@ public class HUD_Hints : MonoBehaviour {
     }
 
     public void HideHintIcon() {
+        if (!img_Icon) {
+            return;
+        }
         img_Icon.gameObject.SetActive(false);
     }
 }
