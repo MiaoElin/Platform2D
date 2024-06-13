@@ -5,6 +5,17 @@ Panel_PlayerStatus
  √-Panel_Hints // 2D用世界坐标比较好，镜头会跟着角色动，屏幕坐标会一直变
  √-Panel_SkillSlot
 
+=== 胜负判定 ===
+胜利：
+- 开启祭坛，祭坛充电开始
+- 在90内不断生成一大波怪
+- 打败boss + 祭坛充电时间到 
+失败：
+- 角色血量低于0
+
+=== Cave ===
+- 怪重生
+- 速度越来越快
 
 === 学习 ===
 - 给Sprite加外发光效果
@@ -27,21 +38,21 @@ Panel_PlayerStatus
 
 === 机器人Loot ===
 √- 会生成一个AIRoleEntity，属于Owner - 无人机，会自己帮你攻击敌人，但是它会损坏，修复需要花钱
-
+- 疗愈机器 在角色血量小于hpMax才治疗，才显示lineRender：fadeIN和fadeOut 加时间缓动
 
 === Stuff ===
 
 
 === Owner ===
 - 落地伤害
-- 翻滚可无敌，躲避伤害
+- 翻滚可无敌，躲避伤害 
 - 攻速？？是什么
 
 === buff ===
 - 用不同外框颜色来区分不同功效的buff
 
 === 问题  ===
-射击的动画
-机器人弧线 会用什么方式，Line render?
+射击的动画：技能有后摇，每个技能要释放完才能释放完，inputKeyEnum.None 才会检测是否退出casting，所以明明按完技能了，但是动画没有马上停
+√-机器人弧线 会用什么方式，Line render?
 √-护盾的问题（我现在是先扣hp，再扣dun，应该是先扣盾）
 √-Tri_Inspector
