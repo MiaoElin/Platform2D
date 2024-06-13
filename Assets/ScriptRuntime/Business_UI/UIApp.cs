@@ -18,20 +18,20 @@ public class UIApp {
         ctx.Inject(asset, screenCanvas, hudCanvas);
     }
 
-    public void HUD_Hints_Open(int id, Vector2 pos, int price) {
-        HUD_Hints_Domain.Open(ctx, id, pos, price);
+    public void HUD_Hints_Open(ulong typeAndID, Vector2 pos, int price) {
+        HUD_Hints_Domain.Open(ctx, typeAndID, pos, price);
     }
 
-    public void HUD_Hints_Hide(int id) {
-        HUD_Hints_Domain.Hide(ctx, id);
+    public void HUD_Hints_Hide(ulong typeAndID) {
+        HUD_Hints_Domain.Hide(ctx, typeAndID);
     }
 
-    public void HUD_Hints_Close(int id) {
-        HUD_Hints_Domain.Close(ctx, id);
+    public void HUD_Hints_Close(ulong typeAndID) {
+        HUD_Hints_Domain.Close(ctx, typeAndID);
     }
 
-    public void HUD_Hints_ShowHIntIcon(int id) {
-        HUD_Hints_Domain.ShowHIntIcon(ctx, id);
+    public void HUD_Hints_ShowHIntIcon(ulong typeAndID) {
+        HUD_Hints_Domain.ShowHIntIcon(ctx, typeAndID);
     }
 
     public void HUD_HPBar_Open(int id, int hpMax) {

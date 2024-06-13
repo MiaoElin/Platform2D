@@ -9,7 +9,10 @@ public static class MapDomain {
         var propSpawnerTMs = map.propSpawnerTMs;
         {
             foreach (var tm in propSpawnerTMs) {
-                PropDomain.Spawn(ctx, tm.propTypeID, tm.pos, tm.rotation, tm.localScale, tm.isModifySize, tm.sizeScale, tm.jumpForce, tm.ally);
+                var prop = PropDomain.Spawn(ctx, tm.propTypeID, tm.pos, tm.rotation, tm.localScale, tm.isModifySize, tm.sizeScale, tm.jumpForce, tm.ally);
+                if (prop.isAltar) {
+                    UIDomain.HUD_Hints_Open(ctx, prop.GetTypeAddID(), prop.setHintsPoint.position + Vector3.up, 0);
+                }
             }
         }
 
@@ -17,7 +20,7 @@ public static class MapDomain {
         {
             foreach (var tm in lootSpawnerTMs) {
                 var loot = LootDomain.Spawn(ctx, tm.lootTypeID, tm.pos, tm.rotation, tm.localScale);
-                UIDomain.HUD_Hints_Open(ctx, loot.id, loot.setHintsPoint.position, loot.price);
+                UIDomain.HUD_Hints_Open(ctx, loot.GetTypeAndID(), loot.setHintsPoint.position, loot.price);
             }
         }
 

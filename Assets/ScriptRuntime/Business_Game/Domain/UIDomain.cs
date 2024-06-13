@@ -3,20 +3,20 @@ using System;
 
 public static class UIDomain {
 
-    public static void HUD_Hints_Open(GameContext ctx, int id, Vector2 pos, int price) {
-        ctx.uIApp.HUD_Hints_Open(id, pos, price);
+    public static void HUD_Hints_Open(GameContext ctx, ulong typeAndID, Vector2 pos, int price) {
+        ctx.uIApp.HUD_Hints_Open(typeAndID, pos, price);
     }
 
-    public static void HUD_Hints_Hide(GameContext ctx, int id) {
-        ctx.uIApp.HUD_Hints_Hide(id);
+    public static void HUD_Hints_Hide(GameContext ctx, ulong typeAndID) {
+        ctx.uIApp.HUD_Hints_Hide(typeAndID);
     }
 
-    public static void HUD_Hints_Close(GameContext ctx, int id) {
-        ctx.uIApp.HUD_Hints_Close(id);
+    public static void HUD_Hints_Close(GameContext ctx, ulong typeAndID) {
+        ctx.uIApp.HUD_Hints_Close(typeAndID);
     }
 
-    public static void HUD_Hints_ShowHIntIcon(GameContext ctx, int id) {
-        ctx.uIApp.HUD_Hints_ShowHIntIcon(id);
+    public static void HUD_Hints_ShowHIntIcon(GameContext ctx, ulong typeAndID) {
+        ctx.uIApp.HUD_Hints_ShowHIntIcon(typeAndID);
     }
 
     public static void HUD_HPBar_Open(GameContext ctx, int id, int hpMax) {

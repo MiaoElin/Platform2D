@@ -4,6 +4,7 @@ using GameFunctions;
 
 public class LootEntity : MonoBehaviour {
 
+    public EntityType entityType = EntityType.LootEntity;
     public int typeID;
     public int id;
     public int price;
@@ -111,6 +112,10 @@ public class LootEntity : MonoBehaviour {
         // var velocity = rb.velocity;
         // velocity.y = centrifugalForce;
         // rb.velocity = velocity;
+    }
+
+    internal ulong GetTypeAndID() {
+        return (ulong)((int)entityType << 8 | id);
     }
 
     public void SetVelocityZero() {

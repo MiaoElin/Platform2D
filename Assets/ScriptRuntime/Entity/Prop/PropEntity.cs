@@ -2,6 +2,8 @@ using UnityEngine;
 using System;
 
 public class PropEntity : MonoBehaviour {
+
+    public EntityType entityType = EntityType.PropEntity;
     public int typeID;
     public int id;
     public Ally ally;
@@ -11,6 +13,7 @@ public class PropEntity : MonoBehaviour {
 
     public PropFSMComponent fsm;
     GameObject mod;
+    public Transform setHintsPoint;
     public SpriteRenderer sr;
     public Vector2 srBaseSize;
     public Vector2 moveDir;
@@ -21,6 +24,11 @@ public class PropEntity : MonoBehaviour {
 
     // 梯子
     public bool isLadder;
+
+    internal ulong GetTypeAddID() {
+        return (ulong)((int)entityType << 8 | id);
+    }
+
     public bool isOwnerOnLadder;
 
     // 祭坛
@@ -53,7 +61,7 @@ public class PropEntity : MonoBehaviour {
 
     public void Reuse() {
         GameObject.Destroy(mod.gameObject);
-        isTearDown=false;
+        isTearDown = false;
     }
 
     internal void Move(float dt) {
@@ -83,6 +91,7 @@ public class PropEntity : MonoBehaviour {
         if (hasAnim) {
             anim = this.mod.GetComponentInChildren<Animator>();
         }
+        this.setHintsPoint = this.mod.transform.Find("setHintsPoint");
     }
 
     public void SetCollider(ColliderType colliderType, bool isModifySize, Vector2 sizeScale) {

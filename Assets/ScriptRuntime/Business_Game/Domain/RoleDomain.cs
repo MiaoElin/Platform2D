@@ -81,7 +81,17 @@ public static class RoleDomain {
                 return;
             }
             if (loot.fsm.status == LootStatus.Normal && loot.needHints) {
-                UIDomain.HUD_Hints_Hide(ctx, loot.id);
+                UIDomain.HUD_Hints_Hide(ctx, loot.GetTypeAndID());
+            }
+        }
+
+        if (other.tag == "Prop") {
+            var prop = other.GetComponentInParent<PropEntity>();
+            if (!prop) {
+                return;
+            }
+            if (prop.isAltar) {
+                UIDomain.HUD_Hints_Hide(ctx, prop.GetTypeAddID());
             }
         }
     }
@@ -90,14 +100,17 @@ public static class RoleDomain {
         if (other.tag == "Loot") {
             var loot = other.GetComponentInParent<LootEntity>();
             if (loot.fsm.status == LootStatus.Normal && loot.needHints) {
-                var pos = loot.Pos() + Vector2.up * 3;
-                UIDomain.HUD_Hints_ShowHIntIcon(ctx, loot.id);
+                UIDomain.HUD_Hints_ShowHIntIcon(ctx, loot.GetTypeAndID());
             }
         } else if (other.tag == "Prop") {
             var prop = other.GetComponentInParent<PropEntity>();
             if (prop.isHurtFire) {
                 prop.fsm.EnterHurt();
             }
+            if (prop.isAltar) {
+                UIDomain.HUD_Hints_ShowHIntIcon(ctx, prop.GetTypeAddID());
+            }
+
         }
     }
 
@@ -127,14 +140,14 @@ public static class RoleDomain {
                         var newLoot = LootDomain.Spawn(ctx, typeID, loot.Pos() + Vector2.up * 3, Vector3.zero, Vector3.one);
                         newLoot.fsm.EnterEasingIn(loot.Pos(), loot.Pos() + Vector2.up * 4f);
                         // 关闭UI
-                        UIDomain.HUD_Hints_Close(ctx, loot.id);
+                        UIDomain.HUD_Hints_Close(ctx, loot.GetTypeAndID());
                         // loot进入used状态
                         loot.fsm.EnterUsed();
                     }
                 } else if (loot.isGetCoin) {
                     ctx.player.coinCount += loot.coinCount;
                     loot.fsm.EnterUsed();
-                    UIDomain.HUD_Hints_Close(ctx, loot.id);
+                    UIDomain.HUD_Hints_Close(ctx, loot.GetTypeAndID());
                     // 掉落金币（表现）
                     // 随机方向
                     for (int i = 0; i < 5; i++) {
@@ -158,7 +171,7 @@ public static class RoleDomain {
                     owner.robotCom.Add(role.id);
 
                     loot.fsm.EnterUsed();
-                    UIDomain.HUD_Hints_Close(ctx, loot.id);
+                    UIDomain.HUD_Hints_Close(ctx, loot.GetTypeAndID());
                 }
             }
 
