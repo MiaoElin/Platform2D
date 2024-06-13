@@ -10,6 +10,8 @@ public static class RoleAIFSMController {
             ApllyNormal(ctx, role, dt);
         } else if (status == RoleStatus.Casting) {
             ApplyCasting(ctx, role, dt);
+        } else if (status == RoleStatus.Destroy) {
+            ApllyDestroy(ctx, role);
         }
     }
 
@@ -33,5 +35,24 @@ public static class RoleAIFSMController {
         }
         RoleDomain.AI_Move(ctx, role, dt);
         RoleDomain.Casting(ctx, role, dt);
+    }
+
+    private static void ApllyDestroy(GameContext ctx, RoleEntity role) {
+        var fsm = role.fsm;
+        if (fsm.isEnterDestroy) {
+            fsm.isEnterDestroy = false;
+        }
+        // 掉落金币
+        for (int i = 0; i < 5; i++) {
+            LootDomain.SpawnCoin(ctx, 120, role.Pos());
+        }
+
+        // 掉落物品
+
+        // 销毁UI
+        UIDomain.HUD_HPBar_Close(ctx, role.id);
+        // 销毁角色
+        RoleDomain.Unspawn(ctx, role);
+
     }
 }

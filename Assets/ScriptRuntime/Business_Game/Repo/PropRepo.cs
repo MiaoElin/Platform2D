@@ -24,8 +24,10 @@ public class PropRepo {
     }
 
     public void Foreach(Action<PropEntity> action) {
-        foreach (var prop in all.Values) {
-            action(prop);
+        int len = TakeAll(out var allProp);
+        for (int i = 0; i < len; i++) {
+            var role = allProp[i];
+            action.Invoke(role);
         }
     }
 

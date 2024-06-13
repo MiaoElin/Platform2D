@@ -45,7 +45,7 @@ public static class BulletDomain {
 
         role.hp -= (int)bullet.damgage;
         if (role.hp <= 0) {
-            role.isDead = true;
+            role.fsm.EnterDestroy();
         }
     }
 

@@ -27,7 +27,7 @@ public class RoleEntity : MonoBehaviour {
 
 
     public int targeID;
-    public bool isDead;
+    // public bool isDead;
     public Ally ally;
     public AIType aiType;
     public Vector2 faceDir;
@@ -90,7 +90,6 @@ public class RoleEntity : MonoBehaviour {
 
     internal void Reuse() {
         Destroy(body.gameObject);
-        isDead = false;
     }
 
     public void SetForward(float axisX) {

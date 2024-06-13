@@ -5,5 +5,6 @@ public enum RoleStatus {
     Ladder,
     Casting,
     Trampoline,
-    Flash
+    Flash,
+    Destroy,
 }

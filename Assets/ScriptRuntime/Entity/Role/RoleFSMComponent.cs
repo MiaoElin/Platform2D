@@ -4,8 +4,10 @@ public class RoleFSMComponent {
 
     public RoleStatus status;
 
+    // Normal
     public bool isEnterNormal;
 
+    // Casting
     public bool isEnterCasting;
     public bool isEnterCastStageReset;
     public SkillCastStage skillCastStage;
@@ -17,14 +19,19 @@ public class RoleFSMComponent {
     // 后
     public float endCastTimer;
 
-
+    // Ladder
     public bool isEnterLadder;
     public float lowestY;
     public float highestY;
 
+    // Trampoline
     public bool isEnterTrampoline;
 
+    // Flash
     public bool isEnterFlash;
+
+    // Destory
+    public bool isEnterDestroy;
 
     public void EnterNormal() {
         status = RoleStatus.Normal;
@@ -59,5 +66,10 @@ public class RoleFSMComponent {
     public void EnterFlash() {
         status = RoleStatus.Flash;
         isEnterFlash = true;
+    }
+
+    public void EnterDestroy() {
+        status = RoleStatus.Destroy;
+        isEnterDestroy = true;
     }
 }

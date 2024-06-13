@@ -25,13 +25,11 @@ public class RoleRepo {
     }
 
     public void Foreach(Action<RoleEntity> action) {
-        foreach (var dic in all) {
-            action.Invoke(dic.Value);
+        int len = TakeAll(out var allRole);
+        for (int i = 0; i < len; i++) {
+            var role = allRole[i];
+            action.Invoke(role);
         }
-        // for (int i = 0; i < all.Count; i++) {
-        //     var role = all[i];
-        //     action.Invoke(role);
-        // }
     }
 
     public int TakeAll(out RoleEntity[] allRole) {

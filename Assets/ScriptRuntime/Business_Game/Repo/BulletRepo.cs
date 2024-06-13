@@ -24,8 +24,10 @@ public class BulletRepo {
     }
 
     public void Foreach(Action<BulletEntity> action) {
-        foreach (var bullet in all.Values) {
-            action(bullet);
+        int len = TakeAll(out var allBullet);
+        for (int i = 0; i < len; i++) {
+            var role = allBullet[i];
+            action.Invoke(role);
         }
     }
     public int TakeAll(out BulletEntity[] allBullet) {

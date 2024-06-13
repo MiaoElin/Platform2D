@@ -16,6 +16,8 @@ public static class RoleFSMConTroller {
             ApplyTrampoline(ctx, role, dt);
         } else if (status == RoleStatus.Flash) {
             ApplyFlash(ctx, role, dt);
+        } else if (status == RoleStatus.Destroy) {
+            ApllyDestroy(ctx, role);
         }
 
     }
@@ -150,4 +152,11 @@ public static class RoleFSMConTroller {
         fsm.EnterNormal();
     }
 
+    private static void ApllyDestroy(GameContext ctx, RoleEntity role) {
+        var fsm = role.fsm;
+        if (fsm.isEnterDestroy) {
+            fsm.isEnterDestroy = false;
+        }
+        // 游戏失败
+    }
 }

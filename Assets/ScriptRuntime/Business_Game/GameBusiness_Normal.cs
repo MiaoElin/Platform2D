@@ -64,6 +64,7 @@ public static class GameBusiness_Normal {
             }
         });
 
+        // Owner Logic
         RoleFSMConTroller.ApplyFsm(ctx, owner, dt);
 
         // Prop Logic
@@ -81,25 +82,6 @@ public static class GameBusiness_Normal {
             BulletDomain.Move(ctx, bullet, dt);
         });
 
-        // Role TearDown
-        int roleLen = ctx.roleRepo.TakeAll(out var allRole);
-        for (int i = 0; i < roleLen; i++) {
-            var role = allRole[i];
-            if (role.isDead) {
-                UIDomain.HUD_HPBar_Close(ctx, role.id);
-                RoleDomain.Unspawn(ctx, role);
-            }
-        }
-
-        // // Loot TearDown
-        // int lootLen = ctx.lootRepo.TakeAll(out var allLoot);
-        // for (int i = 0; i < lootLen; i++) {
-        //     var loot = allLoot[i];
-        //     if (loot.isDead) {
-        //         LootDomain.UnSpawn(ctx, loot);
-        //     }
-        // }
-
         // Bullet TearDown
         int bulletLen = ctx.bulletRepo.TakeAll(out var allBullet);
         for (int i = 0; i < bulletLen; i++) {
@@ -109,17 +91,10 @@ public static class GameBusiness_Normal {
             }
         }
 
-        // Prop TearDown
-        int propLen = ctx.propRepo.TakeAll(out var allProp);
-        for (int i = 0; i < propLen; i++) {
-            var prop = allProp[i];
-            if (prop.isTearDown) {
-                PropDomain.UnSpawn(ctx, prop);
-            }
-        }
-
         Physics2D.Simulate(dt);
+
         RoleDomain.CheckGround(ctx, owner);
+
         ctx.bulletRepo.Foreach(bullet => {
             BulletDomain.HitCheck(ctx, bullet);
         });

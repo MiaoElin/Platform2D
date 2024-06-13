@@ -99,4 +99,31 @@ MonoBehaviour:
     pos: {x: -2.72, y: -8.19}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
-  roleSpawnerTMs: []
+  roleSpawnerTMs:
+  - roleTypeID: 100
+    pos: {x: 34.49, y: 5.7}
+    rotation: {x: -0, y: 0, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
+    path:
+    - {x: 34.49, y: 5.7}
+  - roleTypeID: 100
+    pos: {x: 37.1, y: 2.1}
+    rotation: {x: -0, y: 0, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
+    path:
+    - {x: 37.1, y: 2.1}
+  - roleTypeID: 110
+    pos: {x: -16.73, y: -7.2}
+    rotation: {x: -0, y: 0, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
+    path:
+    - {x: -16.73, y: -7.2}
+    - {x: -0.72999954, y: -7.2}
+    - {x: 16.27, y: -7.2}
+  - roleTypeID: 110
+    pos: {x: 12.41, y: -21.28}
+    rotation: {x: -0, y: 0, z: 0}
+    localScale: {x: -1, y: 1, z: 1}
+    path:
+    - {x: 12.41, y: -21.28}
+    - {x: -8.889999, y: -21.28}

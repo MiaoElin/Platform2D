@@ -137,7 +137,7 @@ public static class RoleDomain {
                     UIDomain.HUD_Hints_Close(ctx, loot.id);
                     // 掉落金币（表现）
                     // 随机方向
-                    for (int i = 0; i < 10; i++) {
+                    for (int i = 0; i < 5; i++) {
                         LootDomain.SpawnCoin(ctx, loot.coinTypeID, loot.Pos());
                     }
 
@@ -435,7 +435,7 @@ public static class RoleDomain {
             role.BuffShieldUseAll();
             role.hp -= damage - shield;
             if (role.hp <= 0) {
-                role.isDead = true;
+                role.fsm.EnterDestroy();
             }
             return;
         }

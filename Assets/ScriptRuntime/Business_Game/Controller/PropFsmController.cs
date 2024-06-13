@@ -79,7 +79,7 @@ public static class PropFsmController {
         ref var timer = ref fsm.fadeOutTimer;
         timer -= dt;
         if (timer <= 0) {
-            prop.isTearDown = true;
+            PropDomain.UnSpawn(ctx, prop);
         }
     }
 

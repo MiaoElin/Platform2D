@@ -1,4 +1,5 @@
 using UnityEngine;
+using TriInspector;
 
 [CreateAssetMenu(menuName = "TM/TM_Role", fileName = "TM_Role_")]
 public class RoleTM : ScriptableObject {
@@ -22,4 +23,6 @@ public class RoleTM : ScriptableObject {
     public SkillTM[] sKillTMs;
     public Sprite[] vfx_Flash;
 
+    [Title("Destory")]
+    public bool isDropLoot;
 }
