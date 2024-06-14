@@ -311,6 +311,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e21953b60fc854d4c8b148c1ef37fce6
+    m_Address: Assets/ResourceRuntime/Entity/Role/Monster/TM_Map1_Boss_1000.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Role
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2cd71830c20f0a418f992f4d3ca89cf
+    m_Address: Assets/ResourceRuntime/Entity/Role/Monster/Map1_Boss/TM_Monster_Skill_1000.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Skill
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:

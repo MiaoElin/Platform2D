@@ -9,6 +9,7 @@ public class RoleEM : MonoBehaviour {
     public GameObject mod;
     public bool isPermanent;
     public float cdMax;
+    public bool isBossWave;
     void Awake() {
         if (mod == null) {
             mod = GameObject.Instantiate(tm.mod, transform);

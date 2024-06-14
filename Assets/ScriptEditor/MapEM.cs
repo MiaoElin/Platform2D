@@ -68,7 +68,9 @@ public class MapEM : MonoBehaviour {
                         path = posArray,
                         isPermanent = em.isPermanent,
                         cd = 0,
-                        cdMax = em.cdMax
+                        cdMax = em.cdMax,
+                        isBossWave = em.isBossWave
+
                     };
                     tm.roleSpawnerTMs[i] = spawnerTM;
                 }

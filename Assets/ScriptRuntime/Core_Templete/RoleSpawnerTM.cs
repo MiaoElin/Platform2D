@@ -15,5 +15,8 @@ public class RoleSpawnerTM {
     public bool isPermanent;
     public float cd;
     public float cdMax;
-    
+
+    public bool isBossWave;
+
+
 }

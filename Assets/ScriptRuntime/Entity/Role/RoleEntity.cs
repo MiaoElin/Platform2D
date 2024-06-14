@@ -190,6 +190,7 @@ public class RoleEntity : MonoBehaviour {
         var velocity = rb.velocity;
         velocity = dir.normalized * moveSpeed;
         rb.velocity = velocity;
+        Anim_Run();
     }
     #endregion
 
@@ -264,6 +265,10 @@ public class RoleEntity : MonoBehaviour {
         } else {
             anim.CrossFade("Run_Shoot", 0);
         }
+    }
+
+    internal void anim_Attack() {
+        anim.Play("Attack_Pre",0);
     }
 
     #endregion

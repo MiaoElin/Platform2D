@@ -133,6 +133,8 @@ public static class RoleDomain {
                 // 启动祭坛计时
                 UIDomain.HUD_AltarBar_Open(ctx, prop.altarDuration, prop.setHintsPoint.position);
                 UIDomain.HUD_Hints_Close(ctx, prop.GetTypeAddID());
+                // boos 出场
+                ctx.player.isEnterBossTime = true;
             }
         }
 
@@ -234,7 +236,7 @@ public static class RoleDomain {
             role.MoveByPath(dt);
         } else if (role.aiType == AIType.ByOwner) {
             role.MoveByTarget(owner.Pos(), dt);
-            role.SetForwardByOwner(dir);
+            role.SetForward(dir.x);
         } else if (role.aiType == AIType.ByRobotPoint) {
             role.MoveByTarget(owner.robotCom.GetRobotPositon(role.id), dt);
             role.SetForward(dir.x);
@@ -358,6 +360,7 @@ public static class RoleDomain {
 
         ref var stage = ref role.fsm.skillCastStage;
         if (stage == SkillCastStage.PreCast) {
+            role.anim_Attack();
             role.fsm.preCastTimer -= dt;
             if (role.fsm.preCastTimer <= 0) {
                 role.fsm.preCastTimer = 0;
@@ -404,6 +407,7 @@ public static class RoleDomain {
                     // 扣血
                     int hurt = (int)(skill.meleeDamageRate * CommonConst.BASEDAMAGE);
                     Role_Hurt(ctx, owner, hurt);
+                    // anim
                 }
             }
 
