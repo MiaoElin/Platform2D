@@ -354,9 +354,6 @@ public static class RoleDomain {
         if (role.fsm.isEnterCastStageReset) {
             role.fsm.isEnterCastStageReset = false;
             role.fsm.RestCastStage(skill);
-            if (skill.isCure) {
-                Debug.Log(role.fsm.preCastTimer);
-            }
         }
 
         ref var stage = ref role.fsm.skillCastStage;

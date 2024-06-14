@@ -128,7 +128,7 @@ MonoBehaviour:
     - {x: 16.27, y: -7.2}
     isPermanent: 1
     cd: 0
-    cdMax: 10
+    cdMax: 30
   - roleTypeID: 110
     pos: {x: 12.41, y: -21.28}
     rotation: {x: -0, y: 0, z: 0}
@@ -138,4 +138,4 @@ MonoBehaviour:
     - {x: -8.889999, y: -21.28}
     isPermanent: 1
     cd: 0
-    cdMax: 12
+    cdMax: 30

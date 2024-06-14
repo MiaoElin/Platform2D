@@ -60,6 +60,10 @@ public static class MapDomain {
         {
             foreach (var tm in roleSpawnerTMs) {
                 if (tm.cd <= 0) {
+                    bool isInRange = PureFunction.IsInRange(ctx.GetOwner().Pos(), tm.pos, CommonConst.MONSTER_SPAWN_DISTANCE);
+                    if (!isInRange) {
+                        return;
+                    }
                     var role = RoleDomain.Spawn(ctx, tm.roleTypeID, tm.pos, tm.rotation, Ally.Monster, tm.path);
                     RoleDomain.AI_SetCurrentSkill(ctx, role);
                     // 打开血量条
