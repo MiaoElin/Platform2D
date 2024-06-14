@@ -50,17 +50,23 @@ public static class BulletDomain {
     }
 
     public static void HitCheck(GameContext ctx, BulletEntity bullet) {
-        var layerMask = 1 << 8;
+        var layerMask = 1 << 8 | 1 << 3;
         RaycastHit2D[] all = Physics2D.RaycastAll(bullet.Pos(), bullet.moveDir, 0.1f, layerMask);
         foreach (var hit in all) {
-            var role = hit.collider.GetComponentInParent<RoleEntity>();
-            if (role.ally == bullet.ally) {
-                continue;
-            } else {
-                bullet.isTearDown = true;
-                int damgage = (int)bullet.damgage;
-                RoleDomain.Role_Hurt(ctx, role, damgage);
+            if (hit.collider.tag == "Role") {
+                var role = hit.collider.GetComponentInParent<RoleEntity>();
+                if (role.ally == bullet.ally) {
+                    continue;
+                } else {
+                    bullet.isTearDown = true;
+                    int damgage = (int)bullet.damgage;
+                    RoleDomain.Role_Hurt(ctx, role, damgage);
+                }
             }
+            if (hit.collider.tag == "Ground") {
+                bullet.isTearDown = true;
+            }
+
         }
     }
 }
