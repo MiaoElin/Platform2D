@@ -127,6 +127,10 @@ public class RoleEntity : MonoBehaviour {
         transform.position = pos;
     }
 
+    public void SetRotation(Vector3 rotation) {
+        transform.eulerAngles = rotation;
+    }
+
     internal void ReuseJumpTimes() {
         this.jumpTimes = jumpTimesMax;
     }

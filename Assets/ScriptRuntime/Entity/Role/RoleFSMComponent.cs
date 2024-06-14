@@ -53,6 +53,7 @@ public class RoleFSMComponent {
 
     public void RestCastStage(SkillSubEntity skill) {
         skillCastStage = SkillCastStage.PreCast;
+        preCastTimer = skill.preCastCDMax;
         castingMainTimer = skill.castingMaintainSec;
         castingIntervalTimer = skill.castingIntervalSec;
         endCastTimer = skill.endCastSec;

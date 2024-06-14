@@ -21,8 +21,10 @@ MonoBehaviour:
   isFlash: 0
   isCure: 1
   addHpMax: 1
-  cdMax: 1
-  preCastCDMax: 0
+  isMelee: 0
+  meleeDamageRate: 0
+  cdMax: 0
+  preCastCDMax: 1
   castingMaintainSec: 0.1
   castingIntervalSec: 0.1
   endCastSec: 0

@@ -65,7 +65,10 @@ public class MapEM : MonoBehaviour {
                         pos = em.transform.position,
                         rotation = em.transform.eulerAngles,
                         localScale = em.transform.localScale,
-                        path = posArray
+                        path = posArray,
+                        isPermanent = em.isPermanent,
+                        cd = 0,
+                        cdMax = em.cdMax
                     };
                     tm.roleSpawnerTMs[i] = spawnerTM;
                 }

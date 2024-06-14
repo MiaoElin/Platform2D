@@ -11,4 +11,9 @@ public class RoleSpawnerTM {
     public Vector3 localScale;
 
     public Vector2[] path;
+
+    public bool isPermanent;
+    public float cd;
+    public float cdMax;
+    
 }

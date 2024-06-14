@@ -14,7 +14,7 @@ public static class GameBusiness_Normal {
         ctx.backScene = backScene;
 
         // Owner
-        var owner = RoleDomain.Spawn(ctx, 10, new Vector2(0, 15f), Ally.Player, null);
+        var owner = RoleDomain.Spawn(ctx, 10, new Vector2(0, 15f), Vector3.zero, Ally.Player, null);
         owner.isOwner = true;
         ctx.ownerID = owner.id;
 
@@ -52,6 +52,8 @@ public static class GameBusiness_Normal {
     static void PreTick(GameContext ctx, float dt) {
         var owner = ctx.GetOwner();
         owner.isJumpKeyDown = ctx.input.isJumpKeyDown;
+
+        MapDomain.WaveTick(ctx, 1, dt);
     }
     static void FixedTick(GameContext ctx, float dt) {
         var owner = ctx.GetOwner();

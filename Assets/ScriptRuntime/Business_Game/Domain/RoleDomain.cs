@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public static class RoleDomain {
 
-    public static RoleEntity Spawn(GameContext ctx, int typeID, Vector2 pos, Ally ally, Vector2[] path) {
-        var role = GameFactory.Role_Spawn(ctx, typeID, pos, ally, path);
+    public static RoleEntity Spawn(GameContext ctx, int typeID, Vector2 pos, Vector3 rotation, Ally ally, Vector2[] path) {
+        var role = GameFactory.Role_Spawn(ctx, typeID, pos, rotation, ally, path);
         ctx.roleRepo.Add(role);
         role.OnTriggerEnterHandle = (Collider2D other) => {
             On_Owner_TriggerEnterEvent(ctx, other);
@@ -178,7 +178,7 @@ public static class RoleDomain {
                     // 随机生成一种robot 
                     ctx.asset.TryGetRobotTMArray(out var allRobot);
                     int index = UnityEngine.Random.Range(0, allRobot.Count);
-                    var role = RoleDomain.Spawn(ctx, allRobot[index].typeID, loot.Pos(), owner.ally, null);
+                    var role = RoleDomain.Spawn(ctx, allRobot[index].typeID, loot.Pos(), Vector3.zero, owner.ally, null);
                     // 将robot的速度跟owner设为一样
                     role.moveSpeed = owner.moveSpeed;
                     // 将robot的技能设为1技能
@@ -354,15 +354,20 @@ public static class RoleDomain {
         if (role.fsm.isEnterCastStageReset) {
             role.fsm.isEnterCastStageReset = false;
             role.fsm.RestCastStage(skill);
+            if (skill.isCure) {
+                Debug.Log(role.fsm.preCastTimer);
+            }
         }
 
         ref var stage = ref role.fsm.skillCastStage;
         if (stage == SkillCastStage.PreCast) {
             role.fsm.preCastTimer -= dt;
             if (role.fsm.preCastTimer <= 0) {
+                role.fsm.preCastTimer = 0;
                 stage = SkillCastStage.Casting;
                 skill.cd = skill.cdMax;
             }
+
         } else if (stage == SkillCastStage.Casting) {
             role.fsm.castingIntervalTimer -= dt;
             if (role.fsm.castingIntervalTimer <= 0) {
@@ -413,6 +418,7 @@ public static class RoleDomain {
             role.fsm.endCastTimer -= dt;
             if (role.fsm.endCastTimer <= 0) {
                 role.fsm.isEnterCastStageReset = true;
+
                 if (role.aiType == AIType.None) {
                     skillCom.SetCurrentKey(InputKeyEnum.None);
                 }
@@ -469,6 +475,9 @@ public static class RoleDomain {
             role.hp -= damage - shield;
             if (role.hp <= 0) {
                 role.fsm.EnterDestroy();
+                if (role.ally == Ally.Monster) {
+                    ctx.player.coinCount += role.price;
+                }
             }
             return;
         }

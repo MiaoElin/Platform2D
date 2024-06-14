@@ -10,7 +10,7 @@ public static class GameFactory {
         return role;
     }
 
-    public static RoleEntity Role_Spawn(GameContext ctx, int typeID, Vector2 pos, Ally ally, Vector2[] path) {
+    public static RoleEntity Role_Spawn(GameContext ctx, int typeID, Vector2 pos, Vector3 rotation, Ally ally, Vector2[] path) {
         ctx.asset.TryGet_RoleTM(typeID, out var tm);
         if (!tm) {
             Debug.LogError($"GameFactory.Role_Spawn {typeID} is not find");
@@ -19,6 +19,7 @@ public static class GameFactory {
         role.typeID = typeID;
         role.id = ctx.iDService.roleIDRecord++;
         role.SetPos(pos);
+        role.SetRotation(rotation);
         role.ally = ally;
         role.path = path;
         role.price = tm.price;
