@@ -27,10 +27,11 @@ public static class MapDomain {
         var roleSpawnerTMs = map.roleSpawnerTMs;
         {
             foreach (var tm in roleSpawnerTMs) {
-                var role = RoleDomain.Spawn(ctx, tm.roleTypeID, tm.pos, tm.rotation, Ally.Monster, tm.path);
-                RoleDomain.AI_SetCurrentSkill(ctx, role);
-                // 打开血量条
-                UIDomain.HUD_HPBar_Open(ctx, role.id, role.hpMax);
+                tm.cd = 0;
+                // var role = RoleDomain.Spawn(ctx, tm.roleTypeID, tm.pos, tm.rotation, Ally.Monster, tm.path);
+                // RoleDomain.AI_SetCurrentSkill(ctx, role);
+                // // 打开血量条
+                // UIDomain.HUD_HPBar_Open(ctx, role.id, role.hpMax);
             }
         }
         return map;
@@ -59,10 +60,11 @@ public static class MapDomain {
         var roleSpawnerTMs = map.roleSpawnerTMs;
         {
             foreach (var tm in roleSpawnerTMs) {
+
                 if (tm.cd <= 0) {
                     bool isInRange = PureFunction.IsInRange(ctx.GetOwner().Pos(), tm.pos, CommonConst.MONSTER_SPAWN_DISTANCE);
                     if (!isInRange) {
-                        return;
+                        continue;
                     }
                     var role = RoleDomain.Spawn(ctx, tm.roleTypeID, tm.pos, tm.rotation, Ally.Monster, tm.path);
                     RoleDomain.AI_SetCurrentSkill(ctx, role);

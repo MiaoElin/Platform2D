@@ -34,7 +34,7 @@ MonoBehaviour:
     sizeScale: {x: 0, y: 0}
     jumpForce: 45
     ally: 0
-  - pos: {x: -30.3, y: -54.25}
+  - pos: {x: -33.86, y: -54.25}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     propTypeID: 120
@@ -58,13 +58,21 @@ MonoBehaviour:
     sizeScale: {x: 1, y: 10.9}
     jumpForce: 0
     ally: 0
+  - pos: {x: -63.8, y: -32.21}
+    rotation: {x: -0, y: 0, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
+    propTypeID: 100
+    isModifySize: 1
+    sizeScale: {x: 1, y: 18.3}
+    jumpForce: 0
+    ally: 0
   lootSpawnerTMs:
   - lootTypeID: 10
     pos: {x: 11.01, y: -8.69}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
   - lootTypeID: 10
-    pos: {x: 1.95, y: -8.69}
+    pos: {x: -60.8, y: -40.5}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
   - lootTypeID: 10
