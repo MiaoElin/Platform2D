@@ -12,13 +12,14 @@ public class PropTM : ScriptableObject {
     public Vector2 srBaseSize;
 
     public bool hasAnim;
-    public float fadeOutTimer; 
+    public float fadeOutTimer;
 
     // 梯子
     public bool isLadder;
 
     // 祭坛
     public bool isAltar;
+    public float altarDuration;
 
     // 反射板
     public bool isTrampoline;

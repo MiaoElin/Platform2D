@@ -106,6 +106,7 @@ public static class GameFactory {
         prop.isLadder = tm.isLadder;
         // 祭坛
         prop.isAltar = tm.isAltar;
+        prop.altarDuration = tm.altarDuration;
         // 蹦床
         prop.isTrampoline = tm.isTrampoline;
         prop.anim_BePress = tm.anim_Normal;

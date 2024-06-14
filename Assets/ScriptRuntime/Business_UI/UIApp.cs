@@ -46,6 +46,18 @@ public class UIApp {
         HUD_HPBar_Domain.Close(ctx, id);
     }
 
+    public void HUD_AltarBar_Open(float duration,Vector2 pos) {
+        HUD_AltarBar_Domain.Open(ctx, duration,pos);
+    }
+
+    public void HUD_AltarBar_Tick(float dt) {
+        HUD_AltarBar_Domain.Init(ctx, dt);
+    }
+
+    public void HUD_AltarBar_Close() {
+        HUD_AltarBar_Domain.Close(ctx);
+    }
+
     public void Panel_PlayerStatus_Open() {
         Panel_PlayerStatus_Domain.Open(ctx);
     }

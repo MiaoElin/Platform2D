@@ -112,6 +112,8 @@ public static class GameBusiness_Normal {
 
         UIDomain.HUD_HurtInfo_Tick(ctx, dt);
 
+        UIDomain.HUD_AltarBar_Tick(ctx, dt);
+
         for (int i = 0; i < ctx.vfxs.Count; i++) {
             var vfx = ctx.vfxs[i];
             VFXDomain.Tick(ctx, vfx, dt);

@@ -116,6 +116,26 @@ public static class RoleDomain {
 
     private static void On_Owner_TriggerStayEvent(GameContext ctx, Collider2D other) {
         On_Owner_Trigger_LootStayEvent(ctx, other);
+        On_Owner_Trigger_PropStayEvent(ctx, other);
+    }
+
+    private static void On_Owner_Trigger_PropStayEvent(GameContext ctx, Collider2D other) {
+        if (other.tag != "Prop") {
+            return;
+        }
+        var prop = other.GetComponentInParent<PropEntity>();
+        if (prop.fsm.status != PropStatus.Normal) {
+            return;
+        }
+        if (ctx.input.isInteractKeyDown) {
+            ctx.input.isInteractKeyDown = false;
+            if (prop.isAltar) {
+                // 启动祭坛计时
+                UIDomain.HUD_AltarBar_Open(ctx, prop.altarDuration, prop.setHintsPoint.position);
+                UIDomain.HUD_Hints_Close(ctx, prop.GetTypeAddID());
+            }
+        }
+
     }
 
     public static void On_Owner_Trigger_LootStayEvent(GameContext ctx, Collider2D other) {

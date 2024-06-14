@@ -18,9 +18,12 @@ MonoBehaviour:
   isPermanent: 1
   activeTimer: 0
   mod: {fileID: 638021832257035120, guid: 5933e26065ffa3148af2aa1b5f125494, type: 3}
-  size: {x: 4, y: 4.5}
+  srBaseSize: {x: 0, y: 0}
+  hasAnim: 0
+  fadeOutTimer: 0
   isLadder: 0
   isAltar: 1
+  altarDuration: 60
   isTrampoline: 0
   anim_Normal: []
   isHurtFire: 0

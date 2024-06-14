@@ -23,4 +23,8 @@ public class UIRepo {
         }
         return t;
     }
+
+    public void Remove(string name) {
+        uis.Remove(name);
+    }
 }

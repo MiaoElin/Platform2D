@@ -305,6 +305,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Loot
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 93f70fac19252bd43a09bf5d8a50570c
+    m_Address: Assets/ResourceRuntime/HUD/AltarBar/HUD_AltarBar.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:

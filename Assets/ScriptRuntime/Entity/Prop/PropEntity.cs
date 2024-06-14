@@ -33,6 +33,8 @@ public class PropEntity : MonoBehaviour {
 
     // 祭坛
     public bool isAltar;
+    public float altarDuration;
+
 
     // 反射板
     public bool isTrampoline;

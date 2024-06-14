@@ -5,7 +5,7 @@ public static class PropFsmController {
 
     public static void ApplyFsm(GameContext ctx, PropEntity prop, float dt) {
         var fsm = prop.fsm;
-        var status = fsm.propStatus;
+        var status = fsm.status;
         ApplyAny(ctx, prop, dt);
         if (status == PropStatus.Normal) {
             ApplyNormal(ctx, prop, dt);

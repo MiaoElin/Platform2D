@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class PropFSMComponent {
-    public PropStatus propStatus;
+    public PropStatus status;
     public bool isEnterNormal;
 
     public bool isEnterHurt;
@@ -10,17 +10,17 @@ public class PropFSMComponent {
     public float fadeOutTimer;
 
     public void EnterNormal() {
-        propStatus = PropStatus.Normal;
+        status = PropStatus.Normal;
         isEnterNormal = true;
     }
 
     public void EnterFadeOut() {
-        propStatus = PropStatus.FadeOut;
+        status = PropStatus.FadeOut;
         isEnterFadeOut = true;
     }
 
     public void EnterHurt() {
-        propStatus = PropStatus.Hurt;
+        status = PropStatus.Hurt;
         isEnterHurt = true;
     }
 }
