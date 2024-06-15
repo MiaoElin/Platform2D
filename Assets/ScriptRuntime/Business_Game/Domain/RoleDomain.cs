@@ -59,7 +59,7 @@ public static class RoleDomain {
     }
 
     // 攻击目标
-    internal static void AI_EnterAttakRange_Tick(GameContext ctx, RoleEntity role) {
+    internal static bool AI_EnterAttakRange_Tick(GameContext ctx, RoleEntity role) {
         bool isInAttackRange = false;
 
         if (role.ally == Ally.Monster) {
@@ -73,12 +73,7 @@ public static class RoleDomain {
                 role.targeID = nearlyEnemy.id;
             }
         }
-
-        if (isInAttackRange) {
-            role.fsm.EnterCasting();
-        } else {
-            role.fsm.EnterNormal();
-        }
+        return isInAttackRange;
     }
 
     internal static void AI_SetCurrentSkill(GameContext ctx, RoleEntity role) {
@@ -270,8 +265,6 @@ public static class RoleDomain {
         var owner = ctx.GetOwner();
         var dir = (owner.Pos() - role.Pos()).normalized;
         if (role.aiType == AIType.Common) {
-            // // 判断是否在路径范围内
-            // bool isInPath = role.Pos().x > role.pathXMin && role.Pos().x < role.pathXMax;
             if (role.hasTarget) {
                 // 在路径范围内追owner
                 role.MoveByAxisX(dir.x);
@@ -441,6 +434,7 @@ public static class RoleDomain {
                 if (skill.isCastProp) {
                     var prop = PropDomain.Spawn(ctx, skill.propTypeID, role.LaunchPoint(), Vector3.zero, Vector3.one, false, Vector2.one, 0, role.ally);
                     prop.moveDir = role.GetForWard();
+                    prop.SetForward();
                 }
                 if (skill.isCure) {
                     var owner = ctx.GetOwner();

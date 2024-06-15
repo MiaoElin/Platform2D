@@ -117,6 +117,7 @@ MonoBehaviour:
     isPermanent: 1
     cd: 0
     cdMax: 30
+    searchRange: 30
     isBossWave: 0
   - roleTypeID: 100
     pos: {x: 37.1, y: 2.1}
@@ -127,6 +128,7 @@ MonoBehaviour:
     isPermanent: 1
     cd: 0
     cdMax: 40
+    searchRange: 30
     isBossWave: 0
   - roleTypeID: 110
     pos: {x: -16.73, y: -7.2}
@@ -139,6 +141,7 @@ MonoBehaviour:
     isPermanent: 1
     cd: 0
     cdMax: 30
+    searchRange: 20
     isBossWave: 0
   - roleTypeID: 110
     pos: {x: 12.41, y: -21.28}
@@ -150,6 +153,7 @@ MonoBehaviour:
     isPermanent: 1
     cd: 0
     cdMax: 30
+    searchRange: 20
     isBossWave: 0
   - roleTypeID: 1000
     pos: {x: 36.05, y: -20.3}
@@ -162,4 +166,5 @@ MonoBehaviour:
     isPermanent: 0
     cd: 0
     cdMax: 1
+    searchRange: 20
     isBossWave: 1

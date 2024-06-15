@@ -17,8 +17,6 @@ public static class RoleAIFSMController {
 
     private static void ApplyAny(GameContext ctx, RoleEntity role, float dt) {
         RoleDomain.AI_Monster_SerchRange_Tick(ctx, role);
-        RoleDomain.AI_EnterAttakRange_Tick(ctx, role);
-        // RoleDomain.AI_MeetTOwner_Check(ctx, role);
     }
 
     private static void ApllyNormal(GameContext ctx, RoleEntity role, float dt) {
@@ -27,6 +25,11 @@ public static class RoleAIFSMController {
             fsm.isEnterNormal = false;
         }
         RoleDomain.AI_Move(ctx, role, dt);
+        // Exit
+        bool isInAttackRange = RoleDomain.AI_EnterAttakRange_Tick(ctx, role);
+        if (isInAttackRange) {
+            role.fsm.EnterCasting();
+        }
     }
 
     private static void ApplyCasting(GameContext ctx, RoleEntity role, float dt) {
@@ -41,6 +44,11 @@ public static class RoleAIFSMController {
             RoleDomain.AI_Move_Stop(ctx, role);
         }
         RoleDomain.Casting(ctx, role, dt);
+        // Exit
+        bool isInAttackRange = RoleDomain.AI_EnterAttakRange_Tick(ctx, role);
+        if (!isInAttackRange) {
+            role.fsm.EnterNormal();
+        }
     }
 
     private static void ApllyDestroy(GameContext ctx, RoleEntity role) {

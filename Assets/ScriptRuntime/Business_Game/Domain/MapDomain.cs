@@ -44,7 +44,7 @@ public static class MapDomain {
                     }
                 }
                 if (tm.cd <= 0) {
-                    bool isInRange = PureFunction.IsInRange(ctx.GetOwner().Pos(), tm.pos, CommonConst.MONSTER_SPAWN_DISTANCE);
+                    bool isInRange = PureFunction.IsInRange(ctx.GetOwner().Pos(), tm.pos, tm.searchRange);
                     if (!isInRange) {
                         continue;
                     }

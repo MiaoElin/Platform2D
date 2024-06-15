@@ -108,13 +108,13 @@ public class RoleEntity : MonoBehaviour {
     }
 
     public void SetForward(float axisX) {
-        var scale = body.transform.localScale;
+        var scale = transform.localScale;
         if (axisX > 0) {
             scale.x = Mathf.Abs(scale.x);
         } else if (axisX < 0) {
             scale.x = -Mathf.Abs(scale.x);
         }
-        body.transform.localScale = scale;
+        transform.localScale = scale;
     }
 
     public void SetForwardByOwner(Vector2 dir) {
@@ -130,7 +130,7 @@ public class RoleEntity : MonoBehaviour {
         if (aiType == AIType.Flyer) {
             return faceDir;
         } else {
-            if (body.transform.localScale.x > 0) {
+            if (transform.localScale.x > 0) {
                 return Vector2.right;
             } else {
                 return Vector2.left;

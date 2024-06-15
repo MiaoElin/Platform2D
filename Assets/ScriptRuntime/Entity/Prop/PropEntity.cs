@@ -74,6 +74,14 @@ public class PropEntity : MonoBehaviour {
         transform.position = pos;
     }
 
+    public void SetForward() {
+        if (moveDir.x > 0) {
+            transform.localScale = Vector3.one;
+        } else if (moveDir.x < 0) {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+    }
+
     public Vector2 Pos() {
         return transform.position;
     }

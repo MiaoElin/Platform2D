@@ -62,6 +62,7 @@ public class MapEM : MonoBehaviour {
 
                     RoleSpawnerTM spawnerTM = new RoleSpawnerTM() {
                         roleTypeID = em.tm.typeID,
+                        searchRange = em.tm.searchRange,
                         pos = em.transform.position,
                         rotation = em.transform.eulerAngles,
                         localScale = em.transform.localScale,
