@@ -40,7 +40,7 @@ public static class RoleDomain {
                 if (Mathf.Abs(dir.y) <= 2) {
                     isInSearchRange = Mathf.Abs(dir.x) <= role.searchRange;
                 }
-            } else if (role.aiType == AIType.Flyer) {
+            } else if (role.aiType == AIType.Flyer && role.aiType == AIType.Elite) {
                 isInSearchRange = PureFunction.IsInRange(owner.Pos(), role.Pos(), role.searchRange);
             }
         }
@@ -278,6 +278,20 @@ public static class RoleDomain {
                 role.MoveByPath(dt);
             }
 
+        } else if (role.aiType == AIType.Elite) {
+            // 有target，跟随目标 如果前面有墙（高墙反方向，矮墙起跳）
+            // if (role.hasTarget) {
+            // } else {
+            // normal 往前走，走到有墙 或者 脚前方没有东西 往返方向
+            bool isInGroundSide = CheckFoot_Front(role);
+            bool isMeetWall = CheckHead_Front(role);
+            if (!isInGroundSide || isMeetWall) {
+                role.SetForward(-role.GetForWard().x);
+            }
+            role.MoveByAxisX(role.GetForWard().x);
+            // }
+
+
         } else if (role.aiType == AIType.Flyer) {
             if (role.hasTarget) {
                 role.MoveByTarget(owner.Pos(), dt);
@@ -292,6 +306,26 @@ public static class RoleDomain {
         }
     }
     #endregion
+
+    public static bool CheckFoot_Front(RoleEntity role) {
+        LayerMask map = 1 << 3;
+        RaycastHit2D ray = Physics2D.Raycast(role.GetFoot_Front(), Vector2.down, 0.1f, map);
+        if (!ray) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public static bool CheckHead_Front(RoleEntity role) {
+        LayerMask map = 1 << 3;
+        RaycastHit2D ray = Physics2D.Raycast(role.GetFoot_Front(), role.GetForWard(), 0.1f, map);
+        if (!ray) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     public static bool FindNearlyEnemy(GameContext ctx, RoleEntity role, out RoleEntity nearlyEnermy) {
         float nearlyDistance = Mathf.Pow(role.searchRange, 2);

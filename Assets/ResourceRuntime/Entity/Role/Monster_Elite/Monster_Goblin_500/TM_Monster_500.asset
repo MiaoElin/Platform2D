@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09854012fe5474b4caebfd1b2fa66e6c, type: 3}
+  m_Name: TM_Monster_500
+  m_EditorClassIdentifier: 
+  typeID: 500
+  isRobot: 0
+  price: 25
+  hpMax: 50
+  regenerationHpMax: 0
+  regenerationDuration: 0
+  moveSpeed: 5
+  height: 1.3
+  searchRange: 20
+  aiType: 2
+  mod: {fileID: 6480961630456752770, guid: 9d1ddba640ca01b4386d300113de1b96, type: 3}
+  gravity: 40
+  jumpForce: 14
+  jumpTimesMax: 1
+  sKillTMs:
+  - {fileID: 11400000, guid: d2fc6a80080f77847ae815cafcdea86f, type: 2}
+  vfx_Flash: []
+  isDropLoot: 0

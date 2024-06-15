@@ -44,7 +44,7 @@ public static class MapDomain {
                     }
                 }
                 if (tm.cd <= 0) {
-                    bool isInRange = PureFunction.IsInRange(ctx.GetOwner().Pos(), tm.pos, tm.searchRange);
+                    bool isInRange = PureFunction.IsInRange(ctx.GetOwner().Pos(), tm.pos, tm.searchRange); // 后面再改，Aitype.Common 检测x轴
                     if (!isInRange) {
                         continue;
                     }

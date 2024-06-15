@@ -323,6 +323,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Skill
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d46600576165fbd488b97686a4d5f5d7
+    m_Address: Assets/ResourceRuntime/Entity/Role/Monster_Elite/Monster_Goblin_500/TM_Monster_500.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Role
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2fc6a80080f77847ae815cafcdea86f
+    m_Address: Assets/ResourceRuntime/Entity/Role/Monster_Elite/Monster_Goblin_500/TM_Monster_Skill_500.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Skill
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:

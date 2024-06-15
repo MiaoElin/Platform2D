@@ -73,8 +73,9 @@ public class RoleEntity : MonoBehaviour {
         skillCom = new SkillSlotComponent();
         robotCom = new RobotComponent();
 
-        // Body
+        // Body 生成
         body = GameObject.Instantiate(mod, transform);
+        // set LaunchPoint
         launchPoint = body.transform.Find("LaunchPoint").transform;
         // RobotGroup
         var robotGroup = body.transform.Find("RobotPoint");
@@ -99,8 +100,12 @@ public class RoleEntity : MonoBehaviour {
         }
     }
 
-    public Vector2 GetAbdomen() {
-        return body.transform.Find("Abdomen").transform.position;
+    public Vector2 GetHead_Front() {
+        return body.transform.Find("Head_Front").position;
+    }
+
+    public Vector2 GetFoot_Front() {
+        return body.transform.Find("Foot").position;
     }
 
     internal void Reuse() {
