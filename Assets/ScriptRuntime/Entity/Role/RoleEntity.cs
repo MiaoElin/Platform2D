@@ -105,6 +105,10 @@ public class RoleEntity : MonoBehaviour {
     }
 
     public Vector2 GetFoot_Front() {
+        return body.transform.Find("Foot_Front").position;
+    }
+
+    public Vector2 GetFoot() {
         return body.transform.Find("Foot").position;
     }
 
@@ -220,6 +224,7 @@ public class RoleEntity : MonoBehaviour {
             velocity.y = jumpForce;
             rb.velocity = velocity;
             isJumpKeyDown = false;
+            isOnGround = false;
             jumpTimes--;
 
             Anim_Jump();
@@ -244,6 +249,11 @@ public class RoleEntity : MonoBehaviour {
     #region  Falling
     public void Falling(float dt) {
         var velocity = rb.velocity;
+        if (isOnGround) {
+            velocity.y = 0;
+            rb.velocity = velocity;
+            return;
+        }
         velocity.y -= gravity * dt;
         rb.velocity = velocity;
         if (velocity.y < 0) {

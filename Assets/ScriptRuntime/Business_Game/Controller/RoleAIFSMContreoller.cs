@@ -12,6 +12,8 @@ public static class RoleAIFSMController {
             ApplyCasting(ctx, role, dt);
         } else if (status == RoleStatus.Destroy) {
             ApllyDestroy(ctx, role);
+            // }else if(status==RoleStatus.Jump){
+
         }
     }
 
@@ -25,6 +27,10 @@ public static class RoleAIFSMController {
             fsm.isEnterNormal = false;
         }
         RoleDomain.AI_Move(ctx, role, dt);
+        if (role.aiType == AIType.Elite) {
+            RoleDomain.Jump(ctx, role);
+            RoleDomain.Falling(role, dt);
+        }
         // Exit
         bool isInAttackRange = RoleDomain.AI_EnterAttakRange_Tick(ctx, role);
         if (isInAttackRange) {
@@ -40,6 +46,10 @@ public static class RoleAIFSMController {
 
         if (role.aiType == AIType.Robot) {
             RoleDomain.AI_Move(ctx, role, dt);
+        } else if (role.aiType == AIType.Elite) {
+            RoleDomain.AI_Move(ctx, role, dt);
+            RoleDomain.Jump(ctx, role);
+            RoleDomain.Falling(role, dt);
         } else {
             RoleDomain.AI_Move_Stop(ctx, role);
         }
