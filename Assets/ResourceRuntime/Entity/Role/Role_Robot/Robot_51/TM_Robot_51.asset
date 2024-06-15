@@ -20,8 +20,8 @@ MonoBehaviour:
   regenerationDuration: 0
   moveSpeed: 0
   height: 0
-  attackRange: 20
-  aiType: 3
+  searchRange: 0
+  aiType: 4
   mod: {fileID: 6480961630456752770, guid: 7097a38943bb9cb4f9fac485918d7642, type: 3}
   gravity: 0
   jumpForce: 0

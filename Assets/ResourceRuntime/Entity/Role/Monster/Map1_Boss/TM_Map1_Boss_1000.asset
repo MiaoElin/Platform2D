@@ -21,7 +21,7 @@ MonoBehaviour:
   moveSpeed: 4
   height: 6
   searchRange: 20
-  aiType: 2
+  aiType: 1
   mod: {fileID: 6480961630456752770, guid: 2b709124b3643624b91ea00eb3b5b01a, type: 3}
   gravity: 0
   jumpForce: 0
