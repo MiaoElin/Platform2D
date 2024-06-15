@@ -3,7 +3,7 @@ using System;
 
 public class PropEntity : MonoBehaviour {
 
-    public EntityType entityType = EntityType.PropEntity;
+    public readonly EntityType entityType = EntityType.PropEntity;
     public int typeID;
     public int id;
     public Ally ally;

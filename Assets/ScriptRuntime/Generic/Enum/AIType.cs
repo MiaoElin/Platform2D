@@ -1,6 +1,7 @@
 public enum AIType {
     None,
-    ByPath,
-    ByOwner,
-    ByRobotPoint
+    Common, // 不会爬楼梯
+    Elite, // 会爬楼梯
+    Flyer,
+    Robot
 }

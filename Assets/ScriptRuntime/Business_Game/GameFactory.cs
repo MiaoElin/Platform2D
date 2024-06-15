@@ -21,7 +21,6 @@ public static class GameFactory {
         role.SetPos(pos);
         role.SetRotation(rotation);
         role.ally = ally;
-        role.path = path;
         role.price = tm.price;
         role.hp = tm.hpMax;
         role.hpMax = tm.hpMax;
@@ -32,7 +31,7 @@ public static class GameFactory {
         role.height = tm.height;
         role.attackRange = tm.attackRange;
         role.aiType = tm.aiType;
-        role.Ctor(tm.mod);
+        role.Ctor(tm.mod,path);
         role.gravity = tm.gravity;
         role.jumpForce = tm.jumpForce;
         role.jumpTimes = tm.jumpTimesMax;

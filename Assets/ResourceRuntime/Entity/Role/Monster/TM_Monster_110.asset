@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: TM_Monster_110
   m_EditorClassIdentifier: 
   typeID: 110
+  isRobot: 0
   price: 30
   hpMax: 50
   regenerationHpMax: 0
   regenerationDuration: 0
   moveSpeed: 4
   height: 3
-  attackRange: 30
+  attackRange: 3
   aiType: 1
   mod: {fileID: 6480961630456752770, guid: ef39503092d0c2a4b815ded6ea863a7f, type: 3}
   gravity: 0
@@ -27,3 +28,5 @@ MonoBehaviour:
   jumpTimesMax: 0
   sKillTMs:
   - {fileID: 11400000, guid: 5122122ee4a04ae409a687d2ea904d25, type: 2}
+  vfx_Flash: []
+  isDropLoot: 0

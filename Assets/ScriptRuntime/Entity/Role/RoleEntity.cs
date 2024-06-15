@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RoleEntity : MonoBehaviour {
 
-    // public EntityType type; // EntityType.Role;
+    public readonly EntityType entityTyp = EntityType.RoleEntity;
     public int id;
     public int typeID;
     public int price;
@@ -21,6 +21,8 @@ public class RoleEntity : MonoBehaviour {
     public float moveSpeed;
     public float height;
     public float attackRange;
+    public bool hasTarget;
+    public Vector2 targetPos;
 
     // buff Shield Dic
     Dictionary<int /*EntityID*/, int /*Shield*/> shieldDict; // 过程
@@ -32,6 +34,8 @@ public class RoleEntity : MonoBehaviour {
     public AIType aiType;
     public Vector2 faceDir;
     public Vector2[] path;
+    public float pathXMin;
+    public float pathXMax;
     public int pathIndex;
     [SerializeField] Rigidbody2D rb;
     public Animator anim;
@@ -48,14 +52,12 @@ public class RoleEntity : MonoBehaviour {
 
     public bool isStayInGround;
     public bool isOnGround;
-    public bool meetTarget;
     public float gravity;
     public float jumpForce;
     public bool isJumpKeyDown;
     // public bool isFlashKeyDown;
     public int jumpTimes;
     public int jumpTimesMax;
-
     public RoleFSMComponent fsm;
     public BuffSlotComponent buffCom;
     public SkillSlotComponent skillCom;
@@ -64,7 +66,7 @@ public class RoleEntity : MonoBehaviour {
     public Action<Collider2D> OnTriggerExitHandle;
     public Action<Collider2D> OnTriggerStayHandle;
 
-    public void Ctor(GameObject mod) {
+    public void Ctor(GameObject mod, Vector2[] path) {
         fsm = new RoleFSMComponent();
         fsm.EnterNormal();
         buffCom = new BuffSlotComponent();
@@ -81,7 +83,20 @@ public class RoleEntity : MonoBehaviour {
         this.anim = body.GetComponentInChildren<Animator>();
 
         shieldDict = new Dictionary<int, int>();
-
+        // path
+        this.path = path;
+        if (path != null) {
+            pathXMax = path[0].x;
+            pathXMin = path[0].x;
+            foreach (var pos in path) {
+                if (pos.x >= pathXMax) {
+                    pathXMax = pos.x;
+                }
+                if (pos.x <= pathXMin) {
+                    pathXMin = pos.x;
+                }
+            }
+        }
     }
 
     public Vector2 GetAbdomen() {
@@ -112,7 +127,7 @@ public class RoleEntity : MonoBehaviour {
     }
 
     public Vector2 GetForWard() {
-        if (aiType == AIType.ByOwner) {
+        if (aiType == AIType.Flyer) {
             return faceDir;
         } else {
             if (body.transform.localScale.x > 0) {
@@ -159,14 +174,14 @@ public class RoleEntity : MonoBehaviour {
         rb.velocity = velocity;
     }
 
+    internal void Move_Stop() {
+        rb.velocity = Vector2.zero;
+    }
+
     public void MoveByPath(float dt) {
         if (pathIndex >= path.Length) {
             // rb.velocity = Vector2.zero;
             pathIndex = 0;
-            return;
-        }
-        if (meetTarget) {
-            rb.velocity = Vector2.zero;
             return;
         }
         var nextPos = path[pathIndex];
@@ -214,6 +229,10 @@ public class RoleEntity : MonoBehaviour {
 
     public float GetVelocityY() {
         return rb.velocity.y;
+    }
+
+    public float GetVelocityX() {
+        return rb.velocity.x;
     }
 
     #endregion
@@ -268,7 +287,7 @@ public class RoleEntity : MonoBehaviour {
     }
 
     internal void anim_Attack() {
-        anim.Play("Attack_Pre",0);
+        anim.Play("Attack_Pre", 0);
     }
 
     #endregion

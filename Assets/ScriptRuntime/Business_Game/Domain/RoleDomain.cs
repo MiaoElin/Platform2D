@@ -23,25 +23,54 @@ public static class RoleDomain {
         return role;
     }
 
+    #region  AI
     internal static void AI_MeetTOwner_Check(GameContext ctx, RoleEntity role) {
         // Vector2.SqrMagnitude(role.)
     }
 
+    // 找目标
+    public static void AI_Monster_SerchRange_Tick(GameContext ctx, RoleEntity role) {
+        // 目前只有Monster有这个需求（发现owner，要向owner移动），所以只Monster搜索
+        var owner = ctx.GetOwner();
+        var dir = owner.Pos() - role.Pos();
+        bool isInSearchRange = false;
+        if (role.ally == Ally.Monster) {
+            if (role.aiType == AIType.Common) {
+                // y轴在2m差距之内
+                if (Mathf.Abs(dir.y) <= 2) {
+                    isInSearchRange = Mathf.Abs(dir.x) <= CommonConst.ROLE_SERCHRANGE;
+                }
+            }
+        }
+
+        if (isInSearchRange) {
+            role.hasTarget = true;
+        } else {
+            role.hasTarget = false;
+        }
+    }
+
+    internal static void Move_Stop(RoleEntity role) {
+        role.Move_Stop();
+    }
+
+    // 攻击目标
     internal static void AI_EnterAttakRange_Tick(GameContext ctx, RoleEntity role) {
-        bool isInRange = false;
+        bool isInAttackRange = false;
 
         if (role.ally == Ally.Monster) {
-            var target = ctx.GetOwner().Pos();
-            isInRange = PureFunction.IsInRange(target, role.Pos(), role.attackRange);
-
+            if (role.hasTarget) {
+                var target = ctx.GetOwner().Pos();
+                isInAttackRange = PureFunction.IsInRange(target, role.Pos(), role.attackRange);
+            }
         } else if (role.ally == Ally.Player) {
-            isInRange = FindNearlyEnemy(ctx, role, out var nearlyEnemy);
-            if (isInRange) {
+            isInAttackRange = FindNearlyEnemy(ctx, role, out var nearlyEnemy);
+            if (isInAttackRange) {
                 role.targeID = nearlyEnemy.id;
             }
         }
 
-        if (isInRange) {
+        if (isInAttackRange) {
             role.fsm.EnterCasting();
         } else {
             role.fsm.EnterNormal();
@@ -52,6 +81,7 @@ public static class RoleDomain {
         var skillCom = role.skillCom;
         skillCom.SetCurrentKey(InputKeyEnum.SKill1);
     }
+    #endregion 
 
     public static void Unspawn(GameContext ctx, RoleEntity role) {
         ctx.roleRepo.Remove(role);
@@ -231,13 +261,27 @@ public static class RoleDomain {
 
     public static void AI_Move(GameContext ctx, RoleEntity role, float dt) {
         var owner = ctx.GetOwner();
-        var dir = owner.Pos() - role.Pos();
-        if (role.aiType == AIType.ByPath) {
-            role.MoveByPath(dt);
-        } else if (role.aiType == AIType.ByOwner) {
+        var dir = (owner.Pos() - role.Pos()).normalized;
+        if (role.aiType == AIType.Common) {
+            // // 判断是否在路径范围内
+            // bool isInPath = role.Pos().x > role.pathXMin && role.Pos().x < role.pathXMax;
+            if (role.hasTarget) {
+                // 在路径范围内追owner
+                role.MoveByAxisX(dir.x);
+                role.SetForward(dir.x);
+                if (role.Pos().x > role.pathXMax) {
+                    role.SetPos(new Vector2(role.pathXMax, role.Pos().y));
+                } else if (role.Pos().x < role.pathXMin) {
+                    role.SetPos(new Vector2(role.pathXMin, role.Pos().y));
+                }
+            } else {
+                role.MoveByPath(dt);
+            }
+
+        } else if (role.aiType == AIType.Flyer) {
             role.MoveByTarget(owner.Pos(), dt);
             role.SetForward(dir.x);
-        } else if (role.aiType == AIType.ByRobotPoint) {
+        } else if (role.aiType == AIType.Robot) {
             role.MoveByTarget(owner.robotCom.GetRobotPositon(role.id), dt);
             role.SetForward(dir.x);
             if (role.isCureRole) {

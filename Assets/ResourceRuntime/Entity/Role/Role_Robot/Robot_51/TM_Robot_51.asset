@@ -20,7 +20,7 @@ MonoBehaviour:
   regenerationDuration: 0
   moveSpeed: 0
   height: 0
-  attackRange: 30
+  attackRange: 20
   aiType: 3
   mod: {fileID: 6480961630456752770, guid: 7097a38943bb9cb4f9fac485918d7642, type: 3}
   gravity: 0
@@ -29,3 +29,4 @@ MonoBehaviour:
   sKillTMs:
   - {fileID: 11400000, guid: 6084cae0f113856498ba372fc0f09b90, type: 2}
   vfx_Flash: []
+  isDropLoot: 0

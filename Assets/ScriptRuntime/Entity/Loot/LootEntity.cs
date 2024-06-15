@@ -4,7 +4,7 @@ using GameFunctions;
 
 public class LootEntity : MonoBehaviour {
 
-    public EntityType entityType = EntityType.LootEntity;
+    public readonly EntityType entityType = EntityType.LootEntity;
     public int typeID;
     public int id;
     public int price;
