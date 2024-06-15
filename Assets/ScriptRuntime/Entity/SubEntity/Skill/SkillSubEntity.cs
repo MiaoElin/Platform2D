@@ -4,6 +4,7 @@ public class SkillSubEntity {
 
     public int typeID;
     public int id;
+    public float attackRange;
 
     // castBullet
     public bool isCastBullet;

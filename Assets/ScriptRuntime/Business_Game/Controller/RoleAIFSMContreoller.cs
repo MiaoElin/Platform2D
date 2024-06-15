@@ -38,7 +38,7 @@ public static class RoleAIFSMController {
         if (role.aiType == AIType.Robot) {
             RoleDomain.AI_Move(ctx, role, dt);
         } else {
-            RoleDomain.Move_Stop(role);
+            RoleDomain.AI_Move_Stop(ctx, role);
         }
         RoleDomain.Casting(ctx, role, dt);
     }

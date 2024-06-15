@@ -5,6 +5,7 @@ public class SkillTM : ScriptableObject {
     public int typeID;
     public string skillName;
     // public float damageRate;
+    public float attackRange;
 
     // castBullet
     public bool isCastBullet;

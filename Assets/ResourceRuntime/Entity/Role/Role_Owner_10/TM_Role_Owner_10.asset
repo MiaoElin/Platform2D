@@ -20,7 +20,7 @@ MonoBehaviour:
   regenerationDuration: 2
   moveSpeed: 6.5
   height: 3
-  attackRange: 60
+  searchRange: 50
   aiType: 0
   mod: {fileID: 6480961630456752770, guid: 369974eb653cb584eb807d7d78a57348, type: 3}
   gravity: 40
@@ -39,3 +39,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1a640bd3485db1b46a9fb6e830941397, type: 3}
   - {fileID: 21300000, guid: a25cb0f29832ce64cb61d171a1afb986, type: 3}
   - {fileID: 21300000, guid: 7a025ba7a9ebb1443baa4cbca9d12e97, type: 3}
+  isDropLoot: 0

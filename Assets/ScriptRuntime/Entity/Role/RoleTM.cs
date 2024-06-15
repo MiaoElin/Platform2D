@@ -13,7 +13,7 @@ public class RoleTM : ScriptableObject {
     public float regenerationDuration;
     public float moveSpeed;
     public float height;
-    public float attackRange;
+    public float searchRange;
     public AIType aiType;
     public GameObject mod;
 

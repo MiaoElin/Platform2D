@@ -30,6 +30,11 @@ public class SkillSlotComponent {
         return currentSkillKey;
     }
 
+    public SkillSubEntity GetCurrentSkill() {
+        TryGet(GetCurrentKey(), out var skill);
+        return skill;
+    }
+
     public InputKeyEnum GetInputKeyEnum(int index) {
         if (index == 0) {
             return InputKeyEnum.SKill1;

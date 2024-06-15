@@ -38,10 +38,10 @@ public static class RoleDomain {
             if (role.aiType == AIType.Common) {
                 // y轴在2m差距之内
                 if (Mathf.Abs(dir.y) <= 2) {
-                    isInSearchRange = Mathf.Abs(dir.x) <= CommonConst.ROLE_SERCHRANGE;
+                    isInSearchRange = Mathf.Abs(dir.x) <= role.searchRange;
                 }
-                // } else if (role.aiType == AIType.Flyer) {
-                //     isInSearchRange = PureFunction.IsInRange(owner.Pos(), role.Pos(), CommonConst.ROLE_SERCHRANGE);
+            } else if (role.aiType == AIType.Flyer) {
+                isInSearchRange = PureFunction.IsInRange(owner.Pos(), role.Pos(), role.searchRange);
             }
         }
 
@@ -52,8 +52,10 @@ public static class RoleDomain {
         }
     }
 
-    internal static void Move_Stop(RoleEntity role) {
+    internal static void AI_Move_Stop(GameContext ctx, RoleEntity role) {
         role.Move_Stop();
+        var dir = (ctx.GetOwner().Pos() - role.Pos()).normalized;
+        role.SetForward(dir.x);
     }
 
     // 攻击目标
@@ -63,7 +65,7 @@ public static class RoleDomain {
         if (role.ally == Ally.Monster) {
             if (role.hasTarget) {
                 var target = ctx.GetOwner().Pos();
-                isInAttackRange = PureFunction.IsInRange(target, role.Pos(), role.attackRange);
+                isInAttackRange = PureFunction.IsInRange(target, role.Pos(), role.skillCom.GetCurrentSkill().attackRange);
             }
         } else if (role.ally == Ally.Player) {
             isInAttackRange = FindNearlyEnemy(ctx, role, out var nearlyEnemy);
@@ -299,7 +301,7 @@ public static class RoleDomain {
     #endregion
 
     public static bool FindNearlyEnemy(GameContext ctx, RoleEntity role, out RoleEntity nearlyEnermy) {
-        float nearlyDistance = Mathf.Pow(role.attackRange, 2);
+        float nearlyDistance = Mathf.Pow(role.searchRange, 2);
         RoleEntity nearEnemy = null;
         ctx.roleRepo.Foreach(enemy => {
             if (role.ally == enemy.ally) {

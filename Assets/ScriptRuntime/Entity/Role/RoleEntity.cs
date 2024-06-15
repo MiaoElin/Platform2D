@@ -20,7 +20,7 @@ public class RoleEntity : MonoBehaviour {
     public float regenerationDuration;
     public float moveSpeed;
     public float height;
-    public float attackRange;
+    public float searchRange;
     public bool hasTarget;
     public Vector2 targetPos;
 

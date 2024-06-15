@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 100
   skillName: MonsterSkill
+  attackRange: 0.5
   isCastBullet: 0
   bulletTypeID: 0
   isCastProp: 0

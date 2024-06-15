@@ -29,9 +29,9 @@ public static class GameFactory {
         role.regenerationHpMax = tm.regenerationHpMax;
         role.moveSpeed = tm.moveSpeed;
         role.height = tm.height;
-        role.attackRange = tm.attackRange;
+        role.searchRange = tm.searchRange;
         role.aiType = tm.aiType;
-        role.Ctor(tm.mod,path);
+        role.Ctor(tm.mod, path);
         role.gravity = tm.gravity;
         role.jumpForce = tm.jumpForce;
         role.jumpTimes = tm.jumpTimesMax;
@@ -204,6 +204,7 @@ public static class GameFactory {
         }
         SkillSubEntity skill = new SkillSubEntity();
         skill.typeID = tm.typeID;
+        skill.attackRange = tm.attackRange;
 
         // skill.bulletDamageRate = tm.damageRate;
         skill.isCastBullet = tm.isCastBullet;
