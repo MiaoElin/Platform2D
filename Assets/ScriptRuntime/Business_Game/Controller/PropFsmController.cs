@@ -36,13 +36,13 @@ public static class PropFsmController {
             fsm.isEnterNormal = false;
         }
         // 反射板
-        if (prop.isTrampoline) {
-            if (prop.isOwnerOnTrampoline) {
-                prop.isOwnerOnTrampoline = false;
-                owenr.SetVelocityY(prop.jumpForce);
-                owenr.fsm.EnterTrampoline();
-            }
-        }
+        // if (prop.isTrampoline) {
+        //     if (prop.isOwnerOnTrampoline) {
+        //         prop.isOwnerOnTrampoline = false;
+        //         owenr.SetVelocityY(prop.jumpForce);
+        //         owenr.fsm.EnterTrampoline();
+        //     }
+        // }
 
         // 楼梯 
         var pos = owenr.Pos();

@@ -142,6 +142,10 @@ public static class RoleDomain {
             if (prop.isAltar) {
                 UIDomain.HUD_Hints_ShowHIntIcon(ctx, prop.GetTypeAddID());
             }
+            if (prop.isTrampoline) {
+                ctx.GetOwner().SetVelocityY(prop.jumpForce);
+                ctx.GetOwner().fsm.EnterTrampoline();
+            }
         }
     }
 
@@ -281,10 +285,13 @@ public static class RoleDomain {
             bool isInGroundSide = CheckFoot_Front(role);
             bool isMeetWall = CheckHead_Front(role);
             // 有target，跟随目标 如果前面有墙（高墙反方向，矮墙起跳）
-            Debug.Log(role.hasTarget);
             if (role.hasTarget) {
                 if (isMeetWall) {
                     role.isJumpKeyDown = true;
+                }
+                // x轴距离想等，dir设为0；
+                if (MathF.Abs(dir.x) < role.moveSpeed * dt) {
+                    dir = Vector2.zero;
                 }
                 role.MoveByAxisX(dir.x);
                 role.SetForward(dir.x);
@@ -369,13 +376,13 @@ public static class RoleDomain {
         if (role.aiType != AIType.None && role.aiType != AIType.Elite) {
             return;
         }
+        role.isOnGround = false;
         if (role.GetVelocityY() > 0) {
             return;
         }
         // Ground:3/Trampoline:6/Ladder:7
         var layerMask = 1 << 3 | 1 << 6;
-        role.isOnGround = false;
-        Collider2D[] hits = Physics2D.OverlapBoxAll(role.GetFoot(), new Vector2(0.98f, 0.1f), 0, layerMask);
+        Collider2D[] hits = Physics2D.OverlapBoxAll(role.GetFoot(), new Vector2(0.9f, 0.1f), 0, layerMask);
         if (hits.Length == 0) {
         }
         foreach (var hit in hits) {
@@ -383,9 +390,6 @@ public static class RoleDomain {
                 role.ReuseJumpTimes();
                 role.Anim_JumpEnd();
                 role.isOnGround = true;
-            } else if (hit.gameObject.layer == 6) {
-                var prop = hit.GetComponentInParent<PropEntity>();
-                prop.isOwnerOnTrampoline = true;
             }
         }
     }

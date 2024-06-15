@@ -169,6 +169,11 @@ public class RoleEntity : MonoBehaviour {
 
     #region  Move   
     public void MoveByAxisX(float axisX) {
+        if (axisX > 0) {
+            axisX = 1;
+        } else if (axisX < 0) {
+            axisX = -1;
+        }
         var velocity = rb.velocity;
         velocity.x = axisX * moveSpeed;
         rb.velocity = velocity;
