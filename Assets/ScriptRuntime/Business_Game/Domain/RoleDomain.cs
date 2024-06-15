@@ -40,6 +40,8 @@ public static class RoleDomain {
                 if (Mathf.Abs(dir.y) <= 2) {
                     isInSearchRange = Mathf.Abs(dir.x) <= CommonConst.ROLE_SERCHRANGE;
                 }
+                // } else if (role.aiType == AIType.Flyer) {
+                //     isInSearchRange = PureFunction.IsInRange(owner.Pos(), role.Pos(), CommonConst.ROLE_SERCHRANGE);
             }
         }
 
@@ -122,6 +124,9 @@ public static class RoleDomain {
             }
             if (prop.isAltar) {
                 UIDomain.HUD_Hints_Hide(ctx, prop.GetTypeAddID());
+            }
+            if (prop.isHurtFire) {
+                prop.fsm.EnterNormal();
             }
         }
     }
@@ -279,8 +284,10 @@ public static class RoleDomain {
             }
 
         } else if (role.aiType == AIType.Flyer) {
-            role.MoveByTarget(owner.Pos(), dt);
-            role.SetForward(dir.x);
+            if (role.hasTarget) {
+                role.MoveByTarget(owner.Pos(), dt);
+                role.SetForward(dir.x);
+            }
         } else if (role.aiType == AIType.Robot) {
             role.MoveByTarget(owner.robotCom.GetRobotPositon(role.id), dt);
             role.SetForward(dir.x);

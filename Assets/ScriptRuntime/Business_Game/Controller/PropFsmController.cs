@@ -87,6 +87,7 @@ public static class PropFsmController {
         var fsm = prop.fsm;
         if (fsm.isEnterHurt) {
             fsm.isEnterHurt = false;
+            prop.hurtFireTimer = 0;
         }
         var owner = ctx.GetOwner();
         // hurt fire
