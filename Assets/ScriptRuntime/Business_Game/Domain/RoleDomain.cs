@@ -28,7 +28,7 @@ public static class RoleDomain {
         // Vector2.SqrMagnitude(role.)
     }
 
-    // 找目标
+    // 搜索距离Tick
     public static void AI_Monster_SerchRange_Tick(GameContext ctx, RoleEntity role) {
         // 目前只有Monster有这个需求（发现owner，要向owner移动），所以只Monster搜索
         var owner = ctx.GetOwner();
@@ -58,7 +58,7 @@ public static class RoleDomain {
         role.SetForward(dir.x);
     }
 
-    // 攻击目标
+    // 攻击距离Tick
     internal static bool AI_EnterAttakRange_Tick(GameContext ctx, RoleEntity role) {
         bool isInAttackRange = false;
 
@@ -681,5 +681,17 @@ public static class RoleDomain {
     public static void RemoveShield(RoleEntity Owner, BuffSubEntity buff) {
         Owner.BuffShieldRemove(buff.typeID);
     }
+    #endregion
+
+    #region Ladder
+    // public static bool IsEnterLadder(GameContext ctx, RoleEntity role) {
+    //     ctx.propRepo.Foreach(prop => {
+    //         if (!prop.isLadder) {
+    //             return;
+                
+
+    //         }
+    //     });
+    // }
     #endregion
 }

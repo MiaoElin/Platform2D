@@ -12,8 +12,8 @@ public static class RoleAIFSMController {
             ApplyCasting(ctx, role, dt);
         } else if (status == RoleStatus.Destroy) {
             ApllyDestroy(ctx, role);
-            // }else if(status==RoleStatus.Jump){
-
+        } else if (status == RoleStatus.Ladder) {
+            ApplyLadder(ctx, role);
         }
     }
 
@@ -59,6 +59,10 @@ public static class RoleAIFSMController {
         if (!isInAttackRange) {
             role.fsm.EnterNormal();
         }
+    }
+
+    private static void ApplyLadder(GameContext ctx, RoleEntity role) {
+        
     }
 
     private static void ApllyDestroy(GameContext ctx, RoleEntity role) {

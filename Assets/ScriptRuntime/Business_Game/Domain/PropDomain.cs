@@ -20,4 +20,5 @@ public static class PropDomain {
         prop.gameObject.SetActive(false);
         ctx.poolService.ReturnProp(prop);
     }
+
 }
