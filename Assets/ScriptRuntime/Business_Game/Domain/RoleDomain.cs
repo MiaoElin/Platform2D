@@ -249,8 +249,8 @@ public static class RoleDomain {
         role.SetForward(ctx.input.moveAxis.x);
     }
 
-    public static void Move_InLadder(GameContext ctx, RoleEntity role) {
-        role.MoveByAxisY(ctx.input.moveAxis.y);
+    public static void Move_ByAxisY(GameContext ctx, RoleEntity role, float moveAxisY) {
+        role.MoveByAxisY(moveAxisY);
     }
 
     public static void Owner_Move_InCasting(GameContext ctx, RoleEntity role) {
@@ -684,14 +684,43 @@ public static class RoleDomain {
     #endregion
 
     #region Ladder
-    // public static bool IsEnterLadder(GameContext ctx, RoleEntity role) {
-    //     ctx.propRepo.Foreach(prop => {
-    //         if (!prop.isLadder) {
-    //             return;
-                
+    public static void EnterLadder(GameContext ctx, RoleEntity role) {
+        ctx.propRepo.Foreach(prop => {
+            if (!prop.isLadder) {
+                return;
+            }
+            var pos = role.Pos();
+            var moveAxis = Vector2.zero;
+            if (role.isOwner) {
+                moveAxis = ctx.input.moveAxis;
+            } else if (role.aiType == AIType.Elite) {
+                moveAxis = (ctx.GetOwner().Pos() - role.Pos()).normalized;
+            }
 
-    //         }
-    //     });
-    // }
+            Vector2 lowPos = prop.Pos() + Vector2.down * (prop.srBaseSize.y / 2) + Vector2.left * prop.srBaseSize.x / 2;
+            Vector2 hightPos = prop.Pos() + Vector2.up * (prop.srBaseSize.y / 2) + Vector2.right * prop.srBaseSize.x / 2;
+
+            float head_Center_Offset = role.GetHead_Front().y - role.Pos().y;
+            float foot_Center_Offset = role.Pos().y - role.GetFoot().y;         //素材的中心点不在角色身高的中心点导致的问题
+
+            float lowestY = lowPos.y + head_Center_Offset + 2f;//head_Front localpos()
+            float highestY = hightPos.y + foot_Center_Offset + 0.2f; // 0.2f作为编辑器的偏差量。角色爬到顶上高一点再落地，也会有种缓动的感觉
+
+            // 限制x的范围
+            if (pos.x > lowPos.x && pos.x < hightPos.x) {
+                // 往上爬的Y范围
+                if (pos.y + head_Center_Offset > lowPos.y && pos.y < hightPos.y) {
+                    if (moveAxis.y > 0) {
+                        role.fsm.EnterLadder(lowestY, highestY);
+                    }
+                    // 往下爬的Y的范围 
+                } else if (pos.y > hightPos.y && pos.y < highestY) {   // 大于highest 到达顶部，collider变硬、 小于是开始下降
+                    if (moveAxis.y < 0) {
+                        role.fsm.EnterLadder(lowestY, highestY);
+                    }
+                }
+            }
+        });
+    }
     #endregion
 }

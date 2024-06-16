@@ -19,6 +19,9 @@ public static class RoleAIFSMController {
 
     private static void ApplyAny(GameContext ctx, RoleEntity role, float dt) {
         RoleDomain.AI_Monster_SerchRange_Tick(ctx, role);
+        if (role.aiType == AIType.Elite) {
+            RoleDomain.EnterLadder(ctx, role);
+        }
     }
 
     private static void ApllyNormal(GameContext ctx, RoleEntity role, float dt) {
@@ -62,7 +65,36 @@ public static class RoleAIFSMController {
     }
 
     private static void ApplyLadder(GameContext ctx, RoleEntity role) {
-        
+        var fsm = role.fsm;
+        if (fsm.isEnterLadder) {
+            fsm.isEnterLadder = false;
+            // ctx.GetCurrentMap().SetGridTrigger();
+        }
+        var dir = ctx.GetOwner().GetHead_Front() - role.Pos();
+        if (dir.y > 0) {
+            dir = Vector2.up;
+        } else if (dir.y < 0) {
+            dir = Vector2.down;
+        }
+
+        RoleDomain.Move_ByAxisY(ctx, role, dir.y);
+        Debug.Log(role.Pos().y + " " + fsm.lowestY);
+        // Exit
+        if (role.Pos().y <= fsm.lowestY || role.Pos().y > fsm.highestY) {
+            fsm.EnterNormal();
+            // ctx.GetCurrentMap().SetGridCollision();
+        }
+
+        // if (ctx.input.isJumpKeyDown && !role.isStayInGround) {
+        //     ctx.input.isJumpKeyDown = false;
+        //     fsm.EnterNormal();
+        //     // ctx.GetCurrentMap().SetGridCollision();
+        // }
+        // Exit
+        bool isInAttackRange = RoleDomain.AI_EnterAttakRange_Tick(ctx, role);
+        if (isInAttackRange) {
+            role.fsm.EnterCasting();
+        }
     }
 
     private static void ApllyDestroy(GameContext ctx, RoleEntity role) {

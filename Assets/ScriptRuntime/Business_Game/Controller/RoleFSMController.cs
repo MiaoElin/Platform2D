@@ -26,6 +26,7 @@ public static class RoleFSMConTroller {
         RoleDomain.CD_Tick(ctx, role, dt);
         RoleDomain.Owner_Buff_Tick(ctx, dt);
         RoleDomain.Owner_Rehp_Tick(role, dt);
+        RoleDomain.EnterLadder(ctx, role);
     }
 
     private static void ApplyNormal(GameContext ctx, RoleEntity role, float dt) {
@@ -69,7 +70,7 @@ public static class RoleFSMConTroller {
             ctx.GetCurrentMap().SetGridTrigger();
         }
 
-        RoleDomain.Move_InLadder(ctx, role);
+        RoleDomain.Move_ByAxisY(ctx, role, ctx.input.moveAxis.y);
 
         // Exit
         if (role.Pos().y <= fsm.lowestY || role.Pos().y > fsm.highestY) {
