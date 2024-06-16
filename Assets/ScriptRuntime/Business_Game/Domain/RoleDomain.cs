@@ -283,12 +283,8 @@ public static class RoleDomain {
 
         } else if (role.aiType == AIType.Elite) {
             bool isInGroundSide = CheckFoot_Front(role);
-            bool isMeetWall = CheckHead_Front(role);
             // 有target，跟随目标 如果前面有墙（高墙反方向，矮墙起跳）
             if (role.hasTarget) {
-                if (isMeetWall) {
-                    role.isJumpKeyDown = true;
-                }
                 // x轴距离想等，dir设为0；
                 if (MathF.Abs(dir.x) < role.moveSpeed * dt) {
                     dir = Vector2.zero;
@@ -297,7 +293,7 @@ public static class RoleDomain {
                 role.SetForward(dir.x);
             } else {
                 // normal 往前走，走到有墙 或者 脚前方没有东西 往返方向
-                if (!isInGroundSide || isMeetWall) {
+                if (!isInGroundSide || role.isMeetWall) {
                     role.SetForward(-role.GetForWard().x);
                 }
                 role.MoveByAxisX(role.GetForWard().x);
@@ -332,7 +328,7 @@ public static class RoleDomain {
     public static bool CheckHead_Front(RoleEntity role) {
         LayerMask map = 1 << 3;
         RaycastHit2D ray = Physics2D.Raycast(role.GetHead_Front(), -role.GetForWard(), 1f, map);
-        // Debug.DrawRay(role.GetHead_Front(), -role.GetForWard() * 1f, Color.red);
+        Debug.DrawRay(role.GetHead_Front(), -role.GetForWard() * 1f, Color.red);
         if (!ray) {
             return false;
         } else {
@@ -364,7 +360,15 @@ public static class RoleDomain {
     }
 
     public static void Jump(GameContext ctx, RoleEntity role) {
+        if (role.aiType == AIType.Elite) {
+            if (role.hasTarget) {
+                if (role.isMeetWall) {
+                    role.isJumpKeyDown = true;
+                }
+            }
+        }
         role.Jump();
+        role.isJumpKeyDown = false;
     }
 
     public static void Falling(RoleEntity role, float dt) {

@@ -22,6 +22,7 @@ public class RoleEntity : MonoBehaviour {
     public float height;
     public float searchRange;
     public bool hasTarget;
+    public bool isMeetWall;
     public Vector2 targetPos;
 
     // buff Shield Dic
@@ -189,7 +190,9 @@ public class RoleEntity : MonoBehaviour {
     }
 
     internal void Move_Stop() {
-        rb.velocity = Vector2.zero;
+        var velocity = rb.velocity;
+        velocity.x = 0;
+        rb.velocity = velocity;
     }
 
     public void MoveByPath(float dt) {
@@ -229,6 +232,7 @@ public class RoleEntity : MonoBehaviour {
             velocity.y = jumpForce;
             rb.velocity = velocity;
             isJumpKeyDown = false;
+            isMeetWall = false;
             isOnGround = false;
             jumpTimes--;
 
@@ -317,6 +321,9 @@ public class RoleEntity : MonoBehaviour {
     void OnTriggerExit2D(Collider2D other) {
         if (other.tag == "Ground") {
             isStayInGround = false;
+            if (aiType == AIType.Elite) {
+                isMeetWall = false;
+            }
         }
         if (isOwner) {
             OnTriggerExitHandle.Invoke(other);
@@ -325,6 +332,9 @@ public class RoleEntity : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Ground") {
             isStayInGround = false;
+            if (aiType == AIType.Elite) {
+                isMeetWall = true;
+            }
         }
         if (isOwner) {
             OnTriggerEnterHandle.Invoke(other);
@@ -334,6 +344,9 @@ public class RoleEntity : MonoBehaviour {
     void OnTriggerStay2D(Collider2D other) {
         if (other.tag == "Ground") {
             isStayInGround = true;
+            if (aiType == AIType.Elite) {
+                isMeetWall = true;
+            }
         }
         if (isOwner) {
             OnTriggerStayHandle.Invoke(other);
