@@ -35,17 +35,10 @@ public static class PropFsmController {
         if (fsm.isEnterNormal) {
             fsm.isEnterNormal = false;
         }
-        // 反射板
-        // if (prop.isTrampoline) {
-        //     if (prop.isOwnerOnTrampoline) {
-        //         prop.isOwnerOnTrampoline = false;
-        //         owenr.SetVelocityY(prop.jumpForce);
-        //         owenr.fsm.EnterTrampoline();
-        //     }
-        // }
 
         // 楼梯 
         var pos = owenr.Pos();
+
         if (prop.isLadder) {
             Vector2 lowPos = prop.Pos() + Vector2.down * (prop.srBaseSize.y / 2) + Vector2.left * prop.srBaseSize.x / 2;
             Vector2 hightPos = prop.Pos() + Vector2.up * (prop.srBaseSize.y / 2) + Vector2.right * prop.srBaseSize.x / 2;

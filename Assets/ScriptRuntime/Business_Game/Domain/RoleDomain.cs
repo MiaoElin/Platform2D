@@ -257,6 +257,7 @@ public static class RoleDomain {
         role.MoveByAxisX(ctx.input.moveAxis.x);
         bool has = FindNearlyEnemy(ctx, role, out var nearlyEnemy);
         if (has) {
+            // 只考虑竖向高于owner5m 或者低于owenr5m的角色(考虑角色高度差，y不能相等）、因为owner的技能都是左右发射的
             if (nearlyEnemy.Pos().y > role.Pos().y - 5 && nearlyEnemy.Pos().y < role.Pos().y + 5) {
                 var dir = nearlyEnemy.Pos() - role.Pos();
                 role.SetForward(dir.x);
@@ -267,19 +268,35 @@ public static class RoleDomain {
     public static void AI_Move(GameContext ctx, RoleEntity role, float dt) {
         var owner = ctx.GetOwner();
         var dir = (owner.Pos() - role.Pos()).normalized;
+
         if (role.aiType == AIType.Common) {
-            if (role.hasTarget) {
-                // 在路径范围内追owner
-                role.MoveByAxisX(dir.x);
-                role.SetForward(dir.x);
-                if (role.Pos().x > role.pathXMax) {
-                    role.SetPos(new Vector2(role.pathXMax, role.Pos().y));
-                } else if (role.Pos().x < role.pathXMin) {
-                    role.SetPos(new Vector2(role.pathXMin, role.Pos().y));
-                }
+            // if (role.hasTarget) {
+            //     // 在路径范围内追owner
+            //     role.MoveByAxisX(dir.x);
+            //     role.SetForward(dir.x);
+            //     if (role.Pos().x > role.pathXMax) {
+            //         role.SetPos(new Vector2(role.pathXMax, role.Pos().y));
+            //     } else if (role.Pos().x < role.pathXMin) {
+            //         role.SetPos(new Vector2(role.pathXMin, role.Pos().y));
+            //     }
+            // } else {
+            //     role.MoveByPath(dt);
+            // }
+            bool isInGroundSide = CheckFoot_Front(role);
+            bool isMeetWall = CheckWall_Front(role);
+            // normal 往前走，走到有墙 或者 脚前方没有东西 往返方向
+            if (!isInGroundSide || isMeetWall) {
+                role.SetForward(-role.GetForWard().x);
+                role.MoveByAxisX(role.GetForWard().x);
             } else {
-                role.MoveByPath(dt);
+                if (role.hasTarget) {
+                    role.MoveByAxisX(dir.x);
+                    role.SetForward(dir.x);
+                } else {
+                    role.MoveByAxisX(role.GetForWard().x);
+                }
             }
+            // }
 
         } else if (role.aiType == AIType.Elite) {
             bool isInGroundSide = CheckFoot_Front(role);
@@ -287,8 +304,11 @@ public static class RoleDomain {
             // 有target，跟随目标 如果前面有墙（高墙反方向，矮墙起跳）
             if (role.hasTarget) {
                 if (isMeetWall) {
+                    // todo 且是矮墙
                     role.isJumpKeyDown = true;
+                    // 不是矮墙的话转向
                 }
+                // 爬梯
                 // x轴距离想等，dir设为0；
                 if (MathF.Abs(dir.x) < role.moveSpeed * dt) {
                     dir = Vector2.zero;
@@ -343,13 +363,6 @@ public static class RoleDomain {
 
     #region  Jump
     public static void Jump(GameContext ctx, RoleEntity role) {
-        if (role.aiType == AIType.Elite) {
-            if (role.hasTarget) {
-                if (role.isMeetWall) {
-                    role.isJumpKeyDown = true;
-                }
-            }
-        }
         role.Jump();
         role.isJumpKeyDown = false;
     }
@@ -360,7 +373,7 @@ public static class RoleDomain {
         role.Falling(dt);
     }
     #endregion
-    
+
     #region  Check
     public static void CheckGround(GameContext ctx, RoleEntity role) {
         if (role.aiType != AIType.None && role.aiType != AIType.Elite) {
@@ -387,7 +400,7 @@ public static class RoleDomain {
 
     public static bool CheckFoot_Front(RoleEntity role) {
         LayerMask map = 1 << 3;
-        RaycastHit2D ray = Physics2D.Raycast(role.GetFoot_Front(), Vector2.down, 0.1f, map);
+        RaycastHit2D ray = Physics2D.Raycast(role.GetFoot_Front(), Vector2.down, 0.5f, map);
         if (!ray) {
             return false;
         } else {
@@ -397,7 +410,7 @@ public static class RoleDomain {
     public static bool CheckWall_Front(RoleEntity role) {
         LayerMask map = 1 << 3;
         Collider2D other = Physics2D.OverlapBox(role.GetBody_Center(), new Vector2(1f, 1f), 0, map);
-        // Debug.DrawRay(role.GetBody_Center(), -role.GetForWard() * 1f, Color.red);
+        Debug.DrawRay(role.GetBody_Center(), -role.GetForWard() * 1f, Color.red);
         if (!other) {
             return false;
         } else {

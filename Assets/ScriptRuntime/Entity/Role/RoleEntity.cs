@@ -22,7 +22,6 @@ public class RoleEntity : MonoBehaviour {
     public float height;
     public float searchRange;
     public bool hasTarget;
-    public bool isMeetWall;
     public Vector2 targetPos;
 
     // buff Shield Dic
@@ -236,7 +235,6 @@ public class RoleEntity : MonoBehaviour {
             velocity.y = jumpForce;
             rb.velocity = velocity;
             isJumpKeyDown = false;
-            isMeetWall = false;
             isOnGround = false;
             jumpTimes--;
             Anim_Jump();
