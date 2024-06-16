@@ -283,9 +283,9 @@ public static class RoleDomain {
             //     role.MoveByPath(dt);
             // }
             bool isInGroundSide = CheckFoot_Front(role);
-            bool isMeetWall = CheckWall_Front(role);
+            bool isMeetWall_Short = CheckWall_Short(role);
             // normal 往前走，走到有墙 或者 脚前方没有东西 往返方向
-            if (!isInGroundSide || isMeetWall) {
+            if (!isInGroundSide || isMeetWall_Short) {
                 role.SetForward(-role.GetForWard().x);
                 role.MoveByAxisX(role.GetForWard().x);
             } else {
@@ -300,13 +300,17 @@ public static class RoleDomain {
 
         } else if (role.aiType == AIType.Elite) {
             bool isInGroundSide = CheckFoot_Front(role);
-            bool isMeetWall = CheckWall_Front(role);
-            // 有target，跟随目标 如果前面有墙（高墙反方向，矮墙起跳）
+            bool isMeetWallShort = CheckWall_Short(role);
+            // 有target，跟随目标 如果前面有墙（高墙停在原地，矮墙起跳）
             if (role.hasTarget) {
-                if (isMeetWall) {
-                    // todo 且是矮墙
-                    role.isJumpKeyDown = true;
-                    // 不是矮墙的话转向
+                if (isMeetWallShort) {
+                    // 高墙
+                    if (CheckWall_Hight(role)) {
+                        dir = Vector2.zero;
+                    } else {
+                        // 矮墙
+                        role.isJumpKeyDown = true;
+                    }
                 }
                 // 爬梯
                 // x轴距离想等，dir设为0；
@@ -317,7 +321,7 @@ public static class RoleDomain {
                 role.SetForward(dir.x);
             } else {
                 // normal 往前走，走到有墙 或者 脚前方没有东西 往返方向
-                if (!isInGroundSide || isMeetWall) {
+                if (!isInGroundSide || isMeetWallShort) {
                     role.SetForward(-role.GetForWard().x);
                 }
                 role.MoveByAxisX(role.GetForWard().x);
@@ -400,23 +404,34 @@ public static class RoleDomain {
 
     public static bool CheckFoot_Front(RoleEntity role) {
         LayerMask map = 1 << 3;
-        RaycastHit2D ray = Physics2D.Raycast(role.GetFoot_Front(), Vector2.down, 0.5f, map);
-        if (!ray) {
-            return false;
-        } else {
+        RaycastHit2D ray = Physics2D.Raycast(role.GetFoot_Front(), Vector2.down, 1f, map);
+        if (ray) {
             return true;
+        } else {
+            return false;
         }
     }
-    public static bool CheckWall_Front(RoleEntity role) {
+    public static bool CheckWall_Short(RoleEntity role) {
         LayerMask map = 1 << 3;
         Collider2D other = Physics2D.OverlapBox(role.GetBody_Center(), new Vector2(1f, 1f), 0, map);
         Debug.DrawRay(role.GetBody_Center(), -role.GetForWard() * 1f, Color.red);
-        if (!other) {
-            return false;
-        } else {
+        if (other) {
             return true;
+        } else {
+            return false;
         }
     }
+
+    public static bool CheckWall_Hight(RoleEntity role) {
+        LayerMask map = 1 << 3;
+        RaycastHit2D hit = Physics2D.Raycast(role.GetHead_Front(), role.GetForWard(), 2f, map);
+        if (hit) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     #endregion
 
     #region Skill
