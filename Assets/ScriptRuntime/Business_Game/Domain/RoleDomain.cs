@@ -283,8 +283,12 @@ public static class RoleDomain {
 
         } else if (role.aiType == AIType.Elite) {
             bool isInGroundSide = CheckFoot_Front(role);
+            bool isMeetWall = CheckWall_Front(role);
             // 有target，跟随目标 如果前面有墙（高墙反方向，矮墙起跳）
             if (role.hasTarget) {
+                if (isMeetWall) {
+                    role.isJumpKeyDown = true;
+                }
                 // x轴距离想等，dir设为0；
                 if (MathF.Abs(dir.x) < role.moveSpeed * dt) {
                     dir = Vector2.zero;
@@ -293,12 +297,11 @@ public static class RoleDomain {
                 role.SetForward(dir.x);
             } else {
                 // normal 往前走，走到有墙 或者 脚前方没有东西 往返方向
-                if (!isInGroundSide || role.isMeetWall) {
+                if (!isInGroundSide || isMeetWall) {
                     role.SetForward(-role.GetForWard().x);
                 }
                 role.MoveByAxisX(role.GetForWard().x);
             }
-
 
         } else if (role.aiType == AIType.Flyer) {
             if (role.hasTarget) {
@@ -314,27 +317,6 @@ public static class RoleDomain {
         }
     }
     #endregion
-
-    public static bool CheckFoot_Front(RoleEntity role) {
-        LayerMask map = 1 << 3;
-        RaycastHit2D ray = Physics2D.Raycast(role.GetFoot_Front(), Vector2.down, 0.1f, map);
-        if (!ray) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    public static bool CheckHead_Front(RoleEntity role) {
-        LayerMask map = 1 << 3;
-        RaycastHit2D ray = Physics2D.Raycast(role.GetHead_Front(), -role.GetForWard(), 1f, map);
-        Debug.DrawRay(role.GetHead_Front(), -role.GetForWard() * 1f, Color.red);
-        if (!ray) {
-            return false;
-        } else {
-            return true;
-        }
-    }
 
     public static bool FindNearlyEnemy(GameContext ctx, RoleEntity role, out RoleEntity nearlyEnermy) {
         float nearlyDistance = Mathf.Pow(role.searchRange, 2);
@@ -359,6 +341,7 @@ public static class RoleDomain {
         }
     }
 
+    #region  Jump
     public static void Jump(GameContext ctx, RoleEntity role) {
         if (role.aiType == AIType.Elite) {
             if (role.hasTarget) {
@@ -370,12 +353,15 @@ public static class RoleDomain {
         role.Jump();
         role.isJumpKeyDown = false;
     }
+    #endregion
 
+    #region Falling
     public static void Falling(RoleEntity role, float dt) {
         role.Falling(dt);
     }
-
-    #region  CheckGround
+    #endregion
+    
+    #region  Check
     public static void CheckGround(GameContext ctx, RoleEntity role) {
         if (role.aiType != AIType.None && role.aiType != AIType.Elite) {
             return;
@@ -396,6 +382,26 @@ public static class RoleDomain {
                 role.Anim_JumpEnd();
                 role.isOnGround = true;
             }
+        }
+    }
+
+    public static bool CheckFoot_Front(RoleEntity role) {
+        LayerMask map = 1 << 3;
+        RaycastHit2D ray = Physics2D.Raycast(role.GetFoot_Front(), Vector2.down, 0.1f, map);
+        if (!ray) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    public static bool CheckWall_Front(RoleEntity role) {
+        LayerMask map = 1 << 3;
+        Collider2D other = Physics2D.OverlapBox(role.GetBody_Center(), new Vector2(1f, 1f), 0, map);
+        // Debug.DrawRay(role.GetBody_Center(), -role.GetForWard() * 1f, Color.red);
+        if (!other) {
+            return false;
+        } else {
+            return true;
         }
     }
     #endregion

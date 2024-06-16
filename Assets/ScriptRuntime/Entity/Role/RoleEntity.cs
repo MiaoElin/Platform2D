@@ -105,6 +105,10 @@ public class RoleEntity : MonoBehaviour {
         return body.transform.Find("Head_Front").position;
     }
 
+    public Vector2 GetBody_Center() {
+        return body.transform.Find("BodyCenter").position;
+    }
+
     public Vector2 GetFoot_Front() {
         return body.transform.Find("Foot_Front").position;
     }
@@ -318,37 +322,25 @@ public class RoleEntity : MonoBehaviour {
     // Collider
     #region  Collider
     void OnTriggerExit2D(Collider2D other) {
-        if (other.tag == "Ground") {
-            isStayInGround = false;
-            if (aiType == AIType.Elite) {
-                isMeetWall = false;
-            }
-        }
         if (isOwner) {
+            if (other.tag == "Ground") {
+                isStayInGround = false;
+            }
             OnTriggerExitHandle.Invoke(other);
         }
     }
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "Ground") {
-            isStayInGround = false;
-            if (aiType == AIType.Elite) {
-                isMeetWall = true;
-            }
-        }
         if (isOwner) {
             OnTriggerEnterHandle.Invoke(other);
         }
     }
 
     void OnTriggerStay2D(Collider2D other) {
-        if (other.tag == "Ground") {
-            isStayInGround = true;
-            if (aiType == AIType.Elite) {
-                isMeetWall = true;
-            }
-        }
         if (isOwner) {
             OnTriggerStayHandle.Invoke(other);
+            if (other.tag == "Ground") {
+                isStayInGround = true;
+            }
         }
     }
     #endregion
