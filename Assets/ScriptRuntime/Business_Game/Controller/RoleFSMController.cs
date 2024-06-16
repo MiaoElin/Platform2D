@@ -88,6 +88,7 @@ public static class RoleFSMConTroller {
         var fsm = role.fsm;
         if (fsm.isEnterTrampoline) {
             fsm.isEnterTrampoline = false;
+            role.isOnGround = false;
         }
         RoleDomain.Onwer_Move_ByAxiX(ctx, role);
         RoleDomain.Falling(role, dt);

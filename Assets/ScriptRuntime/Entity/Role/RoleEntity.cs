@@ -235,7 +235,6 @@ public class RoleEntity : MonoBehaviour {
             isMeetWall = false;
             isOnGround = false;
             jumpTimes--;
-
             Anim_Jump();
         }
     }

@@ -380,10 +380,11 @@ public static class RoleDomain {
         if (role.aiType != AIType.None && role.aiType != AIType.Elite) {
             return;
         }
-        role.isOnGround = false;
+
         if (role.GetVelocityY() > 0) {
             return;
         }
+        role.isOnGround = false;
         // Ground:3/Trampoline:6/Ladder:7
         var layerMask = 1 << 3 | 1 << 6;
         Collider2D[] hits = Physics2D.OverlapBoxAll(role.GetFoot(), new Vector2(0.9f, 0.1f), 0, layerMask);
