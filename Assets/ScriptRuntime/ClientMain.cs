@@ -37,6 +37,10 @@ public class ClientMain : MonoBehaviour {
 
     public void EventBind() {
         var eventCenter = ctx.eventCenter;
+        eventCenter.OnStartGameHandle = () => {
+            GameBusiness_Normal.EnterStage(ctx);
+            UIDomain.Panel_Login_Hide(ctx);
+        };
     }
 
     private void LoadAll() {
@@ -67,8 +71,12 @@ public class ClientMain : MonoBehaviour {
 
         var dt = Time.deltaTime;
 
+        var status = ctx.game.fsm.status;
+        if (status == GameStatus.Login) {
+            GameBusiness_Login.Tick(ctx);
+        } else if (status == GameStatus.Normal) {
+            GameBusiness_Normal.Tick(ctx, dt);
+        }
 
-
-        // GameBusiness_Normal.Tick(ctx, dt);
     }
 }

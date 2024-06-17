@@ -8,6 +8,7 @@ public static class Panel_Login_Domain {
             ctx.asset.TryGet_UI_Prefab(name, out var prefab);
             panel = GameObject.Instantiate(prefab, ctx.screenCanvas).GetComponent<Panel_Login>();
             panel.Ctor();
+            panel.OnStarClickHandle = () => { ctx.eventCenter.StartGame(); };
             ctx.uIRepo.Add(name, panel.gameObject);
         }
         panel.Show();
@@ -17,4 +18,5 @@ public static class Panel_Login_Domain {
         var panel = ctx.uIRepo.TryGet<Panel_Login>();
         panel?.Hide();
     }
+    
 }

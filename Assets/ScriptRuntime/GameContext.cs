@@ -20,6 +20,7 @@ public class GameContext {
     public BulletRepo bulletRepo;
 
     // === Entity ===
+    public GameEnity game;
     public InputEntity input;
     public CameraEntity camera;
     public BackSceneEntity backScene;
@@ -47,6 +48,7 @@ public class GameContext {
         lootRepo = new LootRepo();
         bulletRepo = new BulletRepo();
         // Entity
+        game = new GameEnity();
         input = new InputEntity();
         camera = new CameraEntity();
         player = new PlayerEntity();
@@ -58,7 +60,7 @@ public class GameContext {
     public void Inject(CinemachineVirtualCamera camera, Canvas screenCanvas, Canvas hudCanvas) {
         vfxGroup = new GameObject("VFXGroup").transform;
         this.camera.Inject(camera);
-        this.uIApp.Inject(asset, screenCanvas, hudCanvas);
+        this.uIApp.Inject(asset, screenCanvas, hudCanvas, eventCenter);
     }
 
     public RoleEntity GetOwner() {

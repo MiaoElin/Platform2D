@@ -14,8 +14,8 @@ public class UIApp {
 
     }
 
-    public void Inject(Asset_Core asset, Canvas screenCanvas, Canvas hudCanvas) {
-        ctx.Inject(asset, screenCanvas, hudCanvas);
+    public void Inject(Asset_Core asset, Canvas screenCanvas, Canvas hudCanvas,EventCenter eventCenter) {
+        ctx.Inject(asset, screenCanvas, hudCanvas,eventCenter);
     }
 
     public void HUD_Hints_Open(ulong typeAndID, Vector2 pos, int price) {

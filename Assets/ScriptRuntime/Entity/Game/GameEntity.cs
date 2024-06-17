@@ -8,4 +8,11 @@ public class GameEnity {
     // // 收集
     // public GameRecorderModel recorder;
 
+    public GameFSMComponent fsm;
+
+    public GameEnity() {
+        fsm = new GameFSMComponent();
+    }
+    
+
 }
