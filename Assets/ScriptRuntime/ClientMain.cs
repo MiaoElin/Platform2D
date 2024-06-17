@@ -29,7 +29,9 @@ public class ClientMain : MonoBehaviour {
         // EventBind
         EventBind();
 
-        GameBusiness_Normal.EnterStage(ctx);
+        GameBusiness_Login.Enter(ctx);
+
+        // GameBusiness_Normal.EnterStage(ctx);
 
     }
 
@@ -65,6 +67,8 @@ public class ClientMain : MonoBehaviour {
 
         var dt = Time.deltaTime;
 
-        GameBusiness_Normal.Tick(ctx, dt);
+
+
+        // GameBusiness_Normal.Tick(ctx, dt);
     }
 }

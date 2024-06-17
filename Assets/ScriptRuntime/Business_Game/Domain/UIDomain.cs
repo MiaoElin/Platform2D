@@ -51,6 +51,14 @@ public static class UIDomain {
         ctx.uIApp.HUD_AltarBar_Tick(dt);
     }
 
+    public static void Panel_Login_Open(GameContext ctx) {
+        ctx.uIApp.Panel_Login_Open();
+    }
+
+    public static void Panel_Login_Hide(GameContext ctx) {
+        ctx.uIApp.Panel_Login_Hide();
+    }
+
     public static void HUD_AltarBar_Close(GameContext ctx) {
         ctx.uIApp.HUD_AltarBar_Close();
     }

@@ -335,6 +335,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Skill
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf4be99df1f20ee43b44df26fe7da585
+    m_Address: Assets/ResourceRuntime/Panel/Login/Panel_Login.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:

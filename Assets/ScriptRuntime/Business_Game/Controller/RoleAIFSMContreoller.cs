@@ -78,7 +78,6 @@ public static class RoleAIFSMController {
         }
 
         RoleDomain.Move_ByAxisY(ctx, role, dir.y);
-        Debug.Log(role.Pos().y + " " + fsm.lowestY);
         // Exit
         if (role.Pos().y <= fsm.lowestY || role.Pos().y > fsm.highestY) {
             fsm.EnterNormal();

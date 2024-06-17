@@ -46,8 +46,8 @@ public class UIApp {
         HUD_HPBar_Domain.Close(ctx, id);
     }
 
-    public void HUD_AltarBar_Open(float duration,Vector2 pos) {
-        HUD_AltarBar_Domain.Open(ctx, duration,pos);
+    public void HUD_AltarBar_Open(float duration, Vector2 pos) {
+        HUD_AltarBar_Domain.Open(ctx, duration, pos);
     }
 
     public void HUD_AltarBar_Tick(float dt) {
@@ -56,6 +56,14 @@ public class UIApp {
 
     public void HUD_AltarBar_Close() {
         HUD_AltarBar_Domain.Close(ctx);
+    }
+
+    public void Panel_Login_Open() {
+        Panel_Login_Domain.Open(ctx);
+    }
+
+    public void Panel_Login_Hide() {
+        Panel_Login_Domain.Hide(ctx);
     }
 
     public void Panel_PlayerStatus_Open() {
