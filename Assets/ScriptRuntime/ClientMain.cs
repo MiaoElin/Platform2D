@@ -38,6 +38,8 @@ public class ClientMain : MonoBehaviour {
 
     public void EventBind() {
         var eventCenter = ctx.eventCenter;
+
+        // Login
         eventCenter.OnStartGameHandle = () => {
             GameBusiness_Normal.EnterStage(ctx);
             UIDomain.Panel_Login_Hide(ctx);
@@ -49,6 +51,18 @@ public class ClientMain : MonoBehaviour {
 #else
         Application.Quit();
 #endif
+        };
+
+        // Result
+        eventCenter.OnRestartHandle = () => {
+            Debug.Log("In");
+            // 销毁场景里所有的东西
+            GameGameDomain.ExitGame(ctx);
+            // 关闭结果页
+            UIDomain.Panel_Result_Close(ctx);
+            // 重新enterStage（）
+            Time.timeScale = 1;
+            GameBusiness_Normal.EnterStage(ctx);
         };
     }
 

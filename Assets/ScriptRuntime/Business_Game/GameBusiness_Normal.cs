@@ -55,7 +55,16 @@ public static class GameBusiness_Normal {
         var owner = ctx.GetOwner();
         owner.isJumpKeyDown = ctx.input.isJumpKeyDown;
 
+        if (owner.hp <= 0) {
+            // todo 游戏失败
+            Time.timeScale = 0;
+            UIDomain.Panel_Result_Open(ctx);
+            UIDomain.Panel_SkillSlot_Hide(ctx);
+            UIDomain.Panel_PlayerStatus_Hide(ctx);
+        }
+
         MapDomain.WaveTick(ctx, 1, dt);
+
     }
     static void FixedTick(GameContext ctx, float dt) {
         var owner = ctx.GetOwner();

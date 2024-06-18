@@ -108,4 +108,12 @@ public static class UIDomain {
         ctx.uIApp.Panel_SkillSlot_Hide();
     }
 
+    public static void Panel_Result_Open(GameContext ctx) {
+        ctx.uIApp.Panel_Result_Open();
+    }
+
+    public static void Panel_Result_Close(GameContext ctx) {
+        ctx.uIApp.Panel_Result_Close();
+    }
+
 }

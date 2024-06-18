@@ -33,6 +33,11 @@ public static class MapDomain {
         return map;
     }
 
+    public static void Unspawn(GameContext ctx) {
+        ctx.mapRepo.Remove(ctx.GetCurrentMap());
+        GameObject.Destroy(ctx.GetCurrentMap());
+    }
+
     public static void WaveTick(GameContext ctx, int stageID, float dt) {
         var map = ctx.GetCurrentMap();
         var roleSpawnerTMs = map.roleSpawnerTMs;

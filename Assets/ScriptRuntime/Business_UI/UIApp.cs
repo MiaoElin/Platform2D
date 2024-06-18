@@ -14,8 +14,8 @@ public class UIApp {
 
     }
 
-    public void Inject(Asset_Core asset, Canvas screenCanvas, Canvas hudCanvas,EventCenter eventCenter) {
-        ctx.Inject(asset, screenCanvas, hudCanvas,eventCenter);
+    public void Inject(Asset_Core asset, Canvas screenCanvas, Canvas hudCanvas, EventCenter eventCenter) {
+        ctx.Inject(asset, screenCanvas, hudCanvas, eventCenter);
     }
 
     public void HUD_Hints_Open(ulong typeAndID, Vector2 pos, int price) {
@@ -58,6 +58,18 @@ public class UIApp {
         HUD_AltarBar_Domain.Close(ctx);
     }
 
+    public void HUD_HurtInfo_Open(Vector2 pos, int hurtInfo) {
+        HUD_HurtInfo_Domain.Open(ctx, pos, hurtInfo);
+    }
+
+    public void HUD_HurtInfo_Close(HUD_HurtInfo hud) {
+        HUD_HurtInfo_Domain.Close(ctx, hud);
+    }
+
+    public void HUD_HurtInfo_Tick(float dt) {
+        HUD_HurtInfo_Domain.Tick(ctx, dt);
+    }
+
     public void Panel_Login_Open() {
         Panel_Login_Domain.Open(ctx);
     }
@@ -90,15 +102,12 @@ public class UIApp {
         Panel_SkillSlot_Domain.CD_Tick(ctx, skill1Time, skill2Time, skill3Time, skill4Time);
     }
 
-    public void HUD_HurtInfo_Open(Vector2 pos, int hurtInfo) {
-        HUD_HurtInfo_Domain.Open(ctx, pos, hurtInfo);
+    public void Panel_Result_Open() {
+        Panel_Result_Domain.Open(ctx);
     }
 
-    public void HUD_HurtInfo_Close(HUD_HurtInfo hud) {
-        HUD_HurtInfo_Domain.Close(ctx, hud);
+    public void Panel_Result_Close() {
+        Panel_Result_Domain.Close(ctx);
     }
 
-    public void HUD_HurtInfo_Tick(float dt) {
-        HUD_HurtInfo_Domain.Tick(ctx, dt);
-    }
 }
