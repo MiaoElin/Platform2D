@@ -187,7 +187,6 @@ public class RoleEntity : MonoBehaviour {
     public void MoveByAxisY(float axisY) {
         var velocity = rb.velocity;
         velocity.x = 0;
-        Anim_Run();
         velocity.y = axisY * moveSpeed;
         rb.velocity = velocity;
     }
@@ -267,7 +266,7 @@ public class RoleEntity : MonoBehaviour {
         velocity.y -= gravity * dt;
         rb.velocity = velocity;
         if (velocity.y < 0) {
-            Anim_FallingStart();
+            // Anim_FallingStart();
         }
     }
     #endregion

@@ -396,7 +396,7 @@ public static class RoleDomain {
         foreach (var hit in hits) {
             if (hit.gameObject.layer == 3) {
                 role.ReuseJumpTimes();
-                role.Anim_JumpEnd();
+                // role.Anim_JumpEnd();
                 role.isOnGround = true;
             }
         }
