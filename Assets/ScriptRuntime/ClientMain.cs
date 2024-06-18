@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEditor;
 
 public class ClientMain : MonoBehaviour {
     [SerializeField] Canvas screenCanvas;
@@ -40,6 +41,14 @@ public class ClientMain : MonoBehaviour {
         eventCenter.OnStartGameHandle = () => {
             GameBusiness_Normal.EnterStage(ctx);
             UIDomain.Panel_Login_Hide(ctx);
+        };
+
+        eventCenter.OnExitGameHandle = () => {
+#if UNITY_EDITOR    //在编辑器模式下
+            EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
         };
     }
 

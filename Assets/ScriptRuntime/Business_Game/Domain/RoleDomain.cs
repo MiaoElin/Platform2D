@@ -637,6 +637,7 @@ public static class RoleDomain {
 
             if (buff.isAddHp) {
                 owner.hpMax += buff.addHpMax;
+                owner.hp += buff.addHpMax;
                 owner.regenerationHpMax += buff.regenerationHpMax;
                 buff.isPermanent = false;
             }

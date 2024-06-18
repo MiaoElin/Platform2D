@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca41f76dbcb295458c46ab71e50da33, type: 3}
+  m_Name: TM_Monster_Skill_120
+  m_EditorClassIdentifier: 
+  typeID: 120
+  skillName: MonsterSkill
+  attackRange: 20
+  isCastBullet: 1
+  bulletTypeID: 120
+  isCastProp: 0
+  propTypeID: 0
+  isFlash: 0
+  isCure: 0
+  addHpMax: 0
+  isMelee: 0
+  meleeDamageRate: 0
+  cdMax: 1
+  preCastCDMax: 0.5
+  castingMaintainSec: 0.167
+  castingIntervalSec: 0.167
+  endCastSec: 0.2

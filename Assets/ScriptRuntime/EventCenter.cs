@@ -6,4 +6,9 @@ public class EventCenter {
     public void StartGame() {
         OnStartGameHandle.Invoke();
     }
+
+    public Action OnExitGameHandle;
+    public void ExitGame() {
+        OnExitGameHandle.Invoke();
+    }
 }
