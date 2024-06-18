@@ -178,7 +178,7 @@ public static class GameFactory {
 
         BuffSubEntity buff = ctx.poolService.GetBuff();
         buff.typeID = typeID;
-        buff.typeID = ctx.iDService.buffIDRecord++;
+        buff.id = ctx.iDService.buffIDRecord++;
         buff.icon = tm.icon;
         buff.isPermanent = tm.isPermanent;
 

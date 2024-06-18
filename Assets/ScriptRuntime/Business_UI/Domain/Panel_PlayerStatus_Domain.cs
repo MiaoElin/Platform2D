@@ -24,7 +24,8 @@ public static class Panel_PlayerStatus_Domain {
 
         buffCom.Foreach(buff => {
             if (buff.isPermanent) {
-                panel.NewElement(buff.id, buff.icon);
+                // Debug.Log(buff.id);
+                panel.NewElement(buff.id, buff.icon, buff.count);
             }
         });
 

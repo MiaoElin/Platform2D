@@ -44,14 +44,14 @@ public class Panel_PlayerStatus : MonoBehaviour {
         img_Shield.rectTransform.sizeDelta = size_Shield;
     }
 
-    public void NewElement(int typeID, Sprite sprite) {
+    public void NewElement(int typeID, Sprite sprite, int count) {
         bool has = elements.TryGetValue(typeID, out var el);
         if (has) {
-            el.count++;
+            el.Init(count);
             return;
         }
         var element = GameObject.Instantiate(prefab, itemGroup);
-        element.Ctor(typeID, sprite);
+        element.Ctor(typeID, sprite, count);
         elements.Add(typeID, element);
     }
 
