@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.AddressableAssets;
 
-public class Asset_Core {
+public class AssetCore {
 
     Dictionary<string, GameObject> entites;
     AsyncOperationHandle entityPtr;
@@ -32,7 +32,7 @@ public class Asset_Core {
     Dictionary<int, BulletTM> bulletTMs;
     AsyncOperationHandle bulletPtr;
 
-    public Asset_Core() {
+    public AssetCore() {
         entites = new Dictionary<string, GameObject>();
         uiPrefabs = new Dictionary<string, GameObject>();
         roleTMs = new Dictionary<int, RoleTM>();

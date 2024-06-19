@@ -55,7 +55,6 @@ public class ClientMain : MonoBehaviour {
 
         // Result
         eventCenter.OnRestartHandle = () => {
-            Debug.Log("In");
             // 销毁场景里所有的东西
             GameGameDomain.ExitGame(ctx);
             // 关闭结果页
@@ -68,6 +67,7 @@ public class ClientMain : MonoBehaviour {
 
     private void LoadAll() {
         ctx.asset.LoadAll();
+        ctx.soundCore.LoadAll();
     }
 
     // Update is called once per frame
@@ -76,6 +76,7 @@ public class ClientMain : MonoBehaviour {
             return;
         }
         ctx.asset.Unload();
+        ctx.soundCore.Unload();
 
         isTearDown = true;
     }

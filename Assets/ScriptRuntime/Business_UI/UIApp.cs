@@ -14,7 +14,7 @@ public class UIApp {
 
     }
 
-    public void Inject(Asset_Core asset, Canvas screenCanvas, Canvas hudCanvas, EventCenter eventCenter) {
+    public void Inject(AssetCore asset, Canvas screenCanvas, Canvas hudCanvas, EventCenter eventCenter) {
         ctx.Inject(asset, screenCanvas, hudCanvas, eventCenter);
     }
 

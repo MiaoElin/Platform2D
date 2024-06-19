@@ -30,6 +30,7 @@ public static class GameBusiness_Normal {
         UIDomain.Panel_SkillSlot_Open(ctx);
 
         ctx.game.fsm.EnterNormal();
+        SFXDomain.BGM_Play(ctx);
     }
 
     public static void Tick(GameContext ctx, float dt) {

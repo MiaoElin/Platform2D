@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class UIContext {
 
-    public Asset_Core asset;
+    public AssetCore asset;
     public UIRepo uIRepo;
     public HUD_HintsRepo hud_HintsRepo;
     public HUD_HPBarRepo hud_HPBarRepo;
@@ -12,7 +12,7 @@ public class UIContext {
     public Transform hudCanvas;
     public EventCenter eventCenter;
 
-    public void Inject(Asset_Core asset, Canvas screenCanvas, Canvas hudCanvas, EventCenter eventCenter) {
+    public void Inject(AssetCore asset, Canvas screenCanvas, Canvas hudCanvas, EventCenter eventCenter) {
         this.asset = asset;
         this.screenCanvas = screenCanvas.transform;
         this.hudCanvas = hudCanvas.transform;

@@ -506,6 +506,8 @@ public static class RoleDomain {
                 role.fsm.castingIntervalTimer = skill.castingIntervalSec;
 
                 if (skill.isCastBullet) {
+                    // sfx
+                    SFXDomain.Onwer_SKill_Play(ctx, skill.castSfx, 1);
                     // todo发射技能
                     role.Anim_Shoot(ctx.input.moveAxis.x);
 

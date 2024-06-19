@@ -10,6 +10,8 @@ public class MapEntity : MonoBehaviour {
     public LootSpawnerTM[] lootSpawnerTMs;
     public RoleSpawnerTM[] roleSpawnerTMs;
 
+    public AudioClip bgm;
+    public float bgmVolume;
 
     public void Ctor(int stageID, Grid grid) {
         this.stageID = stageID;

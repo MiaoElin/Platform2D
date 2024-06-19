@@ -39,4 +39,7 @@ public class SkillTM : ScriptableObject {
     // 后
     public float endCastSec;
 
+    // AudioClip
+    public AudioClip castSfx;
+
 }

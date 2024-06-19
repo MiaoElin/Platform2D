@@ -65,6 +65,8 @@ public static class GameFactory {
         map.propSpawnerTMs = tm.propSpawnerTMs;
         map.lootSpawnerTMs = tm.lootSpawnerTMs;
         map.roleSpawnerTMs = tm.roleSpawnerTMs;
+        map.bgm = tm.bgm;
+        map.bgmVolume = tm.bgmVolume;
         return map;
     }
 
@@ -227,6 +229,7 @@ public static class GameFactory {
         skill.castingMaintainSec = tm.castingMaintainSec;
         skill.castingIntervalSec = tm.castingIntervalSec;
         skill.endCastSec = tm.endCastSec;
+        skill.castSfx=tm.castSfx;
 
         return skill;
     }

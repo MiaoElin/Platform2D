@@ -10,7 +10,8 @@ public class GameContext {
 
     // === Core ===
     public UIApp uIApp;
-    public Asset_Core asset;
+    public AssetCore asset;
+    public SoundCore soundCore;
 
     // === Repo ===
     public RoleRepo roleRepo;
@@ -40,7 +41,8 @@ public class GameContext {
         iDService = new IDService();
         // Core
         uIApp = new UIApp();
-        asset = new Asset_Core();
+        asset = new AssetCore();
+        soundCore = new SoundCore();
         // Repo
         roleRepo = new RoleRepo();
         mapRepo = new MapRepo();

@@ -107,7 +107,7 @@ MonoBehaviour:
     path:
     - {x: 34.49, y: 5.7}
     isPermanent: 1
-    cd: 0
+    cd: 11.173612
     cdMax: 30
     searchRange: 30
     isBossWave: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
     path:
     - {x: 37.1, y: 2.1}
     isPermanent: 1
-    cd: 0
+    cd: 21.375265
     cdMax: 40
     searchRange: 30
     isBossWave: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
     - {x: -15.360001, y: 15.73}
     - {x: 3.039999, y: 15.73}
     isPermanent: 1
-    cd: 0
+    cd: 16.236843
     cdMax: 40
     searchRange: 20
     isBossWave: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
     - {x: 12.41, y: -21.28}
     - {x: -8.889999, y: -21.28}
     isPermanent: 1
-    cd: 0
+    cd: 17.254074
     cdMax: 40
     searchRange: 20
     isBossWave: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
     path:
     - {x: -16.6, y: -7.6}
     isPermanent: 1
-    cd: 0
+    cd: 16.992962
     cdMax: 40
     searchRange: 20
     isBossWave: 0
@@ -193,3 +193,5 @@ MonoBehaviour:
     cdMax: 10
     searchRange: 20
     isBossWave: 1
+  bgm: {fileID: 8300000, guid: b495cdee2aa8a8f4eaa2666528bd8809, type: 3}
+  bgmVolume: 0.1

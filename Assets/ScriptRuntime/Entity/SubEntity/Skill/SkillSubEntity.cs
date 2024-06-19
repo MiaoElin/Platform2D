@@ -40,6 +40,8 @@ public class SkillSubEntity {
     // 后
     public float endCastSec;
 
+    // AudioClip
+    public AudioClip castSfx;
 
     public SkillSubEntity() {
     }

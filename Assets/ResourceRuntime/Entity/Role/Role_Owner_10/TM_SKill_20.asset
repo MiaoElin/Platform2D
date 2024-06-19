@@ -14,12 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 20
   skillName: "\u91CD\u51FB"
+  attackRange: 0
   isCastBullet: 1
   bulletTypeID: 20
   isCastProp: 0
   propTypeID: 0
+  isFlash: 0
+  isCure: 0
+  addHpMax: 0
+  isMelee: 0
+  meleeDamageRate: 0
   cdMax: 3
   preCastCDMax: 0.1
   castingMaintainSec: 0.01
   castingIntervalSec: 0.01
   endCastSec: 0.5
+  castSfx: {fileID: 8300000, guid: 858da037121899548ad80836fa225d3b, type: 3}

@@ -13,4 +13,6 @@ public class MapTM : ScriptableObject {
     public LootSpawnerTM[] lootSpawnerTMs;
     public RoleSpawnerTM[] roleSpawnerTMs;
 
+    public AudioClip bgm;
+    public float bgmVolume;
 }
