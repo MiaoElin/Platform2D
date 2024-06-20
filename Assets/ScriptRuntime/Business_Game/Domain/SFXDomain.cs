@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public static class SFXDomain {
@@ -22,6 +23,12 @@ public static class SFXDomain {
     public static void Loot_Open_Play(GameContext ctx, AudioClip clip, float volume) {
         if (clip != null) {
             ctx.soundCore.Loot_Open_Play(clip, volume);
+        }
+    }
+
+    internal static void RoleDeadPlay(GameContext ctx, AudioClip clip, float volume) {
+        if (clip != null) {
+            ctx.soundCore.Role_Dead_Play(clip, volume);
         }
     }
 }

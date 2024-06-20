@@ -66,6 +66,10 @@ public class RoleEntity : MonoBehaviour {
     public Action<Collider2D> OnTriggerExitHandle;
     public Action<Collider2D> OnTriggerStayHandle;
 
+    // dead
+    public AudioClip die_Sfx;
+    public float dieVolume;
+
     public void Ctor(GameObject mod, Vector2[] path) {
         fsm = new RoleFSMComponent();
         fsm.EnterNormal();
@@ -131,12 +135,13 @@ public class RoleEntity : MonoBehaviour {
     }
 
     public void SetForwardByOwner(Vector2 dir) {
+        dir = -dir;
         float rad = Mathf.Atan2(dir.y, dir.x);
         float deg = rad * Mathf.Rad2Deg;
         var euler = transform.eulerAngles;
         euler.z = deg;
         transform.eulerAngles = euler;
-        faceDir = dir;
+        faceDir = -dir;
     }
 
     public Vector2 GetForWard() {
@@ -191,11 +196,16 @@ public class RoleEntity : MonoBehaviour {
         rb.velocity = velocity;
     }
 
-    internal void Move_Stop() {
+    internal void Move_AxisX_Stop() {
         var velocity = rb.velocity;
         velocity.x = 0;
         rb.velocity = velocity;
     }
+
+    public void Move_Stop() {
+        rb.velocity = Vector2.zero;
+    }
+
 
     public void MoveByPath(float dt) {
         if (pathIndex >= path.Length) {
@@ -312,6 +322,10 @@ public class RoleEntity : MonoBehaviour {
 
     internal void anim_Attack() {
         anim.Play("Attack_Pre", 0);
+    }
+
+    internal void Anim_Die() {
+        anim.CrossFade("Die", 0);
     }
 
     #endregion

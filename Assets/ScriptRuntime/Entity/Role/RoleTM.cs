@@ -25,4 +25,6 @@ public class RoleTM : ScriptableObject {
 
     [Title("Destory")]
     public bool isDropLoot;
+    public AudioClip die_Sfx;
+    public float dieVolume;
 }

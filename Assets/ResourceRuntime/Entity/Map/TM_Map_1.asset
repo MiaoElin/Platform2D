@@ -72,7 +72,7 @@ MonoBehaviour:
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
   - lootTypeID: 10
-    pos: {x: 6.52, y: -8.69}
+    pos: {x: 9.12, y: -8.69}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
   - lootTypeID: 10
@@ -107,7 +107,7 @@ MonoBehaviour:
     path:
     - {x: 34.49, y: 5.7}
     isPermanent: 1
-    cd: -0.0011978396
+    cd: 0
     cdMax: 30
     searchRange: 30
     isBossWave: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
     path:
     - {x: 37.1, y: 2.1}
     isPermanent: 1
-    cd: 4.3668017
+    cd: 0
     cdMax: 40
     searchRange: 30
     isBossWave: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
     - {x: -15.360001, y: 15.73}
     - {x: 3.039999, y: 15.73}
     isPermanent: 1
-    cd: -0.0030395752
+    cd: 0
     cdMax: 40
     searchRange: 20
     isBossWave: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
     - {x: 12.41, y: -21.28}
     - {x: -8.889999, y: -21.28}
     isPermanent: 1
-    cd: 2.7248569
+    cd: 0
     cdMax: 40
     searchRange: 20
     isBossWave: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
     path:
     - {x: -16.6, y: -7.6}
     isPermanent: 1
-    cd: 34.581966
+    cd: 0
     cdMax: 40
     searchRange: 20
     isBossWave: 0

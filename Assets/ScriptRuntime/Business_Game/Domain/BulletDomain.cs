@@ -55,6 +55,9 @@ public static class BulletDomain {
         foreach (var hit in all) {
             if (hit.collider.tag == "Role") {
                 var role = hit.collider.GetComponentInParent<RoleEntity>();
+                if (role.fsm.status == RoleStatus.Destroy) {
+                    continue;
+                }
                 if (role.ally == bullet.ally) {
                     continue;
                 } else {

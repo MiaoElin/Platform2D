@@ -123,7 +123,9 @@ public static class GameBusiness_Normal {
         UIDomain.Panel_SkillSlot_CD_Tick(ctx);
 
         ctx.roleRepo.Foreach(role => {
-            UIDomain.HUD_HPBar_UpdateTick(ctx, role);
+            if (role.fsm.status != RoleStatus.Destroy) {
+                UIDomain.HUD_HPBar_UpdateTick(ctx, role);
+            }
         });
 
         UIDomain.HUD_HurtInfo_Tick(ctx, dt);

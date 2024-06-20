@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -12,12 +13,14 @@ public class SoundCore {
     public AudioSource[] lootPlayers;
     public AudioSource[] roleSkillPlayers;
     public AudioSource[] roleEntrancePlayers;
+    public AudioSource[] roleDeadPlayers;
 
     public SoundCore() {
         ownerSkillPlayers = new AudioSource[5];
         lootPlayers = new AudioSource[2];
         roleSkillPlayers = new AudioSource[8];
         roleEntrancePlayers = new AudioSource[8];
+        roleDeadPlayers = new AudioSource[4];
     }
 
     public void LoadAll() {
@@ -42,6 +45,20 @@ public class SoundCore {
 
         for (int i = 0; i < roleEntrancePlayers.Length; i++) {
             roleEntrancePlayers[i] = GameObject.Instantiate(prefab, sfx);
+        }
+
+        for (int i = 0; i < roleDeadPlayers.Length; i++) {
+            roleDeadPlayers[i] = GameObject.Instantiate(prefab, sfx);
+        }
+    }
+
+    internal void Role_Dead_Play(AudioClip clip, float volume) {
+        foreach (var player in roleDeadPlayers) {
+            if (!player.isPlaying) {
+                player.clip = clip;
+                player.volume = volume;
+                player.Play();
+            }
         }
     }
 

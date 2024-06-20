@@ -37,6 +37,8 @@ public static class GameFactory {
         role.jumpTimes = tm.jumpTimesMax;
         role.jumpTimesMax = tm.jumpTimesMax;
 
+        role.die_Sfx=tm.die_Sfx;
+        role.dieVolume=tm.dieVolume;
         var skillTMs = tm.sKillTMs;
         if (skillTMs.Length > 0) {
             for (int i = 0; i < skillTMs.Length; i++) {

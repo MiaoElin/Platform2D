@@ -100,18 +100,28 @@ public static class RoleAIFSMController {
         var fsm = role.fsm;
         if (fsm.isEnterDestroy) {
             fsm.isEnterDestroy = false;
-        }
-        // 掉落金币
-        for (int i = 0; i < 5; i++) {
-            LootDomain.SpawnCoin(ctx, 120, role.Pos());
+            // 掉落金币
+            for (int i = 0; i < 5; i++) {
+                LootDomain.SpawnCoin(ctx, 120, role.Pos());
+            }
+
+            // 掉落物品
+
+            // 销毁UI
+            UIDomain.HUD_HPBar_Close(ctx, role.id);
+            // 销毁角色
+            // RoleDomain.Unspawn(ctx, role);
+
+            // Anim
+            role.Anim_Die();
+
+            // 停止移动
+            role.Move_Stop();  // 要改，会飞的怪 死亡要落地
+
+            // Sfx
+            SFXDomain.RoleDeadPlay(ctx, role.die_Sfx, role.dieVolume);
         }
 
-        // 掉落物品
-
-        // 销毁UI
-        UIDomain.HUD_HPBar_Close(ctx, role.id);
-        // 销毁角色
-        RoleDomain.Unspawn(ctx, role);
 
     }
 }

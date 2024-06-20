@@ -53,7 +53,7 @@ public static class RoleDomain {
     }
 
     internal static void AI_Move_Stop(GameContext ctx, RoleEntity role) {
-        role.Move_Stop();
+        role.Move_AxisX_Stop();
         var dir = (ctx.GetOwner().Pos() - role.Pos()).normalized;
         role.SetForward(dir.x);
     }

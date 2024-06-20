@@ -30,3 +30,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ff5f136c7140e744282b87446509449f, type: 2}
   vfx_Flash: []
   isDropLoot: 0
+  die_Sfx: {fileID: 8300000, guid: d1b48a0ab8858894c8ef21d85c46bbd4, type: 3}
+  dieVolume: 0.05
