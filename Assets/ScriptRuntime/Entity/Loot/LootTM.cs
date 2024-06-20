@@ -41,4 +41,7 @@ public class LootTM : ScriptableObject {
     public bool isGetRole;
     public int roleTypeID;
 
+    public AudioClip getLootClip;
+    public float volume;
+
 }

@@ -81,4 +81,15 @@ public class SoundCore {
             }
         }
     }
+
+    public void Loot_Open_Play(AudioClip clip, float volume) {
+        foreach (var palyer in lootPlayers) {
+            if (!palyer.isPlaying) {
+                palyer.clip = clip;
+                palyer.volume = volume;
+                palyer.Play();
+                return;
+            }
+        }
+    }
 }

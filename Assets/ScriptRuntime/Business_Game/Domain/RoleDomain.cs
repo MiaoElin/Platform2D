@@ -188,6 +188,7 @@ public static class RoleDomain {
             ctx.input.isInteractKeyDown = false;
             if (loot.needHints) {
                 // 扣除loot的Price
+                SFXDomain.Loot_Open_Play(ctx, loot.getLootClip, loot.volume);
                 ctx.player.coinCount -= loot.price;
                 if (loot.isDropLoot) {
                     bool has = ctx.asset.TryGetLootTMArray(out List<LootTM> allloot);
@@ -233,6 +234,7 @@ public static class RoleDomain {
             }
 
         } else if (loot.isGetBuff) {
+            SFXDomain.Loot_Open_Play(ctx, loot.getLootClip, loot.volume);
             var buff = BuffDomain.Spawn(ctx, loot.buffTypeId);
             owner.buffCom.Add(buff);
 

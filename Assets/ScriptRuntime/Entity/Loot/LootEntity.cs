@@ -46,6 +46,8 @@ public class LootEntity : MonoBehaviour {
     public bool isGetRole;
     public int roleTypeID;
 
+    public AudioClip getLootClip;
+    public float volume;
 
     public void Ctor(GameObject mod) {
         this.mod = GameObject.Instantiate(mod, transform);

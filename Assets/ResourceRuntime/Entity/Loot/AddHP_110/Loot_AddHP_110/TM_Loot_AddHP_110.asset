@@ -18,6 +18,17 @@ MonoBehaviour:
   needHints: 0
   isDropLoot: 0
   easingInduration: 1
+  isGetCoin: 0
+  coinCount: 0
+  coinTypeID: 0
+  isCoin: 0
+  moveSpeed: 0
+  gravity: 0
+  centrifugalForce: 0
   isGetBuff: 1
   buffTypeId: 110
   isGetStuff: 0
+  isGetRole: 0
+  roleTypeID: 0
+  getLootClip: {fileID: 8300000, guid: 7167891edda45ce43987d5cfeed2ee63, type: 3}
+  volume: 0.5

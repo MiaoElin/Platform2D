@@ -18,4 +18,10 @@ public static class SFXDomain {
             ctx.soundCore.RoleSkillPlay(clip, volume);
         }
     }
+
+    public static void Loot_Open_Play(GameContext ctx, AudioClip clip, float volume) {
+        if (clip != null) {
+            ctx.soundCore.Loot_Open_Play(clip, volume);
+        }
+    }
 }

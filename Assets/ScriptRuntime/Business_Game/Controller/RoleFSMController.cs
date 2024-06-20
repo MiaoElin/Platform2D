@@ -52,6 +52,8 @@ public static class RoleFSMConTroller {
                 skill.cd = skill.cdMax;
                 // 进入flash状态
                 role.fsm.EnterFlash();
+                // sfx 
+                SFXDomain.Onwer_SKill_Play(ctx, skill.castSfx, skill.volume);
                 // 将当前技能使用
                 skillCom.SetCurrentKey(InputKeyEnum.None);
             } else {
@@ -125,6 +127,8 @@ public static class RoleFSMConTroller {
                 // 重置cd
                 skillCom.TryGet(InputKeyEnum.Skill4, out var skill);
                 skill.cd = skill.cdMax;
+                // sfx 
+                SFXDomain.Onwer_SKill_Play(ctx, skill.castSfx, skill.volume);
                 // 进入flash状态
                 role.fsm.EnterFlash();
                 // 将当前技能使用

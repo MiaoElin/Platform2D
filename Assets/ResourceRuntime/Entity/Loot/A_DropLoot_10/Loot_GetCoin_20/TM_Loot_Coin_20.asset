@@ -22,6 +22,7 @@ MonoBehaviour:
   coinCount: 30
   coinTypeID: 120
   isCoin: 0
+  moveSpeed: 0
   gravity: 0
   centrifugalForce: 0
   isGetBuff: 0
@@ -29,3 +30,5 @@ MonoBehaviour:
   isGetStuff: 0
   isGetRole: 0
   roleTypeID: 0
+  getLootClip: {fileID: 8300000, guid: 21519b279f86e7d498897adf941c9109, type: 3}
+  volume: 1

@@ -29,5 +29,5 @@ MonoBehaviour:
   castingMaintainSec: 0.01
   castingIntervalSec: 0.01
   endCastSec: 0.5
-  castSfx: {fileID: 8300000, guid: eaa99000e0d311f42859abcf3f57f10d, type: 3}
+  castSfx: {fileID: 8300000, guid: a2b87a67a470e4f4ab35b287b74dd223, type: 3}
   volume: 0.5
