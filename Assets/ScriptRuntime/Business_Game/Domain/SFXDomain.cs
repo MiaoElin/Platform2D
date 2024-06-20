@@ -12,4 +12,10 @@ public static class SFXDomain {
         var map = ctx.GetCurrentMap();
         ctx.soundCore.BGM_Play(map.bgm, map.bgmVolume);
     }
+
+    public static void Role_Skill_Play(GameContext ctx, AudioClip clip, float volume) {
+        if (clip != null) {
+            ctx.soundCore.RoleSkillPlay(clip, volume);
+        }
+    }
 }

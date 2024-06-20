@@ -229,7 +229,8 @@ public static class GameFactory {
         skill.castingMaintainSec = tm.castingMaintainSec;
         skill.castingIntervalSec = tm.castingIntervalSec;
         skill.endCastSec = tm.endCastSec;
-        skill.castSfx=tm.castSfx;
+        skill.castSfx = tm.castSfx;
+        skill.volume = tm.volume;
 
         return skill;
     }

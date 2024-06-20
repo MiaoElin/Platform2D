@@ -48,9 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   typeID: 0
+  price: 0
   isOwner: 0
   hp: 0
-  lastHp: 0
   hpMax: 0
   shieldMax: 0
   shield: 0
@@ -59,25 +59,30 @@ MonoBehaviour:
   regenerationDuration: 0
   moveSpeed: 0
   height: 0
-  attackRange: 0
+  searchRange: 0
+  hasTarget: 0
+  targetPos: {x: 0, y: 0}
   targeID: 0
-  isDead: 0
   ally: 0
   aiType: 0
   faceDir: {x: 0, y: 0}
   path: []
+  pathXMin: 0
+  pathXMax: 0
   pathIndex: 0
   rb: {fileID: 5888657450253955265}
   anim: {fileID: 0}
   body: {fileID: 4570821163207042158}
   launchPoint: {fileID: 0}
+  isCureRole: 0
+  lineR: {fileID: 0}
+  bezierTimer: 0
+  bezierTimeMax: 0
   isStayInGround: 0
   isOnGround: 0
-  meetTarget: 0
   gravity: 0
   jumpForce: 0
   isJumpKeyDown: 0
-  isFlashKeyDown: 0
   jumpTimes: 0
   jumpTimesMax: 0
 --- !u!50 &5888657450253955265

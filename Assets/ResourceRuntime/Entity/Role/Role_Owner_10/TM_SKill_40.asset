@@ -30,3 +30,4 @@ MonoBehaviour:
   castingIntervalSec: 0.1
   endCastSec: 0
   castSfx: {fileID: 0}
+  volume: 0.5

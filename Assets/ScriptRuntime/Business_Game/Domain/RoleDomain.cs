@@ -495,9 +495,16 @@ public static class RoleDomain {
             role.anim_Attack();
             role.fsm.preCastTimer -= dt;
             if (role.fsm.preCastTimer <= 0) {
+
                 role.fsm.preCastTimer = 0;
                 stage = SkillCastStage.Casting;
                 skill.cd = skill.cdMax;
+                // sfx
+                if (role.isOwner) {
+                    SFXDomain.Onwer_SKill_Play(ctx, skill.castSfx, skill.volume);
+                } else {
+                    SFXDomain.Role_Skill_Play(ctx, skill.castSfx, skill.volume);
+                }
             }
 
         } else if (stage == SkillCastStage.Casting) {
@@ -506,8 +513,6 @@ public static class RoleDomain {
                 role.fsm.castingIntervalTimer = skill.castingIntervalSec;
 
                 if (skill.isCastBullet) {
-                    // sfx
-                    SFXDomain.Onwer_SKill_Play(ctx, skill.castSfx, 1);
                     // todo发射技能
                     role.Anim_Shoot(ctx.input.moveAxis.x);
 

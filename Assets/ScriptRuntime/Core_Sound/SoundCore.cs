@@ -71,5 +71,14 @@ public class SoundCore {
         }
     }
 
-
+    public void RoleSkillPlay(AudioClip clip, float volume) {
+        foreach (var palyer in roleSkillPlayers) {
+            if (!palyer.isPlaying) {
+                palyer.clip = clip;
+                palyer.volume = volume;
+                palyer.Play();
+                return;
+            }
+        }
+    }
 }

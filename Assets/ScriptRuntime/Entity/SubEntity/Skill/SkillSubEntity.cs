@@ -42,6 +42,7 @@ public class SkillSubEntity {
 
     // AudioClip
     public AudioClip castSfx;
+    public float volume;
 
     public SkillSubEntity() {
     }
