@@ -336,11 +336,9 @@ public static class RoleDomain {
         } else if (role.aiType == AIType.Flyer) {
             if (role.hasTarget) {
                 role.MoveByTarget(owner.Pos(), dt);
-                role.SetForwardByOwner(dir);
             }
         } else if (role.aiType == AIType.Robot) {
             role.MoveByTarget(owner.robotCom.GetRobotPositon(role.id), dt);
-            role.SetForward(dir.x);
             if (role.isCureRole) {
                 role.LR_Tick(owner.Pos());
             }

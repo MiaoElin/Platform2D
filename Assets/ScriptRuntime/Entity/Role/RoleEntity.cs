@@ -141,7 +141,7 @@ public class RoleEntity : MonoBehaviour {
         var euler = transform.eulerAngles;
         euler.z = deg;
         transform.eulerAngles = euler;
-        faceDir = -dir;
+        faceDir = dir;
     }
 
     public Vector2 GetForWard() {
@@ -234,6 +234,7 @@ public class RoleEntity : MonoBehaviour {
         var velocity = rb.velocity;
         velocity = dir.normalized * moveSpeed;
         rb.velocity = velocity;
+        SetForward(dir.x);
     }
     #endregion
 
