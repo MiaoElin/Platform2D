@@ -29,4 +29,7 @@ MonoBehaviour:
   sKillTMs:
   - {fileID: 11400000, guid: f2cd71830c20f0a418f992f4d3ca89cf, type: 2}
   vfx_Flash: []
+  antiStiffenType: 2
   isDropLoot: 0
+  die_Sfx: {fileID: 0}
+  dieVolume: 0

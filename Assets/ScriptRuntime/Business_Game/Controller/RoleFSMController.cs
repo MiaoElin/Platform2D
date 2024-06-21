@@ -18,6 +18,8 @@ public static class RoleFSMConTroller {
             ApplyFlash(ctx, role, dt);
         } else if (status == RoleStatus.Destroy) {
             ApllyDestroy(ctx, role);
+        } else if (status == RoleStatus.Suffering) {
+            ApllySuffering(ctx, role, dt);
         }
 
     }
@@ -156,6 +158,23 @@ public static class RoleFSMConTroller {
             }
         }
         fsm.EnterNormal();
+    }
+
+
+    private static void ApllySuffering(GameContext ctx, RoleEntity role, float dt) {
+        var fsm = role.fsm;
+        if (fsm.isEnterSuffering) {
+            fsm.isEnterSuffering = false;
+            RoleDomain.Owner_Move_Stop(ctx);
+            // 可下落
+            RoleDomain.Falling(role, dt);
+        }
+        ref var timer = ref fsm.sufferingTimer;
+        if (timer <= 0) {
+            fsm.EnterNormal();
+        } else {
+            timer -= dt;
+        }
     }
 
     private static void ApllyDestroy(GameContext ctx, RoleEntity role) {

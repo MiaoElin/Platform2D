@@ -324,6 +324,10 @@ public class RoleEntity : MonoBehaviour {
         anim.Play("Attack_Pre", 0);
     }
 
+    internal void Anim_Hurt() {
+        anim.CrossFade("Hurt", 0);
+    }
+
     internal void Anim_Die() {
         anim.CrossFade("Die", 0);
     }

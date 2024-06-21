@@ -23,6 +23,9 @@ public class RoleTM : ScriptableObject {
     public SkillTM[] sKillTMs;
     public Sprite[] vfx_Flash;
 
+    // Suffering
+    public AntiStiffenType antiStiffenType;
+
     [Title("Destory")]
     public bool isDropLoot;
     public AudioClip die_Sfx;

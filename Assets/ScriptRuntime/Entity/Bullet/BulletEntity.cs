@@ -18,6 +18,8 @@ public class BulletEntity : MonoBehaviour {
     public float flyTimer;
     public bool isTearDown;
 
+    public float stiffenSec;
+
     public Action<Collider2D> onTriggerEnterHandle;
 
     public void Ctor(GameObject mod, float moveSpeed) {
@@ -34,7 +36,7 @@ public class BulletEntity : MonoBehaviour {
 
     public void Reuse() {
         Destroy(mod.gameObject);
-        isTearDown=false;
+        isTearDown = false;
     }
 
     internal void SetPos(Vector2 pos) {

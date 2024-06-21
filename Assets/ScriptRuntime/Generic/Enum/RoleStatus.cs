@@ -6,5 +6,6 @@ public enum RoleStatus {
     Casting,
     Trampoline,
     Flash,
+    Suffering,
     Destroy,
 }

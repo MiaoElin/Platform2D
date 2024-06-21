@@ -31,3 +31,4 @@ MonoBehaviour:
   endCastSec: 0.5
   castSfx: {fileID: 8300000, guid: a2b87a67a470e4f4ab35b287b74dd223, type: 3}
   volume: 0.5
+  stiffenSec: 1

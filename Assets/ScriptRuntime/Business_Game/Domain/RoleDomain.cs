@@ -58,6 +58,10 @@ public static class RoleDomain {
         role.SetForward(dir.x);
     }
 
+    public static void Owner_Move_Stop(GameContext ctx) {
+        ctx.GetOwner().Move_AxisX_Stop();
+    }
+
     // 攻击距离Tick
     internal static bool AI_EnterAttakRange_Tick(GameContext ctx, RoleEntity role) {
         bool isInAttackRange = false;
@@ -518,7 +522,7 @@ public static class RoleDomain {
                     // todo发射技能
                     role.Anim_Shoot(ctx.input.moveAxis.x);
 
-                    var bullet = BulletDomain.Spawn(ctx, skill.bulletTypeID, role.LaunchPoint(), role.ally);
+                    var bullet = BulletDomain.Spawn(ctx, skill.bulletTypeID, role.LaunchPoint(), role.ally, skill.stiffenSec);
                     if (bullet.moveType == MoveType.ByStatic) {
                         bullet.moveDir = role.GetForWard();
                     } else if (bullet.moveType == MoveType.ByTrack) {
@@ -550,6 +554,9 @@ public static class RoleDomain {
                     int hurt = (int)(skill.meleeDamageRate * CommonConst.BASEDAMAGE);
                     Role_Hurt(ctx, owner, hurt);
                     // anim
+
+                    // EnterSuffering
+                    owner.fsm.EnterSuffering(skill.stiffenSec);
                 }
             }
 

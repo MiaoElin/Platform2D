@@ -2,8 +2,8 @@ using UnityEngine;
 
 public static class BulletDomain {
 
-    public static BulletEntity Spawn(GameContext ctx, int typeID, Vector2 pos, Ally ally) {
-        var bullet = GameFactory.Bullet_Spawn(ctx, typeID, pos, ally);
+    public static BulletEntity Spawn(GameContext ctx, int typeID, Vector2 pos, Ally ally, float stiffenSec) {
+        var bullet = GameFactory.Bullet_Spawn(ctx, typeID, pos, ally, stiffenSec);
         ctx.bulletRepo.Add(bullet);
         // bullet.onTriggerEnterHandle += (Collider2D other) => {
         //     On_Trigger_EnterRoleEvent(ctx, bullet, other);
@@ -64,6 +64,10 @@ public static class BulletDomain {
                     bullet.isTearDown = true;
                     int damgage = (int)bullet.damgage;
                     RoleDomain.Role_Hurt(ctx, role, damgage);
+                    if (role.hp > 0) {
+                        // EnterSuffering
+                        role.fsm.EnterSuffering(bullet.stiffenSec);
+                    }
                 }
             }
             if (hit.collider.tag == "Ground") {

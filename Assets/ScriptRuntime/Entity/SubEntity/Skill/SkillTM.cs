@@ -43,4 +43,7 @@ public class SkillTM : ScriptableObject {
     public AudioClip castSfx;
     public float volume;
 
+    // Stiffen
+    public float stiffenSec;
+
 }

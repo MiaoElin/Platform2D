@@ -14,6 +14,8 @@ public static class RoleAIFSMController {
             ApllyDestroy(ctx, role);
         } else if (status == RoleStatus.Ladder) {
             ApplyLadder(ctx, role);
+        } else if (status == RoleStatus.Suffering) {
+            ApllySuffering(ctx, role, dt);
         }
     }
 
@@ -121,7 +123,24 @@ public static class RoleAIFSMController {
             // Sfx
             SFXDomain.RoleDeadPlay(ctx, role.die_Sfx, role.dieVolume);
         }
+    }
 
-
+    private static void ApllySuffering(GameContext ctx, RoleEntity role, float dt) {
+        var fsm = role.fsm;
+        if (fsm.isEnterSuffering) {
+            fsm.isEnterSuffering = false;
+            RoleDomain.AI_Move_Stop(ctx, role);
+            // 可下落
+            RoleDomain.Falling(role, dt);
+            // Anim
+            role.Anim_Hurt();
+        }
+        role.Anim_Run();
+        ref var timer = ref fsm.sufferingTimer;
+        if (timer <= 0) {
+            fsm.EnterNormal();
+        } else {
+            timer -= dt;
+        }
     }
 }

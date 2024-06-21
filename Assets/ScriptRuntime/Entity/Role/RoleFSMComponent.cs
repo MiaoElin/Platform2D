@@ -30,6 +30,11 @@ public class RoleFSMComponent {
     // Flash
     public bool isEnterFlash;
 
+    // Suffering
+    public bool isEnterSuffering;
+    public float sufferingTimer;
+    public AntiStiffenType antiStiffenType;
+
     // Destory
     public bool isEnterDestroy;
 
@@ -67,6 +72,18 @@ public class RoleFSMComponent {
     public void EnterFlash() {
         status = RoleStatus.Flash;
         isEnterFlash = true;
+    }
+
+    public void EnterSuffering(float sufferingSec) {
+        status = RoleStatus.Suffering;
+        isEnterSuffering = true;
+        if (antiStiffenType == AntiStiffenType.None) {
+            sufferingTimer = sufferingSec;
+        } else if (antiStiffenType == AntiStiffenType.Elite) {
+            sufferingTimer = sufferingSec * 0.5f;
+        } else if (antiStiffenType == AntiStiffenType.Boss) {
+            sufferingTimer = 0;
+        }
     }
 
     public void EnterDestroy() {

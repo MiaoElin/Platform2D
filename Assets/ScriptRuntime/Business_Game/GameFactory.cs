@@ -37,8 +37,11 @@ public static class GameFactory {
         role.jumpTimes = tm.jumpTimesMax;
         role.jumpTimesMax = tm.jumpTimesMax;
 
-        role.die_Sfx=tm.die_Sfx;
-        role.dieVolume=tm.dieVolume;
+        // suffering
+        role.fsm.antiStiffenType = tm.antiStiffenType;
+
+        role.die_Sfx = tm.die_Sfx;
+        role.dieVolume = tm.dieVolume;
         var skillTMs = tm.sKillTMs;
         if (skillTMs.Length > 0) {
             for (int i = 0; i < skillTMs.Length; i++) {
@@ -172,7 +175,7 @@ public static class GameFactory {
 
         loot.getLootClip = tm.getLootClip;
         loot.volume = tm.volume;
-        
+
         loot.gameObject.SetActive(true);
         return loot;
     }
@@ -237,6 +240,8 @@ public static class GameFactory {
         skill.castSfx = tm.castSfx;
         skill.volume = tm.volume;
 
+        skill.stiffenSec = tm.stiffenSec;
+
         return skill;
     }
 
@@ -247,7 +252,7 @@ public static class GameFactory {
         return bullet;
     }
 
-    public static BulletEntity Bullet_Spawn(GameContext ctx, int typeID, Vector2 pos, Ally ally) {
+    public static BulletEntity Bullet_Spawn(GameContext ctx, int typeID, Vector2 pos, Ally ally, float stiffenSec) {
         ctx.asset.TryGet_BulletTM(typeID, out var tm);
         if (!tm) {
             Debug.LogError($"GameFactory.Bullet_Spawn {typeID} is not find");
@@ -255,6 +260,7 @@ public static class GameFactory {
         var bullet = ctx.poolService.GetBullet();
         bullet.typeID = typeID;
         bullet.ally = ally;
+        bullet.stiffenSec = stiffenSec;
         bullet.id = ctx.iDService.bulletIDRecord++;
         bullet.Ctor(tm.mod, tm.moveSpeed);
         bullet.SetPos(pos);
