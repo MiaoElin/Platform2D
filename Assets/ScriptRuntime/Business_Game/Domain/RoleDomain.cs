@@ -350,6 +350,9 @@ public static class RoleDomain {
         float nearlyDistance = Mathf.Pow(role.searchRange, 2);
         RoleEntity nearEnemy = null;
         ctx.roleRepo.Foreach(enemy => {
+            if (enemy.fsm.status == RoleStatus.Destroy) {
+                return;
+            }
             if (role.ally == enemy.ally) {
                 return;
             }
@@ -479,7 +482,6 @@ public static class RoleDomain {
 
     internal static void Casting(GameContext ctx, RoleEntity role, float dt) {
         var skillCom = role.skillCom;
-
         InputKeyEnum key = skillCom.GetCurrentKey();
         if (key == InputKeyEnum.None) {
             return;

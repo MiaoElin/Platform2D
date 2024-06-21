@@ -20,7 +20,7 @@ MonoBehaviour:
   regenerationDuration: 0
   moveSpeed: 0
   height: 0
-  searchRange: 0
+  searchRange: 15
   aiType: 4
   mod: {fileID: 6480961630456752770, guid: 7012d8961898d7545b982fbc791985f8, type: 3}
   gravity: 0
@@ -29,4 +29,7 @@ MonoBehaviour:
   sKillTMs:
   - {fileID: 11400000, guid: cf93106974ffc4c4a870aba3ba019831, type: 2}
   vfx_Flash: []
+  antiStiffenType: 0
   isDropLoot: 0
+  die_Sfx: {fileID: 0}
+  dieVolume: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 20
   skillName: "\u91CD\u51FB"
-  attackRange: 0
+  attackRange: 30
   isCastBullet: 1
   bulletTypeID: 20
   isCastProp: 0
