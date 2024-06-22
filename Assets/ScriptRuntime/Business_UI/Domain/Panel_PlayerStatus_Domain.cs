@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public static class Panel_PlayerStatus_Domain {
@@ -9,8 +10,10 @@ public static class Panel_PlayerStatus_Domain {
             panel = GameObject.Instantiate(prefab, ctx.screenCanvas).GetComponent<Panel_PlayerStatus>();
             panel.Ctor();
             ctx.uIRepo.Add(typeof(Panel_PlayerStatus).Name, panel.gameObject);
+            panel.OnStopCreateBossWaveHandle = () => { ctx.eventCenter.StopBossWaveHandle(); };
         }
         panel.gameObject.SetActive(true);
+        panel.OutBossWave();
     }
 
     public static void Hide(UIContext ctx) {
@@ -18,9 +21,9 @@ public static class Panel_PlayerStatus_Domain {
         panel?.gameObject.SetActive(false);
     }
 
-    public static void Update_Tick(UIContext ctx, int hpMax, int shield, int coinCount, int hp, BuffSlotComponent buffCom) {
+    public static void Update_Tick(UIContext ctx, int hpMax, int shield, int coinCount, int hp, BuffSlotComponent buffCom, float dt) {
         var panel = ctx.uIRepo.TryGet<Panel_PlayerStatus>();
-        panel?.Init(hpMax, shield, coinCount, hp);
+        panel?.Init(hpMax, shield, coinCount, hp, dt);
 
         buffCom.Foreach(buff => {
             if (buff.isPermanent) {
@@ -29,5 +32,10 @@ public static class Panel_PlayerStatus_Domain {
             }
         });
 
+    }
+
+    internal static void EnterBoss(UIContext ctx) {
+        var panel = ctx.uIRepo.TryGet<Panel_PlayerStatus>();
+        panel?.EnterBossWave();
     }
 }

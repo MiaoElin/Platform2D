@@ -119,7 +119,7 @@ public static class GameBusiness_Normal {
 
     static void LateTick(GameContext ctx, float dt) {
 
-        UIDomain.Panel_PlayerStatus_Update(ctx);
+        UIDomain.Panel_PlayerStatus_Update(ctx, dt);
         UIDomain.Panel_SkillSlot_CD_Tick(ctx);
 
         ctx.roleRepo.Foreach(role => {

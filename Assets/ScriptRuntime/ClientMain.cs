@@ -53,6 +53,10 @@ public class ClientMain : MonoBehaviour {
 #endif
         };
 
+        eventCenter.OnStopBossWaveHande = () => {
+            ctx.player.isEnterBossTime = false;
+        };
+
         // Result
         eventCenter.OnRestartHandle = () => {
             // 销毁场景里所有的东西

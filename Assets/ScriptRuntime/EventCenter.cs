@@ -21,4 +21,9 @@ public class EventCenter {
     public void BackToMenu() {
         OnBackToMenuHandle.Invoke();
     }
+
+    public Action OnStopBossWaveHande;
+    internal void StopBossWaveHandle() {
+        OnStopBossWaveHande.Invoke();
+    }
 }

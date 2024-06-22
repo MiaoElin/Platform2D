@@ -172,6 +172,7 @@ public static class RoleDomain {
                 // 启动祭坛计时
                 UIDomain.HUD_AltarBar_Open(ctx, prop.altarDuration, prop.setHintsPoint.position);
                 UIDomain.HUD_Hints_Close(ctx, prop.GetTypeAddID());
+                UIDomain.Panel_PlayerStatus_EnterBoss(ctx);
                 // boos 出场
                 ctx.player.isEnterBossTime = true;
             }

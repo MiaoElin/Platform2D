@@ -71,9 +71,13 @@ public static class UIDomain {
         ctx.uIApp.Panel_PlayerStatus_Hide();
     }
 
-    public static void Panel_PlayerStatus_Update(GameContext ctx) {
+    public static void Panel_PlayerStatus_EnterBoss(GameContext ctx) {
+        ctx.uIApp.Panel_PlayerStatus_EnterBoss();
+    }
+
+    public static void Panel_PlayerStatus_Update(GameContext ctx, float dt) {
         var owner = ctx.GetOwner();
-        ctx.uIApp.Panel_PlayerStatus_Update(owner.hpMax, owner.GetallShield(), owner.hp, ctx.player.coinCount, owner.buffCom);
+        ctx.uIApp.Panel_PlayerStatus_Update(owner.hpMax, owner.GetallShield(), owner.hp, ctx.player.coinCount, owner.buffCom, dt);
     }
 
     public static void Panel_SkillSlot_Open(GameContext ctx) {
