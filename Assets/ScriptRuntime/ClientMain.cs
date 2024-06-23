@@ -30,6 +30,10 @@ public class ClientMain : MonoBehaviour {
         // EventBind
         EventBind();
 
+        // Physics
+        Physics2D.IgnoreLayerCollision(LayerConst.ROLE, LayerConst.ROLE);
+
+
         GameBusiness_Login.Enter(ctx);
 
         // GameBusiness_Normal.EnterStage(ctx);

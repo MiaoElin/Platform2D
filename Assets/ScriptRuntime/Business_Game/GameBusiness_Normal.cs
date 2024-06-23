@@ -107,9 +107,7 @@ public static class GameBusiness_Normal {
 
         Physics2D.Simulate(dt);
 
-        ctx.roleRepo.Foreach(role => {
-            RoleDomain.CheckGround(ctx, role);
-        });
+        RoleDomain.CheckGround(ctx, owner);
 
         ctx.bulletRepo.Foreach(bullet => {
             BulletDomain.HitCheck(ctx, bullet);

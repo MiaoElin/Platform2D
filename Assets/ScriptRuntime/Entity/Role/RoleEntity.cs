@@ -269,11 +269,11 @@ public class RoleEntity : MonoBehaviour {
     #region  Falling
     public void Falling(float dt) {
         var velocity = rb.velocity;
-        if (isOnGround) {
-            velocity.y = 0;
-            rb.velocity = velocity;
-            return;
-        }
+        // if (isOnGround) {
+        //     velocity.y = 0;
+        //     rb.velocity = velocity;
+        //     return;
+        // }
         velocity.y -= gravity * dt;
         rb.velocity = velocity;
         if (velocity.y < 0) {

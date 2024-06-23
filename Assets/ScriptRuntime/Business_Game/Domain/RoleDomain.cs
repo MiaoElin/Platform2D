@@ -388,9 +388,6 @@ public static class RoleDomain {
 
     #region  Check
     public static void CheckGround(GameContext ctx, RoleEntity role) {
-        if (role.aiType != AIType.None && role.aiType != AIType.Elite) {
-            return;
-        }
 
         if (role.GetVelocityY() > 0) {
             return;
@@ -420,9 +417,10 @@ public static class RoleDomain {
         }
     }
     public static bool CheckWall_Short(RoleEntity role) {
-        LayerMask map = 1 << 3;
-        Collider2D other = Physics2D.OverlapBox(role.GetBody_Center(), new Vector2(1f, 1f), 0, map);
-        Debug.DrawRay(role.GetBody_Center(), -role.GetForWard() * 1f, Color.red);
+        LayerMask map = 1 << LayerConst.GROUND;
+        var size = new Vector2(2, 1f);
+        // 这个size是实际size 不是一半
+        Collider2D other = Physics2D.OverlapBox(role.GetBody_Center(), size, 0, map);
         if (other) {
             return true;
         } else {
