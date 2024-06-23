@@ -394,7 +394,7 @@ public static class RoleDomain {
         }
         role.isOnGround = false;
         // Ground:3/Trampoline:6/Ladder:7
-        var layerMask = 1 << 3 | 1 << 6;
+        var layerMask = 1 << LayerConst.GROUND | 1 << LayerConst.TRAMPOLINE;
         Collider2D[] hits = Physics2D.OverlapBoxAll(role.GetFoot(), new Vector2(0.9f, 0.1f), 0, layerMask);
         if (hits.Length == 0) {
         }
@@ -430,7 +430,7 @@ public static class RoleDomain {
 
     public static bool CheckWall_Hight(RoleEntity role) {
         LayerMask map = 1 << 3;
-        RaycastHit2D hit = Physics2D.Raycast(role.GetHead_Front(), role.GetForWard(), 2f, map);
+        RaycastHit2D hit = Physics2D.Raycast(role.GetHead_Top(), role.GetForWard(), 2f, map);
         if (hit) {
             return true;
         } else {
@@ -716,7 +716,7 @@ public static class RoleDomain {
             Vector2 lowPos = prop.Pos() + Vector2.down * (prop.srBaseSize.y / 2) + Vector2.left * prop.srBaseSize.x / 2;
             Vector2 hightPos = prop.Pos() + Vector2.up * (prop.srBaseSize.y / 2) + Vector2.right * prop.srBaseSize.x / 2;
 
-            float head_Center_Offset = role.GetHead_Front().y - role.Pos().y;
+            float head_Center_Offset = role.GetHead_Top().y - role.Pos().y;
             float foot_Center_Offset = role.Pos().y - role.GetFoot().y;         //素材的中心点不在角色身高的中心点导致的问题
 
             float lowestY = lowPos.y + head_Center_Offset + 2f;//head_Front localpos()

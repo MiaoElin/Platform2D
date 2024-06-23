@@ -72,7 +72,7 @@ public static class RoleAIFSMController {
             fsm.isEnterLadder = false;
             role.ColliderEnAble(false);
         }
-        var dir = ctx.GetOwner().GetHead_Front() - role.Pos();
+        var dir = ctx.GetOwner().GetHead_Top() - role.Pos();
         if (dir.y > 0) {
             dir = Vector2.up;
         } else if (dir.y < 0) {

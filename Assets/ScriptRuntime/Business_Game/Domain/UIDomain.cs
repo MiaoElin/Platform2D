@@ -24,7 +24,7 @@ public static class UIDomain {
     }
 
     public static void HUD_HPBar_UpdateTick(GameContext ctx, RoleEntity role) {
-        ctx.uIApp.HUD_HPBar_UpdateTick(role.id, role.hp, role.Pos() + Vector2.up * (role.height / 2 + 1));
+        ctx.uIApp.HUD_HPBar_UpdateTick(role.id, role.hp, role.GetHead_Top() + Vector2.up * 2);
     }
 
     public static void HUD_HPBar_Close(GameContext ctx, int id) {

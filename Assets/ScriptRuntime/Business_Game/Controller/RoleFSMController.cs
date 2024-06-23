@@ -148,10 +148,10 @@ public static class RoleFSMConTroller {
             VFXDomain.Play(ctx, role.Pos(), tm.vfx_Flash);
             // move
             LayerMask layerMask = 1 << 3;
-            RaycastHit2D ray = Physics2D.Raycast(role.GetHead_Front(), role.GetForWard(), 5f, layerMask);
+            RaycastHit2D ray = Physics2D.Raycast(role.GetBelly(), role.GetForWard(), 5f, layerMask);
             if (ray) {
                 // 有障碍物，移动的最远距离：肚子贴着障碍物
-                role.SetPos(ray.point - (role.GetHead_Front() - role.Pos()));
+                role.SetPos(ray.point - (role.GetBelly() - role.Pos()));
             } else {
                 // 闪现
                 role.SetPos(role.Pos() + role.GetForWard() * 5f);

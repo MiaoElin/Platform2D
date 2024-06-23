@@ -104,12 +104,16 @@ public class RoleEntity : MonoBehaviour {
         }
     }
 
-    public Vector2 GetHead_Front() {
-        return body.transform.Find("Head_Front").position;
+    public Vector2 GetHead_Top() {
+        return body.transform.Find("Head_Top").position;
     }
 
     public Vector2 GetBody_Center() {
         return body.transform.Find("BodyCenter").position;
+    }
+
+    public Vector2 GetBelly() {
+        return body.transform.Find("Belly").position;
     }
 
     public Vector2 GetFoot_Front() {
