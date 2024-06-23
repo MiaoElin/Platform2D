@@ -71,7 +71,7 @@ public static class RoleFSMConTroller {
             fsm.isEnterLadder = false;
             // 将当前技能清空，防止按住技能键爬楼梯，落地后进不去casting状态
             role.skillCom.SetCurrentKey(InputKeyEnum.None);
-            ctx.GetCurrentMap().SetGridTrigger();
+            role.ColliderEnAble(false);
         }
 
         RoleDomain.Move_ByAxisY(ctx, role, ctx.input.moveAxis.y);
@@ -79,13 +79,13 @@ public static class RoleFSMConTroller {
         // Exit
         if (role.Pos().y <= fsm.lowestY || role.Pos().y > fsm.highestY) {
             fsm.EnterNormal();
-            ctx.GetCurrentMap().SetGridCollision();
+            role.ColliderEnAble(true);
         }
 
         if (ctx.input.isJumpKeyDown && !role.isStayInGround) {
             ctx.input.isJumpKeyDown = false;
             fsm.EnterNormal();
-            ctx.GetCurrentMap().SetGridCollision();
+            role.ColliderEnAble(true);
         }
     }
 

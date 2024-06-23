@@ -70,7 +70,7 @@ public static class RoleAIFSMController {
         var fsm = role.fsm;
         if (fsm.isEnterLadder) {
             fsm.isEnterLadder = false;
-            // ctx.GetCurrentMap().SetGridTrigger();
+            role.ColliderEnAble(false);
         }
         var dir = ctx.GetOwner().GetHead_Front() - role.Pos();
         if (dir.y > 0) {
@@ -83,18 +83,14 @@ public static class RoleAIFSMController {
         // Exit
         if (role.Pos().y <= fsm.lowestY || role.Pos().y > fsm.highestY) {
             fsm.EnterNormal();
-            // ctx.GetCurrentMap().SetGridCollision();
+            role.ColliderEnAble(true);
         }
 
-        // if (ctx.input.isJumpKeyDown && !role.isStayInGround) {
-        //     ctx.input.isJumpKeyDown = false;
-        //     fsm.EnterNormal();
-        //     // ctx.GetCurrentMap().SetGridCollision();
-        // }
         // Exit
         bool isInAttackRange = RoleDomain.AI_EnterAttakRange_Tick(ctx, role);
         if (isInAttackRange) {
             role.fsm.EnterCasting();
+            role.ColliderEnAble(true);
         }
     }
 

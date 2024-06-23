@@ -337,6 +337,10 @@ public class RoleEntity : MonoBehaviour {
 
     // Collider
     #region  Collider
+    public void ColliderEnAble(bool b) {
+        body.GetComponent<Collider2D>().enabled = b;
+    }
+
     void OnTriggerExit2D(Collider2D other) {
         if (isOwner) {
             if (other.tag == "Ground") {
