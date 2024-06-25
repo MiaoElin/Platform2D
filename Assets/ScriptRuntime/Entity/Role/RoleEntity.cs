@@ -342,7 +342,7 @@ public class RoleEntity : MonoBehaviour {
     // Collider
     #region  Collider
     public void ColliderEnAble(bool b) {
-        body.GetComponent<Collider2D>().enabled = b;
+        body.GetComponent<Collider2D>().isTrigger = !b;
     }
 
     void OnTriggerExit2D(Collider2D other) {

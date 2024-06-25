@@ -12,6 +12,7 @@ public class BulletEntity : MonoBehaviour {
     public MoveType moveType;
     public float moveSpeed;
     public float damgage;
+    public bool hasSetMoveDir;
     public Vector2 moveDir;
     public int targetID;
 

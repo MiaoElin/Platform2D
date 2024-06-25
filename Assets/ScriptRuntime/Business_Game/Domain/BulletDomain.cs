@@ -24,6 +24,14 @@ public static class BulletDomain {
                 // 找最近的敌人
                 bool has = ctx.roleRepo.TryGet(bullet.targetID, out var targetRole);
                 if (has) {
+                    if (targetRole.fsm.status == RoleStatus.Destroy) {
+                        if (!bullet.hasSetMoveDir) {
+                            bullet.hasSetMoveDir = true;
+                            bullet.moveDir = targetRole.Pos() - bullet.Pos();
+                        }
+                        bullet.Move(bullet.moveDir, dt);
+                        return;
+                    }
                     bullet.MoveByTarget(targetRole.Pos());
                 }
             } else if (bullet.ally == Ally.Monster) {
