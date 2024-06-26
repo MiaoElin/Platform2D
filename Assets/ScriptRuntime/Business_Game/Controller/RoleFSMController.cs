@@ -35,7 +35,7 @@ public static class RoleFSMConTroller {
         var fsm = role.fsm;
         if (fsm.isEnterNormal) {
             fsm.isEnterNormal = false;
-            ctx.GetOwner().anim.CrossFade("Idle", 0);
+            role.Anim_Idle();
         }
         // Execute
         RoleDomain.Onwer_Move_ByAxiX(ctx, role);

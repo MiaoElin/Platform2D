@@ -134,7 +134,7 @@ public static class RoleAIFSMController {
             // Anim
             role.Anim_Hurt();
         }
-        role.Anim_Run();
+        role.Anim_SetSpeed();
         ref var timer = ref fsm.sufferingTimer;
         if (timer <= 0) {
             fsm.EnterNormal();

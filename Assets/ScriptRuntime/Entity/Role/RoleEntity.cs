@@ -49,7 +49,6 @@ public class RoleEntity : MonoBehaviour {
     List<Vector3> bezierPoints;
     public float bezierTimer;
     public float bezierTimeMax;
-
     public bool isStayInGround;
     public bool isOnGround;
     public float gravity;
@@ -190,7 +189,7 @@ public class RoleEntity : MonoBehaviour {
         var velocity = rb.velocity;
         velocity.x = axisX * moveSpeed;
         rb.velocity = velocity;
-        Anim_Run();
+        Anim_SetSpeed();
     }
 
     public void MoveByAxisY(float axisY) {
@@ -288,7 +287,11 @@ public class RoleEntity : MonoBehaviour {
 
     // === Anim ===
     #region Animator
-    public void Anim_Run() {
+    internal void Anim_Idle() {
+        anim.CrossFade("Idle", 0);
+    }
+
+    public void Anim_SetSpeed() {
         var speed = Mathf.Abs(rb.velocity.x);
         anim.SetFloat("F_MoveSpeed", speed);
     }

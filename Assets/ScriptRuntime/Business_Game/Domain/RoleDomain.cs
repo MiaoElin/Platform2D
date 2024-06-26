@@ -56,6 +56,7 @@ public static class RoleDomain {
         role.Move_AxisX_Stop();
         var dir = (ctx.GetOwner().Pos() - role.Pos()).normalized;
         role.SetForward(dir.x);
+        role.Anim_SetSpeed();
     }
 
     public static void Owner_Move_Stop(GameContext ctx) {
@@ -500,16 +501,13 @@ public static class RoleDomain {
 
         skillCom.TryGet(key, out var skill);
 
-        if (role.fsm.isEnterCastStageReset) {
+        if (role.fsm.isEnterCastStageReset && skill.cd <= 0) {  // cd <=0 是因为ai的cd是可能大于0的；因为技能长期拥有，只要在攻击范围内就会停下来进入Casting状态，这时候cd可能会大于0, 后面再重构
             role.fsm.isEnterCastStageReset = false;
             role.fsm.RestCastStage(skill);
         }
 
         ref var stage = ref role.fsm.skillCastStage;
         if (stage == SkillCastStage.PreCast) {
-            if (skill.cd > 0) {
-                return;
-            }
             role.anim_Attack();
             role.fsm.preCastTimer -= dt;
             if (role.fsm.preCastTimer <= 0) {
