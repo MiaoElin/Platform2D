@@ -54,6 +54,7 @@ public class RoleEntity : MonoBehaviour {
     public float gravity;
     public float jumpForce;
     public bool isJumpKeyDown;
+    public Vector2 moveAxis;
     // public bool isFlashKeyDown;
     public int jumpTimes;
     public int jumpTimesMax;
@@ -296,6 +297,10 @@ public class RoleEntity : MonoBehaviour {
         anim.SetFloat("F_MoveSpeed", speed);
     }
 
+    public void Anim_SetSpeedZero() {
+        anim.SetFloat("F_MoveSpeed", 0);
+    }
+
     public void Anim_Climb() {
         var speed = Mathf.Abs(rb.velocity.y);
         anim.CrossFade("Climb", 0);
@@ -329,7 +334,15 @@ public class RoleEntity : MonoBehaviour {
     }
 
     internal void anim_Attack() {
-        anim.Play("Attack_Pre", 0);
+        if (isOwner) {
+            if (moveAxis.x == 0) {
+                anim.CrossFade("Stand_Shoot", 0);
+            } else {
+                anim.CrossFade("Run_Shoot", 0);
+            }
+        } else {
+            anim.Play("Attack_Pre", 0);
+        }
     }
 
     internal void Anim_Hurt() {

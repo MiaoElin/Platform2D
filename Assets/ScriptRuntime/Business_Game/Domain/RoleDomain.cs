@@ -56,7 +56,7 @@ public static class RoleDomain {
         role.Move_AxisX_Stop();
         var dir = (ctx.GetOwner().Pos() - role.Pos()).normalized;
         role.SetForward(dir.x);
-        role.Anim_SetSpeed();
+        role.Anim_SetSpeedZero();
     }
 
     public static void Owner_Move_Stop(GameContext ctx) {
@@ -299,9 +299,9 @@ public static class RoleDomain {
                 if (role.hasTarget) {
                     role.MoveByAxisX(dir.x);
                     role.SetForward(dir.x);
-                } else {
-                    role.MoveByAxisX(role.GetForWard().x);
+                    return;
                 }
+                role.MoveByAxisX(role.GetForWard().x);
             }
             // }
 
@@ -529,7 +529,7 @@ public static class RoleDomain {
 
                 if (skill.isCastBullet) {
                     // todo发射技能
-                    role.Anim_Shoot(ctx.input.moveAxis.x);
+                    // role.Anim_Shoot(ctx.input.moveAxis.x);
 
                     var bullet = BulletDomain.Spawn(ctx, skill.bulletTypeID, role.LaunchPoint(), role.ally, skill.stiffenSec);
                     if (bullet.moveType == MoveType.ByStatic) {

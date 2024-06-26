@@ -55,7 +55,7 @@ public static class GameBusiness_Normal {
     static void PreTick(GameContext ctx, float dt) {
         var owner = ctx.GetOwner();
         owner.isJumpKeyDown = ctx.input.isJumpKeyDown;
-
+        owner.moveAxis = ctx.input.moveAxis;
         if (owner.hp <= 0) {
             // todo 游戏失败
             Time.timeScale = 0;

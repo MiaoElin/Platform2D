@@ -27,6 +27,6 @@ MonoBehaviour:
   isTrampoline: 0
   anim_Normal: []
   isHurtFire: 1
-  hurtFireDamageRate: 0.1
+  hurtFireDamageRate: 0.8
   hurtFireDuration: 1
   colliderType: 0
