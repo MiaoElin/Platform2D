@@ -24,8 +24,8 @@ MonoBehaviour:
   addHpMax: 0
   isMelee: 0
   meleeDamageRate: 0
-  cdMax: 0
-  preCastCDMax: 0.4
+  cdMax: 2
+  preCastCDMax: 0.75
   castingMaintainSec: 0.5
   castingIntervalSec: 0.5
   endCastSec: 0

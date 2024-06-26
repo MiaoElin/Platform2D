@@ -41,7 +41,7 @@ public static class RoleFSMConTroller {
         RoleDomain.Onwer_Move_ByAxiX(ctx, role);
         RoleDomain.Jump(ctx, role);
         RoleDomain.Falling(role, dt);
-        RoleDomain.CurrentSkill_Tick(ctx, role);
+        RoleDomain.Owner_CurrentSkill_Tick(ctx, role);
 
         // Exit
         var skillCom = role.skillCom;
@@ -116,7 +116,7 @@ public static class RoleFSMConTroller {
         RoleDomain.Owner_Move_InCasting(ctx, role);
         RoleDomain.Jump(ctx, role);
         RoleDomain.Falling(role, dt);
-        RoleDomain.CurrentSkill_Tick(ctx, role);
+        RoleDomain.Owner_CurrentSkill_Tick(ctx, role);
         // Exit
         var usableSkillKeys = role.skillCom.usableSkillKeys;
         var skillCom = role.skillCom;

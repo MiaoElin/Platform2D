@@ -20,6 +20,7 @@ public static class RoleAIFSMController {
     }
 
     private static void ApplyAny(GameContext ctx, RoleEntity role, float dt) {
+        RoleDomain.CD_Tick(ctx, role, dt);
         RoleDomain.AI_Monster_SerchRange_Tick(ctx, role);
         if (role.aiType == AIType.Elite) {
             RoleDomain.EnterLadder(ctx, role);
@@ -58,6 +59,7 @@ public static class RoleAIFSMController {
         } else {
             RoleDomain.AI_Move_Stop(ctx, role);
         }
+
         RoleDomain.Casting(ctx, role, dt);
         // Exit
         bool isInAttackRange = RoleDomain.AI_EnterAttakRange_Tick(ctx, role);

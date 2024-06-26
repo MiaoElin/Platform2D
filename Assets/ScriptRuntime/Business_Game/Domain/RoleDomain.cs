@@ -65,7 +65,6 @@ public static class RoleDomain {
     // 攻击距离Tick
     internal static bool AI_EnterAttakRange_Tick(GameContext ctx, RoleEntity role) {
         bool isInAttackRange = false;
-
         if (role.ally == Ally.Monster) {
             if (role.hasTarget) {
                 var target = ctx.GetOwner().Pos();
@@ -388,7 +387,9 @@ public static class RoleDomain {
 
     #region  Check
     public static void CheckGround(GameContext ctx, RoleEntity role) {
-
+        if (role.aiType != AIType.None && role.aiType != AIType.Elite) {
+            return;
+        }
         if (role.GetVelocityY() > 0) {
             return;
         }
@@ -418,7 +419,7 @@ public static class RoleDomain {
     }
     public static bool CheckWall_Short(RoleEntity role) {
         LayerMask map = 1 << LayerConst.GROUND;
-        var size = new Vector2(2, 1f);
+        var size = new Vector2(1.5f, 1f);
         // 这个size是实际size 不是一半
         Collider2D other = Physics2D.OverlapBox(role.GetBody_Center(), size, 0, map);
         if (other) {
@@ -451,7 +452,18 @@ public static class RoleDomain {
         });
     }
 
-    public static void CurrentSkill_Tick(GameContext ctx, RoleEntity role) {
+    public static void AI_CurrentSkill_Tick(GameContext ctx, RoleEntity role) {
+        var skillCom = role.skillCom;
+        if (skillCom.GetCurrentKey() != InputKeyEnum.None) {
+            return;
+        }
+        skillCom.TryGet(InputKeyEnum.SKill1, out var skill);
+        if (skill.cd <= 0) {
+            skillCom.SetCurrentKey(InputKeyEnum.SKill1);
+        }
+    }
+
+    public static void Owner_CurrentSkill_Tick(GameContext ctx, RoleEntity role) {
         var skillCom = role.skillCom;
         if (skillCom.GetCurrentKey() != InputKeyEnum.None) {
             return;
@@ -485,10 +497,8 @@ public static class RoleDomain {
         if (key == InputKeyEnum.None) {
             return;
         }
+
         skillCom.TryGet(key, out var skill);
-        // if (role.isOwner) {
-        //     Debug.Log(key + "" + role.fsm.skillCastStage);
-        // }
 
         if (role.fsm.isEnterCastStageReset) {
             role.fsm.isEnterCastStageReset = false;
@@ -497,10 +507,12 @@ public static class RoleDomain {
 
         ref var stage = ref role.fsm.skillCastStage;
         if (stage == SkillCastStage.PreCast) {
+            if (skill.cd > 0) {
+                return;
+            }
             role.anim_Attack();
             role.fsm.preCastTimer -= dt;
             if (role.fsm.preCastTimer <= 0) {
-
                 role.fsm.preCastTimer = 0;
                 stage = SkillCastStage.Casting;
                 skill.cd = skill.cdMax;

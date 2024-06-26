@@ -5,6 +5,9 @@ Panel_PlayerStatus
  √-Panel_Hints // 2D用世界坐标比较好，镜头会跟着角色动，屏幕坐标会一直变
  √-Panel_SkillSlot
 
+=== Bug ===
+- Ai 右到左的爬墙有问题
+
 === 胜负判定 ===
 胜利：
 √ - 开启祭坛，祭坛充电开始
