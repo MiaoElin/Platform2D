@@ -1,7 +1,13 @@
 === UI ===
 Panel_PlayerStatus
+ √- 金币数
+ √- 被动装备栏
+ √-Panel_Hints // 2D用世界坐标比较好，镜头会跟着角色动，屏幕坐标会一直变
+ √-Panel_SkillSlot
 
 === Bug ===
+√- 贴着墙闪现会穿墙
+√- Ai 右到左的爬墙有问题
 
 === 胜负判定 ===
 胜利：
@@ -17,16 +23,13 @@ Panel_PlayerStatus
 - 限制相机范围
 
 === RoleFSM ===
+√ - 添加角色硬直状态（hurt状态，受伤状态下不能移动，时间取决于技能的攻僵直时间和角色的防僵直率），被击退效果
 
 === 动画 ===
+√ - 角色死亡动画
 
 === 音效 === 
-
-=== AI ===
-- 寻路
-  - 生成格子
-  - 给角色添加vector2Int 格子的位置
-  - 将地图的添加进 BlockSet里
+√ - owner 闪现
 
 === Cave ===
 √ - 怪重生
@@ -37,6 +40,12 @@ Panel_PlayerStatus
 - BakeScene 做滚动效果
 
 === Loot ===
+√ - lootEntity
+√ - lootTM
+√ - 生成loot
+√ - lootEM
+√ - 编辑器里添加一些loot
+√ - 在MapSpawn生成Loot
 
 === DropLoot ===
 - 会掉落loot 的loot 有一下几种
@@ -62,3 +71,6 @@ Panel_PlayerStatus
 
 === 问题  ===
 射击的动画：技能有后摇，每个技能要释放完才能释放完，inputKeyEnum.None 才会检测是否退出casting，所以明明按完技能了，但是动画没有马上停
+√-机器人弧线 会用什么方式，Line render?
+√-护盾的问题（我现在是先扣hp，再扣dun，应该是先扣盾）
+√-Tri_Inspector

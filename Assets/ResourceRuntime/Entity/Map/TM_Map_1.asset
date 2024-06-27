@@ -18,7 +18,7 @@ MonoBehaviour:
   backSceneMid: {fileID: 0}
   backSceneFront: {fileID: 0}
   propSpawnerTMs:
-  - pos: {x: -19, y: 2.5}
+  - pos: {x: -19, y: 35.5}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     propTypeID: 100
@@ -26,7 +26,7 @@ MonoBehaviour:
     sizeScale: {x: 1, y: 23}
     jumpForce: 0
     ally: 0
-  - pos: {x: 24.9, y: -20.99}
+  - pos: {x: 24.9, y: 12.01}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     propTypeID: 120
@@ -34,7 +34,7 @@ MonoBehaviour:
     sizeScale: {x: 0, y: 0}
     jumpForce: 45
     ally: 0
-  - pos: {x: -33.86, y: -54}
+  - pos: {x: -33.86, y: -21}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     propTypeID: 120
@@ -42,7 +42,7 @@ MonoBehaviour:
     sizeScale: {x: 0, y: 0}
     jumpForce: 80
     ally: 0
-  - pos: {x: 39, y: -20.75}
+  - pos: {x: 107.29, y: 12.36}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     propTypeID: 110
@@ -50,7 +50,15 @@ MonoBehaviour:
     sizeScale: {x: 0, y: 0}
     jumpForce: 0
     ally: 0
-  - pos: {x: -0.6, y: -15}
+  - pos: {x: -63.8, y: 0.7900009}
+    rotation: {x: -0, y: 0, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
+    propTypeID: 100
+    isModifySize: 1
+    sizeScale: {x: 1, y: 18.3}
+    jumpForce: 0
+    ally: 0
+  - pos: {x: -0.6, y: 18}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     propTypeID: 100
@@ -58,136 +66,168 @@ MonoBehaviour:
     sizeScale: {x: 1, y: 12}
     jumpForce: 0
     ally: 0
+  - pos: {x: 63.1, y: 21.7}
+    rotation: {x: -0, y: 0, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
+    propTypeID: 100
+    isModifySize: 1
+    sizeScale: {x: 1, y: 22.5}
+    jumpForce: 0
+    ally: 0
+  - pos: {x: 52, y: 39.97}
+    rotation: {x: -0, y: 0, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
+    propTypeID: 100
+    isModifySize: 1
+    sizeScale: {x: 1, y: 14}
+    jumpForce: 0
+    ally: 0
+  - pos: {x: 77.9, y: 39.97}
+    rotation: {x: -0, y: 0, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
+    propTypeID: 100
+    isModifySize: 1
+    sizeScale: {x: 1, y: 14}
+    jumpForce: 0
+    ally: 0
+  - pos: {x: 92.79, y: 30.4}
+    rotation: {x: -0, y: 0, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
+    propTypeID: 100
+    isModifySize: 1
+    sizeScale: {x: 1, y: 33.2}
+    jumpForce: 0
+    ally: 0
   lootSpawnerTMs:
   - lootTypeID: 10
-    pos: {x: 11.01, y: -8.44}
+    pos: {x: 11.01, y: 24.560001}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
   - lootTypeID: 10
-    pos: {x: -60.8, y: -40.25}
+    pos: {x: -60.8, y: -7.25}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
   - lootTypeID: 10
-    pos: {x: 15.11, y: -8.44}
+    pos: {x: 15.11, y: 24.560001}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
   - lootTypeID: 10
-    pos: {x: 9.12, y: -8.44}
+    pos: {x: 9.12, y: 24.560001}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
   - lootTypeID: 10
-    pos: {x: -5.9, y: -8.44}
+    pos: {x: -5.9, y: 24.560001}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
   - lootTypeID: 10
-    pos: {x: -37.2, y: 14.65}
+    pos: {x: -37.2, y: 47.65}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
   - lootTypeID: 20
-    pos: {x: 9.6, y: -22.35}
+    pos: {x: 9.6, y: 10.65}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
   - lootTypeID: 20
-    pos: {x: 13, y: -8.18}
+    pos: {x: 13, y: 24.82}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
   - lootTypeID: 30
-    pos: {x: -9.3, y: -7.9399996}
+    pos: {x: -9.3, y: 25.060001}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
   - lootTypeID: 30
-    pos: {x: -2.72, y: -7.9399996}
+    pos: {x: -2.72, y: 25.060001}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
   roleSpawnerTMs:
   - roleTypeID: 100
-    pos: {x: 34.49, y: 4.86}
+    pos: {x: 34.49, y: 37.86}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     path:
-    - {x: 34.49, y: 4.86}
+    - {x: 34.49, y: 37.86}
     isPermanent: 1
     cd: 0
     cdMax: 30
     searchRange: 30
     isBossWave: 0
   - roleTypeID: 100
-    pos: {x: 37.1, y: 2.1}
+    pos: {x: 37.1, y: 35}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     path:
-    - {x: 37.1, y: 2.1}
+    - {x: 37.1, y: 35}
     isPermanent: 1
     cd: 0
     cdMax: 40
     searchRange: 30
     isBossWave: 0
   - roleTypeID: 110
-    pos: {x: -17.86, y: 13.89}
+    pos: {x: -17.86, y: 47}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     path:
-    - {x: -17.86, y: 13.89}
-    - {x: -15.360001, y: 13.89}
-    - {x: 3.039999, y: 13.89}
+    - {x: -17.86, y: 47}
+    - {x: -15.360001, y: 47}
+    - {x: 3.039999, y: 47}
     isPermanent: 1
     cd: 0
     cdMax: 40
     searchRange: 15
     isBossWave: 0
   - roleTypeID: 110
-    pos: {x: 12.41, y: -23.2}
+    pos: {x: 12.41, y: 10}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: -1, y: 1, z: 1}
     path:
-    - {x: 12.41, y: -23.2}
-    - {x: -8.889999, y: -23.2}
+    - {x: 12.41, y: 10}
+    - {x: -8.889999, y: 10}
     isPermanent: 1
     cd: 0
     cdMax: 40
     searchRange: 15
     isBossWave: 0
-  - roleTypeID: 1000
-    pos: {x: 36.05, y: -23.2}
+  - roleTypeID: 500
+    pos: {x: -16.6, y: 24}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     path:
-    - {x: 36.05, y: -23.2}
-    - {x: 62.19, y: -23.2}
-    - {x: 27.72, y: -23.2}
+    - {x: -16.6, y: 24}
+    isPermanent: 1
+    cd: 0
+    cdMax: 40
+    searchRange: 20
+    isBossWave: 0
+  - roleTypeID: 1000
+    pos: {x: 102.9, y: 10}
+    rotation: {x: -0, y: 0, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
+    path:
+    - {x: 102.9, y: 10}
+    - {x: 129.04001, y: 10}
+    - {x: 94.57, y: 10}
     isPermanent: 0
     cd: 0
     cdMax: 1
     searchRange: 20
     isBossWave: 1
   - roleTypeID: 500
-    pos: {x: -16.6, y: -9}
-    rotation: {x: -0, y: 0, z: 0}
-    localScale: {x: 1, y: 1, z: 1}
-    path:
-    - {x: -16.6, y: -9}
-    isPermanent: 1
-    cd: 0
-    cdMax: 40
-    searchRange: 20
-    isBossWave: 0
-  - roleTypeID: 500
-    pos: {x: 43, y: -22.8}
+    pos: {x: 114.3, y: 10}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: -1, y: 1, z: 1}
     path:
-    - {x: 43, y: -22.8}
+    - {x: 114.3, y: 10}
     isPermanent: 1
     cd: 0
     cdMax: 15
     searchRange: 20
     isBossWave: 1
   - roleTypeID: 120
-    pos: {x: 48.44, y: -22.98}
+    pos: {x: 95.1, y: 10}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     path:
-    - {x: 48.44, y: -22.98}
+    - {x: 95.1, y: 10}
     isPermanent: 1
     cd: 0
     cdMax: 10

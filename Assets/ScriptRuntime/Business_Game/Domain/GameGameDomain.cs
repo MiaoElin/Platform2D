@@ -4,6 +4,9 @@ public static class GameGameDomain {
 
     public static void ExitGame(GameContext ctx) {
         ctx.roleRepo.Foreach(role => {
+            // 销毁UI
+            UIDomain.HUD_HPBar_Close(ctx, role.id);
+            // 销毁角色
             RoleDomain.Unspawn(ctx, role);
         });
 
