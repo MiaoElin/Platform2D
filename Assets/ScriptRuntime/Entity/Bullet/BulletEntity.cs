@@ -38,6 +38,7 @@ public class BulletEntity : MonoBehaviour {
     public void Reuse() {
         Destroy(mod.gameObject);
         isTearDown = false;
+        hasSetMoveDir = false;
     }
 
     internal void SetPos(Vector2 pos) {
