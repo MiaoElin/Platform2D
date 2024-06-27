@@ -18,7 +18,7 @@ MonoBehaviour:
   hpMax: 200
   regenerationHpMax: 1
   regenerationDuration: 2
-  moveSpeed: 6.5
+  moveSpeed: 8
   height: 3
   searchRange: 50
   aiType: 0
@@ -39,4 +39,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1a640bd3485db1b46a9fb6e830941397, type: 3}
   - {fileID: 21300000, guid: a25cb0f29832ce64cb61d171a1afb986, type: 3}
   - {fileID: 21300000, guid: 7a025ba7a9ebb1443baa4cbca9d12e97, type: 3}
+  antiStiffenType: 0
   isDropLoot: 0
+  die_Sfx: {fileID: 0}
+  dieVolume: 0

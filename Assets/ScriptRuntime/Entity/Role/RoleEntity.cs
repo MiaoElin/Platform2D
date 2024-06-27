@@ -109,7 +109,7 @@ public class RoleEntity : MonoBehaviour {
     }
 
     public Vector2 GetBody_Center() {
-        return body.transform.Find("BodyCenter").position;
+        return body.transform.Find("Body_Center").position;
     }
 
     public Vector2 GetBelly() {

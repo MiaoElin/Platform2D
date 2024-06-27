@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 7250223366880542271}
   - component: {fileID: 4398415626957741120}
   m_Layer: 8
-  m_Name: BodyCenter
+  m_Name: Body_Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

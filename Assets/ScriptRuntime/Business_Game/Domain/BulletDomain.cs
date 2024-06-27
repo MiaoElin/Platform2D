@@ -27,7 +27,7 @@ public static class BulletDomain {
                     if (targetRole.fsm.status == RoleStatus.Destroy) {
                         if (!bullet.hasSetMoveDir) {
                             bullet.hasSetMoveDir = true;
-                            bullet.moveDir = targetRole.Pos() - bullet.Pos();
+                            bullet.moveDir = targetRole.GetBody_Center() - bullet.Pos();
                         }
                         bullet.Move(bullet.moveDir, dt);
                         return;
