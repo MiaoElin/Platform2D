@@ -32,7 +32,7 @@ public static class RoleAIFSMController {
         if (fsm.isEnterNormal) {
             fsm.isEnterNormal = false;
         }
-        RoleDomain.AI_Move(ctx, role, dt);
+        RoleDomain.AI_Move2(ctx, role, dt);
         if (role.aiType == AIType.Elite) {
             RoleDomain.Jump(ctx, role);
             RoleDomain.Falling(role, dt);
@@ -51,7 +51,7 @@ public static class RoleAIFSMController {
         }
 
         if (role.aiType == AIType.Robot) {
-            RoleDomain.AI_Move(ctx, role, dt);
+            RoleDomain.AI_Move2(ctx, role, dt);
         } else if (role.aiType == AIType.Elite) {
             RoleDomain.AI_Move_Stop(ctx, role);
             RoleDomain.Jump(ctx, role);

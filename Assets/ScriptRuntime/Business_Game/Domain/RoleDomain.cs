@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public static class RoleDomain {
 
-    public static RoleEntity Spawn(GameContext ctx, int typeID, Vector2 pos, Vector3 rotation, Ally ally, Vector2[] path) {
+    public static RoleEntity Spawn(GameContext ctx, int typeID, Vector2 pos, Vector3 rotation, Ally ally, List<Vector2Int> path) {
         var role = GameFactory.Role_Spawn(ctx, typeID, pos, rotation, ally, path);
         ctx.roleRepo.Add(role);
         role.OnTriggerEnterHandle = (Collider2D other) => {
@@ -272,7 +272,43 @@ public static class RoleDomain {
         }
     }
 
-    public static void AI_Move(GameContext ctx, RoleEntity role, float dt) {
+    public static void AI_Move1(GameContext ctx, RoleEntity role, float dt) {
+        var owner = ctx.GetOwner();
+        var dir = (owner.Pos() - role.Pos()).normalized;
+        if (role.aiType == AIType.Common) {
+            if (role.hasTarget) {
+                // 在路径范围内追owner
+                role.MoveByAxisX(dir.x);
+                role.SetForward(dir.x);
+                if (role.Pos().x > role.pathXMax) {
+                    role.SetPos(new Vector2(role.pathXMax, role.Pos().y));
+                } else if (role.Pos().x < role.pathXMin) {
+                    role.SetPos(new Vector2(role.pathXMin, role.Pos().y));
+                }
+            } else {
+                role.MoveByPath(dt);
+            }
+        } else if (role.aiType == AIType.Elite) {
+            if (role.hasTarget) {
+                int hasPath = GFPathFinding.Astar(role.GetPos_Int(), owner.GetPos_Int(), ctx.GetCurrentMap().blockSet, out var path);
+                if (hasPath == 1) {
+                    role.path = path;
+                    role.MoveByPath(dt);
+                }
+            }
+        } else if (role.aiType == AIType.Flyer) {
+            if (role.hasTarget) {
+                role.MoveByTarget(owner.Pos(), dt);
+            }
+        } else if (role.aiType == AIType.Robot) {
+            role.MoveByTarget(owner.robotCom.GetRobotPositon(role.id), dt);
+            if (role.isCureRole) {
+                role.LR_Tick(owner.Pos());
+            }
+        }
+    }
+
+    public static void AI_Move2(GameContext ctx, RoleEntity role, float dt) {
         var owner = ctx.GetOwner();
         var dir = (owner.Pos() - role.Pos()).normalized;
 

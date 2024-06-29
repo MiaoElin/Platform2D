@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 public static class GameFactory {
 
@@ -10,7 +11,7 @@ public static class GameFactory {
         return role;
     }
 
-    public static RoleEntity Role_Spawn(GameContext ctx, int typeID, Vector2 pos, Vector3 rotation, Ally ally, Vector2[] path) {
+    public static RoleEntity Role_Spawn(GameContext ctx, int typeID, Vector2 pos, Vector3 rotation, Ally ally, List<Vector2Int> path) {
         ctx.asset.TryGet_RoleTM(typeID, out var tm);
         if (!tm) {
             Debug.LogError($"GameFactory.Role_Spawn {typeID} is not find");
@@ -72,6 +73,9 @@ public static class GameFactory {
         map.roleSpawnerTMs = tm.roleSpawnerTMs;
         map.bgm = tm.bgm;
         map.bgmVolume = tm.bgmVolume;
+
+        map.xCount = tm.xCount;
+        map.yCount = tm.yCount;
         return map;
     }
 

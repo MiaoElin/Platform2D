@@ -33,7 +33,7 @@ public class RoleEntity : MonoBehaviour {
     public Ally ally;
     public AIType aiType;
     public Vector2 faceDir;
-    public Vector2[] path;
+    public List<Vector2Int> path;
     public float pathXMin;
     public float pathXMax;
     public int pathIndex;
@@ -70,7 +70,7 @@ public class RoleEntity : MonoBehaviour {
     public AudioClip die_Sfx;
     public float dieVolume;
 
-    public void Ctor(GameObject mod, Vector2[] path) {
+    public void Ctor(GameObject mod, List<Vector2Int> path) {
         fsm = new RoleFSMComponent();
         fsm.EnterNormal();
         buffCom = new BuffSlotComponent();
@@ -104,6 +104,19 @@ public class RoleEntity : MonoBehaviour {
         }
     }
 
+    #region  Pos
+    public void SetPos(Vector2 pos) {
+        transform.position = pos;
+    }
+
+    public Vector2 Pos() {
+        return transform.position;
+    }
+
+    public Vector2Int GetPos_Int() {
+        return new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
+    }
+
     public Vector2 GetHead_Top() {
         return body.transform.Find("Head_Top").position;
     }
@@ -123,6 +136,7 @@ public class RoleEntity : MonoBehaviour {
     public Vector2 GetFoot() {
         return body.transform.Find("Foot").position;
     }
+    #endregion
 
     internal void Reuse() {
         Destroy(body.gameObject);
@@ -160,20 +174,8 @@ public class RoleEntity : MonoBehaviour {
         }
     }
 
-    public void SetPos(Vector2 pos) {
-        transform.position = pos;
-    }
-
     public void SetRotation(Vector3 rotation) {
         transform.eulerAngles = rotation;
-    }
-
-    internal void ReuseJumpTimes() {
-        this.jumpTimes = jumpTimesMax;
-    }
-
-    public Vector2 Pos() {
-        return transform.position;
     }
 
     internal Vector2 LaunchPoint() {
@@ -212,7 +214,7 @@ public class RoleEntity : MonoBehaviour {
 
 
     public void MoveByPath(float dt) {
-        if (pathIndex >= path.Length) {
+        if (pathIndex >= path.Count) {
             // rb.velocity = Vector2.zero;
             pathIndex = 0;
             return;
@@ -224,9 +226,24 @@ public class RoleEntity : MonoBehaviour {
         }
 
         var velocity = rb.velocity;
+        if (dir.x > 0) {
+            dir.x = 1;
+        } else {
+            if (dir.x < 0) {
+                dir.x = -1;
+            }
+        }
+        if (dir.y > 0) {
+            dir.y = 1;
+        } else {
+            if (dir.y < 0) {
+                dir.y = -1;
+            }
+        }
         velocity = dir.normalized * moveSpeed;
         rb.velocity = velocity;
         SetForward(velocity.x);
+        Anim_SetSpeed();
     }
 
     public void MoveByTarget(Vector2 target, float dt) {
@@ -254,6 +271,11 @@ public class RoleEntity : MonoBehaviour {
             Anim_Jump();
         }
     }
+
+    internal void ReuseJumpTimes() {
+        this.jumpTimes = jumpTimesMax;
+    }
+
     internal void SetVelocityY(float jumpForce) {
         var velocity = rb.velocity;
         velocity.y = jumpForce;

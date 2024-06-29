@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 [Serializable]
 public class RoleSpawnerTM {
@@ -10,7 +11,7 @@ public class RoleSpawnerTM {
     public Vector3 rotation;
     public Vector3 localScale;
 
-    public Vector2[] path;
+    public List<Vector2Int> path;
 
     public bool isPermanent;
     public float cd;

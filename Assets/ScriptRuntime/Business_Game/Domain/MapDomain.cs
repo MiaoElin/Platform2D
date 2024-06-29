@@ -5,7 +5,9 @@ public static class MapDomain {
     public static MapEntity Spawn(GameContext ctx, int stageID) {
         var map = GameFactory.Map_Create(ctx, stageID);
         ctx.mapRepo.Add(map);
-
+        GFPathFinding.xCount = map.xCount;
+        GFPathFinding.yCount = map.yCount;
+    
         var propSpawnerTMs = map.propSpawnerTMs;
         {
             foreach (var tm in propSpawnerTMs) {

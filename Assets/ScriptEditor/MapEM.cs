@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class MapEM : MonoBehaviour {
 
@@ -61,9 +62,9 @@ public class MapEM : MonoBehaviour {
                     var em = roleEMs[i];
                     var path = em.transform.Find("path");
                     var trans = path.GetComponentsInChildren<Transform>();
-                    Vector2[] posArray = new Vector2[trans.Length];
+                    List<Vector2Int> posArray = new List<Vector2Int>();
                     for (int j = 0; j < trans.Length; j++) {
-                        posArray[j] = trans[j].position;
+                        posArray[j] = new Vector2Int(Mathf.RoundToInt(trans[j].position.x), Mathf.RoundToInt(trans[j].position.y));
                     }
 
                     RoleSpawnerTM spawnerTM = new RoleSpawnerTM() {
