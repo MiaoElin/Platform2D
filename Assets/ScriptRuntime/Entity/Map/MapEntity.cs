@@ -13,17 +13,13 @@ public class MapEntity : MonoBehaviour {
     public AudioClip bgm;
     public float bgmVolume;
 
-    public void Ctor(int stageID, Grid grid) {
+    public GridComponent gridCom;
+
+    public void Ctor(int stageID, Grid grid, int xCount, int yCount) {
         this.stageID = stageID;
         this.grid = grid;
-    }
-
-    public void SetGridCollision() {
-        grid.GetComponentInChildren<CompositeCollider2D>().isTrigger = false;
-    }
-
-    public void SetGridTrigger() {
-        grid.GetComponentInChildren<CompositeCollider2D>().isTrigger = true;
+        gridCom = new GridComponent();
+        gridCom.Ctor(xCount, yCount);
     }
 
 }

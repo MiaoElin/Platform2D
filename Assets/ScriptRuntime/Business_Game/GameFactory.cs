@@ -63,7 +63,7 @@ public static class GameFactory {
         ctx.asset.TryGet_Entity_Prefab(typeof(MapEntity).Name, out var prefab);
         MapEntity map = GameObject.Instantiate(prefab).GetComponent<MapEntity>();
         Grid grid = GameObject.Instantiate(tm.grid, map.transform);
-        map.Ctor(stageID, grid);
+        map.Ctor(stageID, grid, tm.xCount, tm.yCount);
         map.backSceneBG = tm.backSceneBG;
         map.backSceneMid = tm.backSceneMid;
         map.backSceneFront = tm.backSceneFront;

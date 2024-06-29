@@ -5,6 +5,9 @@ public class MapTM : ScriptableObject {
 
     public int stage;
     public Grid grid;
+
+    public int xCount;
+    public int yCount;
     public Sprite backSceneBG;
     public Sprite backSceneMid;
     public Sprite backSceneFront;

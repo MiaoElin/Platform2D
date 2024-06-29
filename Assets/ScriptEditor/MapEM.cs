@@ -4,11 +4,17 @@ using UnityEngine;
 public class MapEM : MonoBehaviour {
 
     public MapTM tm;
+    public int xCount;
+    public int yCount;
 
     [ContextMenu("Save")]
     public void Save() {
         // 将roleEM[]存给RoleSpawnerTM[]
         // propEM[] 给 propSpawnerTM[]
+
+        tm.xCount = this.xCount;
+        tm.yCount = this.yCount;
+
         {
             PropEM[] propEMs = gameObject.GetComponentsInChildren<PropEM>();
             if (propEMs != null) {

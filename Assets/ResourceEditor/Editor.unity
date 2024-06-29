@@ -2658,6 +2658,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tm: {fileID: 11400000, guid: 71662d40f3dda10489eb3eb47fa5a984, type: 2}
+  xCount: 270
+  yCount: 168
 --- !u!1 &584596650
 GameObject:
   m_ObjectHideFlags: 0
