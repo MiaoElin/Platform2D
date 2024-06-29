@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb05906384012354f97422a1e935be06, type: 3}
+  m_Name: TM_Prop_Ladder_101
+  m_EditorClassIdentifier: 
+  typeID: 101
+  TypeName: TM_Prop_Ladder_101
+  moveSpeed: 0
+  isPermanent: 1
+  activeTimer: 0
+  mod: {fileID: 638021832257035120, guid: f44f6e2fbf17b9941a99abe41a915f99, type: 3}
+  srBaseSize: {x: 0.44, y: 0.5}
+  hasAnim: 0
+  fadeOutTimer: 0
+  isLadder: 1
+  isAltar: 0
+  altarDuration: 0
+  isTrampoline: 0
+  anim_Normal: []
+  isHurtFire: 0
+  hurtFireDamageRate: 0
+  hurtFireDuration: 0
+  colliderType: 1

@@ -6,8 +6,8 @@ public static class GameBusiness_Normal {
     public static void EnterStage(GameContext ctx) {
 
         // Map
-        var map = MapDomain.Spawn(ctx, 1);
-        ctx.currentStageID = 1;
+        var map = MapDomain.Spawn(ctx, 2);
+        ctx.currentStageID = 2;
 
         // BackScene
         var backScene = GameFactory.BackScene_Create(ctx);

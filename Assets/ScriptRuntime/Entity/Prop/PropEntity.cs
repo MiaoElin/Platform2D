@@ -16,6 +16,7 @@ public class PropEntity : MonoBehaviour {
     public Transform setHintsPoint;
     public SpriteRenderer sr;
     public Vector2 srBaseSize;
+    public Vector2 size;
     public Vector2 moveDir;
 
     public bool hasAnim;
@@ -114,7 +115,7 @@ public class PropEntity : MonoBehaviour {
             if (isModifySize) {
                 boxCollider.size = sizeScale;
                 sr.size = sizeScale;
-                srBaseSize = new Vector2(srBaseSize.x * sizeScale.x, srBaseSize.y * sizeScale.y);
+                size = sizeScale;
             }
         } else if (colliderType == ColliderType.Capsule) {
             capsuleCollider = mod.transform.GetComponent<CapsuleCollider2D>();

@@ -311,20 +311,7 @@ public static class RoleDomain {
     public static void AI_Move2(GameContext ctx, RoleEntity role, float dt) {
         var owner = ctx.GetOwner();
         var dir = (owner.Pos() - role.Pos()).normalized;
-
         if (role.aiType == AIType.Common) {
-            // if (role.hasTarget) {
-            //     // 在路径范围内追owner
-            //     role.MoveByAxisX(dir.x);
-            //     role.SetForward(dir.x);
-            //     if (role.Pos().x > role.pathXMax) {
-            //         role.SetPos(new Vector2(role.pathXMax, role.Pos().y));
-            //     } else if (role.Pos().x < role.pathXMin) {
-            //         role.SetPos(new Vector2(role.pathXMin, role.Pos().y));
-            //     }
-            // } else {
-            //     role.MoveByPath(dt);
-            // }
             bool isInGroundSide = CheckFoot_Front(role);
             bool isMeetWall_Short = CheckWall_Short(role);
             // normal 往前走，走到有墙 或者 脚前方没有东西 往返方向
@@ -759,8 +746,8 @@ public static class RoleDomain {
                 moveAxis = (ctx.GetOwner().Pos() - role.Pos()).normalized;
             }
 
-            Vector2 lowPos = prop.Pos() + Vector2.down * (prop.srBaseSize.y / 2) + Vector2.left * prop.srBaseSize.x / 2;
-            Vector2 hightPos = prop.Pos() + Vector2.up * (prop.srBaseSize.y / 2) + Vector2.right * prop.srBaseSize.x / 2;
+            Vector2 lowPos = prop.Pos() + Vector2.down * (prop.size.y / 2) + Vector2.left * prop.size.x / 2;
+            Vector2 hightPos = prop.Pos() + Vector2.up * (prop.size.y / 2) + Vector2.right * prop.size.x / 2;
 
             float head_Center_Offset = role.GetHead_Top().y - role.Pos().y;
             float foot_Center_Offset = role.Pos().y - role.GetFoot().y;         //素材的中心点不在角色身高的中心点导致的问题
@@ -770,6 +757,7 @@ public static class RoleDomain {
 
             // 限制x的范围
             if (pos.x > lowPos.x && pos.x < hightPos.x) {
+                Debug.Log(pos.y + " " + hightPos.y + " " + highestY);
                 // 往上爬的Y范围
                 if (pos.y + head_Center_Offset > lowPos.y && pos.y < hightPos.y) {
                     if (moveAxis.y > 0) {

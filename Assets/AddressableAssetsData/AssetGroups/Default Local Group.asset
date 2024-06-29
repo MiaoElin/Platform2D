@@ -371,6 +371,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - AudioSource
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 64c59b89793ba4b418e0afdf31b5ce15
+    m_Address: Assets/ResourceRuntime/Entity/Prop/Ladder/Prop_Ladder_101/TM_Prop_Ladder_101.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Prop
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 78da8a5087d822048873e63e256c256f
+    m_Address: Assets/ResourceRuntime/Entity/Map/Map2/TM_Map_2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Map
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:
