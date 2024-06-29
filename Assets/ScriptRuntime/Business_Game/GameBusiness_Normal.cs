@@ -6,11 +6,12 @@ public static class GameBusiness_Normal {
     public static void EnterStage(GameContext ctx) {
 
         // Map
-        MapDomain.Spawn(ctx, 1);
+        var map = MapDomain.Spawn(ctx, 1);
         ctx.currentStageID = 1;
 
         // BackScene
         var backScene = GameFactory.BackScene_Create(ctx);
+        backScene.Ctor(map.backSceneBG, map.backSceneMid, map.backSceneFront);
         ctx.backScene = backScene;
 
         // Owner
@@ -65,6 +66,10 @@ public static class GameBusiness_Normal {
         }
 
         MapDomain.WaveTick(ctx, 1, dt);
+
+        if (ctx.backScene != null) {
+            ctx.backScene.Tick(ctx.input.moveAxis, dt);
+        }
 
     }
     static void FixedTick(GameContext ctx, float dt) {

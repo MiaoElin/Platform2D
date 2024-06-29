@@ -64,7 +64,8 @@ public class MapEM : MonoBehaviour {
                     var trans = path.GetComponentsInChildren<Transform>();
                     List<Vector2Int> posArray = new List<Vector2Int>();
                     for (int j = 0; j < trans.Length; j++) {
-                        posArray[j] = new Vector2Int(Mathf.RoundToInt(trans[j].position.x), Mathf.RoundToInt(trans[j].position.y));
+                        var pos = new Vector2Int(Mathf.RoundToInt(trans[j].position.x), Mathf.RoundToInt(trans[j].position.y));
+                        posArray.Add(pos);
                     }
 
                     RoleSpawnerTM spawnerTM = new RoleSpawnerTM() {

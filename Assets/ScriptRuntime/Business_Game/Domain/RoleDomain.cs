@@ -298,7 +298,7 @@ public static class RoleDomain {
             }
         } else if (role.aiType == AIType.Flyer) {
             if (role.hasTarget) {
-                role.MoveByTarget(owner.Pos(), dt);
+                role.MoveByTarget(owner.GetBody_Center(), dt);
             }
         } else if (role.aiType == AIType.Robot) {
             role.MoveByTarget(owner.robotCom.GetRobotPositon(role.id), dt);
@@ -372,7 +372,7 @@ public static class RoleDomain {
 
         } else if (role.aiType == AIType.Flyer) {
             if (role.hasTarget) {
-                role.MoveByTarget(owner.Pos(), dt);
+                role.MoveByTarget(owner.GetBody_Center(), dt);
             }
         } else if (role.aiType == AIType.Robot) {
             role.MoveByTarget(owner.robotCom.GetRobotPositon(role.id), dt);
