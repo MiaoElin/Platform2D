@@ -23,7 +23,13 @@ public class EventCenter {
     }
 
     public Action OnStopBossWaveHande;
+
     internal void StopBossWaveHandle() {
         OnStopBossWaveHande.Invoke();
+    }
+
+    public Action<int> OnAltarTimeIsEndHandle;
+    internal void AltarTimeIsEnd(int id) {
+        OnAltarTimeIsEndHandle.Invoke(id);
     }
 }

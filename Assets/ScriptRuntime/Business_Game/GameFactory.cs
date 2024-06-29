@@ -110,7 +110,7 @@ public static class GameFactory {
         prop.SetRotation(rotaion);
         prop.SetScale(localScale);
         prop.SetMesh(tm.mod, tm.hasAnim);
-        prop.srBaseSize = tm.srBaseSize;
+        // prop.srBaseSize = tm.srBaseSize;
         prop.fsm.fadeOutTimer = tm.fadeOutTimer;
 
         // 梯子

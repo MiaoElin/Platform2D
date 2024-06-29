@@ -37,7 +37,7 @@ Panel_PlayerStatus
 
 === 学习 ===
 - 给Sprite加外发光效果
-- BakeScene 做滚动效果
+√ - BakeScene 做滚动效果
 
 === Loot ===
 √ - lootEntity

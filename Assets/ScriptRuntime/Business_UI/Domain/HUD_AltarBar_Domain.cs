@@ -2,13 +2,14 @@ using UnityEngine;
 
 public static class HUD_AltarBar_Domain {
 
-    public static void Open(UIContext ctx, float duration,Vector2 pos) {
+    public static void Open(UIContext ctx, float duration, Vector2 pos, int id) {
         var hud = ctx.uIRepo.TryGet<HUD_AltarBar>();
         if (hud == null) {
             ctx.asset.TryGet_UI_Prefab(typeof(HUD_AltarBar).Name, out var prefab);
             hud = GameObject.Instantiate(prefab, ctx.hudCanvas).GetComponent<HUD_AltarBar>();
-            hud.Ctor(duration);
+            hud.Ctor(duration, id);
             hud.SetPos(pos);
+            hud.OnAltarTimeisEndHandle = (int id) => { ctx.eventCenter.AltarTimeIsEnd(id); };
             ctx.uIRepo.Add(typeof(HUD_AltarBar).Name, hud.gameObject);
         }
     }

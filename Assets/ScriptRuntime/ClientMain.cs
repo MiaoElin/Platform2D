@@ -71,6 +71,17 @@ public class ClientMain : MonoBehaviour {
             Time.timeScale = 1;
             GameBusiness_Normal.EnterStage(ctx);
         };
+
+        // AltarBar
+        eventCenter.OnAltarTimeIsEndHandle = (int id) => {
+            // 将prop设置为AltarBarFull
+            ctx.propRepo.TryGet(id, out var prop);
+            prop.isAltarBarFull = true;
+            // 打开进入下一关的提示UI
+            Debug.Log("IN");
+            UIDomain.HUD_Hints_Open(ctx, prop.GetTypeAddID(), prop.Pos(), 0);
+            UIDomain.HUD_Hints_ShowHIntIcon(ctx, prop.GetTypeAddID());
+        };
     }
 
     private void LoadAll() {

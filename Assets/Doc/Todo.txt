@@ -34,7 +34,6 @@ Panel_PlayerStatus
 
 === 学习 ===
 - 给Sprite加外发光效果
-- BakeScene 做滚动效果
 
 === Loot ===
 
@@ -53,6 +52,7 @@ Panel_PlayerStatus
 
 
 === Owner ===
+- Ladder 检查一下，pos的位置变了。可能要改
 - 落地伤害
 - 翻滚可无敌，躲避伤害 
 - 攻速？？是什么

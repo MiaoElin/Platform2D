@@ -15,7 +15,7 @@ public class PropEntity : MonoBehaviour {
     GameObject mod;
     public Transform setHintsPoint;
     public SpriteRenderer sr;
-    public Vector2 srBaseSize;
+    // public Vector2 srBaseSize;
     public Vector2 size;
     public Vector2 moveDir;
 
@@ -25,6 +25,9 @@ public class PropEntity : MonoBehaviour {
 
     // 梯子
     public bool isLadder;
+
+    // 
+    public bool isAltarBarFull;
 
     internal ulong GetTypeAddID() {
         return (ulong)((int)entityType << 8 | id);

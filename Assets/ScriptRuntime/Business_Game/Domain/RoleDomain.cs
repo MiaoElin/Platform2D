@@ -123,7 +123,7 @@ public static class RoleDomain {
             if (!prop) {
                 return;
             }
-            if (prop.isAltar) {
+            if (prop.isAltar && !prop.isAltarBarFull) {
                 UIDomain.HUD_Hints_Hide(ctx, prop.GetTypeAddID());
             }
             if (prop.isHurtFire) {
@@ -143,7 +143,7 @@ public static class RoleDomain {
             if (prop.isHurtFire) {
                 prop.fsm.EnterHurt();
             }
-            if (prop.isAltar) {
+            if (prop.isAltar && !prop.isAltarBarFull) {
                 UIDomain.HUD_Hints_ShowHIntIcon(ctx, prop.GetTypeAddID());
             }
             if (prop.isTrampoline) {
@@ -168,9 +168,9 @@ public static class RoleDomain {
         }
         if (ctx.input.isInteractKeyDown) {
             ctx.input.isInteractKeyDown = false;
-            if (prop.isAltar) {
+            if (prop.isAltar && !prop.isAltarBarFull) {
                 // 启动祭坛计时
-                UIDomain.HUD_AltarBar_Open(ctx, prop.altarDuration, prop.setHintsPoint.position);
+                UIDomain.HUD_AltarBar_Open(ctx, prop.altarDuration, prop.setHintsPoint.position, prop.id);
                 UIDomain.HUD_Hints_Close(ctx, prop.GetTypeAddID());
                 UIDomain.Panel_PlayerStatus_EnterBoss(ctx);
                 // boos 出场
@@ -757,7 +757,6 @@ public static class RoleDomain {
 
             // 限制x的范围
             if (pos.x > lowPos.x && pos.x < hightPos.x) {
-                Debug.Log(pos.y + " " + hightPos.y + " " + highestY);
                 // 往上爬的Y范围
                 if (pos.y + head_Center_Offset > lowPos.y && pos.y < hightPos.y) {
                     if (moveAxis.y > 0) {

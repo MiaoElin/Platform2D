@@ -23,7 +23,7 @@ MonoBehaviour:
   fadeOutTimer: 0
   isLadder: 0
   isAltar: 1
-  altarDuration: 60
+  altarDuration: 10
   isTrampoline: 0
   anim_Normal: []
   isHurtFire: 0

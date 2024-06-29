@@ -43,8 +43,8 @@ public static class UIDomain {
         ctx.uIApp.HUD_HurtInfo_Tick(dt);
     }
 
-    public static void HUD_AltarBar_Open(GameContext ctx, float duration, Vector2 pos) {
-        ctx.uIApp.HUD_AltarBar_Open(duration, pos);
+    public static void HUD_AltarBar_Open(GameContext ctx, float duration, Vector2 pos, int id) {
+        ctx.uIApp.HUD_AltarBar_Open(duration, pos, id);
     }
 
     public static void HUD_AltarBar_Tick(GameContext ctx, float dt) {
