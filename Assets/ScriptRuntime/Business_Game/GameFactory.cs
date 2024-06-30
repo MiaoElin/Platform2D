@@ -78,6 +78,7 @@ public static class GameFactory {
         map.yCount = tm.yCount;
 
         map.ownerEnterPos = tm.ownerEnterPos;
+
         return map;
     }
 

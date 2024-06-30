@@ -21,6 +21,8 @@ public class MapEntity : MonoBehaviour {
     public int yCount;
 
     public Vector2 ownerEnterPos;
+
+    public PolygonCollider2D cameraPolygonCollider;
     // public GridComponent gridCom;
 
     public void Ctor(int stageID, Grid grid, int xCount, int yCount) {
@@ -38,6 +40,8 @@ public class MapEntity : MonoBehaviour {
                 }
             }
         }
+
+        this.cameraPolygonCollider = grid.GetComponentInChildren<PolygonCollider2D>();
     }
 
 

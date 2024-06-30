@@ -238,3 +238,4 @@ MonoBehaviour:
   bgm: {fileID: 0}
   bgmVolume: 0.1
   ownerEnterPos: {x: 0, y: 15}
+  cameraPolygonCollider: {fileID: 5689700846423733030, guid: 6824c558bf4eca1489953ed650b13c86, type: 3}

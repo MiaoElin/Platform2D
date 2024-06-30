@@ -78,7 +78,7 @@ public static class GameBusiness_Normal {
     }
     static void FixedTick(GameContext ctx, float dt) {
         var owner = ctx.GetOwner();
-        ctx.backScene.SetPos(owner.Pos());
+        ctx.backScene.SetPos(ctx.camera.Pos());
 
         // role logic
         ctx.roleRepo.Foreach(role => {

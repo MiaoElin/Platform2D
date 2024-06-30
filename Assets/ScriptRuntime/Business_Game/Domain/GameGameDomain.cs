@@ -34,6 +34,7 @@ public static class GameGameDomain {
         // Camera
         ctx.camera.SetFollow(owner.transform);
         ctx.camera.SetLookAt(owner.transform);
+        ctx.camera.SetConfiner(map.cameraPolygonCollider);
 
         // UI
         UIDomain.Panel_PlayerStatus_Open(ctx);

@@ -8,14 +8,15 @@ using UnityEditor;
 public class ClientMain : MonoBehaviour {
     [SerializeField] Canvas screenCanvas;
     [SerializeField] Canvas hudCanvas;
-    [SerializeField] CinemachineVirtualCamera mainCamera;
+    [SerializeField] CinemachineVirtualCamera cmCamera;
+    [SerializeField] Camera mainCamera;
     GameContext ctx = new GameContext();
     bool isTearDown;
 
     // Start is called before the first frame update
     void Start() {
 
-        ctx.Inject(mainCamera, screenCanvas, hudCanvas);
+        ctx.Inject(cmCamera, mainCamera, screenCanvas, hudCanvas);
 
         LoadAll();
 

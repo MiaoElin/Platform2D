@@ -59,9 +59,9 @@ public class GameContext {
         eventCenter = new EventCenter();
     }
 
-    public void Inject(CinemachineVirtualCamera camera, Canvas screenCanvas, Canvas hudCanvas) {
+    public void Inject(CinemachineVirtualCamera cmCamera, Camera camera, Canvas screenCanvas, Canvas hudCanvas) {
         vfxGroup = new GameObject("VFXGroup").transform;
-        this.camera.Inject(camera);
+        this.camera.Inject(cmCamera, camera);
         this.uIApp.Inject(asset, screenCanvas, hudCanvas, eventCenter);
     }
 
