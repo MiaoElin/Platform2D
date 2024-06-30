@@ -237,3 +237,4 @@ MonoBehaviour:
     isBossWave: 1
   bgm: {fileID: 0}
   bgmVolume: 0.1
+  ownerEnterPos: {x: 0, y: 15}

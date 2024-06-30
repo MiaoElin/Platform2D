@@ -7,7 +7,7 @@ public static class MapDomain {
         ctx.mapRepo.Add(map);
         GFPathFinding.xCount = map.xCount;
         GFPathFinding.yCount = map.yCount;
-    
+
         var propSpawnerTMs = map.propSpawnerTMs;
         {
             foreach (var tm in propSpawnerTMs) {
@@ -36,8 +36,9 @@ public static class MapDomain {
     }
 
     public static void Unspawn(GameContext ctx) {
-        ctx.mapRepo.Remove(ctx.GetCurrentMap());
-        GameObject.Destroy(ctx.GetCurrentMap());
+        var map = ctx.GetCurrentMap();
+        ctx.mapRepo.Remove(map);
+        GameObject.Destroy(map.gameObject);
     }
 
     public static void WaveTick(GameContext ctx, int stageID, float dt) {

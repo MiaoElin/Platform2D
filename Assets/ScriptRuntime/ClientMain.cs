@@ -45,7 +45,7 @@ public class ClientMain : MonoBehaviour {
 
         // Login
         eventCenter.OnStartGameHandle = () => {
-            GameBusiness_Normal.EnterStage(ctx);
+            GameGameDomain.EnterStage(ctx, 1);
             UIDomain.Panel_Login_Hide(ctx);
         };
 
@@ -69,7 +69,7 @@ public class ClientMain : MonoBehaviour {
             UIDomain.Panel_Result_Close(ctx);
             // 重新enterStage（）
             Time.timeScale = 1;
-            GameBusiness_Normal.EnterStage(ctx);
+            GameGameDomain.EnterStage(ctx, ctx.currentStageID);
         };
 
         // AltarBar
@@ -78,7 +78,6 @@ public class ClientMain : MonoBehaviour {
             ctx.propRepo.TryGet(id, out var prop);
             prop.isAltarBarFull = true;
             // 打开进入下一关的提示UI
-            Debug.Log("IN");
             UIDomain.HUD_Hints_Open(ctx, prop.GetTypeAddID(), prop.Pos(), 0);
             UIDomain.HUD_Hints_ShowHIntIcon(ctx, prop.GetTypeAddID());
         };
@@ -119,6 +118,8 @@ public class ClientMain : MonoBehaviour {
             GameBusiness_Login.Tick(ctx);
         } else if (status == GameStatus.Normal) {
             GameBusiness_Normal.Tick(ctx, dt);
+        } else if (status == GameStatus.EnterNextStage) {
+            GameBusiness_EnterNextStage.Tick(ctx);
         }
 
     }

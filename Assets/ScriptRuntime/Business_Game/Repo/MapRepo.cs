@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class MapRepo {
 
-    Dictionary<int, MapEntity> all;
+    public Dictionary<int, MapEntity> all;
 
     public MapRepo() {
         all = new Dictionary<int, MapEntity>();

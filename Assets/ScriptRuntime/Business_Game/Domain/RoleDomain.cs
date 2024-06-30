@@ -175,6 +175,9 @@ public static class RoleDomain {
                 UIDomain.Panel_PlayerStatus_EnterBoss(ctx);
                 // boos 出场
                 ctx.player.isEnterBossTime = true;
+            } else if (prop.isAltarBarFull) {
+                // 进入下一关
+                ctx.game.fsm.EnterNextStage();
             }
         }
 

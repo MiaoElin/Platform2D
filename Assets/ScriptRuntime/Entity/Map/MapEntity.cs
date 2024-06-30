@@ -19,6 +19,8 @@ public class MapEntity : MonoBehaviour {
 
     public int xCount;
     public int yCount;
+
+    public Vector2 ownerEnterPos;
     // public GridComponent gridCom;
 
     public void Ctor(int stageID, Grid grid, int xCount, int yCount) {

@@ -4,4 +4,5 @@ public enum GameStatus {
     Login,
     Normal,
     Pause,
+    EnterNextStage,
 }

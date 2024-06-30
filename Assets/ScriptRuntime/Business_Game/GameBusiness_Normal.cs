@@ -3,11 +3,11 @@ using UnityEngine;
 
 public static class GameBusiness_Normal {
 
-    public static void EnterStage(GameContext ctx) {
+    public static void EnterStage(GameContext ctx, int stageID) {
 
         // Map
-        var map = MapDomain.Spawn(ctx, 1);
-        ctx.currentStageID = 1;
+        var map = MapDomain.Spawn(ctx, stageID);
+        ctx.currentStageID = stageID;
 
         // BackScene
         var backScene = GameFactory.BackScene_Create(ctx);
@@ -15,9 +15,13 @@ public static class GameBusiness_Normal {
         ctx.backScene = backScene;
 
         // Owner
-        var owner = RoleDomain.Spawn(ctx, 10, new Vector2(0, 15f), Vector3.zero, Ally.Player, null);
-        owner.isOwner = true;
-        ctx.ownerID = owner.id;
+        var owner = ctx.GetOwner();
+        if (owner == null) {
+            owner = RoleDomain.Spawn(ctx, 10, new Vector2(0, 15f), Vector3.zero, Ally.Player, null);
+            owner.isOwner = true;
+            ctx.ownerID = owner.id;
+        }
+
 
         // player
         ctx.player.coinCount = 500;
