@@ -22,6 +22,7 @@ public static class GameFactory {
         role.SetPos(pos);
         role.SetRotation(rotation);
         role.ally = ally;
+        role.isBoss = tm.isBoss;
         role.price = tm.price;
         role.hp = tm.hpMax;
         role.hpMax = tm.hpMax;

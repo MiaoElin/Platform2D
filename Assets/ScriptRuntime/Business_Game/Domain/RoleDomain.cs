@@ -176,8 +176,24 @@ public static class RoleDomain {
                 // boos 出场
                 ctx.player.isEnterBossTime = true;
             } else if (prop.isAltarBarFull) {
-                // 进入下一关
-                ctx.game.fsm.EnterNextStage();
+
+                var bossIsdead = true;
+                int roleLen = ctx.roleRepo.TakeAll(out var allrole);
+                for (int i = 0; i < roleLen; i++) {
+                    var role = allrole[i];
+                    if (!role.isBoss) {
+                        continue;
+                    }
+                    if (role.fsm.status != RoleStatus.Destroy) {
+                        bossIsdead = false;
+                        break;
+                    }
+                }
+                // 如果boss死亡了
+                if (bossIsdead) {
+                    // 进入下一关
+                    ctx.game.fsm.EnterNextStage();
+                }
             }
         }
 

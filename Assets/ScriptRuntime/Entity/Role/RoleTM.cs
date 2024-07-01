@@ -7,6 +7,7 @@ public class RoleTM : ScriptableObject {
 
     public int typeID;
     public bool isRobot;
+    public bool isBoss;
     public int price;
     public int hpMax;
     public int regenerationHpMax;

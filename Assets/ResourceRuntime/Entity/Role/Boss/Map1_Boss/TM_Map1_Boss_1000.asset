@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 1000
   isRobot: 0
+  isBoss: 1
   price: 500
   hpMax: 500
   regenerationHpMax: 0

@@ -9,6 +9,7 @@ public class RoleEntity : MonoBehaviour {
     public int typeID;
     public int price;
     public bool isOwner;
+    public bool isBoss;
 
     // ==== Attribute ====
     public int hp;
