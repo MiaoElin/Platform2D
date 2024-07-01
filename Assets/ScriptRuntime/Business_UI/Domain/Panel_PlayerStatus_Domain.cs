@@ -21,9 +21,9 @@ public static class Panel_PlayerStatus_Domain {
         panel?.gameObject.SetActive(false);
     }
 
-    public static void Update_Tick(UIContext ctx, int hpMax, int shield, int coinCount, int hp, BuffSlotComponent buffCom, float dt) {
+    public static void Update_Tick(UIContext ctx, int hpMax, int shield, int coinCount, int hp, BuffSlotComponent buffCom, float ownerPosX, float dt) {
         var panel = ctx.uIRepo.TryGet<Panel_PlayerStatus>();
-        panel?.Init(hpMax, shield, coinCount, hp, dt);
+        panel?.Init(hpMax, shield, coinCount, hp, dt, ownerPosX);
 
         buffCom.Foreach(buff => {
             if (buff.isPermanent) {

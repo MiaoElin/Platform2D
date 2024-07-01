@@ -86,8 +86,8 @@ public class UIApp {
         Panel_PlayerStatus_Domain.Hide(ctx);
     }
 
-    public void Panel_PlayerStatus_Update(int hpMax, int shield, int hp, int coinCount, BuffSlotComponent buffCom, float dt) {
-        Panel_PlayerStatus_Domain.Update_Tick(ctx, hpMax, shield, coinCount, hp, buffCom, dt);
+    public void Panel_PlayerStatus_Update(int hpMax, int shield, int hp, int coinCount, BuffSlotComponent buffCom, float ownerPosX, float dt) {
+        Panel_PlayerStatus_Domain.Update_Tick(ctx, hpMax, shield, coinCount, hp, buffCom, ownerPosX, dt);
     }
 
     internal void Panel_PlayerStatus_EnterBoss() {

@@ -1,6 +1,7 @@
-Loot Coin : 2
-loot other : 1
+Loot Coin : 11
+loot other : 10
 Role : 100
 Bullet : 100
-Map : 0 Map bg -2
-Prop : 1
+Map : 2 Map bg 0
+BakeScene : 0;
+Prop : 10

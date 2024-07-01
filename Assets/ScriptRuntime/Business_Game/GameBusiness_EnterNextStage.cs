@@ -6,6 +6,7 @@ public static class GameBusiness_EnterNextStage {
         var fsm = ctx.game.fsm;
         if (fsm.isEnterNextStage) {
             fsm.isEnterNextStage = false;
+
             // 销毁场景所有东西
             ctx.roleRepo.Foreach(role => {
                 if (role.ally == Ally.Player) {

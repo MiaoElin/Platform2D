@@ -77,7 +77,8 @@ public static class UIDomain {
 
     public static void Panel_PlayerStatus_Update(GameContext ctx, float dt) {
         var owner = ctx.GetOwner();
-        ctx.uIApp.Panel_PlayerStatus_Update(owner.hpMax, owner.GetallShield(), owner.hp, ctx.player.coinCount, owner.buffCom, dt);
+        var screenPos = Camera.main.WorldToScreenPoint(owner.Pos());
+        ctx.uIApp.Panel_PlayerStatus_Update(owner.hpMax, owner.GetallShield(), owner.hp, ctx.player.coinCount, owner.buffCom, screenPos.x, dt);
     }
 
     public static void Panel_SkillSlot_Open(GameContext ctx) {
