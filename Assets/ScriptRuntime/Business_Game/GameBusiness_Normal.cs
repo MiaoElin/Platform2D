@@ -72,7 +72,7 @@ public static class GameBusiness_Normal {
         MapDomain.WaveTick(ctx, 1, dt);
 
         if (ctx.backScene != null) {
-            ctx.backScene.Tick(ctx.input.moveAxis, dt);
+            ctx.backScene.Tick(owner.GetVelocity() / owner.moveSpeed, dt);
         }
 
     }

@@ -24,6 +24,8 @@ public class RoleEntity : MonoBehaviour {
     public bool hasTarget;
     public Vector2 targetPos;
 
+    public Vector2 lastPos;
+
     // buff Shield Dic
     Dictionary<int /*EntityID*/, int /*Shield*/> shieldDict; // 过程
 
@@ -111,6 +113,14 @@ public class RoleEntity : MonoBehaviour {
 
     public Vector2 Pos() {
         return transform.position;
+    }
+
+    public void SetLastPos(Vector2 lastPos) {
+        this.lastPos = lastPos;
+    }
+
+    public Vector2 LastPos() {
+        return lastPos;
     }
 
     public Vector2Int GetPos_Int() {
@@ -280,6 +290,10 @@ public class RoleEntity : MonoBehaviour {
         var velocity = rb.velocity;
         velocity.y = jumpForce;
         rb.velocity = velocity;
+    }
+
+    public Vector2 GetVelocity() {
+        return rb.velocity;
     }
 
     public float GetVelocityY() {

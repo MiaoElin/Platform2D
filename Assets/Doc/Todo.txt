@@ -13,8 +13,8 @@ Panel_PlayerStatus
 √ - 转跳下一关
 - 胜利页
 
-=== Camera === 
-- 限制相机范围
+=== Director ===
+- 学习导演系统
 
 === RoleFSM ===
 
