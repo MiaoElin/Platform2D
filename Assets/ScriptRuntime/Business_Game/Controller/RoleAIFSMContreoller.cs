@@ -63,7 +63,7 @@ public static class RoleAIFSMController {
         RoleDomain.Casting(ctx, role, dt);
         // Exit
         bool isInAttackRange = RoleDomain.AI_EnterAttakRange_Tick(ctx, role);
-        if (!isInAttackRange) {
+        if (!isInAttackRange && role.fsm.skillCastStage == SkillCastStage.EndCast) {
             role.fsm.EnterNormal();
         }
     }
