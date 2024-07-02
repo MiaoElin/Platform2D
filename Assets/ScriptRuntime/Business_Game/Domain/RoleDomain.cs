@@ -607,7 +607,7 @@ public static class RoleDomain {
                     // anim
 
                     // EnterSuffering
-                    owner.fsm.EnterSuffering(skill.stiffenSec);
+                    owner.fsm.EnterSuffering(skill.stiffenSec, owner.fsm.status);
                 }
             }
 

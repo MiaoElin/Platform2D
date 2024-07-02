@@ -6,6 +6,7 @@ public static class RoleFSMConTroller {
     public static void ApplyFsm(GameContext ctx, RoleEntity role, float dt) {
         var status = role.fsm.status;
         ApplyAny(ctx, role, dt);
+        Debug.Log(status);
         if (status == RoleStatus.Normal) {
             ApplyNormal(ctx, role, dt);
         } else if (status == RoleStatus.Ladder) {
@@ -75,7 +76,6 @@ public static class RoleFSMConTroller {
         }
 
         RoleDomain.Move_ByAxisY(ctx, role, ctx.input.moveAxis.y);
-
         // Exit
         if (role.Pos().y <= fsm.lowestY || role.Pos().y > fsm.highestY) {
             fsm.EnterNormal();
@@ -83,6 +83,7 @@ public static class RoleFSMConTroller {
         }
 
         if (ctx.input.isJumpKeyDown && !role.isStayInGround) {
+            Debug.Log("IN");
             ctx.input.isJumpKeyDown = false;
             fsm.EnterNormal();
             role.ColliderEnAble(true);

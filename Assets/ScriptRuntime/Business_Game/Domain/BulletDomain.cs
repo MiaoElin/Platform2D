@@ -74,7 +74,7 @@ public static class BulletDomain {
                     RoleDomain.Role_Hurt(ctx, role, damgage);
                     if (role.hp > 0) {
                         // EnterSuffering
-                        role.fsm.EnterSuffering(bullet.stiffenSec);
+                        role.fsm.EnterSuffering(bullet.stiffenSec, role.fsm.lastStatus);
                     }
                 }
             }

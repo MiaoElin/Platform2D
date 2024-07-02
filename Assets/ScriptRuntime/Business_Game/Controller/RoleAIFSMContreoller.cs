@@ -88,12 +88,12 @@ public static class RoleAIFSMController {
             role.ColliderEnAble(true);
         }
 
-        // Exit
-        bool isInAttackRange = RoleDomain.AI_EnterAttakRange_Tick(ctx, role);
-        if (isInAttackRange) {
-            role.fsm.EnterCasting();
-            role.ColliderEnAble(true);
-        }
+        // // Exit
+        // bool isInAttackRange = RoleDomain.AI_EnterAttakRange_Tick(ctx, role);
+        // if (isInAttackRange) {
+        //     role.fsm.EnterCasting();
+        //     role.ColliderEnAble(true);
+        // }
     }
 
     private static void ApllyDestroy(GameContext ctx, RoleEntity role) {

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class RoleFSMComponent {
@@ -32,6 +33,7 @@ public class RoleFSMComponent {
 
     // Suffering
     public bool isEnterSuffering;
+    public RoleStatus lastStatus;
     public float sufferingTimer;
     public AntiStiffenType antiStiffenType;
 
@@ -74,8 +76,12 @@ public class RoleFSMComponent {
         isEnterFlash = true;
     }
 
-    public void EnterSuffering(float sufferingSec) {
-        status = RoleStatus.Suffering;
+    public void EnterSuffering(float sufferingSec, RoleStatus currentStatus) {
+        // 不是Suffering状态才需要记录，如果记录成Suffering状态，那永远出不去Suffering了
+        if (currentStatus != RoleStatus.Suffering) {
+            this.lastStatus = currentStatus;
+        }
+        this.status = RoleStatus.Suffering;
         isEnterSuffering = true;
         if (antiStiffenType == AntiStiffenType.None) {
             sufferingTimer = sufferingSec;
@@ -89,5 +95,13 @@ public class RoleFSMComponent {
     public void EnterDestroy() {
         status = RoleStatus.Destroy;
         isEnterDestroy = true;
+    }
+
+    internal void EnterLastStatus() {
+        if (lastStatus == RoleStatus.Normal) {
+            EnterNormal();
+        } else if (lastStatus == RoleStatus.Ladder) {
+            // EnterLadder();
+        }
     }
 }
