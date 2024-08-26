@@ -117,7 +117,7 @@ public class LootEntity : MonoBehaviour {
     }
 
     internal ulong GetTypeAndID() {
-        return (ulong)((int)entityType << 8 | id);
+        return (ulong)((int)entityType << 32 | id);
     }
 
     public void SetVelocityZero() {

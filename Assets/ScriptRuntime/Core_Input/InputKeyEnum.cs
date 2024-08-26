@@ -5,5 +5,4 @@ public enum InputKeyEnum {
     SKill2,
     SKill3,
     Skill4,
-
 }

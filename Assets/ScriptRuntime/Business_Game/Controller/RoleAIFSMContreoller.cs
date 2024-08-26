@@ -94,6 +94,7 @@ public static class RoleAIFSMController {
         //     role.fsm.EnterCasting();
         //     role.ColliderEnAble(true);
         // }
+        // Owner受伤会进入Suffering，Suffering结束会回到normal状态，这时候Collider是Trigger状态 后面可改成回到上次的status
     }
 
     private static void ApllyDestroy(GameContext ctx, RoleEntity role) {

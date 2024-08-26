@@ -173,6 +173,8 @@ public static class RoleFSMConTroller {
         ref var timer = ref fsm.sufferingTimer;
         if (timer <= 0) {
             fsm.EnterNormal();
+            // Owner受伤会进入Suffering，Suffering结束会回到normal状态，这时候Collider可能是Trigger状态 后面可改成回到上次的status
+            // 或者改成ladder上受到攻击回到normal（这时候将owner的Collider打开）角色会falling 到地面
         } else {
             timer -= dt;
         }

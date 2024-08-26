@@ -30,7 +30,7 @@ public class PropEntity : MonoBehaviour {
     public bool isAltarBarFull;
 
     internal ulong GetTypeAddID() {
-        return (ulong)((int)entityType << 8 | id);
+        return (ulong)((int)entityType << 32 | id);
     }
 
     public bool isOwnerOnLadder;
