@@ -9,6 +9,7 @@ public class SoundCore {
     AsyncOperationHandle prefab_Ptr;
     public AudioSource bgmPlayer;
     public AudioSource ownerRun;
+    public AudioSource btnInteract;
     public AudioSource[] ownerSkillPlayers;
     public AudioSource[] lootPlayers;
     public AudioSource[] roleSkillPlayers;
@@ -31,6 +32,8 @@ public class SoundCore {
 
         bgmPlayer = GameObject.Instantiate(prefab, sfx);
         ownerRun = GameObject.Instantiate(prefab, sfx);
+        btnInteract = GameObject.Instantiate(prefab, sfx);
+
         for (int i = 0; i < ownerSkillPlayers.Length; i++) {
             ownerSkillPlayers[i] = GameObject.Instantiate(prefab, sfx);
         }
@@ -74,6 +77,14 @@ public class SoundCore {
             bgmPlayer.clip = clip;
             bgmPlayer.volume = volume;
             bgmPlayer.Play();
+        }
+    }
+
+    public void Btn_Interact(AudioClip clip, float volume) {
+        if (!btnInteract.isPlaying) {
+            btnInteract.clip = clip;
+            btnInteract.volume = volume;
+            btnInteract.Play();
         }
     }
 

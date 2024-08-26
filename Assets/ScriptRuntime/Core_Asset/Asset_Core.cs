@@ -32,6 +32,9 @@ public class AssetCore {
     Dictionary<int, BulletTM> bulletTMs;
     AsyncOperationHandle bulletPtr;
 
+    public ConfigTM configTM;
+    AsyncOperationHandle configTMPtr;
+
     public AssetCore() {
         entites = new Dictionary<string, GameObject>();
         uiPrefabs = new Dictionary<string, GameObject>();
@@ -116,6 +119,11 @@ public class AssetCore {
             foreach (var tm in list) {
                 bulletTMs.Add(tm.typeID, tm);
             }
+        }
+        {
+            var ptr = Addressables.LoadAssetAsync<ConfigTM>("TM_ConfigTM");
+            configTMPtr = ptr;
+            var configTM = ptr.WaitForCompletion();
         }
     }
 

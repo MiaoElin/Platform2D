@@ -12,6 +12,8 @@ public class Panel_Login : MonoBehaviour {
     public Action OnSettingClickHandle;
     public Action OnExitHandle;
 
+    public AudioClip clip;
+
     public void Ctor() {
         btn_Start.onClick.AddListener(() => {
             OnStarClickHandle.Invoke();
@@ -33,5 +35,5 @@ public class Panel_Login : MonoBehaviour {
     public void Show() {
         gameObject.SetActive(true);
     }
-    
+
 }

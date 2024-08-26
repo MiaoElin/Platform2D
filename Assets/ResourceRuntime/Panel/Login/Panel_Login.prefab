@@ -54,6 +54,7 @@ MonoBehaviour:
   btn_Start: {fileID: 307841546873479587}
   btn_Setting: {fileID: 1640666257021193143}
   btn_Exit: {fileID: 552619893606283508}
+  clip: {fileID: 8300000, guid: 7c46e57250e24f5478f45d88adb5ecca, type: 3}
 --- !u!1 &1633531266643938359
 GameObject:
   m_ObjectHideFlags: 0
