@@ -125,7 +125,6 @@ public static class RoleAIFSMController {
         // 销毁角色
         ref var timer = ref role.deathTimer;
         timer -= dt;
-        Debug.Log(timer);
         if (timer <= 0) {
             RoleDomain.Unspawn(ctx, role);
         }

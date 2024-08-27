@@ -82,7 +82,6 @@ public static class RoleFSMConTroller {
         }
 
         if (ctx.input.isJumpKeyDown && !role.isStayInGround) {
-            Debug.Log("IN");
             ctx.input.isJumpKeyDown = false;
             fsm.EnterNormal();
             role.ColliderEnAble(true);
@@ -168,7 +167,11 @@ public static class RoleFSMConTroller {
             RoleDomain.Owner_Move_Stop(ctx);
             // 可下落
             RoleDomain.Falling(role, dt);
+            // Anim
+            Debug.Log("hurt");
+            role.Anim_Hurt();
         }
+        role.Anim_SetSpeedZero();
         ref var timer = ref fsm.sufferingTimer;
         if (timer <= 0) {
             fsm.EnterNormal();

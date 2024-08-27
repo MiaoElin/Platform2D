@@ -70,6 +70,9 @@ public static class RoleDomain {
             if (role.hasTarget) {
                 var target = ctx.GetOwner().Pos();
                 isInAttackRange = PureFunction.IsInRange(target, role.Pos(), role.skillCom.GetCurrentSkill().attackRange);
+                if (role.aiType == AIType.Flyer) {
+                    Debug.Log("攻击范围："+role.skillCom.GetCurrentSkill().attackRange + " 在攻击范围内吗？" + isInAttackRange);
+                }
             }
         } else if (role.ally == Ally.Player) {
             isInAttackRange = FindNearlyEnemy(ctx, role, out var nearlyEnemy);

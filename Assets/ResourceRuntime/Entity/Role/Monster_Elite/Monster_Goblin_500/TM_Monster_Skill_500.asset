@@ -24,11 +24,11 @@ MonoBehaviour:
   addHpMax: 0
   isMelee: 1
   meleeDamageRate: 0.5
-  cdMax: 0.5
+  cdMax: 1
   preCastCDMax: 0.33
   castingMaintainSec: 0.33
   castingIntervalSec: 0.33
   endCastSec: 0
   castSfx: {fileID: 8300000, guid: ca5023294c351794295ce58654190753, type: 3}
   volume: 1
-  stiffenSec: 0
+  stiffenSec: 1
