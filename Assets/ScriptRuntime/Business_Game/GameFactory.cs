@@ -42,8 +42,11 @@ public static class GameFactory {
         // suffering
         role.fsm.antiStiffenType = tm.antiStiffenType;
 
+        // destroy
         role.die_Sfx = tm.die_Sfx;
         role.dieVolume = tm.dieVolume;
+        role.deathTimer = tm.deathTimer;
+
         var skillTMs = tm.sKillTMs;
         if (skillTMs.Length > 0) {
             for (int i = 0; i < skillTMs.Length; i++) {

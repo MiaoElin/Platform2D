@@ -31,4 +31,5 @@ public class RoleTM : ScriptableObject {
     public bool isDropLoot;
     public AudioClip die_Sfx;
     public float dieVolume;
+    public float deathTimer;
 }

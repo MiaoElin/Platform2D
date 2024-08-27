@@ -72,6 +72,7 @@ public class RoleEntity : MonoBehaviour {
     // dead
     public AudioClip die_Sfx;
     public float dieVolume;
+    public float deathTimer;
 
     public void Ctor(GameObject mod, List<Vector2Int> path) {
         fsm = new RoleFSMComponent();

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TM_Config
   m_EditorClassIdentifier: 
   sfx_btn_Interact: {fileID: 0}
-  sfx_btn_Interact_Voluem: 1
+  sfx_btn_Interact_Voluem: 0.5
   sfx_BGM_Login: {fileID: 8300000, guid: 0c72f3197b2fe3b44a5bf1a561e45b79, type: 3}
-  volume_Sfx_Login: 1
+  volume_Sfx_Login: 0.5

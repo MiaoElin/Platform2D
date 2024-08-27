@@ -30,4 +30,5 @@ MonoBehaviour:
   castingIntervalSec: 0.33
   endCastSec: 0
   castSfx: {fileID: 8300000, guid: ca5023294c351794295ce58654190753, type: 3}
-  volume: 0.5
+  volume: 1
+  stiffenSec: 0

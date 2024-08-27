@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 110
   isRobot: 0
+  isBoss: 0
   price: 30
   hpMax: 50
   regenerationHpMax: 0
@@ -31,5 +32,6 @@ MonoBehaviour:
   vfx_Flash: []
   antiStiffenType: 0
   isDropLoot: 0
-  die_Sfx: {fileID: 0}
-  dieVolume: 0
+  die_Sfx: {fileID: 8300000, guid: 09af34bd42eb1504cbf189ba70c5d8da, type: 3}
+  dieVolume: 0.2
+  deathTimer: 5

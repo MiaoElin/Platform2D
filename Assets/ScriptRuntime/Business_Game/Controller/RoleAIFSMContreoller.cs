@@ -11,7 +11,7 @@ public static class RoleAIFSMController {
         } else if (status == RoleStatus.Casting) {
             ApplyCasting(ctx, role, dt);
         } else if (status == RoleStatus.Destroy) {
-            ApllyDestroy(ctx, role);
+            ApllyDestroy(ctx, role, dt);
         } else if (status == RoleStatus.Ladder) {
             ApplyLadder(ctx, role);
         } else if (status == RoleStatus.Suffering) {
@@ -97,7 +97,7 @@ public static class RoleAIFSMController {
         // Owner受伤会进入Suffering，Suffering结束会回到normal状态，这时候Collider是Trigger状态 后面可改成回到上次的status
     }
 
-    private static void ApllyDestroy(GameContext ctx, RoleEntity role) {
+    private static void ApllyDestroy(GameContext ctx, RoleEntity role, float dt) {
         var fsm = role.fsm;
         if (fsm.isEnterDestroy) {
             fsm.isEnterDestroy = false;
@@ -110,8 +110,6 @@ public static class RoleAIFSMController {
 
             // 销毁UI
             UIDomain.HUD_HPBar_Close(ctx, role.id);
-            // 销毁角色
-            // RoleDomain.Unspawn(ctx, role);
 
             // Anim
             role.Anim_Die();
@@ -122,6 +120,14 @@ public static class RoleAIFSMController {
 
             // Sfx
             SFXDomain.RoleDeadPlay(ctx, role.die_Sfx, role.dieVolume);
+
+        }
+        // 销毁角色
+        ref var timer = ref role.deathTimer;
+        timer -= dt;
+        Debug.Log(timer);
+        if (timer <= 0) {
+            RoleDomain.Unspawn(ctx, role);
         }
     }
 
