@@ -123,7 +123,7 @@ public class AssetCore {
         {
             var ptr = Addressables.LoadAssetAsync<ConfigTM>("TM_ConfigTM");
             configTMPtr = ptr;
-            var configTM = ptr.WaitForCompletion();
+            configTM = ptr.WaitForCompletion();
         }
     }
 

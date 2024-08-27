@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 64da9874480cd2749a5400b2d497df43
   m_currentHash:
     serializedVersion: 2
-    Hash: 2928d8be53a4a600753acb248ac5c362
+    Hash: 2a6f9b994071191c79760e878eb6e3eb
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
     - TM_Skill
     - TM_Bullet
     - AudioSource
+    - TM_ConfigTM
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 2d6330aa1832e5c4f9a4d011160cd342, type: 2}

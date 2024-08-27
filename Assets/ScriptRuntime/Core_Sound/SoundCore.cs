@@ -80,7 +80,11 @@ public class SoundCore {
         }
     }
 
-    public void Btn_Interact(AudioClip clip, float volume) {
+    public void BGM_Stop() {
+        bgmPlayer.Stop();
+    }
+
+    public void Btn_Interact_Play(AudioClip clip, float volume) {
         if (!btnInteract.isPlaying) {
             btnInteract.clip = clip;
             btnInteract.volume = volume;

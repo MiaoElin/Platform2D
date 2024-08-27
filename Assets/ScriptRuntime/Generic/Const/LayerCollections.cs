@@ -3,4 +3,5 @@ public static class LayerConst {
     public const int GROUND = 3;
     public const int TRAMPOLINE = 6;
     public const int LADDER = 7;
+    public const int BTN =9;
 }

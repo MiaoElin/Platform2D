@@ -383,6 +383,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Map
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df5ea0d30a3a38542b80e33e7bb7ceea
+    m_Address: Assets/ResourceRuntime/Common/TM_Config.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_ConfigTM
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:

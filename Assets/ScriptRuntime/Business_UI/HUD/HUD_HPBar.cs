@@ -14,7 +14,6 @@ public class HUD_HPBar : MonoBehaviour {
     public void Update_Tick(int hp, Vector2 pos) {
         float rate = (float)hp / hpMax;
         img_Hpbar.fillAmount = rate;
-
         transform.position = pos;
     }
 }

@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cb38adaed7dda244bb6ece6a12c2be9, type: 3}
   m_Name: TM_Config
   m_EditorClassIdentifier: 
-  btn_Interact: {fileID: 0}
+  sfx_btn_Interact: {fileID: 0}
+  sfx_btn_Interact_Voluem: 1
+  sfx_BGM_Login: {fileID: 8300000, guid: 0c72f3197b2fe3b44a5bf1a561e45b79, type: 3}
+  volume_Sfx_Login: 1
