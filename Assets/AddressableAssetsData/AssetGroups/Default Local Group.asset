@@ -419,6 +419,30 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Role
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 627c74b548db36a4ab9c23fc7fa4c11b
+    m_Address: Assets/ResourceRuntime/Entity/Role/Monster_Common/Common_111/TM_Monster_111.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Role
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da32266a9cdfcfc4f932f344dd478735
+    m_Address: Assets/ResourceRuntime/Entity/Role/Monster_Common/Common_111/TM_Monster_Skill_111.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb313b228a8a74e4ca9b8774227a67a0
+    m_Address: Assets/ResourceRuntime/Entity/Role/Boss/Map2_Boss/TM_Monster_Skill_2000.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5bbfbb5b871909a48b69fc6f883f330e
+    m_Address: Assets/ResourceRuntime/Entity/Role/Boss/Map2_Boss/TM_Map1_Boss_2000.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Role
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:

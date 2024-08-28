@@ -40,8 +40,10 @@ public static class GameGameDomain {
         UIDomain.Panel_SkillSlot_Open(ctx);
 
         ctx.game.fsm.EnterNormal();
-        // ctx.soundCore.BGM_Stop();
-        // SFXDomain.BGM_Play(ctx);
+
+        // BGM
+        ctx.soundCore.BGM_Stop();
+        SFXDomain.BGM_Play(ctx);
     }
 
     public static void ExitGame(GameContext ctx) {
