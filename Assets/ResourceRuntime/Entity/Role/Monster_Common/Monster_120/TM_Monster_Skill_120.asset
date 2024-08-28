@@ -29,3 +29,6 @@ MonoBehaviour:
   castingMaintainSec: 0.167
   castingIntervalSec: 0.167
   endCastSec: 0.2
+  castSfx: {fileID: 0}
+  volume: 0
+  stiffenSec: 0.5

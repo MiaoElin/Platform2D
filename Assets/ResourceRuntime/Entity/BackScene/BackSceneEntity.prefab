@@ -397,7 +397,7 @@ MonoBehaviour:
   mesh_Front: {fileID: 7005107931378952270}
   moveSpeed_BG: 0
   moveSpeed_Mid: 0.01
-  moveSpeed_Front: 0.02
+  moveSpeed_Front: 0.03
 --- !u!1 &8828994741452036143
 GameObject:
   m_ObjectHideFlags: 0

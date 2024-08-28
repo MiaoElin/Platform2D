@@ -60,7 +60,7 @@ MonoBehaviour:
     sizeScale: {x: 0, y: 0}
     jumpForce: 0
     ally: 0
-  - pos: {x: 39.32, y: 3.37}
+  - pos: {x: 100.75, y: -18.7}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     propTypeID: 110
@@ -101,18 +101,18 @@ MonoBehaviour:
     path:
     - {x: 26, y: 1}
     isPermanent: 1
-    cd: 2.518557
+    cd: 0
     cdMax: 10
     searchRange: 20
     isBossWave: 0
   - roleTypeID: 500
-    pos: {x: 34.75, y: 0.97}
+    pos: {x: 97.3, y: -21}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     path:
-    - {x: 35, y: 1}
+    - {x: 97, y: -21}
     isPermanent: 1
-    cd: 0.020614095
+    cd: 0
     cdMax: 10
     searchRange: 20
     isBossWave: 1
@@ -134,7 +134,7 @@ MonoBehaviour:
     path:
     - {x: -21, y: 27}
     isPermanent: 1
-    cd: -0.0010158715
+    cd: 0
     cdMax: 15
     searchRange: 30
     isBossWave: 0
@@ -145,18 +145,18 @@ MonoBehaviour:
     path:
     - {x: -23, y: 25}
     isPermanent: 1
-    cd: -0.004339174
+    cd: 0
     cdMax: 15
     searchRange: 30
     isBossWave: 0
   - roleTypeID: 120
-    pos: {x: 38.58, y: 1.07}
+    pos: {x: 94.36, y: -21}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     path:
-    - {x: 39, y: 1}
+    - {x: 94, y: -21}
     isPermanent: 1
-    cd: 0.020614095
+    cd: 0
     cdMax: 10
     searchRange: 20
     isBossWave: 1
