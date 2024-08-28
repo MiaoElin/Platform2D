@@ -2,6 +2,8 @@
 Panel_PlayerStatus
 
 === Bug ===
+- Owner 爬梯穿墙掉落
+
 
 === 学习 ===
 - 给Sprite加外发光效果

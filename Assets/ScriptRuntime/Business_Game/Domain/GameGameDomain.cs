@@ -15,7 +15,7 @@ public static class GameGameDomain {
         // Owner
         var owner = ctx.GetOwner();
         if (owner == null) {
-            owner = RoleDomain.Spawn(ctx, 10, map.ownerEnterPos, Vector3.zero, Ally.Player, null);
+            owner = RoleDomain.Spawn(ctx, 10, map.ownerEnterPos, new Vector3(0, 50, 0), Ally.Player, null);
             owner.isOwner = true;
             ctx.ownerID = owner.id;
         } else {

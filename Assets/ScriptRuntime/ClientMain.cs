@@ -46,7 +46,7 @@ public class ClientMain : MonoBehaviour {
 
         // Login
         eventCenter.OnStartGameHandle = () => {
-            GameGameDomain.EnterStage(ctx, 2);
+            GameGameDomain.EnterStage(ctx, 1);
             UIDomain.Panel_Login_Hide(ctx);
         };
 
