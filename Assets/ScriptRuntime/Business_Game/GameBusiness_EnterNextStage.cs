@@ -18,24 +18,28 @@ public static class GameBusiness_EnterNextStage {
                 RoleDomain.Unspawn(ctx, role);
             });
 
+            // 子弹
             ctx.bulletRepo.Foreach(bullet => {
                 BulletDomain.UnSpawn(ctx, bullet);
             });
 
+            // prop
             ctx.propRepo.Foreach(prop => {
                 UIDomain.HUD_Hints_Close(ctx, prop.GetTypeAddID());
                 UIDomain.HUD_AltarBar_Close(ctx);
                 PropDomain.UnSpawn(ctx, prop);
             });
 
+            // 物品 
             ctx.lootRepo.Foreach(loot => {
                 UIDomain.HUD_Hints_Close(ctx, loot.GetTypeAndID());
                 LootDomain.UnSpawn(ctx, loot);
             });
 
+            // 地图
             MapDomain.Unspawn(ctx);
-            GameObject.Destroy(ctx.backScene.gameObject);
 
+            // 进入下一关
             ctx.currentStageID += 1;
             GameGameDomain.EnterStage(ctx, ctx.currentStageID);
         }
