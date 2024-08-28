@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 110
   skillName: MonsterSkill
-  attackRange: 15
+  attackRange: 18
   isCastBullet: 0
   bulletTypeID: 0
   isCastProp: 1
@@ -30,5 +30,5 @@ MonoBehaviour:
   castingIntervalSec: 0.416
   endCastSec: 0
   castSfx: {fileID: 8300000, guid: d09adf9d056bdec408b70f864ea0f2d7, type: 3}
-  volume: 0.8
+  volume: 0.5
   stiffenSec: 0

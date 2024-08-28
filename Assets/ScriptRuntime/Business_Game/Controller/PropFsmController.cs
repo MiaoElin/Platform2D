@@ -96,6 +96,17 @@ public static class PropFsmController {
                 RoleDomain.Role_Hurt(ctx, owner, damage);
             }
         }
+        // Thron
+        if (prop.isThron) {
+            Debug.Log("Enter Thron");
+            ref var timer = ref prop.thronTimer;
+            timer -= dt;
+            if (timer <= 0) {
+                timer = prop.thronDuration;
+                int damage = (int)(prop.thronDamageRate * CommonConst.BASEDAMAGE);
+                RoleDomain.Role_Hurt(ctx, owner, damage);
+            }
+        }
     }
 
 }

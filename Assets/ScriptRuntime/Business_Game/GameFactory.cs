@@ -133,7 +133,12 @@ public static class GameFactory {
         prop.hurtFireDamageRate = tm.hurtFireDamageRate;
         prop.hurtFireDuration = tm.hurtFireDuration;
         prop.hurtFireTimer = 0;
-
+        // Thron
+        prop.isThron=tm.isThron;
+        prop.thronDamageRate=tm.thronDamageRate;
+        prop.thronDuration=tm.thronDuration;
+        prop.thronTimer=0;
+        
         prop.SetCollider(tm.colliderType, isModifySize, sizeScale);
         prop.gameObject.SetActive(true);
         return prop;

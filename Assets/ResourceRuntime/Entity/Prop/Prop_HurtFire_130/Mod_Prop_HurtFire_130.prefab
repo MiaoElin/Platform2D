@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7698094149368951120}
   - component: {fileID: 5731065680045994603}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Mod_Prop_HurtFire_130
   m_TagString: Prop
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 2211270969421777087}
   - component: {fileID: 118322824514684006}
   - component: {fileID: 2522797671202827759}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SR
   m_TagString: Untagged
   m_Icon: {fileID: 0}

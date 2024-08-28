@@ -1,4 +1,5 @@
 using UnityEngine;
+using TriInspector;
 
 [CreateAssetMenu(menuName = "TM/TM_Prop", fileName = "TM_Prop_")]
 public class PropTM : ScriptableObject {
@@ -14,23 +15,29 @@ public class PropTM : ScriptableObject {
     public bool hasAnim;
     public float fadeOutTimer;
 
-    // 梯子
+    public ColliderType colliderType;
+
+
+    [Title("Ladder")]
     public bool isLadder;
 
-    // 祭坛
+    [Title("Altar")]
     public bool isAltar;
     public float altarDuration;
 
-    // 反射板
+    [Title("Trampoline")]
     public bool isTrampoline;
     public Sprite[] anim_Normal;
 
-    // hurtFire
+    [Title("HurtFire")]
     public bool isHurtFire;
     public float hurtFireDamageRate;
     public float hurtFireDuration;
 
+    [Title("Thron")]
+    public bool isThron;
+    public float thronDamageRate;
+    public float thronDuration;
 
-    public ColliderType colliderType;
 
 }

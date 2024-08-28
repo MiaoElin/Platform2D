@@ -52,6 +52,13 @@ public class PropEntity : MonoBehaviour {
     public float hurtFireTimer;
     public float hurtFireDuration;
 
+    // Thron
+    public bool isThron;
+    public float thronDamageRate;
+    public float thronTimer;
+    public float thronDuration;
+
+
     public bool isTearDown;
 
     public bool isModifySize;

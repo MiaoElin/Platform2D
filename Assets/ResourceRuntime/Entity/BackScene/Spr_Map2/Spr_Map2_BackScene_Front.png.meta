@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fdf5e7a0393d94945b02acd93bb59ff5
+guid: 1afda9469bd5de449a4f76458fa93bc7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7341407202210888751
-    second: door_0
+      213: -4019193902509130449
+    second: parallax-mountain-trees_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: door_0
+      name: parallax-mountain-trees_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 37
+        width: 544
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1d3c9b8cb051e1a90800000000000000
-      internalID: -7341407202210888751
+      spriteID: f2df685b074f838c0800000000000000
+      internalID: -4019193902509130449
       vertices: []
       indices: 
       edges: []
@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      parallax-mountain-trees_0: -4019193902509130449
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

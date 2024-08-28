@@ -16,3 +16,6 @@ MonoBehaviour:
   sfx_btn_Interact_Voluem: 0.5
   sfx_BGM_Login: {fileID: 8300000, guid: 0c72f3197b2fe3b44a5bf1a561e45b79, type: 3}
   volume_Sfx_Login: 0.5
+  backSceneBG: {fileID: 21300000, guid: 61561bef67a588545b435469b3f409ff, type: 3}
+  backSceneMid: {fileID: 21300000, guid: c9013a58698639249aebb98857472ffb, type: 3}
+  backSceneFront: {fileID: 21300000, guid: 2dcefa129c64b08418a7a18941834dba, type: 3}

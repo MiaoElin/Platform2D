@@ -9,9 +9,8 @@ public static class GameGameDomain {
         ctx.currentStageID = stageID;
 
         // BackScene
-        var backScene = GameFactory.BackScene_Create(ctx);
+        var backScene = ctx.backScene;
         backScene.Ctor(map.backSceneBG, map.backSceneMid, map.backSceneFront);
-        ctx.backScene = backScene;
 
         // Owner
         var owner = ctx.GetOwner();

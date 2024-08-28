@@ -16,9 +16,9 @@ MonoBehaviour:
   grid: {fileID: 6925383676416164374, guid: 4fb906b01fe30e54c8b8d1376fee43f0, type: 3}
   xCount: 270
   yCount: 168
-  backSceneBG: {fileID: 21300000, guid: 8433cd8d0fa4d254bb4a638939880444, type: 3}
-  backSceneMid: {fileID: 21300000, guid: 788d435b5a6405146aecbe790a6d6d3a, type: 3}
-  backSceneFront: {fileID: 21300000, guid: 3a39124408a29314fb5d808a0a1565ab, type: 3}
+  backSceneBG: {fileID: 21300000, guid: 8bfb02e16c066b24e904dac5e922209d, type: 3}
+  backSceneMid: {fileID: 21300000, guid: 61b0755236999514ab6e3f96587331aa, type: 3}
+  backSceneFront: {fileID: 21300000, guid: 1afda9469bd5de449a4f76458fa93bc7, type: 3}
   propSpawnerTMs:
   - pos: {x: 0, y: -4.15}
     rotation: {x: -0, y: 0, z: 0}
@@ -26,6 +26,38 @@ MonoBehaviour:
     propTypeID: 101
     isModifySize: 1
     sizeScale: {x: 0.44, y: 10.17}
+    jumpForce: 0
+    ally: 0
+  - pos: {x: 38.6, y: -19.66}
+    rotation: {x: -0, y: 0, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
+    propTypeID: 101
+    isModifySize: 1
+    sizeScale: {x: 0.44, y: 15}
+    jumpForce: 0
+    ally: 0
+  - pos: {x: 11, y: -12.49}
+    rotation: {x: -0, y: 0, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
+    propTypeID: 140
+    isModifySize: 0
+    sizeScale: {x: 0, y: 0}
+    jumpForce: 0
+    ally: 0
+  - pos: {x: 33, y: -27.45}
+    rotation: {x: -0, y: 0, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
+    propTypeID: 140
+    isModifySize: 0
+    sizeScale: {x: 0, y: 0}
+    jumpForce: 0
+    ally: 0
+  - pos: {x: 43, y: -27.45}
+    rotation: {x: -0, y: 0, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
+    propTypeID: 140
+    isModifySize: 0
+    sizeScale: {x: 0, y: 0}
     jumpForce: 0
     ally: 0
   - pos: {x: 39.32, y: 3.37}
@@ -69,7 +101,7 @@ MonoBehaviour:
     path:
     - {x: 26, y: 1}
     isPermanent: 1
-    cd: 0
+    cd: 2.518557
     cdMax: 10
     searchRange: 20
     isBossWave: 0
@@ -80,7 +112,7 @@ MonoBehaviour:
     path:
     - {x: 35, y: 1}
     isPermanent: 1
-    cd: 0
+    cd: 0.020614095
     cdMax: 10
     searchRange: 20
     isBossWave: 1
@@ -93,7 +125,7 @@ MonoBehaviour:
     isPermanent: 1
     cd: 0
     cdMax: 10
-    searchRange: 15
+    searchRange: 18
     isBossWave: 0
   - roleTypeID: 100
     pos: {x: -21.2, y: 26.78}
@@ -102,7 +134,7 @@ MonoBehaviour:
     path:
     - {x: -21, y: 27}
     isPermanent: 1
-    cd: 0
+    cd: -0.0010158715
     cdMax: 15
     searchRange: 30
     isBossWave: 0
@@ -113,7 +145,7 @@ MonoBehaviour:
     path:
     - {x: -23, y: 25}
     isPermanent: 1
-    cd: 0
+    cd: -0.004339174
     cdMax: 15
     searchRange: 30
     isBossWave: 0
@@ -124,7 +156,7 @@ MonoBehaviour:
     path:
     - {x: 39, y: 1}
     isPermanent: 1
-    cd: 0
+    cd: 0.020614095
     cdMax: 10
     searchRange: 20
     isBossWave: 1

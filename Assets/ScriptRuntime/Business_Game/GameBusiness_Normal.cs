@@ -3,41 +3,6 @@ using UnityEngine;
 
 public static class GameBusiness_Normal {
 
-    public static void EnterStage(GameContext ctx, int stageID) {
-
-        // Map
-        var map = MapDomain.Spawn(ctx, stageID);
-        ctx.currentStageID = stageID;
-
-        // BackScene
-        var backScene = GameFactory.BackScene_Create(ctx);
-        backScene.Ctor(map.backSceneBG, map.backSceneMid, map.backSceneFront);
-        ctx.backScene = backScene;
-
-        // Owner
-        var owner = ctx.GetOwner();
-        if (owner == null) {
-            owner = RoleDomain.Spawn(ctx, 10, new Vector2(0, 15f), Vector3.zero, Ally.Player, null);
-            owner.isOwner = true;
-            ctx.ownerID = owner.id;
-        }
-
-
-        // player
-        ctx.player.coinCount = 500;
-
-        // Camera
-        ctx.camera.SetFollow(owner.transform);
-        ctx.camera.SetLookAt(owner.transform);
-
-        // UI
-        UIDomain.Panel_PlayerStatus_Open(ctx);
-        UIDomain.Panel_SkillSlot_Open(ctx);
-
-        ctx.game.fsm.EnterNormal();
-        SFXDomain.BGM_Play(ctx);
-    }
-
     public static void Tick(GameContext ctx, float dt) {
         PreTick(ctx, dt);
 

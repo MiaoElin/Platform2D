@@ -389,6 +389,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_ConfigTM
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3cc1bf9775737742b17ac2c40c93067
+    m_Address: Assets/ResourceRuntime/Entity/Prop/Prop_Thorn_140/TM_Prop_Thorn_140.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Prop
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:

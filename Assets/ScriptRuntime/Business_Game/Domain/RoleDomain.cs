@@ -70,9 +70,9 @@ public static class RoleDomain {
             if (role.hasTarget) {
                 var target = ctx.GetOwner().Pos();
                 isInAttackRange = PureFunction.IsInRange(target, role.Pos(), role.skillCom.GetCurrentSkill().attackRange);
-                if (role.aiType == AIType.Flyer) {
-                    Debug.Log("攻击范围："+role.skillCom.GetCurrentSkill().attackRange + " 在攻击范围内吗？" + isInAttackRange);
-                }
+                // if (role.aiType == AIType.Flyer) {
+                //     Debug.Log("攻击范围："+role.skillCom.GetCurrentSkill().attackRange + " 在攻击范围内吗？" + isInAttackRange);
+                // }
             }
         } else if (role.ally == Ally.Player) {
             isInAttackRange = FindNearlyEnemy(ctx, role, out var nearlyEnemy);
@@ -129,7 +129,7 @@ public static class RoleDomain {
             if (prop.isAltar && !prop.isAltarBarFull) {
                 UIDomain.HUD_Hints_Hide(ctx, prop.GetTypeAddID());
             }
-            if (prop.isHurtFire) {
+            if (prop.isHurtFire || prop.isThron) {
                 prop.fsm.EnterNormal();
             }
         }
@@ -143,7 +143,7 @@ public static class RoleDomain {
             }
         } else if (other.tag == "Prop") {
             var prop = other.GetComponentInParent<PropEntity>();
-            if (prop.isHurtFire) {
+            if (prop.isHurtFire || prop.isThron) {
                 prop.fsm.EnterHurt();
             }
             if (prop.isAltar && !prop.isAltarBarFull) {
@@ -194,8 +194,12 @@ public static class RoleDomain {
                 }
                 // 如果boss死亡了
                 if (bossIsdead) {
-                    // 进入下一关
-                    ctx.game.fsm.EnterNextStage();
+                    if (ctx.currentStageID >= 2) {
+                        Debug.Log("胜利啦");
+                    } else {
+                        // 进入下一关
+                        ctx.game.fsm.EnterNextStage();
+                    }
                 }
             }
         }

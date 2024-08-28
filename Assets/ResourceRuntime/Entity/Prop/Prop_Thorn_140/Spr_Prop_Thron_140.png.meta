@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fdf5e7a0393d94945b02acd93bb59ff5
+guid: dd0c21b5505c43f4c8d3f43dd22af734
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7341407202210888751
-    second: door_0
+      213: -508103942265308061
+    second: Spr_Prop_Thron_140_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: door_0
+      name: Spr_Prop_Thron_140_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 37
+        width: 64
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1d3c9b8cb051e1a90800000000000000
-      internalID: -7341407202210888751
+      spriteID: 36cfc44182ad2f8f0800000000000000
+      internalID: -508103942265308061
       vertices: []
       indices: 
       edges: []

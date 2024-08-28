@@ -5,6 +5,12 @@ public static class GameBusiness_Login {
     public static void Enter(GameContext ctx) {
         UIDomain.Panel_Login_Open(ctx);
         ctx.game.fsm.EnterLogin();
+
+        // BackScene
+        ConfigTM configTM = ctx.asset.configTM;
+        var backScene = GameFactory.BackScene_Create(ctx);
+        backScene.Ctor(configTM.backSceneBG, configTM.backSceneMid, configTM.backSceneFront);
+        ctx.backScene = backScene;
     }
 
     public static void Tick(GameContext ctx) {

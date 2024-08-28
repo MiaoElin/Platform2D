@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fdf5e7a0393d94945b02acd93bb59ff5
+guid: 232f4f82b396412458e0c54d1084e4c2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7341407202210888751
-    second: door_0
+      213: 1718109302827518710
+    second: parallax-mountain-bg_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: door_0
+      name: parallax-mountain-bg_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 37
+        width: 272
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1d3c9b8cb051e1a90800000000000000
-      internalID: -7341407202210888751
+      spriteID: 6fa0458de43f7d710800000000000000
+      internalID: 1718109302827518710
       vertices: []
       indices: 
       edges: []
