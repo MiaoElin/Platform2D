@@ -168,7 +168,6 @@ public static class RoleFSMConTroller {
             // 可下落
             RoleDomain.Falling(role, dt);
             // Anim
-            Debug.Log("hurt");
             role.Anim_Hurt();
         }
         role.Anim_SetSpeedZero();

@@ -53,7 +53,11 @@ public static class RoleDomain {
     }
 
     internal static void AI_Move_Stop(GameContext ctx, RoleEntity role) {
-        role.Move_AxisX_Stop();
+        if (role.aiType == AIType.Flyer) {
+            role.Move_Stop();
+        } else {
+            role.Move_AxisX_Stop();
+        }
         var dir = (ctx.GetOwner().Pos() - role.Pos()).normalized;
         role.SetForward(dir.x);
         role.Anim_SetSpeedZero();
@@ -68,11 +72,8 @@ public static class RoleDomain {
         bool isInAttackRange = false;
         if (role.ally == Ally.Monster) {
             if (role.hasTarget) {
-                var target = ctx.GetOwner().Pos();
+                Vector2 target = ctx.GetOwner().Pos();
                 isInAttackRange = PureFunction.IsInRange(target, role.Pos(), role.skillCom.GetCurrentSkill().attackRange);
-                // if (role.aiType == AIType.Flyer) {
-                //     Debug.Log("攻击范围："+role.skillCom.GetCurrentSkill().attackRange + " 在攻击范围内吗？" + isInAttackRange);
-                // }
             }
         } else if (role.ally == Ally.Player) {
             isInAttackRange = FindNearlyEnemy(ctx, role, out var nearlyEnemy);

@@ -98,7 +98,6 @@ public static class PropFsmController {
         }
         // Thron
         if (prop.isThron) {
-            Debug.Log("Enter Thron");
             ref var timer = ref prop.thronTimer;
             timer -= dt;
             if (timer <= 0) {
