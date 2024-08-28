@@ -44,6 +44,14 @@ MonoBehaviour:
     sizeScale: {x: 0, y: 0}
     jumpForce: 0
     ally: 0
+  - pos: {x: 12, y: 1.5}
+    rotation: {x: -0, y: 0, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
+    propTypeID: 140
+    isModifySize: 0
+    sizeScale: {x: 0, y: 0}
+    jumpForce: 0
+    ally: 0
   - pos: {x: 33, y: -27.45}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
@@ -94,12 +102,12 @@ MonoBehaviour:
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
   roleSpawnerTMs:
-  - roleTypeID: 500
-    pos: {x: 26.07, y: 0.97}
+  - roleTypeID: 501
+    pos: {x: 22.6, y: 0.97}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     path:
-    - {x: 26, y: 1}
+    - {x: 97, y: -21}
     isPermanent: 1
     cd: 0
     cdMax: 10
@@ -127,7 +135,7 @@ MonoBehaviour:
     cdMax: 10
     searchRange: 18
     isBossWave: 0
-  - roleTypeID: 100
+  - roleTypeID: 101
     pos: {x: -21.2, y: 26.78}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
@@ -138,7 +146,7 @@ MonoBehaviour:
     cdMax: 15
     searchRange: 30
     isBossWave: 0
-  - roleTypeID: 100
+  - roleTypeID: 101
     pos: {x: -23.46, y: 24.7}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}

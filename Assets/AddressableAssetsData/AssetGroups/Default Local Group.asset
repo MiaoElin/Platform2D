@@ -395,6 +395,30 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Prop
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 64c8f76dce2af874e9919edf16542af9
+    m_Address: Assets/ResourceRuntime/Entity/Role/Monster_Elite/Monster_Elite_501/TM_Monster_501.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Role
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e0c33024cb26dd469cee0e1d354f2c6
+    m_Address: Assets/ResourceRuntime/Entity/Role/Monster_Elite/Monster_Elite_501/TM_Monster_Skill_501.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a9317cc84f4651488af096237a4a0f4
+    m_Address: Assets/ResourceRuntime/Entity/Role/Monster_Flyer/Flyer_101/TM_Monster_Skill_101.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e40ad7d3fa06cfc45ba6c48087e917f9
+    m_Address: Assets/ResourceRuntime/Entity/Role/Monster_Flyer/Flyer_101/TM_Monster_101.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Role
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:
