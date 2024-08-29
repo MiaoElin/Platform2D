@@ -31,7 +31,7 @@ public class Panel_PlayerStatus : MonoBehaviour {
     public void Ctor() {
         elements = new Dictionary<int, Panel_PlayerElement>();
         time = 0;
-        duration = 10;
+        duration = 60;
     }
 
     public void Init(int hpMax, int shield, int count, int hp, float dt, Vector2 ownerPos) {

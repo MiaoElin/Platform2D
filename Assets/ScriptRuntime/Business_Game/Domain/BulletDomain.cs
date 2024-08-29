@@ -33,6 +33,8 @@ public static class BulletDomain {
                         return;
                     }
                     bullet.MoveByTarget(targetRole.Pos());
+                } else {
+                    bullet.Move(bullet.moveDir, dt);
                 }
             } else if (bullet.ally == Ally.Monster) {
                 bullet.MoveByTarget(ctx.GetOwner().Pos());
