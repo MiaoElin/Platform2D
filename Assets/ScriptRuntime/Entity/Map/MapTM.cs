@@ -19,5 +19,6 @@ public class MapTM : ScriptableObject {
     public AudioClip bgm;
     public float bgmVolume;
     public Vector2 ownerEnterPos;
+    public float bossWaveDuration;
 
 }

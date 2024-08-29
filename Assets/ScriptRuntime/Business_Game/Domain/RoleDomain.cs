@@ -195,11 +195,13 @@ public static class RoleDomain {
                 }
                 // 如果boss死亡了
                 if (bossIsdead) {
-                    if (ctx.currentStageID >= 2) {
-                        Debug.Log("胜利啦");
-                    } else {
-                        // 进入下一关
-                        ctx.game.fsm.EnterNextStage();
+                    if (!ctx.player.isEnterBossTime) {
+                        if (ctx.currentStageID >= 2) {
+                            Debug.Log("胜利啦");
+                        } else {
+                            // 进入下一关
+                            ctx.game.fsm.EnterNextStage();
+                        }
                     }
                 }
             }

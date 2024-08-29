@@ -388,6 +388,9 @@ public class RoleEntity : MonoBehaviour {
     }
 
     internal void Anim_Die() {
+        if(isBoss){
+            Debug.Log("Boss Die");
+        }
         anim.CrossFade("Die", 0);
     }
 

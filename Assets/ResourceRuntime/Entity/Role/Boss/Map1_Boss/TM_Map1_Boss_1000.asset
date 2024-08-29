@@ -34,4 +34,4 @@ MonoBehaviour:
   isDropLoot: 0
   die_Sfx: {fileID: 8300000, guid: b934d8cebdaee0941895954cfdbeff1f, type: 3}
   dieVolume: 0.5
-  deathTimer: 0
+  deathTimer: 5

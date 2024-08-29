@@ -111,8 +111,6 @@ public static class RoleAIFSMController {
             // 销毁UI
             UIDomain.HUD_HPBar_Close(ctx, role.id);
 
-            // Anim
-            role.Anim_Die();
 
             // 停止移动
             role.Move_Stop();  // 要改，会飞的怪 死亡要落地
@@ -122,6 +120,10 @@ public static class RoleAIFSMController {
             SFXDomain.RoleDeadPlay(ctx, role.die_Sfx, role.dieVolume);
 
         }
+
+        // Anim
+        role.Anim_Die();
+        
         // 销毁角色
         ref var timer = ref role.deathTimer;
         timer -= dt;

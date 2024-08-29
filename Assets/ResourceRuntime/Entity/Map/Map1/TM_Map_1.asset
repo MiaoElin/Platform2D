@@ -249,3 +249,4 @@ MonoBehaviour:
   bgm: {fileID: 8300000, guid: 0c72f3197b2fe3b44a5bf1a561e45b79, type: 3}
   bgmVolume: 0.5
   ownerEnterPos: {x: 0, y: 50}
+  bossWaveDuration: 20

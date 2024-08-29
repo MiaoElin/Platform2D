@@ -21,6 +21,7 @@ public class MapEntity : MonoBehaviour {
     public int yCount;
 
     public Vector2 ownerEnterPos;
+    public float bossWaveDuration;
 
     public PolygonCollider2D cameraPolygonCollider;
     // public GridComponent gridCom;

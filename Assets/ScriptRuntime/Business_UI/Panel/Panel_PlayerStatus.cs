@@ -34,10 +34,11 @@ public class Panel_PlayerStatus : MonoBehaviour {
         duration = 60;
     }
 
-    public void Init(int hpMax, int shield, int count, int hp, float dt, Vector2 ownerPos) {
+    public void Init(int hpMax, int shield, int count, int hp, float dt, Vector2 ownerPos, float duration) {
         // Hpbar
         this.hpMax = hpMax;
         this.shield = shield;
+        this.duration = duration;
         InitHPBar(hp, shield);
         txt_hpRate.text = $"{hp + shield}/{hpMax + shield}";
         // Coin
@@ -48,7 +49,7 @@ public class Panel_PlayerStatus : MonoBehaviour {
             int txt_time = (int)time;
             txt_BossWavetimer.text = $"{txt_time}/{duration}";
             var pos = txt_BossWavetimer.transform.position;
-            txt_BossWavetimer.transform.position = new Vector3(ownerPos.x, ownerPos.y+45, pos.z);
+            txt_BossWavetimer.transform.position = new Vector3(ownerPos.x, ownerPos.y + 45, pos.z);
             if (time >= duration) {
                 time = 0;
                 OutBossWave();
