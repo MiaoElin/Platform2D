@@ -55,7 +55,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: monster_120_Walk_Walk
+  m_Name: monster_111_Walk_Walk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -224,7 +224,7 @@ AnimatorStateMachine:
     m_Position: {x: 360, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -9185399521036616290}
-    m_Position: {x: 620, y: 120, z: 0}
+    m_Position: {x: 630, y: 130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -317708136263862102}
     m_Position: {x: 510, y: 40, z: 0}
@@ -233,7 +233,7 @@ AnimatorStateMachine:
     m_Position: {x: 240, y: 30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8673743641396162372}
-    m_Position: {x: 550, y: -30, z: 0}
+    m_Position: {x: 560, y: -30, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

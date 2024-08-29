@@ -97,6 +97,7 @@ public class RoleFSMComponent {
         isEnterDestroy = true;
     }
 
+    // 待完善
     internal void EnterLastStatus() {
         if (lastStatus == RoleStatus.Normal) {
             EnterNormal();

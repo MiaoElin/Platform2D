@@ -185,7 +185,7 @@ MonoBehaviour:
     - {x: 10, y: 10}
     - {x: -11, y: 10}
     isPermanent: 1
-    cd: 37.059113
+    cd: 0
     cdMax: 40
     searchRange: 18
     isBossWave: 0
@@ -196,7 +196,7 @@ MonoBehaviour:
     path:
     - {x: -17, y: 24}
     isPermanent: 1
-    cd: 37.059113
+    cd: 0
     cdMax: 40
     searchRange: 20
     isBossWave: 0

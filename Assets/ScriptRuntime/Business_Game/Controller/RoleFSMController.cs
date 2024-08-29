@@ -36,6 +36,7 @@ public static class RoleFSMConTroller {
         if (fsm.isEnterNormal) {
             fsm.isEnterNormal = false;
             role.Anim_Idle();
+            role.ColliderEnAble(true);
         }
         // Execute
         RoleDomain.Onwer_Move_ByAxiX(ctx, role);
