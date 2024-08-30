@@ -125,10 +125,10 @@ TextureImporter:
       name: crow_walk_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 15
-        width: 23
-        height: 30
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,10 +146,10 @@ TextureImporter:
       name: crow_walk_1
       rect:
         serializedVersion: 2
-        x: 82
-        y: 15
-        width: 24
-        height: 31
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,10 +167,10 @@ TextureImporter:
       name: crow_walk_2
       rect:
         serializedVersion: 2
-        x: 147
-        y: 15
-        width: 23
-        height: 30
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,10 +188,10 @@ TextureImporter:
       name: crow_walk_3
       rect:
         serializedVersion: 2
-        x: 210
-        y: 15
-        width: 24
-        height: 31
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

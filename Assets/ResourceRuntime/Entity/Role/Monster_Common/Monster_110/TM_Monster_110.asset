@@ -16,12 +16,12 @@ MonoBehaviour:
   isRobot: 0
   isBoss: 0
   price: 30
-  hpMax: 50
+  hpMax: 100
   regenerationHpMax: 0
   regenerationDuration: 0
   moveSpeed: 5
   height: 3
-  searchRange: 18
+  searchRange: 20
   aiType: 1
   mod: {fileID: 6480961630456752770, guid: ef39503092d0c2a4b815ded6ea863a7f, type: 3}
   gravity: 0

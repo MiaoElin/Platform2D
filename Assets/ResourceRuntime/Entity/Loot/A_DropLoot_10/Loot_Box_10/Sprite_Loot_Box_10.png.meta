@@ -230,841 +230,841 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Chests_0
+      name: Sprite_Loot_Box_10_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 223
-        width: 30
-        height: 22
+        x: 0
+        y: 224
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a088ea04c83030ed0800000000000000
-      internalID: -2449109871443933174
+      spriteID: e9cedd32dd1672a4b8303c39e36804ae
+      internalID: -75515590
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_1
+      name: Sprite_Loot_Box_10_1
       rect:
         serializedVersion: 2
-        x: 49
-        y: 223
-        width: 30
-        height: 22
+        x: 48
+        y: 224
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: cf55fa22dc229e250800000000000000
-      internalID: 5974344645129229820
+      spriteID: 20f6b739cde4e574ea4b9898970bddc9
+      internalID: -972141735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_2
+      name: Sprite_Loot_Box_10_2
       rect:
         serializedVersion: 2
         x: 96
-        y: 223
-        width: 31
-        height: 21
+        y: 224
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2c61b8eb5720fe140800000000000000
-      internalID: 4751018836630378178
+      spriteID: 881e3b8ffb1cfaa44b88695bc41b4366
+      internalID: 1581979167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_3
+      name: Sprite_Loot_Box_10_3
       rect:
         serializedVersion: 2
         x: 144
-        y: 223
-        width: 31
-        height: 21
+        y: 224
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f834a57e7808db7c0800000000000000
-      internalID: -4053942768373185649
+      spriteID: db4ca91e586b629468558c4cde6c5a28
+      internalID: -767363185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_4
+      name: Sprite_Loot_Box_10_4
       rect:
         serializedVersion: 2
-        x: 193
-        y: 223
-        width: 30
-        height: 23
+        x: 192
+        y: 224
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a4ee26a6b5ade1ef0800000000000000
-      internalID: -135430852612788662
+      spriteID: adb1bee1a529bb4419c64085f89efa16
+      internalID: 139330538
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_5
+      name: Sprite_Loot_Box_10_5
       rect:
         serializedVersion: 2
-        x: 1
-        y: 191
-        width: 31
-        height: 23
+        x: 0
+        y: 192
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5d0805b5ade5df6e0800000000000000
-      internalID: -1802179983950446379
+      spriteID: 74e0bd808c1b37349b73841de1c8d9e0
+      internalID: 2010084136
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_6
+      name: Sprite_Loot_Box_10_6
       rect:
         serializedVersion: 2
-        x: 49
-        y: 191
-        width: 32
-        height: 25
+        x: 48
+        y: 192
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: eca4c30ea5243f0f0800000000000000
-      internalID: -1084450127189620018
+      spriteID: 4007e8d1f5e977a4ba80163ebc64ac3e
+      internalID: -1089663809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_7
-      rect:
-        serializedVersion: 2
-        x: 97
-        y: 191
-        width: 42
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b156559922a66a7c0800000000000000
-      internalID: -4060441317193980645
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chests_8
-      rect:
-        serializedVersion: 2
-        x: 145
-        y: 191
-        width: 41
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 868ea34ff092c82e0800000000000000
-      internalID: -2122276175899596696
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chests_9
-      rect:
-        serializedVersion: 2
-        x: 193
-        y: 191
-        width: 41
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7717497b18ebba840800000000000000
-      internalID: 5236488456088351095
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chests_10
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 159
-        width: 30
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8ddad11f835f39370800000000000000
-      internalID: 8328269760850406872
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chests_11
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 159
-        width: 30
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6529927f7e9642460800000000000000
-      internalID: 7216008947959435862
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chests_12
+      name: Sprite_Loot_Box_10_7
       rect:
         serializedVersion: 2
         x: 96
-        y: 159
-        width: 31
-        height: 21
+        y: 192
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4fbfcc3df33765a10800000000000000
-      internalID: 1897831010956803060
+      spriteID: 17708beae28b8024c929adff14002000
+      internalID: -1862034130
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_13
+      name: Sprite_Loot_Box_10_8
       rect:
         serializedVersion: 2
         x: 144
-        y: 159
-        width: 31
-        height: 21
+        y: 192
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7690fd64cf0010910800000000000000
-      internalID: 1801722409445689703
+      spriteID: b2ee9136efe87b94ca90183a59e6c3e9
+      internalID: -1924457624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_14
+      name: Sprite_Loot_Box_10_9
       rect:
         serializedVersion: 2
-        x: 193
-        y: 159
-        width: 30
-        height: 23
+        x: 192
+        y: 192
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 77e700e796efda7f0800000000000000
-      internalID: -599543446331425161
+      spriteID: 7741e5a105aa4eb4ebe1a8180c444f99
+      internalID: 1533678317
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_15
+      name: Sprite_Loot_Box_10_10
       rect:
         serializedVersion: 2
-        x: 1
-        y: 127
-        width: 31
-        height: 23
+        x: 0
+        y: 160
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: cc93055ea44894970800000000000000
-      internalID: 8739662009098844620
+      spriteID: 65ca5c46caa1cb843aef3d22d8181d3f
+      internalID: -205901608
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_16
+      name: Sprite_Loot_Box_10_11
       rect:
         serializedVersion: 2
-        x: 49
-        y: 127
-        width: 32
-        height: 25
+        x: 48
+        y: 160
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d100bd38690d99520800000000000000
-      internalID: 2709425995715903517
+      spriteID: d62c78bf8006748479dd39335abc1c33
+      internalID: 1790685943
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_17
-      rect:
-        serializedVersion: 2
-        x: 97
-        y: 127
-        width: 42
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d535fbb2cd1333d40800000000000000
-      internalID: 5562844786429219677
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chests_18
-      rect:
-        serializedVersion: 2
-        x: 145
-        y: 127
-        width: 41
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0be65df47de8d7550800000000000000
-      internalID: 6160236920721206960
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chests_19
-      rect:
-        serializedVersion: 2
-        x: 193
-        y: 127
-        width: 41
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c2b72e2d72342bb10800000000000000
-      internalID: 1995731423199394604
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chests_20
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 95
-        width: 30
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c35632bfda17f4560800000000000000
-      internalID: 7300178513047545148
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chests_21
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 95
-        width: 30
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cda60c9a3ae14c250800000000000000
-      internalID: 5963925494821841628
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chests_22
+      name: Sprite_Loot_Box_10_12
       rect:
         serializedVersion: 2
         x: 96
-        y: 95
-        width: 31
-        height: 21
+        y: 160
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0b38016e218b7c8e0800000000000000
-      internalID: -1673166345236085840
+      spriteID: 9f6ea3c5f0b8f304d814909851dd3d54
+      internalID: -1760214666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_23
+      name: Sprite_Loot_Box_10_13
       rect:
         serializedVersion: 2
         x: 144
-        y: 95
-        width: 31
-        height: 21
+        y: 160
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d19a5098471caabf0800000000000000
-      internalID: -312224517889611491
+      spriteID: 69a38fba85a96c04c8f1d1cdf470eadc
+      internalID: -459849003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_24
+      name: Sprite_Loot_Box_10_14
       rect:
         serializedVersion: 2
-        x: 193
-        y: 95
-        width: 30
-        height: 23
+        x: 192
+        y: 160
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5b62ba653f60e5220800000000000000
-      internalID: 2476424487301228213
+      spriteID: 022efb69f8b88f9438fdf2bc852fcb37
+      internalID: 1515597240
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_25
+      name: Sprite_Loot_Box_10_15
       rect:
         serializedVersion: 2
-        x: 1
-        y: 63
-        width: 31
-        height: 23
+        x: 0
+        y: 128
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5e98e2c4d5e93d3d0800000000000000
-      internalID: -3183026388073543195
+      spriteID: fc321805f0879b248a23837e4c92016b
+      internalID: -1097914016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_26
+      name: Sprite_Loot_Box_10_16
       rect:
         serializedVersion: 2
-        x: 49
-        y: 63
-        width: 32
-        height: 25
+        x: 48
+        y: 128
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 358a97748e53233b0800000000000000
-      internalID: -5534301720337078189
+      spriteID: e6ee8a1130302c94c8ba0885af315a49
+      internalID: 1797195651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_27
-      rect:
-        serializedVersion: 2
-        x: 97
-        y: 63
-        width: 42
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8de5f1a6c719c44e0800000000000000
-      internalID: -1996060571289559336
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chests_28
-      rect:
-        serializedVersion: 2
-        x: 145
-        y: 63
-        width: 41
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2a2fa97da41c87fa0800000000000000
-      internalID: -5802675592677887326
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chests_29
-      rect:
-        serializedVersion: 2
-        x: 193
-        y: 63
-        width: 41
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9c30fbd7261357a60800000000000000
-      internalID: 7671091839381734345
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chests_30
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 31
-        width: 30
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 86849ae49e299d270800000000000000
-      internalID: 8275807321014749288
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chests_31
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 31
-        width: 30
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 35ca4cc27ce79bff0800000000000000
-      internalID: -19845329431778221
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chests_32
+      name: Sprite_Loot_Box_10_17
       rect:
         serializedVersion: 2
         x: 96
-        y: 31
-        width: 31
-        height: 21
+        y: 128
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4697f7b529cf23620800000000000000
-      internalID: 2752540027807299940
+      spriteID: e60993f8a5e4e854db964f2597299862
+      internalID: 812434324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_33
+      name: Sprite_Loot_Box_10_18
       rect:
         serializedVersion: 2
         x: 144
-        y: 31
-        width: 31
-        height: 21
+        y: 128
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c3652d9f363bd9d70800000000000000
-      internalID: 9051588068059010620
+      spriteID: 6dc3b4d5d91521f49b84acc394e5a546
+      internalID: -514018161
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_34
+      name: Sprite_Loot_Box_10_19
       rect:
         serializedVersion: 2
-        x: 193
-        y: 31
-        width: 30
-        height: 23
+        x: 192
+        y: 128
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d68474b76818c9c70800000000000000
-      internalID: 8979194171663796333
+      spriteID: b1cdd2b50c6e29f41b97015b8722872d
+      internalID: -1809022142
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_35
+      name: Sprite_Loot_Box_10_20
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
+        y: 96
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d26444b8e982afe48bf698fd7d06632e
+      internalID: 150487648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Loot_Box_10_21
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 013949cac69c3b6448617db44f5df68b
+      internalID: 1964987036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Loot_Box_10_22
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b06eb92c37fa2c8489a1364e4c3dbc5c
+      internalID: 1267964160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Loot_Box_10_23
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 96
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c574f63978b32e42878cbf1e846a675
+      internalID: 1169141883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Loot_Box_10_24
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2787b15106a97d64b84f8ba8d8a871c3
+      internalID: -2068821480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Loot_Box_10_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 354ba6f6b9d7cdf46aa7b124f57d2f2d
+      internalID: 449467021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Loot_Box_10_26
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 64
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 095dd5bf331ecf4498fc1f365fbbfaf7
+      internalID: -961871549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Loot_Box_10_27
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ada74df1896705143a60e19f00a3f2a7
+      internalID: 946396589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Loot_Box_10_28
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 64
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c4a88a72c15a3146a4b2cd8716ecc1f
+      internalID: 1291063734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Loot_Box_10_29
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9271910e330ac6418aab7a6c44e8733
+      internalID: -1476431714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Loot_Box_10_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b9c90d4d3d905c4288d591c983a4cc2
+      internalID: 370714428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Loot_Box_10_31
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe857a4c74579a946b720ca5e8c27d95
+      internalID: 1720731444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Loot_Box_10_32
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aeaca569a338fb49b117a3ceea5cda2
+      internalID: 1811221529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Loot_Box_10_33
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 32
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a9d407ffc76bf64f95f8c11d3bc5109
+      internalID: 1436921341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Loot_Box_10_34
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c5e8de3d805cd94c826aac121a6c279
+      internalID: 1021438670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Loot_Box_10_35
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
-        width: 31
-        height: 22
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b1f0673073506f2b0800000000000000
-      internalID: -5551243756848148709
+      spriteID: c108d2bf19344c54783a6c30ad0abc37
+      internalID: -248803428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_36
+      name: Sprite_Loot_Box_10_36
       rect:
         serializedVersion: 2
-        x: 49
+        x: 48
         y: 0
-        width: 32
-        height: 24
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8854408ddd23f3400800000000000000
-      internalID: 306019228077802888
+      spriteID: 71fcc516c8632654987e49bf8cdee050
+      internalID: -753202302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_37
+      name: Sprite_Loot_Box_10_37
       rect:
         serializedVersion: 2
-        x: 97
+        x: 96
         y: 0
-        width: 42
-        height: 10
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d3847664aefa498e0800000000000000
-      internalID: -1687530539618711491
+      spriteID: e0d969738ba05b94d986dbffa6840438
+      internalID: -1062033467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_38
+      name: Sprite_Loot_Box_10_38
       rect:
         serializedVersion: 2
-        x: 145
+        x: 144
         y: 0
-        width: 41
-        height: 12
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 90292733cb16e14c0800000000000000
-      internalID: -4314903932029464055
+      spriteID: 784fa2bd753185e4db2f325c81b2abc9
+      internalID: 162551349
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_39
+      name: Sprite_Loot_Box_10_39
       rect:
         serializedVersion: 2
-        x: 193
+        x: 192
         y: 0
-        width: 41
-        height: 12
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ac4eda334b3b82910800000000000000
-      internalID: 1812896436559144138
+      spriteID: effcafc8d50560844b90e0b56de338f7
+      internalID: -1833118055
       vertices: []
       indices: 
       edges: []
@@ -1080,46 +1080,46 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Chests_0: -2449109871443933174
-      Chests_1: 5974344645129229820
-      Chests_10: 8328269760850406872
-      Chests_11: 7216008947959435862
-      Chests_12: 1897831010956803060
-      Chests_13: 1801722409445689703
-      Chests_14: -599543446331425161
-      Chests_15: 8739662009098844620
-      Chests_16: 2709425995715903517
-      Chests_17: 5562844786429219677
-      Chests_18: 6160236920721206960
-      Chests_19: 1995731423199394604
-      Chests_2: 4751018836630378178
-      Chests_20: 7300178513047545148
-      Chests_21: 5963925494821841628
-      Chests_22: -1673166345236085840
-      Chests_23: -312224517889611491
-      Chests_24: 2476424487301228213
-      Chests_25: -3183026388073543195
-      Chests_26: -5534301720337078189
-      Chests_27: -1996060571289559336
-      Chests_28: -5802675592677887326
-      Chests_29: 7671091839381734345
-      Chests_3: -4053942768373185649
-      Chests_30: 8275807321014749288
-      Chests_31: -19845329431778221
-      Chests_32: 2752540027807299940
-      Chests_33: 9051588068059010620
-      Chests_34: 8979194171663796333
-      Chests_35: -5551243756848148709
-      Chests_36: 306019228077802888
-      Chests_37: -1687530539618711491
-      Chests_38: -4314903932029464055
-      Chests_39: 1812896436559144138
-      Chests_4: -135430852612788662
-      Chests_5: -1802179983950446379
-      Chests_6: -1084450127189620018
-      Chests_7: -4060441317193980645
-      Chests_8: -2122276175899596696
-      Chests_9: 5236488456088351095
+      Sprite_Loot_Box_10_0: -75515590
+      Sprite_Loot_Box_10_1: -972141735
+      Sprite_Loot_Box_10_10: -205901608
+      Sprite_Loot_Box_10_11: 1790685943
+      Sprite_Loot_Box_10_12: -1760214666
+      Sprite_Loot_Box_10_13: -459849003
+      Sprite_Loot_Box_10_14: 1515597240
+      Sprite_Loot_Box_10_15: -1097914016
+      Sprite_Loot_Box_10_16: 1797195651
+      Sprite_Loot_Box_10_17: 812434324
+      Sprite_Loot_Box_10_18: -514018161
+      Sprite_Loot_Box_10_19: -1809022142
+      Sprite_Loot_Box_10_2: 1581979167
+      Sprite_Loot_Box_10_20: 150487648
+      Sprite_Loot_Box_10_21: 1964987036
+      Sprite_Loot_Box_10_22: 1267964160
+      Sprite_Loot_Box_10_23: 1169141883
+      Sprite_Loot_Box_10_24: -2068821480
+      Sprite_Loot_Box_10_25: 449467021
+      Sprite_Loot_Box_10_26: -961871549
+      Sprite_Loot_Box_10_27: 946396589
+      Sprite_Loot_Box_10_28: 1291063734
+      Sprite_Loot_Box_10_29: -1476431714
+      Sprite_Loot_Box_10_3: -767363185
+      Sprite_Loot_Box_10_30: 370714428
+      Sprite_Loot_Box_10_31: 1720731444
+      Sprite_Loot_Box_10_32: 1811221529
+      Sprite_Loot_Box_10_33: 1436921341
+      Sprite_Loot_Box_10_34: 1021438670
+      Sprite_Loot_Box_10_35: -248803428
+      Sprite_Loot_Box_10_36: -753202302
+      Sprite_Loot_Box_10_37: -1062033467
+      Sprite_Loot_Box_10_38: 162551349
+      Sprite_Loot_Box_10_39: -1833118055
+      Sprite_Loot_Box_10_4: 139330538
+      Sprite_Loot_Box_10_5: 2010084136
+      Sprite_Loot_Box_10_6: -1089663809
+      Sprite_Loot_Box_10_7: -1862034130
+      Sprite_Loot_Box_10_8: -1924457624
+      Sprite_Loot_Box_10_9: 1533678317
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

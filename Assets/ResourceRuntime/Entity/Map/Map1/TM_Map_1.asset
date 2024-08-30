@@ -102,7 +102,7 @@ MonoBehaviour:
     ally: 0
   lootSpawnerTMs:
   - lootTypeID: 10
-    pos: {x: 11.01, y: 24.560001}
+    pos: {x: 11.01, y: 24.66}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
   - lootTypeID: 10
@@ -110,15 +110,15 @@ MonoBehaviour:
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
   - lootTypeID: 10
-    pos: {x: 15.11, y: 24.560001}
+    pos: {x: 15.11, y: 24.66}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
   - lootTypeID: 10
-    pos: {x: 9.12, y: 24.560001}
+    pos: {x: 9.12, y: 24.66}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
   - lootTypeID: 10
-    pos: {x: -5.9, y: 24.560001}
+    pos: {x: -5.9, y: 24.66}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
   - lootTypeID: 10

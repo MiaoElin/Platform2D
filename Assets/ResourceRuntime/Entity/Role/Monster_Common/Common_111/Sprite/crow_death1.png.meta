@@ -128,10 +128,10 @@ TextureImporter:
       name: crow_death1_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 15
-        width: 22
-        height: 31
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,10 +149,10 @@ TextureImporter:
       name: crow_death1_1
       rect:
         serializedVersion: 2
-        x: 74
-        y: 15
-        width: 29
-        height: 25
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,10 +170,10 @@ TextureImporter:
       name: crow_death1_2
       rect:
         serializedVersion: 2
-        x: 133
-        y: 15
-        width: 33
-        height: 19
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,10 +191,10 @@ TextureImporter:
       name: crow_death1_3
       rect:
         serializedVersion: 2
-        x: 194
-        y: 15
-        width: 31
-        height: 15
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,10 +212,10 @@ TextureImporter:
       name: crow_death1_4
       rect:
         serializedVersion: 2
-        x: 258
-        y: 15
-        width: 31
-        height: 12
+        x: 256
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

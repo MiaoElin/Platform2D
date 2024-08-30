@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 110
   skillName: MonsterSkill
-  attackRange: 18
+  attackRange: 15
   isCastBullet: 0
   bulletTypeID: 0
   isCastProp: 1
@@ -25,7 +25,7 @@ MonoBehaviour:
   isMelee: 0
   meleeDamageRate: 0
   cdMax: 2
-  preCastCDMax: 0.16
+  preCastCDMax: 0
   castingMaintainSec: 0.416
   castingIntervalSec: 0.416
   endCastSec: 0
