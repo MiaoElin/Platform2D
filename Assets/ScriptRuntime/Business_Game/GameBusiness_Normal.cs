@@ -23,6 +23,12 @@ public static class GameBusiness_Normal {
     }
 
     static void PreTick(GameContext ctx, float dt) {
+
+        if (ctx.input.isPasueKeyDown) {
+            ctx.input.isPasueKeyDown = false;
+            ctx.game.fsm.EnterPause();
+        }
+
         var owner = ctx.GetOwner();
         owner.isJumpKeyDown = ctx.input.isJumpKeyDown;
         owner.moveAxis = ctx.input.moveAxis;

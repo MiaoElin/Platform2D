@@ -66,8 +66,11 @@ public class ClientMain : MonoBehaviour {
         eventCenter.OnRestartHandle = () => {
             // 销毁场景里所有的东西
             GameGameDomain.ExitGame(ctx);
+            // 关闭UI
             // 关闭结果页
             UIDomain.Panel_Result_Close(ctx);
+            // 关闭暂停页
+            UIDomain.Panel_Pause_Hide(ctx);
             // 重新enterStage（）
             Time.timeScale = 1;
             GameGameDomain.EnterStage(ctx, ctx.currentStageID);
@@ -121,6 +124,8 @@ public class ClientMain : MonoBehaviour {
             GameBusiness_Normal.Tick(ctx, dt);
         } else if (status == GameStatus.EnterNextStage) {
             GameBusiness_EnterNextStage.Tick(ctx);
+        } else if (status == GameStatus.Pause) {
+            GameBusiness_Pause.Tick(ctx, dt);
         }
 
     }

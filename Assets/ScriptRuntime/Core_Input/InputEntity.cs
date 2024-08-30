@@ -9,6 +9,8 @@ public class InputEntity {
     public bool isInteractKeyDown;
     public bool isFlashKeyDown;
 
+    public bool isPasueKeyDown;
+
     public List<InputKeyEnum> waitToCastSkills;
 
     public InputEntity() {
@@ -60,6 +62,9 @@ public class InputEntity {
         } else {
             RemoveSkillKey(InputKeyEnum.Skill4);
         }
+
+        // Pause
+        isPasueKeyDown = Input.GetKeyDown(KeyCode.Escape);
 
     }
 

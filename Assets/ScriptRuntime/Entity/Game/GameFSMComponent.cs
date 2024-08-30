@@ -10,6 +10,8 @@ public class GameFSMComponent {
 
     public bool isEnterNextStage;
 
+    public bool isEnterPause;
+
     public void EnterLogin() {
         status = GameStatus.Login;
         isEnterLogin = true;
@@ -23,5 +25,10 @@ public class GameFSMComponent {
     public void EnterNextStage() {
         status = GameStatus.EnterNextStage;
         isEnterNextStage = true;
+    }
+
+    public void EnterPause() {
+        status = GameStatus.Pause;
+        isEnterPause = true;
     }
 }

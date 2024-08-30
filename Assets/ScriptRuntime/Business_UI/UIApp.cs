@@ -114,4 +114,11 @@ public class UIApp {
         Panel_Result_Domain.Close(ctx);
     }
 
+    public void Panel_Pause_Open() {
+        Panel_Pause_Domain.Open(ctx);
+    }
+
+    public void Panel_Pause_Hide() {
+        Panel_Pause_Domain.Hide(ctx);
+    }
 }

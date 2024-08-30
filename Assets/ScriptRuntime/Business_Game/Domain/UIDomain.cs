@@ -122,4 +122,12 @@ public static class UIDomain {
         ctx.uIApp.Panel_Result_Close();
     }
 
+    public static void Panel_Pause_Open(GameContext ctx) {
+        ctx.uIApp.Panel_Pause_Open();
+    }
+
+    public static void Panel_Pause_Hide(GameContext ctx) {
+        ctx.uIApp.Panel_Pause_Hide();
+    }
+
 }
