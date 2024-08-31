@@ -8,7 +8,9 @@ public static class Panel_Pause_Domain {
         if (panel == null) {
             ctx.asset.TryGet_UI_Prefab(label, out var prefab);
             panel = GameObject.Instantiate(prefab, ctx.screenCanvas).GetComponent<Panel_Pause>();
-            panel.OnClickRestartHandle = () => { ctx.eventCenter.RestartGame();};
+            panel.OnClickRestartHandle = () => {
+                ctx.eventCenter.RestartGame();
+            };
             panel.OnClickExitHandle = () => { ctx.eventCenter.ExitGame(); };
             panel.Ctor();
             ctx.uIRepo.Add(label, panel.gameObject);

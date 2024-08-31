@@ -2,33 +2,39 @@ using UnityEngine;
 using System;
 
 public class EventCenter {
-    public Action OnStartGameHandle;
+    public event Action OnStartGameHandle;
     public void StartGame() {
         OnStartGameHandle.Invoke();
     }
 
-    public Action OnExitGameHandle;
+    public event Action OnExitGameHandle;
     public void ExitGame() {
         OnExitGameHandle.Invoke();
     }
 
-    public Action OnRestartHandle;
+    public event Action OnRestartHandle;
     public void RestartGame() {
         OnRestartHandle.Invoke();
     }
 
-    public Action OnBackToMenuHandle;
+    public event Action OnBackToMenuHandle;
     public void BackToMenu() {
         OnBackToMenuHandle.Invoke();
     }
 
-    public Action OnStopBossWaveHande;
+    public event Action OnNewGameHandle;
+
+    internal void NewGame() {
+        OnNewGameHandle.Invoke();
+    }
+
+    public event Action OnStopBossWaveHande;
 
     internal void StopBossWaveHandle() {
         OnStopBossWaveHande.Invoke();
     }
 
-    public Action<int> OnAltarTimeIsEndHandle;
+    public event Action<int> OnAltarTimeIsEndHandle;
     internal void AltarTimeIsEnd(int id) {
         OnAltarTimeIsEndHandle.Invoke(id);
     }

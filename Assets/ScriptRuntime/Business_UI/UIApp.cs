@@ -106,8 +106,8 @@ public class UIApp {
         Panel_SkillSlot_Domain.CD_Tick(ctx, skill1Time, skill2Time, skill3Time, skill4Time);
     }
 
-    public void Panel_Result_Open() {
-        Panel_Result_Domain.Open(ctx);
+    public void Panel_Result_Open(bool isWin) {
+        Panel_Result_Domain.Open(ctx, isWin);
     }
 
     public void Panel_Result_Close() {

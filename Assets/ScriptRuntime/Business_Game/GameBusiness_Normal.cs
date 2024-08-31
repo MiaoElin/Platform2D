@@ -35,7 +35,7 @@ public static class GameBusiness_Normal {
         if (owner.hp <= 0) {
             // todo 游戏失败
             Time.timeScale = 0;
-            UIDomain.Panel_Result_Open(ctx);
+            UIDomain.Panel_Result_Open(ctx, false);
             UIDomain.Panel_SkillSlot_Hide(ctx);
             UIDomain.Panel_PlayerStatus_Hide(ctx);
         }

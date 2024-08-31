@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 678269292013786079}
   - component: {fileID: 6476852723248143642}
   m_Layer: 0
-  m_Name: btn_Restart
+  m_Name: btn_NewGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: RESTART
+  m_Text: NEW GAME
 --- !u!1 &3492641578132628657
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 4414387310708793391}
   - component: {fileID: 7811264373769936290}
   m_Layer: 0
-  m_Name: btn_BackMenu
+  m_Name: btn_Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -447,8 +447,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e93b4dc1aec5db4c91d3bb6aa4479f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btn_Restart: {fileID: 6476852723248143642}
-  btn_BackMenu: {fileID: 7811264373769936290}
+  title: {fileID: 8265505871946557971}
+  btn_NewGame: {fileID: 6476852723248143642}
+  btn_Exit: {fileID: 7811264373769936290}
 --- !u!1 &4661314842052381255
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,7 +528,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MENU
+  m_Text: EXIT
 --- !u!1 &7589331955845337346
 GameObject:
   m_ObjectHideFlags: 0

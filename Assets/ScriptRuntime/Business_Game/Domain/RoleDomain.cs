@@ -197,7 +197,7 @@ public static class RoleDomain {
                 if (bossIsdead) {
                     if (!ctx.player.isEnterBossTime) {
                         if (ctx.currentStageID >= 2) {
-                            Debug.Log("胜利啦");
+                            UIDomain.Panel_Result_Open(ctx, true);
                         } else {
                             // 进入下一关
                             ctx.game.fsm.EnterNextStage();
