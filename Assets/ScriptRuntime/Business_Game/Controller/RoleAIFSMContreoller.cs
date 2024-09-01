@@ -16,6 +16,8 @@ public static class RoleAIFSMController {
             ApplyLadder(ctx, role);
         } else if (status == RoleStatus.Suffering) {
             ApllySuffering(ctx, role, dt);
+        } else if (status == RoleStatus.Trampoline) {
+            ApplyTrampoline(ctx, role, dt);
         }
     }
 
@@ -123,7 +125,7 @@ public static class RoleAIFSMController {
 
         // Anim
         role.Anim_Die();
-        
+
         // 销毁角色
         ref var timer = ref role.deathTimer;
         timer -= dt;
@@ -148,6 +150,19 @@ public static class RoleAIFSMController {
             fsm.EnterNormal();
         } else {
             timer -= dt;
+        }
+    }
+
+    private static void ApplyTrampoline(GameContext ctx, RoleEntity role, float dt) {
+        var fsm = role.fsm;
+        if (fsm.isEnterTrampoline) {
+            fsm.isEnterTrampoline = false;
+            role.isOnGround = false;
+        }
+        RoleDomain.AI_Move2(ctx, role, dt);
+        RoleDomain.Falling(role, dt);
+        if (role.isOnGround) {
+            fsm.EnterNormal();
         }
     }
 }

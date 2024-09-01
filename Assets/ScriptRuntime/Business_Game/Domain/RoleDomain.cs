@@ -8,15 +8,25 @@ public static class RoleDomain {
         var role = GameFactory.Role_Spawn(ctx, typeID, pos, rotation, ally, path);
         ctx.roleRepo.Add(role);
         role.OnTriggerEnterHandle = (Collider2D other) => {
-            On_Owner_TriggerEnterEvent(ctx, other);
+            if (role.isOwner) {
+                On_Owner_TriggerEnterEvent(ctx, other);
+            } else {
+                if (role.aiType == AIType.Elite) {
+                    On_Elite_TriggerEnterEvent(ctx, role, other);
+                }
+            }
         };
 
         role.OnTriggerStayHandle = (Collider2D other) => {
-            On_Owner_TriggerStayEvent(ctx, other);
+            if (role.isOwner) {
+                On_Owner_TriggerStayEvent(ctx, other);
+            }
         };
 
         role.OnTriggerExitHandle = (Collider2D other) => {
-            On_Owner_TriggerExitEvent(ctx, other);
+            if (role.isOwner) {
+                On_Owner_TriggerExitEvent(ctx, other);
+            }
         };
 
         role.fsm.EnterNormal();
@@ -132,6 +142,16 @@ public static class RoleDomain {
             }
             if (prop.isHurtFire || prop.isThron) {
                 prop.fsm.EnterNormal();
+            }
+        }
+    }
+
+    private static void On_Elite_TriggerEnterEvent(GameContext ctx, RoleEntity role, Collider2D other) {
+        if (other.tag == "Prop") {
+            var prop = other.GetComponentInParent<PropEntity>();
+            if (prop.isTrampoline) {
+                role.SetVelocityY(prop.jumpForce);
+                role.fsm.EnterTrampoline();
             }
         }
     }
@@ -379,6 +399,7 @@ public static class RoleDomain {
                 role.MoveByAxisX(dir.x);
                 role.SetForward(dir.x);
             } else {
+                Debug.Log("IIN");
                 // normal 往前走，走到有墙 或者 脚前方没有东西 往返方向
                 if (!isInGroundSide || isMeetWallShort) {
                     role.SetForward(-role.GetForWard().x);

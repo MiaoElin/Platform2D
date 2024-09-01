@@ -408,9 +408,7 @@ public class RoleEntity : MonoBehaviour {
         }
     }
     void OnTriggerEnter2D(Collider2D other) {
-        if (isOwner) {
-            OnTriggerEnterHandle.Invoke(other);
-        }
+        OnTriggerEnterHandle.Invoke(other);
     }
 
     void OnTriggerStay2D(Collider2D other) {
