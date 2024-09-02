@@ -9,11 +9,12 @@ public static class GameBusiness_Pause {
             UIDomain.Panel_Pause_Open(ctx);
         }
 
+
         if (ctx.input.isPasueKeyDown) {
             ctx.input.isPasueKeyDown = false;
-            fsm.EnterNormal();
             Time.timeScale = 1;
             UIDomain.Panel_Pause_Hide(ctx);
+            fsm.EnterNormal();
         }
     }
 }

@@ -91,6 +91,13 @@ public class ClientMain : MonoBehaviour {
             GameGameDomain.EnterStage(ctx, ctx.currentStageID);
         };
 
+        // ResumeGame
+        eventCenter.OnResumeGameHandle += () => {
+            Time.timeScale = 1;
+            UIDomain.Panel_Pause_Hide(ctx);
+            ctx.game.fsm.EnterNormal();
+        };
+
         // AltarBar
         eventCenter.OnAltarTimeIsEndHandle += (int id) => {
             // 将prop设置为AltarBarFull

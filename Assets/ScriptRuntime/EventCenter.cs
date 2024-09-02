@@ -28,6 +28,11 @@ public class EventCenter {
         OnNewGameHandle.Invoke();
     }
 
+    public event Action OnResumeGameHandle;
+    internal void ResumeGame() {
+        OnResumeGameHandle.Invoke();
+    }
+
     public event Action OnStopBossWaveHande;
 
     internal void StopBossWaveHandle() {

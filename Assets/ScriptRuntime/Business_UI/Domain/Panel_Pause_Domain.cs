@@ -11,6 +11,9 @@ public static class Panel_Pause_Domain {
             panel.OnClickRestartHandle = () => {
                 ctx.eventCenter.RestartGame();
             };
+            panel.OnClickResumeHandle = () => {
+                ctx.eventCenter.ResumeGame();
+            };
             panel.OnClickExitHandle = () => { ctx.eventCenter.ExitGame(); };
             panel.Ctor();
             ctx.uIRepo.Add(label, panel.gameObject);
