@@ -5,7 +5,7 @@ using System;
 public class Panel_Result : MonoBehaviour {
 
     [SerializeField] Text title;
-    [SerializeField] Button btn_NewGame;
+    [SerializeField] public Button btn_NewGame;
     [SerializeField] Button btn_Exit;
 
     public Action OnNewGameClickHandle;

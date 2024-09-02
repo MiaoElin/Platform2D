@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Panel_Pause : MonoBehaviour {
 
     [SerializeField] Button btn_Restart;
-    [SerializeField] Button btn_Resume;
+    [SerializeField] public Button btn_Resume;
     [SerializeField] Button btn_Exit;
 
     public Action OnClickRestartHandle;

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public static class Panel_Login_Domain {
     public static void Open(UIContext ctx) {
@@ -13,6 +14,7 @@ public static class Panel_Login_Domain {
             ctx.uIRepo.Add(name, panel.gameObject);
         }
         panel.Show();
+        EventSystem.current.SetSelectedGameObject(panel.btn_Start.gameObject);
     }
 
     public static void Hide(UIContext ctx) {

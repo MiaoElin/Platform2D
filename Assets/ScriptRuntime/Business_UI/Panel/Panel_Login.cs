@@ -4,7 +4,7 @@ using System;
 
 public class Panel_Login : MonoBehaviour {
 
-    [SerializeField] Button btn_Start;
+    [SerializeField] public Button btn_Start;
     [SerializeField] Button btn_Setting;
     [SerializeField] Button btn_Exit;
 

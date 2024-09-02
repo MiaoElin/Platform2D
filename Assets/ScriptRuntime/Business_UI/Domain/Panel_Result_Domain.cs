@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public static class Panel_Result_Domain {
 
@@ -14,6 +15,7 @@ public static class Panel_Result_Domain {
             ctx.uIRepo.Add(name, panel.gameObject);
         }
         panel.SetTitle(isWin);
+        EventSystem.current.SetSelectedGameObject(panel.btn_NewGame.gameObject);
     }
 
     public static void Close(UIContext ctx) {

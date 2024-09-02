@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public static class Panel_Pause_Domain {
 
@@ -19,6 +20,7 @@ public static class Panel_Pause_Domain {
             ctx.uIRepo.Add(label, panel.gameObject);
         }
         panel.gameObject.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(panel.btn_Resume.gameObject);
     }
 
     public static void Hide(UIContext ctx) {

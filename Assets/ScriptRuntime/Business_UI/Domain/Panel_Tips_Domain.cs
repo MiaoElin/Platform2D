@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public static class Panel_Tips_Domain {
 
@@ -11,6 +12,7 @@ public static class Panel_Tips_Domain {
             panel.Ctor();
         }
         panel.gameObject.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(panel.btn_Close.gameObject);
     }
-    
+
 }
