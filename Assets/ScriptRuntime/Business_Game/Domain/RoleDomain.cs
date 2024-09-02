@@ -486,6 +486,9 @@ public static class RoleDomain {
     }
 
     public static bool CheckFoot_Front(RoleEntity role) {
+        if (!role.isOnGround) {
+            return true;
+        }
         LayerMask map = 1 << 3;
         RaycastHit2D ray = Physics2D.Raycast(role.GetFoot_Front(), Vector2.down, 1f, map);
         if (ray) {
