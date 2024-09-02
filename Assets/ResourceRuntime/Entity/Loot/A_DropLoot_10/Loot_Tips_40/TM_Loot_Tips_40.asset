@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fdf773352e7c5459dbf0402daf21b2, type: 3}
+  m_Name: TM_Loot_Tips_40
+  m_EditorClassIdentifier: 
+  typeID: 40
+  price: 0
+  mod: {fileID: 1263152816738523673, guid: e14ad03bfb18b2d4c9691d51cc5a14fa, type: 3}
+  needHints: 1
+  isDropLoot: 0
+  easingInduration: 0
+  isGetCoin: 0
+  coinCount: 0
+  coinTypeID: 0
+  isTips: 1
+  isCoin: 0
+  moveSpeed: 0
+  gravity: 0
+  centrifugalForce: 0
+  isGetBuff: 0
+  buffTypeId: 0
+  isGetStuff: 0
+  isGetRole: 0
+  roleTypeID: 0
+  getLootClip: {fileID: 0}
+  volume: 0

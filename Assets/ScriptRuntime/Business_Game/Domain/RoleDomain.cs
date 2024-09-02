@@ -284,6 +284,10 @@ public static class RoleDomain {
 
                     loot.fsm.EnterUsed();
                     UIDomain.HUD_Hints_Close(ctx, loot.GetTypeAndID());
+                } else if (loot.isGetTips) {
+                    // todo 打开提示页
+                    UIDomain.Panel_Tips_Open(ctx);
+                    Time.timeScale = 0;
                 }
             }
 
@@ -399,7 +403,6 @@ public static class RoleDomain {
                 role.MoveByAxisX(dir.x);
                 role.SetForward(dir.x);
             } else {
-                Debug.Log("IIN");
                 // normal 往前走，走到有墙 或者 脚前方没有东西 往返方向
                 if (!isInGroundSide || isMeetWallShort) {
                     role.SetForward(-role.GetForWard().x);

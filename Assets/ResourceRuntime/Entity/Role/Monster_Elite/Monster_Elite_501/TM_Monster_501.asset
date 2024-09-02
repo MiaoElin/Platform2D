@@ -16,7 +16,7 @@ MonoBehaviour:
   isRobot: 0
   isBoss: 0
   price: 25
-  hpMax: 50
+  hpMax: 200
   regenerationHpMax: 0
   regenerationDuration: 0
   moveSpeed: 5

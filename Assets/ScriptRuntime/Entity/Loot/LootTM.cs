@@ -21,6 +21,9 @@ public class LootTM : ScriptableObject {
     public int coinCount;
     public int coinTypeID;
 
+    // GetInteract
+    public bool isTips;
+
     [Title("Don't Need Hints")]
     // IsCoin
     public bool isCoin;

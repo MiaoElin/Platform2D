@@ -114,7 +114,7 @@ public static class UIDomain {
         ctx.uIApp.Panel_SkillSlot_Hide();
     }
 
-    public static void Panel_Result_Open(GameContext ctx,bool isWin) {
+    public static void Panel_Result_Open(GameContext ctx, bool isWin) {
         ctx.uIApp.Panel_Result_Open(isWin);
     }
 
@@ -128,6 +128,10 @@ public static class UIDomain {
 
     public static void Panel_Pause_Hide(GameContext ctx) {
         ctx.uIApp.Panel_Pause_Hide();
+    }
+
+    public static void Panel_Tips_Open(GameContext ctx) {
+        ctx.uIApp.Panel_Tips_Open();
     }
 
 }

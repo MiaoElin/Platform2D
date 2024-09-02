@@ -449,6 +449,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23daf6611f9ed174bb6c5551b65c2551
+    m_Address: Assets/ResourceRuntime/Entity/Loot/A_DropLoot_10/Loot_Interact_40/TM_Loot_Interact_40.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Loot
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0799189df036ee44ac643e2bc2b0204
+    m_Address: Assets/ResourceRuntime/Panel/Tips/Panel_Tips.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb79fcbe77064ec4dbf0ed8c8f263e7e, type: 2}
   m_SchemaSet:

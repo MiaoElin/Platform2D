@@ -141,6 +141,10 @@ MonoBehaviour:
     pos: {x: -2.72, y: 25.060001}
     rotation: {x: -0, y: 0, z: 0}
     localScale: {x: 1, y: 1, z: 1}
+  - lootTypeID: 40
+    pos: {x: 8, y: 47.7}
+    rotation: {x: -0, y: 0, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
   roleSpawnerTMs:
   - roleTypeID: 100
     pos: {x: 34.49, y: 37.86}
@@ -175,7 +179,7 @@ MonoBehaviour:
     isPermanent: 1
     cd: 0
     cdMax: 40
-    searchRange: 18
+    searchRange: 20
     isBossWave: 0
   - roleTypeID: 110
     pos: {x: 10.45, y: 10}
@@ -187,7 +191,7 @@ MonoBehaviour:
     isPermanent: 1
     cd: 0
     cdMax: 40
-    searchRange: 18
+    searchRange: 20
     isBossWave: 0
   - roleTypeID: 500
     pos: {x: -16.6, y: 24}
@@ -248,5 +252,5 @@ MonoBehaviour:
     isBossWave: 1
   bgm: {fileID: 8300000, guid: 0c72f3197b2fe3b44a5bf1a561e45b79, type: 3}
   bgmVolume: 0.5
-  ownerEnterPos: {x: 0, y: 50}
+  ownerEnterPos: {x: 8, y: 50}
   bossWaveDuration: 20

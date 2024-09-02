@@ -26,6 +26,9 @@ public class LootEntity : MonoBehaviour {
     public int coinCount;
     public int coinTypeID;
 
+    // GetTips
+    public bool isGetTips;
+
     // IsCoin
     public bool isCoin;
     public float moveSpeed;

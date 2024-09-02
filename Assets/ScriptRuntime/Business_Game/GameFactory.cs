@@ -177,6 +177,8 @@ public static class GameFactory {
         loot.coinCount = tm.coinCount;
         loot.coinTypeID = tm.coinTypeID;
 
+        loot.isGetTips = tm.isTips;
+
         loot.isCoin = tm.isCoin;
         loot.moveSpeed = tm.moveSpeed;
         loot.gravity = tm.gravity;

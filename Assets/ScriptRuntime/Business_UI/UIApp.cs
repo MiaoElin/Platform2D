@@ -121,4 +121,8 @@ public class UIApp {
     public void Panel_Pause_Hide() {
         Panel_Pause_Domain.Hide(ctx);
     }
+
+    public void Panel_Tips_Open() {
+        Panel_Tips_Domain.Open(ctx);
+    }
 }
